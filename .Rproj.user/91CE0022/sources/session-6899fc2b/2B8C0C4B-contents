@@ -1,0 +1,21 @@
+---
+title: "Recursos extra"
+---
+
+### Metagenómica
+
+-   Sitio web de [Anvio](https://anvio.org/), canal de [YouTube](https://www.youtube.com/watch?v=MqD4aN1p1qA&t=344s) y canal de [DIscord.](https://discord.gg/C6He6mSNY4)
+
+### Amplicones
+
+Si quieres profundizar en el análisis de amplicones te recomendamos visitar
+
+-   Tutoriales completos para el procesamiento de los datos, filtros y análisis complementarios de [Microbiome Helper](https://github.com/LangilleLab/microbiome_helper/wiki) y su [artículo](https://journals.asm.org/doi/10.1128/msystems.00127-16) asociado.
+
+-   Tutoriales para usar el paquete [Microbiome](https://microbiome.github.io/tutorials/).
+
+-   Flujo completo de amplicones y otros rescursos de bioinformática y genómica de [Mike Lee.](https://astrobiomike.github.io/amplicon/dada2_workflow_ex)
+
+-   [Bases de datos](https://zenodo.org/records/10403693) para asignar taxonomía en [DADA2 dentro de R](https://benjjneb.github.io/dada2/tutorial.html).
+
+-   canal de youtube y/o los cursos y asesorias de [microbioma-lab](https://microbioma-lab.com/).

@@ -1,0 +1,104 @@
+"0","# ANCOMBC2"
+"0","output <- ancombc2("
+"0","  data = tse,"
+"0","  assay_name = ""counts"","
+"0","  tax_level = ""Phylum"","
+"0","  fix_formula = ""Mangrove_system"","
+"0","  rand_formula = NULL,"
+"0","  p_adj_method = ""BH"","
+"0","  pseudo_sens = TRUE,"
+"0","  prv_cut = 0.10,"
+"0","  lib_cut = 1000,"
+"0","  s0_perc = 0.05,"
+"0","  group = ""Mangrove_system"","
+"0","  struc_zero = TRUE,"
+"0","  neg_lb = TRUE,"
+"0","  alpha = 0.05,"
+"0","  n_cl = 2,"
+"0","  verbose = TRUE,"
+"0","  global = TRUE,"
+"0","  pairwise = TRUE,"
+"0","  dunnet = TRUE,"
+"0","  trend = TRUE,"
+"0","  iter_control = list(tol = 1e-2, max_iter = 20, verbose = TRUE),"
+"0","  em_control = list(tol = 1e-5, max_iter = 100),"
+"0","  lme_control = lme4::lmerControl(),"
+"0","  mdfdr_control = list(fwer_ctrl_method = ""BH"", B = 100),"
+"0","  trend_control = list("
+"0","    contrast = contrast_matrices,"
+"0","    node = nodes,"
+"0","    solver = ""ECOS"","
+"0","    B = 100"
+"0","  )"
+"0",")"
+"2","Checking the input data type ...
+"
+"2","The input data is of type: TreeSummarizedExperiment
+"
+"2","PASS
+"
+"2","Checking the sample metadata ...
+"
+"2","The specified variables in the formula: Mangrove_system
+"
+"2","The available variables in the sample metadata: SampleID, BioSample, ID, SRA, SampleName, Collection_date, depth, site, elevation, Broad_scale_environmental_context, Local_scale_environmental_context, Environmental_medium, Latitude_and_Longitude, Geographic.Location, Study_zone, Ecological_type, Parametros, Temperatura, Salinidad, pH, Redox.mV, S.2, SO4, season, filter, Mangrove_system, Mangrove_type
+"
+"2","PASS
+"
+"2","Checking other arguments ...
+"
+"2","The number of groups of interest is: 4
+"
+"2","The sample size per group is: FL = 4, SPR = 7, TL = 3, CL = 11
+"
+"2","Warning: Small sample size detected for the following group(s): 
+FL, TL
+Variance estimation would be unstable when the sample size is < 5 per group"
+"2","PASS
+"
+"2","Obtaining initial estimates ...
+"
+"2","ML iteration = 1, epsilon = 1.1
+"
+"2","ML iteration = 2, epsilon = 7.1
+"
+"2","ML iteration = 3, epsilon = 0.92
+"
+"2","ML iteration = 4, epsilon = 0.31
+"
+"2","ML iteration = 5, epsilon = 0.19
+"
+"2","ML iteration = 6, epsilon = 0.13
+"
+"2","ML iteration = 7, epsilon = 0.083
+"
+"2","ML iteration = 8, epsilon = 0.055
+"
+"2","ML iteration = 9, epsilon = 0.036
+"
+"2","ML iteration = 10, epsilon = 0.024
+"
+"2","ML iteration = 11, epsilon = 0.016
+"
+"2","ML iteration = 12, epsilon = 0.011
+"
+"2","ML iteration = 13, epsilon = 0.007
+"
+"2","Estimating sample-specific biases ...
+"
+"2","Conducting sensitivity analysis for pseudo-count addition to 0s ...
+For taxa that are significant but do not pass the sensitivity analysis,
+please flag them and proceed with caution, as they are likely false positives.
+For detailed instructions on performing sensitivity analysis,
+please refer to the package vignette.
+"
+"2","ANCOM-BC2 primary results ...
+"
+"2","ANCOM-BC2 global test ...
+"
+"2","ANCOM-BC2 multiple pairwise comparisons ...
+"
+"2","ANCOM-BC2 multiple pairwise comparisons against the reference group ...
+"
+"2","ANCOM-BC2 pattern analysis ...
+"

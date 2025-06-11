@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Preprocessing – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./A_InteriorCoastalCompare.html" rel="next">
+<link href="./00.Presentation.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-42e8decf3429976a47c1c54a1701cbb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-da771dd4e3759026f460526871f487d2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Preprocessing – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
+<meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:title" content="Preprocessing – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
+<meta name="twitter:image" content="Figures/CONAHCYT.png">
+<meta name="twitter:creator" content="@HOaxacaDiana">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01.Preprocessing.html">Preprocessing</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://private-user-images.githubusercontent.com/139167629/277791045-f8b17154-01fc-4acf-b997-72e445e8ea59.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDkwNzEyNDIsIm5iZiI6MTc0OTA3MDk0MiwicGF0aCI6Ii8xMzkxNjc2MjkvMjc3NzkxMDQ1LWY4YjE3MTU0LTAxZmMtNGFjZi1iOTk3LTcyZTQ0NWU4ZWE1OS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwNFQyMTAyMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wZDk2N2JjYjdiZjYyN2JiNGIzZDE2MjliOGM5NjBmZGZhMDJiMjk4NGZkYzgwMmE2MjYyZDFmMTc1MDZiMzUxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.C0UjXoTq8hThZ_k1JlqhDGRXuHjjm--2xXeNibwyVDw" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/DianaOaxaca" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00.Presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.Preprocessing.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Preprocessing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./A_InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interior and coastal mangroves compare</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">How similar are coastal and inland mangroves?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.SurfaceComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Prepare</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.1.AlphaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Alpha diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.2.BetaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.3.Coremicrobiome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core microbiome</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#remove-adapters" id="toc-remove-adapters" class="nav-link active" data-scroll-target="#remove-adapters">01. Remove adapters</a></li>
+  <li><a href="#get-asvs-with-dada2" id="toc-get-asvs-with-dada2" class="nav-link" data-scroll-target="#get-asvs-with-dada2">02. Get ASVs with DADA2</a></li>
+  <li><a href="#import-to-qiime2" id="toc-import-to-qiime2" class="nav-link" data-scroll-target="#import-to-qiime2">03. Import to QIIME2</a></li>
+  <li><a href="#taxonomic-assignment" id="toc-taxonomic-assignment" class="nav-link" data-scroll-target="#taxonomic-assignment">04. Taxonomic assignment</a></li>
+  <li><a href="#filters" id="toc-filters" class="nav-link" data-scroll-target="#filters">05. Filters</a></li>
+  <li><a href="#phylogeny" id="toc-phylogeny" class="nav-link" data-scroll-target="#phylogeny">06. Phylogeny</a></li>
+  <li><a href="#get-public-data" id="toc-get-public-data" class="nav-link" data-scroll-target="#get-public-data">07. Get public data</a></li>
+  <li><a href="#clustering-types-of-mangroves-for-comparative-analysis" id="toc-clustering-types-of-mangroves-for-comparative-analysis" class="nav-link" data-scroll-target="#clustering-types-of-mangroves-for-comparative-analysis">08. Clustering types of mangroves for comparative analysis</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Preprocessing</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Prior to conducting analyses that will elucidate the microbial dynamics associated with the mangroves under study, it is necessary to process the amplicon sequencing data. The following workflow was employed to achieve this purpose.</p>
+<p>First, the workspace was prepared:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Workspace
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Directory</code> structure and content information</p>
+<p><code>data/</code> Directory with raw sequences and symbolic links of sequences.</p>
+<p><code>src/</code> Scripts directory to perform each analysis</p>
+<p><code>results/</code> Contains results of each analysis.</p>
+<p><code>outs/</code> Contains the output reports of each analysis.</p>
+</div>
+</div>
+<p>Once the directories were prepared, the following steps were executed:</p>
+<section id="remove-adapters" class="level2">
+<h2 class="anchored" data-anchor-id="remove-adapters">01. Remove adapters</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Remove primers</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/02.cutadapt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">out</span><span class="op">=</span><span class="st">"results/02.cutadapt"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">FASTQ</span><span class="op">=</span><span class="va">$(</span><span class="fu">ls</span> data/<span class="pp">*</span>.gz <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/_.*//'</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s/data\///'</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-u</span><span class="va">)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> FILE <span class="kw">in</span> <span class="va">${FASTQ</span><span class="op">[@]</span><span class="va">}</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="at">-e</span> <span class="st">"Run cutadapt to </span><span class="va">$FILE</span><span class="st"> sample"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">CUTADAPT</span><span class="op">=</span><span class="st">'cutadapt -m 200 --pair-filter any --no-indels -g CCTACGGGNGGCWGCAG -G GACTACHVGGGTATCTAATCC -Z -j 80 -o '</span><span class="va">$out</span><span class="st">'/'</span><span class="va">$FILE</span><span class="st">'_1.fastq.gz -p '</span><span class="va">$out</span><span class="st">'/'</span><span class="va">$FILE</span><span class="st">'_2.fastq.gz data/'</span><span class="va">$FILE</span><span class="st">'_R1.fastq.gz  data/'</span><span class="va">$FILE</span><span class="st">'_R2.fastq.gz'</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="at">-e</span> <span class="va">$CUTADAPT</span> <span class="st">"\n"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">$CUTADAPT</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="get-asvs-with-dada2" class="level2">
+<h2 class="anchored" data-anchor-id="get-asvs-with-dada2">02. Get ASVs with DADA2</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get path info</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rcpp)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dada2)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">##### 01. Prepare files -------------------------------------------------------</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Load trim fastq files and list fastq_path content</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>fastq_path <span class="ot">&lt;-</span> <span class="st">"/axolote/diana/manglares/v0.2/results/02.cutadapt"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>(fastq_path) </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Sort file names</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>Fs <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">list.files</span>(fastq_path, <span class="at">pattern=</span><span class="st">"_1.fastq"</span>))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>Rs <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">list.files</span>(fastq_path, <span class="at">pattern=</span><span class="st">"_2.fastq"</span>))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract sample names</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>sampleNames <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">strsplit</span>(Fs, <span class="st">"_1"</span>), <span class="st">`</span><span class="at">[</span><span class="st">`</span>, <span class="dv">1</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>sampleNames</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Add complete path to remove ambiguities errors</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Fs <span class="ot">&lt;-</span> <span class="fu">file.path</span>(fastq_path, Fs)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>Rs <span class="ot">&lt;-</span> <span class="fu">file.path</span>(fastq_path, Rs)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="do">##### 02. Check Quality --------------------------------------------------------</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Quality check plot with only the first fastq file</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>QC_F1_15 <span class="ot">&lt;-</span> <span class="fu">plotQualityProfile</span>(Fs[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>], <span class="at">aggregate =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>QC_R1_15 <span class="ot">&lt;-</span> <span class="fu">plotQualityProfile</span>(Rs[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>], <span class="at">aggregate =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>QCsFR1_15 <span class="ot">&lt;-</span> <span class="fu">grid.arrange</span>(QC_F1_15, QC_R1_15, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#save in png format</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"results/plots/01.QualityProfile_1-15.png"</span>, QCsFR1_15, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">3</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">#save in pdf format</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>QCsFR1_15 <span class="ot">&lt;-</span> <span class="fu">grid.arrange</span>(QC_F1_15, QC_R1_15, <span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"results/plots/01.QualityProfile_1-15.pdf"</span>, QCsFR1_15, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">3</span>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="do">##### 03.Quality control -------------------------------------------------------</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Create directory for clean reads</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>filt_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="st">"results/03.Dada2"</span> , <span class="st">"01.filter_reads"</span>) </span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file_test</span>(<span class="st">"-d"</span>, filt_path)) </span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dir.create</span>(filt_path)</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>filtFs <span class="ot">&lt;-</span> <span class="fu">file.path</span>(filt_path, <span class="fu">paste0</span>(sampleNames, <span class="st">"_F_filt.fastq.gz"</span>))</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>filtRs <span class="ot">&lt;-</span> <span class="fu">file.path</span>(filt_path, <span class="fu">paste0</span>(sampleNames, <span class="st">"_R_filt.fastq.gz"</span>))</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter versions</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="co"># V1 </span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>out1 <span class="ot">&lt;-</span> <span class="fu">filterAndTrim</span>(Fs, filtFs, Rs, filtRs,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>                      <span class="at">truncLen=</span><span class="fu">c</span>(<span class="dv">250</span>,<span class="dv">200</span>),</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>                      <span class="at">maxN=</span><span class="dv">0</span>, <span class="at">maxEE=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="at">truncQ=</span><span class="dv">2</span>, <span class="at">rm.phix=</span><span class="cn">TRUE</span>,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>                      <span class="at">compress=</span><span class="cn">TRUE</span>, <span class="at">multithread=</span><span class="cn">TRUE</span>) </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(out1)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co">#V2 extra permissive</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>out2 <span class="ot">&lt;-</span> <span class="fu">filterAndTrim</span>(Fs, filtFs, Rs, filtRs,</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>                      <span class="at">maxN=</span><span class="dv">0</span>, <span class="at">maxEE=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="at">truncQ=</span><span class="dv">2</span>, <span class="at">rm.phix=</span><span class="cn">TRUE</span>,</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>                      <span class="at">compress=</span><span class="cn">TRUE</span>, <span class="at">multithread=</span><span class="cn">TRUE</span>) </span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(out2)</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="co">#V3</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>out3 <span class="ot">&lt;-</span> <span class="fu">filterAndTrim</span>(Fs, filtFs, Rs, filtRs,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>                      <span class="at">truncLen=</span><span class="fu">c</span>(<span class="dv">280</span>,<span class="dv">200</span>),</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>                      <span class="at">maxN=</span><span class="dv">0</span>, <span class="at">maxEE=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="at">truncQ=</span><span class="dv">2</span>, <span class="at">rm.phix=</span><span class="cn">TRUE</span>,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>                      <span class="at">compress=</span><span class="cn">TRUE</span>, <span class="at">multithread=</span><span class="cn">TRUE</span>) </span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(out3)</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="do">##v4</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>out4 <span class="ot">&lt;-</span> <span class="fu">filterAndTrim</span>(Fs, filtFs, Rs, filtRs,</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>                      <span class="at">truncLen=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">200</span>),</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>                      <span class="at">maxN=</span><span class="dv">0</span>, <span class="at">maxEE=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="at">truncQ=</span><span class="dv">2</span>, <span class="at">rm.phix=</span><span class="cn">TRUE</span>,</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>                      <span class="at">compress=</span><span class="cn">TRUE</span>, <span class="at">multithread=</span><span class="cn">TRUE</span>) </span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(out4)</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="do">##v5</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>out5 <span class="ot">&lt;-</span> <span class="fu">filterAndTrim</span>(Fs, filtFs, Rs, filtRs,</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>                      <span class="at">truncLen=</span><span class="fu">c</span>(<span class="dv">260</span>,<span class="dv">200</span>),</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>                      <span class="at">maxN=</span><span class="dv">0</span>, <span class="at">maxEE=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>), <span class="at">truncQ=</span><span class="dv">2</span>, <span class="at">rm.phix=</span><span class="cn">TRUE</span>,</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>                      <span class="at">compress=</span><span class="cn">TRUE</span>, <span class="at">multithread=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(out5)</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="do">## compare trunc versions</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(out1)</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(out2)</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>v3 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(out3)</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>v4 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(out4)</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>v5 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(out5)</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Percentage function</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>calculate_percentage <span class="ot">&lt;-</span> <span class="cf">function</span>(df, group_name) {</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>percentage <span class="ot">&lt;-</span> (df<span class="sc">$</span>reads.out <span class="sc">/</span> df<span class="sc">$</span>reads.in) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>version <span class="ot">&lt;-</span> group_name</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Get percentage</span></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>out1_with_percentage <span class="ot">&lt;-</span> <span class="fu">calculate_percentage</span>(v1, <span class="st">'v1:250-200'</span>)</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>out2_with_percentage <span class="ot">&lt;-</span> <span class="fu">calculate_percentage</span>(v2, <span class="st">'v2:0-0'</span>)</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>out3_with_percentage <span class="ot">&lt;-</span> <span class="fu">calculate_percentage</span>(v3, <span class="st">'v3:280-200'</span>)</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>out4_with_percentage <span class="ot">&lt;-</span> <span class="fu">calculate_percentage</span>(v4, <span class="st">'v4:0-200'</span>)</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>out5_with_percentage <span class="ot">&lt;-</span> <span class="fu">calculate_percentage</span>(v5, <span class="st">'v5:260-200'</span>)</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine percentage versions</span></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(out1_with_percentage, out2_with_percentage, </span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>                       out3_with_percentage, out4_with_percentage,</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>                       out5_with_percentage)</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare plot</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>boxplot_versions <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(combined_data, <span class="fu">aes</span>(<span class="at">x =</span> version, <span class="at">y =</span> percentage, </span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fill =</span> version)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Filter version"</span>, <span class="at">y =</span> <span class="st">"Percentage of reads after filter"</span>) <span class="sc">+</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>)</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>boxplot_versions</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="co">#save plot as png</span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"results/plots/02.boxplot_trunc_versions.png"</span>, boxplot_versions, <span class="at">width =</span> <span class="dv">6</span>)</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a><span class="co">#save plot as pdf</span></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"results/plots/02.boxplot_trunc_versions.pdf"</span>, boxplot_versions, <span class="at">width =</span> <span class="dv">6</span>)</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="co">#Save info of final version</span></span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="co">#We chose v5 </span></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(out5_with_percentage, <span class="at">file=</span><span class="st">"results/03.Dada2/Dada_clean_reads.tsv"</span>, <span class="at">quote=</span>F, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,<span class="at">col.names=</span><span class="cn">NA</span>) <span class="co"># Table with the totals before and after cleaning</span></span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="do">##### 04.Error Model -----------------------------------------------------------</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="co">#De-replicate to reduce redundance </span></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>derepFs <span class="ot">&lt;-</span> <span class="fu">derepFastq</span>(filtFs, <span class="at">verbose=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>derepRs <span class="ot">&lt;-</span> <span class="fu">derepFastq</span>(filtRs, <span class="at">verbose=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="co"># Add names to de-rep object</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(derepFs) <span class="ot">&lt;-</span> sampleNames</span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(derepRs) <span class="ot">&lt;-</span> sampleNames</span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="co">#Generate Error model IMPORTANT</span></span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>errF <span class="ot">&lt;-</span> <span class="fu">learnErrors</span>(derepFs, <span class="at">multithread=</span><span class="cn">TRUE</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>errR <span class="ot">&lt;-</span> <span class="fu">learnErrors</span>(derepRs, <span class="at">multithread=</span><span class="cn">TRUE</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file =</span> <span class="st">"src/Dada2.RData"</span>) <span class="co"># Save point to stop for now</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="do">##### 0.5 Get ASVs -------------------------------------------------------------</span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a><span class="co"># ASVs inference</span></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>dadaFs <span class="ot">&lt;-</span> <span class="fu">dada</span>(derepFs, <span class="at">err=</span>errF, <span class="at">multithread=</span><span class="cn">TRUE</span>, <span class="at">pool =</span> <span class="st">"pseudo"</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>dadaRs <span class="ot">&lt;-</span> <span class="fu">dada</span>(derepRs, <span class="at">err=</span>errR, <span class="at">multithread=</span><span class="cn">TRUE</span>, <span class="at">pool =</span> <span class="st">"pseudo"</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file =</span> <span class="st">"src/Dada2.RData"</span>) <span class="co"># Save point to stop for now</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge pairs</span></span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>mergers <span class="ot">&lt;-</span> <span class="fu">mergePairs</span>(dadaFs, derepFs, dadaRs, derepRs, <span class="at">minOverlap =</span> <span class="dv">8</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="co"># Create ASVs table </span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>seqtabAll <span class="ot">&lt;-</span> <span class="fu">makeSequenceTable</span>(mergers)</span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">nchar</span>(<span class="fu">getSequences</span>(seqtabAll)))</span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove chimeras</span></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>seqtab_nochim <span class="ot">&lt;-</span> <span class="fu">removeBimeraDenovo</span>(seqtabAll, <span class="at">method=</span><span class="st">"consensus"</span>, <span class="at">multithread=</span><span class="cn">TRUE</span>, <span class="at">verbose=</span><span class="cn">TRUE</span>)</span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(seqtab_nochim)</span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(seqtab_nochim)<span class="sc">/</span><span class="fu">sum</span>(seqtabAll)</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a><span class="do">##### 0.6 info -----------------------------------------------------------------</span></span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new table with each ASV number and its representative sequence</span></span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>PE.table_tsv_output <span class="ot">&lt;-</span> seqtab_nochim</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>PE.table_tsv_output[PE.table_tsv_output<span class="sc">==</span><span class="dv">1</span>]<span class="ot">=</span><span class="dv">0</span> <span class="co"># Don't consider those values that have a single observation per sample, make them 0 (sample singletons)</span></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>PE.table_tsv_output <span class="ot">&lt;-</span> PE.table_tsv_output[,<span class="fu">colSums</span>(PE.table_tsv_output)<span class="sc">&gt;</span><span class="dv">1</span>] <span class="co"># filter singleton ASVs across the table</span></span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a><span class="co"># Export sequences as in fasta format</span></span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a><span class="fu">uniquesToFasta</span>(PE.table_tsv_output, <span class="at">fout=</span><span class="st">"results/03.Dada2/ASVs.fasta"</span>, <span class="at">ids=</span><span class="fu">paste</span>(<span class="st">"ASV_"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(PE.table_tsv_output), <span class="at">sep=</span><span class="st">""</span>))</span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>nochim<span class="ot">=</span>PE.table_tsv_output</span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(<span class="fu">cbind</span>(<span class="st">"ASVs"</span><span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(<span class="fu">t</span>(PE.table_tsv_output)),<span class="st">"rep_seq"</span><span class="ot">=</span><span class="fu">rownames</span>(<span class="fu">t</span>(PE.table_tsv_output))), <span class="at">file=</span><span class="st">"results/03.Dada2/ASV_to_seqs-nochim.tsv"</span>, <span class="at">quote=</span>F, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,<span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a><span class="co"># replace the rep_seq with an incremental ASV number</span></span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>PE.table_tsv_output <span class="ot">&lt;-</span> <span class="fu">t</span>(PE.table_tsv_output)</span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(PE.table_tsv_output) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"ASV_"</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(PE.table_tsv_output))</span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a><span class="co"># and print the output ASV table</span></span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(PE.table_tsv_output, <span class="at">file=</span><span class="st">"results/03.Dada2/ASV_to_seqs-nochim.tsv"</span>, <span class="at">quote=</span>F, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,<span class="at">col.names=</span><span class="cn">NA</span>)</span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a><span class="co"># evaluate the total table dimensions</span></span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(nochim)</span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">nchar</span>(<span class="fu">getSequences</span>(nochim))) </span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a><span class="do">###Track reads lost per step </span><span class="al">###</span></span>
+<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a><span class="co"># By using this, we can create a function to automate this for all samples in a set:</span></span>
+<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>getN <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">getUniques</span>(x)) <span class="co"># Where getUniques gets non-repeated sequences from a dada2 object or merger object (joined reads)</span></span>
+<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>track <span class="ot">&lt;-</span> <span class="fu">cbind</span>(out1, <span class="fu">sapply</span>(derepFs, getN), <span class="fu">sapply</span>(dadaFs, getN), <span class="fu">sapply</span>(dadaRs, getN), <span class="fu">rowSums</span>(seqtabAll), <span class="fu">rowSums</span>(nochim))</span>
+<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(track) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Raw"</span>, <span class="st">"Qual_filter"</span>, <span class="st">"Derep"</span>, <span class="st">"ASVs R1"</span>, <span class="st">"ASVs R2"</span>, <span class="st">"Merged"</span>, <span class="st">"nonchim"</span>)</span>
+<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(track) <span class="ot">&lt;-</span> sampleNames</span>
+<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(track, <span class="st">"results/03.Dada2/Seqs_lost_in_ASVs_processing.tsv"</span>, <span class="at">col.names=</span><span class="cn">NA</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a quick assesment of sequences lost throughout the process</span></span>
+<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"results/plots/03.preview_reads_passing_ASV_processing.png"</span>)</span>
+<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a><span class="co"># And same thing for the percentage remaining</span></span>
+<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a><span class="fu">matplot</span>(<span class="fu">t</span>(track[,<span class="sc">-</span><span class="dv">5</span>]<span class="sc">/</span>track[,<span class="dv">1</span>]<span class="sc">*</span><span class="dv">100</span>),<span class="at">type=</span><span class="st">'l'</span>,<span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">main=</span><span class="st">"Sequences remaining after each step  - R1 (%)"</span>, <span class="at">xlab=</span><span class="st">"Step"</span>, <span class="at">ylab=</span><span class="st">" Percentage of Sequences remaining"</span>)</span>
+<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(track[,<span class="sc">-</span><span class="dv">5</span>]),<span class="at">labels=</span><span class="fu">colnames</span>(track[,<span class="sc">-</span><span class="dv">5</span>]))</span>
+<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a><span class="co"># R2</span></span>
+<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a><span class="fu">matplot</span>(<span class="fu">t</span>(track[,<span class="sc">-</span><span class="dv">4</span>]<span class="sc">/</span>track[,<span class="dv">1</span>]<span class="sc">*</span><span class="dv">100</span>),<span class="at">type=</span><span class="st">'l'</span>,<span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">main=</span><span class="st">"Sequences remaining after each step  - R2 (%)"</span>, <span class="at">xlab=</span><span class="st">"Step"</span>, <span class="at">ylab=</span><span class="st">" Percentage of Sequences remaining"</span>)</span>
+<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(track[,<span class="sc">-</span><span class="dv">4</span>]),<span class="at">labels=</span><span class="fu">colnames</span>(track[,<span class="sc">-</span><span class="dv">4</span>]))</span>
+<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a><span class="do">##Add final table</span></span>
+<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>track2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(track)</span>
+<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>track2<span class="sc">$</span>percentage_used <span class="ot">&lt;-</span>(track2<span class="sc">$</span>nonchim <span class="sc">/</span> track2<span class="sc">$</span>Raw) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>track2</span>
+<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(track2, <span class="st">"results/03.Dada2/Seqs_lost_in_ASVs_processing_percentage.tsv"</span>, <span class="at">col.names=</span><span class="cn">NA</span>, <span class="at">sep=</span><span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a><span class="co"># Save work so far</span></span>
+<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a><span class="fu">save.image</span>(<span class="at">file =</span> <span class="st">"src/Dada2.RData"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="import-to-qiime2" class="level2">
+<h2 class="anchored" data-anchor-id="import-to-qiime2">03. Import to QIIME2</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/bash</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">## DianaOaxaca</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Import data to QIIME2</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Run in qiime conda environment</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#conda activate qiime2-2023.5</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#import rep seqs</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="at">--input-path</span> results/03.Dada2/ASVs.fasta <span class="at">--type</span> <span class="st">'FeatureData[Sequence]'</span> <span class="at">--output-path</span> results/04.qiime/ASV_rep_seq.qza</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># append missing header to the table for import</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&lt;(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"#OTU Table"</span><span class="op">)</span> results/03.Dada2/ASV_to_seqs-nochim.tsv <span class="op">&gt;</span> temp.txt</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to biom</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">biom</span> convert <span class="at">-i</span> temp.txt <span class="at">-o</span> temp.biom <span class="at">--table-type</span><span class="op">=</span><span class="st">"OTU table"</span> <span class="at">--to-hdf5</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># and create table-type qza</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="at">--input-path</span> temp.biom <span class="at">--type</span> <span class="st">'FeatureTable[Frequency]'</span> <span class="at">--input-format</span> BIOMV210Format <span class="at">--output-path</span> results/04.qiime/ASV_table.qza</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># remove temporal files</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> temp.<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="taxonomic-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="taxonomic-assignment">04. Taxonomic assignment</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/bash</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">## DianaOaxaca</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Import data to QIIME2</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Run in qiime conda environment</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#conda activate qiime2-2023.5</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#import rep seqs</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="at">--input-path</span> results/03.Dada2/ASVs.fasta <span class="at">--type</span> <span class="st">'FeatureData[Sequence]'</span> <span class="at">--output-path</span> results/04.qiime/ASV_rep_seq.qza</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># append missing header to the table for import</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&lt;(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"#OTU Table"</span><span class="op">)</span> results/03.Dada2/ASV_to_seqs-nochim.tsv <span class="op">&gt;</span> temp.txt</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to biom</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">biom</span> convert <span class="at">-i</span> temp.txt <span class="at">-o</span> temp.biom <span class="at">--table-type</span><span class="op">=</span><span class="st">"OTU table"</span> <span class="at">--to-hdf5</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># and create table-type qza</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="at">--input-path</span> temp.biom <span class="at">--type</span> <span class="st">'FeatureTable[Frequency]'</span> <span class="at">--input-format</span> BIOMV210Format <span class="at">--output-path</span> results/04.qiime/ASV_table.qza</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># remove temporal files</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> temp.<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="filters" class="level2">
+<h2 class="anchored" data-anchor-id="filters">05. Filters</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/bash</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#DianaOaxaca</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Filters</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Summary of the qza table imported from R</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>--i-table results/04.qiime/ASV_table.qza <span class="dt">\</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>--o-visualization results/04.qiime/ASV_table.qzv</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter by frequency</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Here I removed all ASVs with a frequency of less than 0.1% of the mean sample depth. </span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). </span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#To calculate this cut-off I identified the mean sample depth, multiplied it by 0.001, and rounded to the nearest integer. </span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#This step are describe in [this paper](https://journals.asm.org/doi/pdf/10.1128/msystems.00127-16)</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table filter-features <span class="at">--i-table</span>  results/04.qiime/ASV_table.qza <span class="dt">\</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a> <span class="at">--p-min-samples</span> 1 <span class="at">--p-min-frequency</span> 218 <span class="at">--o-filtered-table</span> results/04.qiime/ASV_table_filter_freq218.qza</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table summarize <span class="at">--i-table</span> results/04.qiime/ASV_table_filter_freq218.qza <span class="dt">\</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a> <span class="at">--o-visualization</span> results/04.qiime/ASV_table_filter_freq218.qzv</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter Mitochondria, chloroplast and Eukaryota</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> taxa filter-table <span class="at">--i-table</span> results/04.qiime/ASV_table_filter_freq218.qza <span class="dt">\</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a> <span class="at">--i-taxonomy</span> results/04.qiime/taxonomy.qza <span class="at">--p-exclude</span> Eukaryota,Mitochondria,Chloroplast <span class="dt">\</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a> <span class="at">--p-include</span> p__ <span class="at">--o-filtered-table</span> results/04.qiime/ASV_table_filter_freq218_emc.qza</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table summarize <span class="at">--i-table</span> results/04.qiime/ASV_table_filter_freq218_emc.qza <span class="dt">\</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a> <span class="at">--o-visualization</span> results/04.qiime/ASV_table_filter_freq218_emc.qzv</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co">#remove in fasta sequences</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table filter-seqs  <span class="at">--i-table</span> results/04.qiime/ASV_table_filter_freq218_emc.qza <span class="dt">\</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a> <span class="at">--i-data</span> results/04.qiime/ASV_rep_seq.qza <span class="at">--o-filtered-data</span> results/04.qiime/ASV_rep_seq_filters.qza</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="phylogeny" class="level2">
+<h2 class="anchored" data-anchor-id="phylogeny">06. Phylogeny</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/bash</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Get iqtree phylogeny</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Start phylogeny"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> phylogeny align-to-tree-mafft-iqtree <span class="dt">\</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a> <span class="at">--p-n-threads</span> auto <span class="at">--i-sequences</span> results/04.qiime/ASV_rep_seq_filters.qza <span class="dt">\</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a> <span class="at">--o-alignment</span> results/04.qiime/align.qza <span class="dt">\</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a> <span class="at">--o-masked-alignment</span> results/04.qiime/masked-align.qza <span class="dt">\</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a> <span class="at">--o-tree</span> results/04.qiime/unrooted-tree-iqtree.qza <span class="dt">\</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a> <span class="at">--o-rooted-tree</span> results/04.qiime/rooted-tree-iqtree.qza <span class="at">--verbose</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"finish phylogeny!"</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="get-public-data" class="level2">
+<h2 class="anchored" data-anchor-id="get-public-data">07. Get public data</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Yaxche</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Public data preprocessing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The public data obtained for comparative purposes was preprocessed in the same way as described in the previous steps.</p>
+</div>
+</div>
+</section>
+<section id="clustering-types-of-mangroves-for-comparative-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-types-of-mangroves-for-comparative-analysis">08. Clustering types of mangroves for comparative analysis</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run in qiime conda environment</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate qiime2-2023.5</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Repeat with every ASV_table (Celestún, Estero Pargo and San Pedro River)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#import rep seqs</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="at">--input-path</span> results/03.Dada2/ASVs.fasta <span class="at">--type</span> <span class="st">'FeatureData[Sequence]'</span> <span class="at">--output-path</span> results/04.qiime/ASV_rep_seq.qza</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># append missing header to the table for import</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&lt;(</span><span class="bu">echo</span> <span class="at">-n</span> <span class="st">"#OTU Table"</span><span class="op">)</span> results/03.Dada2/ASV_to_seqs-nochim.tsv <span class="op">&gt;</span> temp.txt</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to biom</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ex">biom</span> convert <span class="at">-i</span> temp.txt <span class="at">-o</span> temp.biom <span class="at">--table-type</span><span class="op">=</span><span class="st">"OTU table"</span> <span class="at">--to-hdf5</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># and create table-type qza</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> tools import <span class="at">--input-path</span> temp.biom <span class="at">--type</span> <span class="st">'FeatureTable[Frequency]'</span> <span class="at">--input-format</span> BIOMV210Format <span class="at">--output-path</span> results/04.qiime/ASV_table.qza</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># remove temporal files</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> temp.<span class="pp">*</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#Merge of the frequency tables from distinct analysis</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table merge </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-tables</span> ASV_table_Celestun.qza ASV_table_Estero.qza ASV_table_SanPedro.qza <span class="at">--p-overlap-method</span> sum </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="ex">--o-merged-table</span> merged-table.qza</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Merge of the Representative sequences from distinct analysis </span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table merge-seqs </span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-data</span> ASV_Celestun_rep_seq.qza ASV_Estero_rep_seq.qza ASV_SanPedro_rep_seq.qza </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="ex">--o-merged-data</span> merged-rep_seqs.qza</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">#Closed reference clustering for Meta-Analysis</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> vsearch cluster-features-closed-reference   </span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-table</span> merged-table.qza   </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-sequences</span> merged-rep_seqs.qza   </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-reference-sequences</span> silva-138-99-seqs.qza   </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="ex">--p-perc-identity</span> 0.97   </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="ex">--o-clustered-table</span> table-cr-97.qza   </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="ex">--o-clustered-sequences</span> rep-seqs-cr-97.qza   </span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="ex">--o-unmatched-sequences</span> unmatched-cr-97.qza</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="co">#Taxonomic assignment with SILVA</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a> <span class="ex">qiime</span> feature-classifier classify-sklearn   </span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-classifier</span> classifier_silva_138_trained.qza   </span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-reads</span> rep-seqs-cr-97.qza    </span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="ex">--o-classification</span> taxonomyEstero.qza </span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="ex">--p-n-jobs</span> 40</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter by frequency</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> feature-table filter-features <span class="at">--i-table</span>  merged_table.qza </span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="ex">--p-min-samples</span> 1 </span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="ex">--p-min-frequency</span> 218 </span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="ex">--o-filtered-table</span> clustered_table_filter_freq218.qza</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter Mitochondria, chloroplast and Eukaryota</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="ex">qiime</span> taxa filter-table </span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-table</span> Clustered_table_filter_freq218.qza </span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="ex">--i-taxonomy</span> taxonomy.qza </span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="ex">--p-exclude</span> Eukaryota,Mitochondria,Chloroplast  </span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="ex">--p-include</span> p__ </span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a><span class="ex">--o-filtered-table</span> clustered_table_filter_freq218_emcEstero.qza</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./00.Presentation.html" class="pagination-link" aria-label="Presentation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Presentation</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./A_InteriorCoastalCompare.html" class="pagination-link" aria-label="Interior and coastal mangroves compare">
+        <span class="nav-page-text">Interior and coastal mangroves compare</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Diana Hernández-Oaxaca</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤ science 🦠 🧬 and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,3 @@
+"0","write.table(means, ""Tables/SurfaceComparison/Hill_means_sd_mangrove_type.tsv"", quote = FALSE,"
+"0","            sep = ""\t"", row.names = TRUE, col.names=TRUE)"
+"0",""

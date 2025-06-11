@@ -1,0 +1,142 @@
+---
+title: "Data Prepare"
+---
+
+::: callout-tip
+## How similar are coastal and inland mangroves❓
+
+To answer this question, only samples that met the selection criteria were selected for comparison with each other. These samples were as follows:
+
+1.  They hailed from the same depth range.
+2.  They hailed from the strip, in the case of coastal mangroves.
+3.  They hailed from the flooding season, in the case of coastal mangroves.
+:::
+
+## 01. Select samples
+
+``` bash
+## Los filtros que hizo Yaxche
+```
+
+## 02. Data preparation
+
+```{r}
+#load
+physeq_qiime <- readRDS("rds/compare_mangroves/physeq_objeto_Estero.rds")
+```
+
+### 02.1 Remove empty ASVs and singletons
+
+```{r}
+#| message: false
+#| warning: false
+#check data
+library(microbiome)
+library(dplyr)
+```
+
+```{r}
+#library(microbiome)
+microbiome::summarize_phyloseq(physeq_qiime)
+```
+
+```{r}
+# get sums
+taxa_sums <- taxa_sums(physeq_qiime)
+# Identify ASVs with sum 0 present in all samples
+zero_taxa <- taxa_names(physeq_qiime)[taxa_sums == 0]
+# Remove ASVs with sum 0
+physeq_qiime2 <- prune_taxa(!taxa_names(physeq_qiime) %in%
+                                zero_taxa, physeq_qiime)
+
+# Remove singletons
+physeq_qiime3 <- filter_taxa(physeq_qiime2, function(x) sum(x) > 1, TRUE)
+```
+
+### 02.2 Rename mangrove system
+
+```{r}
+# Extract metadata
+metadata <- as(sample_data(physeq_qiime3), "data.frame")
+
+# Rename specific levels in the Mangrove system column
+#library(dplyr)
+metadata <- metadata %>%
+  mutate(`Mangrove system` = case_when(
+    Study_zone == "Rio San Pedro" ~ "San Pedro River",
+    Study_zone == "Laguna Cacahuate" ~ "Fossil Lagoon",
+    Study_zone == "Estero_pargo" ~ "Términos Lagoon",
+    Study_zone == "Celestún" ~ "Celestún Lagoon",
+    TRUE ~ Study_zone))
+```
+
+### 02.3 Add mangrove type
+
+```{r}
+# Extract sample_data
+sample_data_df <- as(sample_data(physeq_qiime3), "data.frame")
+
+# Join sample_data with metadata to add Mangrove system
+sample_data_df <- sample_data_df %>%
+  left_join(dplyr::select(metadata, SampleID, `Mangrove system`), by = "SampleID")
+
+# Create Mangrove_type
+sample_data_df <- sample_data_df %>%
+  mutate(Mangrove_type = case_when(
+    `Mangrove system` %in% c("Fossil Lagoon", "San Pedro River") ~ "Interior",
+    `Mangrove system` %in% c("Celestún Lagoon", "Términos Lagoon") ~ "Coastal",
+    TRUE ~ NA_character_
+  ))
+
+# add .fastq.gz to SampleID 
+sample_data_df$SampleID <- gsub("_R1$", "_R1.fastq.gz", sample_data_df$SampleID)
+
+# add rownames as SampleID
+rownames(sample_data_df) <- sample_data_df$SampleID
+
+# update sample_data in phyloseq object
+sample_data(physeq_qiime3) <- sample_data(sample_data_df)
+
+# check
+tail(sample_data(physeq_qiime3))
+
+```
+
+### 02.4 Create color pallete
+
+```{r}
+#Mangrove system colors
+loc_colors <- c("Fossil Lagoon"= "#A7fcc1",
+                "San Pedro River" = "#26B170",
+                "Términos Lagoon" = "#329D9C",
+                "Celestún Lagoon" = "#41e8d3")
+
+#Mangrove type colors
+mt_colors <- c("Interior"= "#A7fcc1",
+                "Coastal" = "#41e8d3")
+```
+
+### 02.5 Check samples
+
+```{r}
+# Samples Plot
+metadata <- as(sample_data(physeq_qiime3), "data.frame")
+
+samples_plot <- ggplot(metadata, aes(x = Mangrove.system, y = ..count..,
+fill = Mangrove.system)) + geom_bar(position = "dodge") +
+  facet_wrap(~ Mangrove_type, scales = "free_x") +
+  labs(title = "Samples of the analysis", y = "Number of Samples",
+       x = "Mangrove system") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 0)) +
+  scale_fill_manual(values = loc_colors)
+
+# show plot
+print(samples_plot)
+```
+
+### 02.6 Save objects in RDS to next analysis
+
+```{r}
+saveRDS(physeq_qiime3, "rds/compare_mangroves/physeq_qiime3.rds")
+```

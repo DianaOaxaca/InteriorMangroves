@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02.5.Fig2.InteriorCoastalCompare.html" rel="next">
+<link href="./02.3.Coremicrobiome.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-42e8decf3429976a47c1c54a1701cbb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-da771dd4e3759026f460526871f487d2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta property="og:title" content="Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:image" content="02.4.DifferentialAbundance_files/figure-html/unnamed-chunk-12-1.png">
+<meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:title" content="Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:image" content="Figures/CONAHCYT.png">
+<meta name="twitter:creator" content="@HOaxacaDiana">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./02.SurfaceComparison.html">How similar are coastal and inland mangroves?</a></li><li class="breadcrumb-item"><a href="./02.1.AlphaDiversity.html">Analysis</a></li><li class="breadcrumb-item"><a href="./02.4.DifferentialAbundance.html">Differential Abundance</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://private-user-images.githubusercontent.com/139167629/277791045-f8b17154-01fc-4acf-b997-72e445e8ea59.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDkwNzEyNDIsIm5iZiI6MTc0OTA3MDk0MiwicGF0aCI6Ii8xMzkxNjc2MjkvMjc3NzkxMDQ1LWY4YjE3MTU0LTAxZmMtNGFjZi1iOTk3LTcyZTQ0NWU4ZWE1OS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwNFQyMTAyMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wZDk2N2JjYjdiZjYyN2JiNGIzZDE2MjliOGM5NjBmZGZhMDJiMjk4NGZkYzgwMmE2MjYyZDFmMTc1MDZiMzUxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.C0UjXoTq8hThZ_k1JlqhDGRXuHjjm--2xXeNibwyVDw" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/DianaOaxaca" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00.Presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.Preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preprocessing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./A_InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interior and coastal mangroves compare</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">How similar are coastal and inland mangroves?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.SurfaceComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Prepare</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.1.AlphaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Alpha diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.2.BetaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.3.Coremicrobiome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core microbiome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.4.DifferentialAbundance.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Differential Abundance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.5.Fig2.InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Figure Interior and Coastal mangroves compare</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+      </ul>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#load-libraries-and-data" id="toc-load-libraries-and-data" class="nav-link active" data-scroll-target="#load-libraries-and-data">Load libraries and data</a></li>
+  <li>
+<a href="#differential-abundance-ancombc2" id="toc-differential-abundance-ancombc2" class="nav-link" data-scroll-target="#differential-abundance-ancombc2">01. Differential abundance ANCOMBC2</a>
+  <ul class="collapse">
+<li><a href="#prepare-data" id="toc-prepare-data" class="nav-link" data-scroll-target="#prepare-data">01.1 Prepare data</a></li>
+  <li><a href="#run-ancom-bc2" id="toc-run-ancom-bc2" class="nav-link" data-scroll-target="#run-ancom-bc2">01.2 Run ANCOM-BC2</a></li>
+  </ul>
+</li>
+  <li><a href="#get-differential-data" id="toc-get-differential-data" class="nav-link" data-scroll-target="#get-differential-data">02. Get differential data</a></li>
+  <li><a href="#plot" id="toc-plot" class="nav-link" data-scroll-target="#plot">03. Plot</a></li>
+  <li><a href="#save-rds-plot" id="toc-save-rds-plot" class="nav-link" data-scroll-target="#save-rds-plot">Save rds plot</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./02.SurfaceComparison.html">How similar are coastal and inland mangroves?</a></li><li class="breadcrumb-item"><a href="./02.1.AlphaDiversity.html">Analysis</a></li><li class="breadcrumb-item"><a href="./02.4.DifferentialAbundance.html">Differential Abundance</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Differential Abundance</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><section id="load-libraries-and-data" class="level2"><h2 class="anchored" data-anchor-id="load-libraries-and-data">Load libraries and data</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://dx.plos.org/10.1371/journal.pone.0061217">phyloseq</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/FrederickHuangLin/ANCOMBC">ANCOMBC</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/DT">DT</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>DT.options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  initComplete <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmlwidgets/man/JS.html">JS</a></span><span class="op">(</span><span class="st">"function(settings, json) {"</span>,</span>
+<span>                    <span class="st">"$(this.api().table().header()).css({'background-color':</span></span>
+<span><span class="st">  '#000', 'color': '#fff'});"</span>,<span class="st">"}"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load data</span></span>
+<span><span class="va">physeq_qiime3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/physeq_qiime3.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Rename mangrove system columna</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">)</span> <span class="op">==</span> <span class="st">"Mangrove system"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Mangrove_system"</span></span>
+<span></span>
+<span><span class="co"># Convert Mangrove_system to factor</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">$</span><span class="va">Mangrove_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">$</span><span class="va">Mangrove_system</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="differential-abundance-ancombc2" class="level2"><h2 class="anchored" data-anchor-id="differential-abundance-ancombc2">01. Differential abundance ANCOMBC2</h2>
+<section id="prepare-data" class="level3"><h3 class="anchored" data-anchor-id="prepare-data">01.1 Prepare data</h3>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># phyloseq to TreeSummarizedExperiment</span></span>
+<span><span class="va">tse</span> <span class="op">&lt;-</span> <span class="fu">mia</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mia/man/convertFromPhyloseq.html">convertFromPhyloseq</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#To manually change the reference level, not alphabetic order</span></span>
+<span><span class="va">tse</span><span class="op">$</span><span class="va">Mangrove_system</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">tse</span><span class="op">$</span><span class="va">Mangrove_system</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span>, <span class="st">"San Pedro River"</span>, <span class="st">"Términos Lagoon"</span>, <span class="st">"Celestún Lagoon"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">#conver to factor using letter levels</span></span>
+<span><span class="va">tse</span><span class="op">$</span><span class="va">Mangrove_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span></span>
+<span>                              <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">tse</span><span class="op">$</span><span class="va">Mangrove_system</span><span class="op">)</span>,</span>
+<span>                                    `Fossil Lagoon` <span class="op">=</span> <span class="st">"FL"</span>,</span>
+<span>                                    `San Pedro River` <span class="op">=</span> <span class="st">"SPR"</span>,</span>
+<span>                                    `Términos Lagoon` <span class="op">=</span> <span class="st">"TL"</span>,</span>
+<span>                                    `Celestún Lagoon` <span class="op">=</span> <span class="st">"CL"</span>,</span>
+<span>                                    .missing <span class="op">=</span> <span class="st">"unknown"</span><span class="op">)</span>,</span>
+<span>                             levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"FL"</span>, <span class="st">"SPR"</span>, <span class="st">"TL"</span>, <span class="st">"CL"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># contrast matrix</span></span>
+<span><span class="va">contrast_matrices</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">0</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>         nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>         nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>         nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">0</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>         nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># nodes</span></span>
+<span><span class="va">nodes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="run-ancom-bc2" class="level3"><h3 class="anchored" data-anchor-id="run-ancom-bc2">01.2 Run ANCOM-BC2</h3>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ANCOMBC2</span></span>
+<span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ANCOMBC/man/ancombc2.html">ancombc2</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">tse</span>,</span>
+<span>  assay_name <span class="op">=</span> <span class="st">"counts"</span>,</span>
+<span>  tax_level <span class="op">=</span> <span class="st">"Phylum"</span>,</span>
+<span>  fix_formula <span class="op">=</span> <span class="st">"Mangrove_system"</span>,</span>
+<span>  rand_formula <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  p_adj_method <span class="op">=</span> <span class="st">"BH"</span>,</span>
+<span>  pseudo_sens <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  prv_cut <span class="op">=</span> <span class="fl">0.10</span>,</span>
+<span>  lib_cut <span class="op">=</span> <span class="fl">1000</span>,</span>
+<span>  s0_perc <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>  group <span class="op">=</span> <span class="st">"Mangrove_system"</span>,</span>
+<span>  struc_zero <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  neg_lb <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>  n_cl <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  global <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  pairwise <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dunnet <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  trend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  iter_control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>tol <span class="op">=</span> <span class="fl">1e-2</span>, max_iter <span class="op">=</span> <span class="fl">20</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  em_control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>tol <span class="op">=</span> <span class="fl">1e-5</span>, max_iter <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  lme_control <span class="op">=</span> <span class="fu">lme4</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmerControl.html">lmerControl</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  mdfdr_control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fwer_ctrl_method <span class="op">=</span> <span class="st">"BH"</span>, B <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  trend_control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    contrast <span class="op">=</span> <span class="va">contrast_matrices</span>,</span>
+<span>    node <span class="op">=</span> <span class="va">nodes</span>,</span>
+<span>    solver <span class="op">=</span> <span class="st">"ECOS"</span>,</span>
+<span>    B <span class="op">=</span> <span class="fl">100</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Checking the input data type ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The input data is of type: TreeSummarizedExperiment</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>PASS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Checking the sample metadata ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The specified variables in the formula: Mangrove_system</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The available variables in the sample metadata: SampleID, BioSample, ID, SRA, SampleName, Collection_date, depth, site, elevation, Broad_scale_environmental_context, Local_scale_environmental_context, Environmental_medium, Latitude_and_Longitude, Geographic.Location, Study_zone, Ecological_type, Parametros, Temperatura, Salinidad, pH, Redox.mV, S.2, SO4, season, filter, Mangrove_system, Mangrove_type</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>PASS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Checking other arguments ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The number of groups of interest is: 4</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The sample size per group is: FL = 4, SPR = 7, TL = 3, CL = 11</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Small sample size detected for the following group(s): 
+FL, TL
+Variance estimation would be unstable when the sample size is &lt; 5 per group</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>PASS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Obtaining initial estimates ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 1, epsilon = 1.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 2, epsilon = 7.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 3, epsilon = 0.92</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 4, epsilon = 0.31</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 5, epsilon = 0.19</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 6, epsilon = 0.13</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 7, epsilon = 0.083</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 8, epsilon = 0.055</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 9, epsilon = 0.036</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 10, epsilon = 0.024</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 11, epsilon = 0.016</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 12, epsilon = 0.011</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 13, epsilon = 0.007</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Estimating sample-specific biases ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Conducting sensitivity analysis for pseudo-count addition to 0s ...
+For taxa that are significant but do not pass the sensitivity analysis,
+please flag them and proceed with caution, as they are likely false positives.
+For detailed instructions on performing sensitivity analysis,
+please refer to the package vignette.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ANCOM-BC2 primary results ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ANCOM-BC2 global test ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ANCOM-BC2 multiple pairwise comparisons ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ANCOM-BC2 multiple pairwise comparisons against the reference group ...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ANCOM-BC2 pattern analysis ...</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#See results</span></span>
+<span><span class="va">res_pair_Mangrove_system</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">res_pair</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">res_pair_Mangrove_system</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             taxon lfc_Mangrove_systemSPR lfc_Mangrove_systemTL
+1  Acidobacteriota               -0.26768                 -3.39
+2 Actinobacteriota               -0.23213                 -3.71
+3  Asgardarchaeota                0.26584                 -3.47
+4     Bacteroidota               -0.48731                 -4.52
+5    Calditrichota               -0.16945                 -2.37
+6 Campilobacterota                0.00556                 -2.60
+  lfc_Mangrove_systemCL lfc_Mangrove_systemTL_Mangrove_systemSPR
+1                -0.490                                    -3.13
+2                -0.626                                    -3.47
+3                -0.589                                    -3.74
+4                -0.942                                    -4.03
+5                -0.264                                    -2.20
+6                -1.794                                    -2.61
+  lfc_Mangrove_systemCL_Mangrove_systemSPR
+1                                  -0.2225
+2                                  -0.3937
+3                                  -0.8550
+4                                  -0.4543
+5                                  -0.0946
+6                                  -1.7995
+  lfc_Mangrove_systemCL_Mangrove_systemTL se_Mangrove_systemSPR
+1                                   2.904                 0.158
+2                                   3.080                 0.133
+3                                   2.882                 0.311
+4                                   3.580                 0.139
+5                                   2.110                 0.223
+6                                   0.806                 0.370
+  se_Mangrove_systemTL se_Mangrove_systemCL
+1                0.268                0.166
+2                0.898                0.195
+3                0.380                0.434
+4                0.921                0.209
+5                0.283                0.245
+6                0.449                0.469
+  se_Mangrove_systemTL_Mangrove_systemSPR
+1                                   0.292
+2                                   0.903
+3                                   0.298
+4                                   0.924
+5                                   0.295
+6                                   0.323
+  se_Mangrove_systemCL_Mangrove_systemSPR
+1                                   0.203
+2                                   0.217
+3                                   0.405
+4                                   0.220
+5                                   0.258
+6                                   0.431
+  se_Mangrove_systemCL_Mangrove_systemTL W_Mangrove_systemSPR
+1                                  0.297               -1.699
+2                                  0.914               -1.743
+3                                  0.435                0.856
+4                                  0.937               -3.500
+5                                  0.311               -0.759
+6                                  0.452                0.015
+  W_Mangrove_systemTL W_Mangrove_systemCL
+1              -12.68               -2.96
+2               -4.13               -3.20
+3               -9.13               -1.36
+4               -4.91               -4.50
+5               -8.39               -1.08
+6               -5.80               -3.82
+  W_Mangrove_systemTL_Mangrove_systemSPR W_Mangrove_systemCL_Mangrove_systemSPR
+1                                 -10.69                                 -1.094
+2                                  -3.85                                 -1.812
+3                                 -12.56                                 -2.112
+4                                  -4.37                                 -2.065
+5                                  -7.48                                 -0.366
+6                                  -8.07                                 -4.179
+  W_Mangrove_systemCL_Mangrove_systemTL p_Mangrove_systemSPR
+1                                  9.78              0.10412
+2                                  3.37              0.09592
+3                                  6.62              0.40222
+4                                  3.82              0.00213
+5                                  6.78              0.45646
+6                                  1.78              0.98818
+  p_Mangrove_systemTL p_Mangrove_systemCL
+1            2.61e-11            0.007550
+2            4.81e-04            0.004254
+3            1.42e-08            0.189976
+4            7.44e-05            0.000196
+5            3.81e-08            0.293187
+6            1.39e-05            0.001144
+  p_Mangrove_systemTL_Mangrove_systemSPR p_Mangrove_systemCL_Mangrove_systemSPR
+1                               5.93e-10                               0.286427
+2                               9.40e-04                               0.084249
+3                               6.07e-11                               0.047481
+4                               2.70e-04                               0.051516
+5                               2.37e-07                               0.717960
+6                               1.47e-07                               0.000509
+  p_Mangrove_systemCL_Mangrove_systemTL q_Mangrove_systemSPR
+1                              2.86e-09              0.13119
+2                              2.91e-03              0.10071
+3                              1.89e-06              0.42233
+4                              9.95e-04              0.00269
+5                              1.06e-06              0.57514
+6                              9.06e-02              1.00000
+  q_Mangrove_systemTL q_Mangrove_systemCL
+1            1.65e-10            0.011892
+2            2.96e-03            0.006700
+3            4.46e-08            0.239369
+4            4.69e-04            0.000567
+5            2.40e-07            0.461769
+6            4.37e-05            0.001801
+  q_Mangrove_systemTL_Mangrove_systemSPR q_Mangrove_systemCL_Mangrove_systemSPR
+1                               1.87e-09                                0.30075
+2                               2.96e-03                                0.10071
+3                               3.82e-10                                0.07478
+4                               5.67e-04                                0.05409
+5                               7.48e-07                                0.75386
+6                               9.26e-07                                0.00107
+  q_Mangrove_systemCL_Mangrove_systemTL diff_Mangrove_systemSPR
+1                              6.01e-09                   FALSE
+2                              6.11e-03                   FALSE
+3                              3.97e-06                   FALSE
+4                              1.57e-03                    TRUE
+5                              2.22e-06                   FALSE
+6                              1.14e-01                   FALSE
+  diff_Mangrove_systemTL diff_Mangrove_systemCL
+1                   TRUE                   TRUE
+2                   TRUE                   TRUE
+3                   TRUE                  FALSE
+4                   TRUE                   TRUE
+5                   TRUE                  FALSE
+6                   TRUE                   TRUE
+  diff_Mangrove_systemTL_Mangrove_systemSPR
+1                                      TRUE
+2                                      TRUE
+3                                      TRUE
+4                                      TRUE
+5                                      TRUE
+6                                      TRUE
+  diff_Mangrove_systemCL_Mangrove_systemSPR
+1                                     FALSE
+2                                     FALSE
+3                                     FALSE
+4                                     FALSE
+5                                     FALSE
+6                                      TRUE
+  diff_Mangrove_systemCL_Mangrove_systemTL passed_ss_Mangrove_systemSPR
+1                                     TRUE                         TRUE
+2                                     TRUE                         TRUE
+3                                     TRUE                         TRUE
+4                                     TRUE                        FALSE
+5                                     TRUE                         TRUE
+6                                    FALSE                         TRUE
+  passed_ss_Mangrove_systemTL passed_ss_Mangrove_systemCL
+1                        TRUE                        TRUE
+2                        TRUE                       FALSE
+3                        TRUE                        TRUE
+4                        TRUE                        TRUE
+5                        TRUE                        TRUE
+6                        TRUE                       FALSE
+  passed_ss_Mangrove_systemTL_Mangrove_systemSPR
+1                                           TRUE
+2                                           TRUE
+3                                           TRUE
+4                                           TRUE
+5                                           TRUE
+6                                           TRUE
+  passed_ss_Mangrove_systemCL_Mangrove_systemSPR
+1                                           TRUE
+2                                           TRUE
+3                                          FALSE
+4                                           TRUE
+5                                           TRUE
+6                                           TRUE
+  passed_ss_Mangrove_systemCL_Mangrove_systemTL
+1                                          TRUE
+2                                          TRUE
+3                                          TRUE
+4                                          TRUE
+5                                          TRUE
+6                                          TRUE</code></pre>
+</div>
+</div>
+</section></section><section id="get-differential-data" class="level2"><h2 class="anchored" data-anchor-id="get-differential-data">02. Get differential data</h2>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create dataframe df_fig_pair1 to log-fold change (LFC) values</span></span>
+<span><span class="va">df_fig_pair1_Mangrove_system</span> <span class="op">&lt;-</span> <span class="va">res_pair_Mangrove_system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">`diff_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemTL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lfc1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Mangrove_systemSPR`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Mangrove_systemTL`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Mangrove_systemCL`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Mangrove_systemCL`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Mangrove_systemTL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Mangrove_systemTL_Mangrove_systemSPR`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc5 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Mangrove_systemCL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Mangrove_systemCL_Mangrove_systemSPR`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc6 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Mangrove_systemCL_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Mangrove_systemCL_Mangrove_systemTL`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">lfc1</span><span class="op">:</span><span class="va">lfc6</span>, names_to <span class="op">=</span> <span class="st">"group"</span>, </span>
+<span>                          values_to <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create dataframe df_fig_pair2 to significant values</span></span>
+<span><span class="va">df_fig_pair2_Mangrove_system</span> <span class="op">&lt;-</span> <span class="va">res_pair_Mangrove_system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">`diff_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemTL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lfc1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> </span>
+<span>                <span class="va">`diff_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"blue"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> </span>
+<span>                <span class="va">`diff_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"#00CCFF"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Mangrove_systemCL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"#00CCFF"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Mangrove_systemTL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span></span>
+<span>                <span class="va">`diff_Mangrove_systemTL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"#00CCFF"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc5 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Mangrove_systemCL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL_Mangrove_systemSPR`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"#00CCFF"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc6 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Mangrove_systemCL_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span></span>
+<span>                <span class="va">`diff_Mangrove_systemCL_Mangrove_systemTL`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"#00CCFF"</span>, <span class="st">"black"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">lfc1</span><span class="op">:</span><span class="va">lfc6</span>, names_to <span class="op">=</span> <span class="st">"group"</span>, values_to <span class="op">=</span> <span class="st">"color"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Combine dataframes df_fig_pair1 and df_fig_pair2</span></span>
+<span><span class="va">df_fig_pair_Mangrove_system</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair1_Mangrove_system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">df_fig_pair2_Mangrove_system</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"taxon"</span>, <span class="st">"group"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Rename groups</span></span>
+<span><span class="va">df_fig_pair_Mangrove_system</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">df_fig_pair_Mangrove_system</span><span class="op">$</span><span class="va">group</span>,</span>
+<span>                                     `lfc1` <span class="op">=</span> <span class="st">"SPR vs FL"</span>,</span>
+<span>                                     `lfc2` <span class="op">=</span> <span class="st">"TL vs FL"</span>,</span>
+<span>                                     `lfc3` <span class="op">=</span> <span class="st">"CL vs FL"</span>,</span>
+<span>                                     `lfc4` <span class="op">=</span> <span class="st">"TL vs SPR"</span>,</span>
+<span>                                     `lfc5` <span class="op">=</span> <span class="st">"CL vs SPR"</span>,</span>
+<span>                                     `lfc6` <span class="op">=</span> <span class="st">"CL vs TL"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_fig_pair_Mangrove_system</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">df_fig_pair_Mangrove_system</span><span class="op">$</span><span class="va">group</span>,</span>
+<span>                                     levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SPR vs FL"</span>,</span>
+<span>                                                <span class="st">"TL vs FL"</span>,</span>
+<span>                                                <span class="st">"CL vs FL"</span>,</span>
+<span>                                                <span class="st">"TL vs SPR"</span>,</span>
+<span>                                                <span class="st">"CL vs SPR"</span>,</span>
+<span>                                                <span class="st">"CL vs TL"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Filter comparisons without significant values</span></span>
+<span><span class="va">df_fig_pair_Mangrove_system</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair_Mangrove_system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate limits</span></span>
+<span><span class="va">lo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">df_fig_pair_Mangrove_system</span><span class="op">$</span><span class="va">value</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">up</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">df_fig_pair_Mangrove_system</span><span class="op">$</span><span class="va">value</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">mid</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">lo</span> <span class="op">+</span> <span class="va">up</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="plot" class="level2"><h2 class="anchored" data-anchor-id="plot">03. Plot</h2>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># heatmap</span></span>
+<span><span class="va">heatmap_fig_pair_Mangrove_system</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair_Mangrove_system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">group</span>, y <span class="op">=</span> <span class="va">taxon</span>, fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"#37474FFF"</span>, high <span class="op">=</span> <span class="st">"#907c9BFf"</span>, mid <span class="op">=</span> <span class="st">"#bFD8DCFF"</span>, <span class="co">#a71a50</span></span>
+<span>                       na.value <span class="op">=</span> <span class="st">"white"</span>, midpoint <span class="op">=</span> <span class="va">mid</span>, limit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lo</span>, <span class="va">up</span><span class="op">)</span>,</span>
+<span>                       name <span class="op">=</span> <span class="st">"LFC"</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="co"># geom_text(aes(label = round(value, 2), color = color), size = 5, na.rm = TRUE) +</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html">scale_color_identity</a></span><span class="op">(</span>guide <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="cn">NULL</span>, title <span class="op">=</span> <span class="st">"LFC between Mangrove system comparison"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">11</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>,</span>
+<span>        axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8.5</span>, angle <span class="op">=</span> <span class="fl">45</span>, hjust <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># show</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">heatmap_fig_pair_Mangrove_system</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `guide` argument in `scale_*()` cannot be `FALSE`. This was deprecated in
+ggplot2 3.3.4.
+ℹ Please use "none" instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="02.4.DifferentialAbundance_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># DA barplot</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/EmilHvitfeldt/paletteer">paletteer</a></span><span class="op">)</span></span>
+<span><span class="va">da_barplot</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair_Mangrove_system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">taxon</span>, y <span class="op">=</span> <span class="va">value</span>, fill <span class="op">=</span> <span class="va">group</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/paletteer/man/ggplot2-scales-discrete.html">scale_fill_paletteer_d</a></span><span class="op">(</span><span class="st">"ggsci::blue_grey_material"</span><span class="op">)</span> <span class="op">+</span> <span class="co">#"rcartocolor::Purp"</span></span>
+<span>  <span class="co"># scale_fill_manual(values = c("SPR vs FL" = "orange",</span></span>
+<span>  <span class="co">#                              "TL vs FL" = "#a71b40",</span></span>
+<span>  <span class="co">#                              "CL vs FL" = "yellow3",</span></span>
+<span>  <span class="co">#                              "TL vs SPR" = "gray50",</span></span>
+<span>  <span class="co">#                              "CL vs SPR" = "#af4b91",</span></span>
+<span>  <span class="co">#                              "CL vs TL" = "#466eb4")) +</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Differential Abundance by Mangrove system"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Phylum"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Log-Fold Change"</span>,</span>
+<span>       fill <span class="op">=</span> <span class="st">"Comparison"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">45</span>, hjust <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>,</span>
+<span>        plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>,              </span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>,            </span>
+<span>        legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#show</span></span>
+<span><span class="va">da_barplot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="02.4.DifferentialAbundance_files/figure-html/da-barplot-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="save-rds-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-plot">Save rds plot</h2>
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">heatmap_fig_pair_Mangrove_system</span>, <span class="st">"rds/compare_mangroves/DA_heatmap_surface.rds"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">da_barplot</span>, <span class="st">"rds/compare_mangroves/DA_barplot_surface.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./02.3.Coremicrobiome.html" class="pagination-link" aria-label="Core microbiome">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Core microbiome</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02.5.Fig2.InteriorCoastalCompare.html" class="pagination-link" aria-label="Figure Interior and Coastal mangroves compare">
+        <span class="nav-page-text">Figure Interior and Coastal mangroves compare</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Diana Hernández-Oaxaca</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤ science 🦠 🧬 and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>

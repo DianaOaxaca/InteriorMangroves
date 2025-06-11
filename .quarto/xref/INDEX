@@ -1,0 +1,65 @@
+{
+  "Amplicones16S.qmd": {
+    "Amplicones16S.html": "28978a2a"
+  },
+  "index.qmd": {
+    "index.html": "2b078075"
+  },
+  "about.qmd": {
+    "about.html": "c02a0e5f"
+  },
+  "Project.qmd": {
+    "Project.html": "d6df64ad"
+  },
+  "Binning.qmd": {
+    "Binning.html": "f12e6a96"
+  },
+  "gtdbtk.qmd": {
+    "gtdbtk.html": "d785d416"
+  },
+  "metabolic.qmd": {
+    "metabolic.html": "f753a775"
+  },
+  "Creditos.qmd": {
+    "Creditos.html": "0b500fc7"
+  },
+  "01.Presentation.qmd": {
+    "01.Presentation.html": "1fbe2792"
+  },
+  "src/MetaAnalysis.qmd": {
+    "MetaAnalysis.html": "4277d418"
+  },
+  "A_InteriorCoastalCompare.qmd": {
+    "A_InteriorCoastalCompare.html": "6f0826c8"
+  },
+  "Presentation.qmd": {
+    "Presentation.html": "42c55645"
+  },
+  "01.Preprocessing.qmd": {
+    "01.Preprocessing.html": "f84b9f9c"
+  },
+  "02.Surface sediments comparison from inland and coastal mangroves.qmd": {
+    "02.Surface sediments comparison from inland and coastal mangroves.html": "5383f31e"
+  },
+  "02.SurfaceComparison.qmd": {
+    "02.SurfaceComparison.html": "aa737c90"
+  },
+  "02.1.AlphaDiversity.qmd": {
+    "02.1.AlphaDiversity.html": "da545a5b"
+  },
+  "02.3.Coremicrobiome.qmd": {
+    "02.3.Coremicrobiome.html": "0daac36c"
+  },
+  "00.Presentation.qmd": {
+    "00.Presentation.html": "76c4108c"
+  },
+  "02.2.BetaDiversity.qmd": {
+    "02.2.BetaDiversity.html": "88c66f0d"
+  },
+  "02.4.DifferentialAbundance.qmd": {
+    "02.4.DifferentialAbundance.html": "d1509f42"
+  },
+  "02.5.Fig2.InteriorCoastalCompare.qmd": {
+    "02.5.Fig2.InteriorCoastalCompare.html": "5cff7e91"
+  }
+}

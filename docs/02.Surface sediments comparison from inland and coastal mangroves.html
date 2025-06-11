@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Genomas a partir de metagenomas – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./gtdbtk.html" rel="next">
+<link href="./01.Preprocessing.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-42e8decf3429976a47c1c54a1701cbb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-da771dd4e3759026f460526871f487d2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Genomas a partir de metagenomas – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
+<meta property="og:image" content="Figures/02.MAGs_workflow.png">
+<meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:title" content="Genomas a partir de metagenomas – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
+<meta name="twitter:image" content="Figures/CONAHCYT.png">
+<meta name="twitter:creator" content="@HOaxacaDiana">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./02.Surface sediments comparison from inland and coastal mangroves.html">02.Surface sediments comparison from inland and coastal mangroves</a></li><li class="breadcrumb-item"><a href="./02.Surface sediments comparison from inland and coastal mangroves.html">Genomas a partir de metagenomas</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://private-user-images.githubusercontent.com/139167629/277791045-f8b17154-01fc-4acf-b997-72e445e8ea59.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDg5OTUzMTgsIm5iZiI6MTc0ODk5NTAxOCwicGF0aCI6Ii8xMzkxNjc2MjkvMjc3NzkxMDQ1LWY4YjE3MTU0LTAxZmMtNGFjZi1iOTk3LTcyZTQ0NWU4ZWE1OS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwM1QyMzU2NThaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yZWNiNTYxNzA5MGE4MGVlMzA4NTczNjlhODgwMWYyOTE0M2UzMjM2NjFiYjdjOWFmNTM1NjEzYWNmNTNlMDc3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.bbphN8YNzeTXa_ysgO8ImhJQSbJlq9GJLnEDpRjuVpk" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/DianaOaxaca" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./A_InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interior and coastal mangroves compare</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.Preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01.Preprocessing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">02.Surface sediments comparison from inland and coastal mangroves</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.Surface sediments comparison from inland and coastal mangroves.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Genomas a partir de metagenomas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gtdbtk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Asignación taxonómica</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Metabolismo</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./metabolic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metabolismo</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Extras</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Amplicones16S.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05.Amplicones16S</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Recursos_extra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recursos_extra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Creditos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Créditos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#binning" id="toc-binning" class="nav-link active" data-scroll-target="#binning">Binning</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#por-si-te-pierdes" id="toc-por-si-te-pierdes" class="nav-link" data-scroll-target="#por-si-te-pierdes">Por si te pierdes</a></li>
+  <li><a href="#metabat2" id="toc-metabat2" class="nav-link" data-scroll-target="#metabat2">Metabat2</a></li>
+  <li><a href="#maxbin2" id="toc-maxbin2" class="nav-link" data-scroll-target="#maxbin2">MaxBin2</a></li>
+  <li><a href="#vamb" id="toc-vamb" class="nav-link" data-scroll-target="#vamb">Vamb</a></li>
+  </ul></li>
+  <li><a href="#refinamiento" id="toc-refinamiento" class="nav-link" data-scroll-target="#refinamiento">Refinamiento</a>
+  <ul class="collapse">
+  <li><a href="#checkm" id="toc-checkm" class="nav-link" data-scroll-target="#checkm">CheckM</a></li>
+  <li><a href="#binning_refiner" id="toc-binning_refiner" class="nav-link" data-scroll-target="#binning_refiner">Binning_refiner</a></li>
+  <li><a href="#dastool" id="toc-dastool" class="nav-link" data-scroll-target="#dastool">DASTool</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  </ul></li>
+  <li><a href="#dereplicación" id="toc-dereplicación" class="nav-link" data-scroll-target="#dereplicación">Dereplicación</a>
+  <ul class="collapse">
+  <li><a href="#drep" id="toc-drep" class="nav-link" data-scroll-target="#drep">dRep</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./02.Surface sediments comparison from inland and coastal mangroves.html">02.Surface sediments comparison from inland and coastal mangroves</a></li><li class="breadcrumb-item"><a href="./02.Surface sediments comparison from inland and coastal mangroves.html">Genomas a partir de metagenomas</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Genomas a partir de metagenomas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>La metagenómica hace referencia al estudios de todo el ADN de los organismos que se encuentran en un ambiente. La secuenciación de este material genético produce lecturas que pueden ensamblarse para conocer la diversidad microbiana y sus funciones.</p>
+<p>Típicamente los metagenomas pueden estudiarse mediante dos aproximaciones:</p>
+<ol type="1">
+<li>La clasificación taxonómica de contigs o lecturas y la inferencia metabólica de los contigs.</li>
+<li>La reconstrucción de genomas a a partir de metagenomas (MAGs), clasificación taxonómica y la inferencia metabólica de los MAGs.</li>
+</ol>
+<p>En este apartado nos enfocaremos en la segunda aproximación. Los MAGs se reconstruyen a partir de un ensamble metagenómico, los contigs de dicho ensamble se agrupan mediante la información de cobertura y frecuencia de tetranucleótidos. Esta agrupación puede generar errores, por lo que es indispensable evaluar la calidad de los MAGs mediante la completitud y redundancia de genes de copia única (<a href="https://anvio.org/vocabulary/">MerenLab y col.</a>)</p>
+<p>Para obtener MAGs podemos seguir el siguiente flujo de análisis:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/02.MAGs_workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Figura 2. Metagenómica Centrada en Genomas</figcaption>
+</figure>
+</div>
+<section id="binning" class="level2">
+<h2 class="anchored" data-anchor-id="binning">Binning</h2>
+<p>En la sección <a href="https://carpentries-lab.github.io/metagenomics-analysis/">anterior</a> aprendimos como evaluar la calidad, filtrar las lecturas y a ensamblarlas, por lo que este apartado comenzará con el ensamble ya generado.</p>
+<p>De acuerdo con el flujo de análisis (Figura 2), debemos partir de un ensamble y mapear las lecturas a dicho ensamble para obtener un archivo de profundidad de cada contig en el ensamble.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El proceso de mapeo es demandante en tiempo de ejecución y recursos. Así que nos dimos a la tarea de generar el archivo de profundidad para comenzar directamente con el <em>binning</em>.</p>
+<p>El mapeo lo corrimos con <a href="https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#introduction">bowtie2</a> que es una herramienta confiable y muy utilizada para alinear lecturas cortas a una referencia, en nuestro caso, la referencia es el ensamble metagenómico de la muestra de 48hrs. Bowtie2 genera un archivo de mapeo (SAM) que debe convertirse a un formato binario (BAM), para esta conversión usamos <a href="https://github.com/samtools/">samtools</a> que contiene multiples subherramientas para trabajar con archivos de mapeos.</p>
+<p>Para generar este archivo se utilizaron las siguientes lineas de código.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Formatear el ensamble</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2-build</span> results/02.ensambles/megahit/48hrs/48hrs.fasta results/03.profundidad/48hrs <span class="at">--threads</span> 40</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapear las lecturas contra el ensamble</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">bowtie2</span> <span class="at">-x</span> results/03.profundidad/48hrs <span class="at">-1</span> data/48hrs_sm_R1.fastq <span class="at">-2</span> data/48hrs_sm_R2.fastq <span class="at">-p</span> 40 <span class="at">-S</span> results/03.profundidad/48hrs.sam</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir de SAM a BAM y ordenar</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> view <span class="at">-Sb</span> <span class="at">-O</span> BAM <span class="at">-@</span> 40 results/03.profundidad/48hrs.sam <span class="kw">|</span> <span class="ex">samtools</span> sort <span class="at">-@</span> 40  <span class="at">-o</span> results/03.profundidad/48hrs_sorted.bam</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener el índice</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">samtools</span> index results/03.profundidad/48hrs_sorted.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ya que generamos el archivo bam ordenado y el índice obtuvimos un archivo con la información de cobertura de cada contig dentro del ensamble, este <strong>archivo de profundidad</strong> se generó con <code>jgi_summarize_bam_contig_depths</code> que es una herramienta de <a href="https://bitbucket.org/berkeleylab/metabat/src/master/">metabat</a>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># jgi</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Obtener el archivo de profundidad de cada contig</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">jgi_summarize_bam_contig_depths</span>  <span class="at">--outputDepth</span> results/03.profundidad/48hrs.mgh_depth.txt results/03.profundidad/48hrs_sorted.bam</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No las ejecutes, sólo son un ejemplo para que las puedas usar con tus propios datos en el futuro.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de comenzar, reúnete con tu equipo y juntos</p>
+<ul>
+<li><p>revisen el contenido de los directorios <code>02.ensambles</code> y <code>03.profundidad.txt</code></p></li>
+<li><p>Discutan y en una diapositiva expliquen el flujo que se siguió para obtener los archivos que están en esos directorios</p></li>
+</ul>
+<p>La liga de drive para ir trabajando durante el taller es esta: <a href="https://drive.google.com/drive/folders/1iKfhMz_JdfImmsCmkPg10r-NC-nrzhQ4?usp=sharing" class="uri">https://drive.google.com/drive/folders/1iKfhMz_JdfImmsCmkPg10r-NC-nrzhQ4?usp=sharing</a></p>
+</div>
+</div>
+</section>
+<section id="por-si-te-pierdes" class="level3">
+<h3 class="anchored" data-anchor-id="por-si-te-pierdes">Por si te pierdes</h3>
+<p>Sólo por si te pierdes</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Directorio de trabajo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si en algún momento te pierdes entre directorios, puedes regresar al espacio principal asi:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> taller_metagenomica_pozol/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Ahora si, vamos a agrupar los contigs del metaensamble en <em>bins</em> …</p>
+</section>
+<section id="metabat2" class="level3">
+<h3 class="anchored" data-anchor-id="metabat2">Metabat2</h3>
+<p><a href="https://bitbucket.org/berkeleylab/metabat/src/master/">Metabat2</a> es una herramienta que agrupa los contigs tomando la cobertura de cada contig y calcula su composición nucleotídica.</p>
+<p>Para correr metabat necesitamos activar el <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment">ambiente conda</a> donde se aloja.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Activar ambiente para Metabat2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>betterlab</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate binning</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/04.Metabat.png" class="img-fluid figure-img" width="372"></p>
+<figcaption>Metabat2. Kang et al., 2015. DOI:10.7717/peerj.1165</figcaption>
+</figure>
+</div>
+<p>Ahora que ya tenemos el ambiente activado ejecutemos la siguiente linea:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">metabat2</span> <span class="at">-i</span> results/02.ensambles/48hrs.fasta <span class="at">-a</span> results/03.profundidad/48hrs.mgh_depth.txt <span class="at">-o</span> results/04.metabat/metabat <span class="at">-t</span> 4 <span class="at">-m</span> 1500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled" title="Responde:">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Responde:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>¿Cuántos bins se formaron?</li>
+</ol>
+<p>2. ¿Qué parámetros cambiarías o agregarías?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Ayuda">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ayuda
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><code>ls results/04.metabat/</code></li>
+<li><code>metabat2 –-help</code></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Ya que corrimos Metabat2 vamos a ejecutar MaxBin2, pero primero necesitamos desactivar el ambiente:</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Desactiva el ambiente
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para desactivar el ambiente debemos correr la siguiente linea:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="maxbin2" class="level3">
+<h3 class="anchored" data-anchor-id="maxbin2">MaxBin2</h3>
+<p><a href="https://sourceforge.net/projects/maxbin/files/">MaxBin2</a> agrupa los contigs de acuerdo a la información de cobertura, composición nucleotídica y genes <strong>de marcadores de copia única</strong>.</p>
+<p>Vamos a ejecutarlo, activemos el <a href="#0">ambiente conda</a> para maxbin.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Activar ambiente para MaxBin2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>betterlab</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate metagenomics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://doi.org/10.1186/2049-2618-2-26"><img src="Figures/03.Maxbin.png" class="img-fluid figure-img" width="371" alt="MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26"></a></p>
+<figcaption>MaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26</figcaption>
+</figure>
+</div>
+<p>Crea el directorio para los resultados de MaxBin2</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/05.maxbin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ahora si, vamos a ejecutarlo.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">run_MaxBin.pl</span> <span class="at">-thread</span> 4 <span class="at">-min_contig_length</span> 1500 <span class="at">-contig</span> results/02.ensambles/48hrs.fasta <span class="at">-out</span> results/05.maxbin/48hrs_maxbin <span class="at">-abund</span> results/03.profundidad/48hrs.mgh_depth.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled" title="Ejercicio:">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>1. ¿Cuántos bins se formaron?</p>
+<p>2. ¿Qué porcentaje de completitud tienen??</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solución">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><code>ls results/05.maxbin/*.fasta | wc -l</code></li>
+<li><code>cat results/05.maxbin/48hrs_maxbin.summary | column -t</code></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Desactiva el ambiente
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="vamb" class="level3">
+<h3 class="anchored" data-anchor-id="vamb">Vamb</h3>
+<p><a href="https://vamb.readthedocs.io/en/latest/">VAMB</a> utiliza una combinación de enfoques de aprendizaje profundo y técnicas de agrupamiento basándose en sus patrones de composición de nucleótidos y en la co-ocurrencia de sus frecuencias de cobertura.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Activa el ambiente binning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>betterlab</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate binning</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</div>
+</div>
+<p>Vamos a correr vamb, pero primero crea el directorio de resultados</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/06.vamb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ejecutemos vamb:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vamb</span> <span class="at">--fasta</span> results/02.ensambles/48hrs.fasta <span class="at">--jgi</span> results/03.profundidad/48hrs.mgh_depth.txt <span class="at">--minfasta</span> 500000 <span class="at">--outdir</span> results/06.vamb/48hrs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si quisieras recuperar los genomas de virus ¿Qué parámetro cambiarías?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Otros programas para binning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recientemente se publicó COMEBin, que utiliza un enfoque distinto a lo que hemos usado en este tutorial. En el siguiente <a href="https://github.com/ziyewang/COMEBin">link</a> encontrarás el manual y una explicación general sobre su funcionamiento.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="refinamiento" class="level2">
+<h2 class="anchored" data-anchor-id="refinamiento">Refinamiento</h2>
+<p>Ya corrimos tres programas de <em>binning</em>, pero, recordemos que los agrupamientos pueden tener errores:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/05.Refinamiento.png" class="img-fluid figure-img" width="260"></p>
+<figcaption>Contaminación de bins</figcaption>
+</figure>
+</div>
+<p>Para disminuir la contaminación e incrementar la completitud hay algunos programas que pueden ayudarnos. entre ellos están Binning_refiner y DASTool.</p>
+<section id="checkm" class="level3">
+<h3 class="anchored" data-anchor-id="checkm">CheckM</h3>
+<p>Antes de proceder al refinamiento es necesario tener claro cómo se evalúa la completitud y contaminación de los <em>bins.</em> Para esta evaluación se usa <a href="https://github.com/Ecogenomics/CheckM/wiki/Workflows#lineage-specific-workflow">CheckM</a> que se ha convertido en una herramienta estándar para la evaluación de la calidad de genomas y MAGs, y es usada por la mayoría de programas de refinamiento.</p>
+<p>Para hacer esta evaluación, CheckM utiliza una serie de herramientas: <code>tree</code> organiza los genomas en un árbol de referencia. <code>tree_qa</code> evalúa la cantidad de genes marcadores filogenéticos y su ubicación en el árbol. El comando <code>lineage_set</code> crea un archivo de marcadores específicos de linaje, que se usa en el comando <code>analyze</code> para evaluar la integridad y contaminación de los genomas. Finalmente, el comando <code>qa</code> genera tablas que resumen la calidad de los genomas.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/CheckM_workflow.png" class="img-fluid figure-img" width="444"></p>
+<figcaption>CheckM Workflow</figcaption>
+</figure>
+</div>
+<p>En este taller no vamos a correr CheckM porque los programas de refinamiento que usaremos ya lo corren de forma interna, sin embargo, es útil correrlo para tener una idea clara sobre la calidad de los bins que obtengamos.</p>
+<p>Te dejamos la siguiente línea para que la uses en tus proyectos.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ejemplo de como correrlo con los bins de vamb</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#se debe activar el ambiente metagenomics</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#checkm lineage_wf results/06.vamb/48hrs/bins results/checkm/ -x fna -t 4  -f results/checkm/checkm_vamb_bins.txt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Y una captura de ejemplo de como se ve la salida de CheckM:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/checkm_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="828"></p>
+</figure>
+</div>
+<p>Y ahora si, a refinar los <em>bins</em> … 🥳</p>
+</section>
+<section id="binning_refiner" class="level3">
+<h3 class="anchored" data-anchor-id="binning_refiner">Binning_refiner</h3>
+<p><a href="https://doi.org/10.1093/bioinformatics/btx086">Binning_refiner</a> se enfoca en refinar y fusionar los bins para mejorar la integridad y reducir la contaminación. Identifica <em>bins</em> que pueden representar el mismo genoma y los fusiona. Después elimina posibles contaminaciones, durante el proceso, Binning_refiner evalúa la calidad de los bins.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://doi.org/10.1093/bioinformatics/btx086"><img src="Figures/Binning_refiner.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="444" alt="Binning_refiner"></a></p>
+</figure>
+</div>
+<figcaption>Binning_refiner</figcaption>
+</figure>
+</div>
+<p><a href="https://doi.org/10.1093/bioinformatics/btx086" class="uri">https://doi.org/10.1093/bioinformatics/btx086</a></p>
+<p>Necesitamos crear el directorio de resultados para binning_refiner y un directorio con los bins generados por cada programa</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/07.binning_refiner/48hrsbins/<span class="dt">{metabat</span><span class="op">,</span><span class="dt">maxbin</span><span class="op">,</span><span class="dt">vamb}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ahora vamos a crear ligas simbólicas de los <em>bins</em> generados por cada herramienta.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#metabat</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> results/07.binning_refiner/48hrsbins/metabat/</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> ../../../04.metabat/<span class="pp">*</span>.fa .</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#maxbin</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../maxbin/</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> ../../../05.maxbin/<span class="pp">*</span>.fasta .</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># vamb</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../vamb/</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> ../../../06.vamb/48hrs/bins/<span class="pp">*</span>.fna .</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co">#regresar</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ahora si, corramos Binning_refiner</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Binning_refiner</span> <span class="at">-i</span> 48hrsbins/ <span class="at">-p</span> 48hrs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Y regresemos a nuestro directorio principal</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> taller_metagenomica_pozol/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Exploremos los resultados!</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> results/07.binning_refiner/48hrs_Binning_refiner_outputs/48hrs_sources_and_length.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Refined_bin     Size(Kbp)       Source</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>48hrs_1 1535.49 48hrs_maxbin.004.fasta,metabat.5.fa,676.fna</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>48hrs_2 1506.01 48hrs_maxbin.002.fasta,metabat.3.fa,6952.fna</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>48hrs_3 1319.12 48hrs_maxbin.008.fasta,metabat.2.fa,28067.fna</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>48hrs_4 1263.79 48hrs_maxbin.005.fasta,metabat.9.fa,3736.fna</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>48hrs_5 1185.25 48hrs_maxbin.001.fasta,metabat.11.fa,15732.fna</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>48hrs_6 1052.67 48hrs_maxbin.003.fasta,metabat.4.fa,15732.fna</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>48hrs_7 557.49  48hrs_maxbin.006.fasta,metabat.1.fa,28990.fna</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Copia y pega este contenido en la consola de Rscript</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar las librerias</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(networkD3)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revisa tu ubicación</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># OJO</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/home/ELALUMNOQUEERES/taller_metagenomica_pozol"</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar los datos</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>sankey_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"results/07.binning_refiner/48hrs_Binning_refiner_outputs/48hrs_sankey.csv"</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una lista de nodos únicos</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>nodes <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">unique</span>(<span class="fu">c</span>(sankey_data<span class="sc">$</span>C1, sankey_data<span class="sc">$</span>C2)))</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el dataframe de enlaces</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>links <span class="ot">&lt;-</span> sankey_data <span class="sc">%&gt;%</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">source =</span> <span class="fu">match</span>(C1, nodes<span class="sc">$</span>name) <span class="sc">-</span> <span class="dv">1</span>,</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">target =</span> <span class="fu">match</span>(C2, nodes<span class="sc">$</span>name) <span class="sc">-</span> <span class="dv">1</span>,</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">value =</span> Length_Kbp) <span class="sc">%&gt;%</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(source, target, value)</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico Sankey</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>sankey_plot <span class="ot">&lt;-</span> <span class="fu">sankeyNetwork</span>(<span class="at">Links =</span> links, <span class="at">Nodes =</span> nodes,</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>                             <span class="at">Source =</span> <span class="st">"source"</span>, <span class="at">Target =</span> <span class="st">"target"</span>,</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>                             <span class="at">Value =</span> <span class="st">"value"</span>, <span class="at">NodeID =</span> <span class="st">"name"</span>,</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>                             <span class="at">fontSize =</span> <span class="dv">12</span>, <span class="at">nodeWidth =</span> <span class="dv">30</span>)</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>sankey_plot</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar</span></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmlwidgets)</span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a><span class="fu">saveWidget</span>(sankey_plot, <span class="at">file =</span> <span class="st">"48hrs_sankey_plot.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/07.sankey.png" class="img-fluid figure-img"></p>
+<figcaption>Binning_refiner sankey plot</figcaption>
+</figure>
+</div>
+</section>
+<section id="dastool" class="level3">
+<h3 class="anchored" data-anchor-id="dastool">DASTool</h3>
+<p><a href="https://github.com/cmks/DAS_Tool">DASTool</a> es una herramienta utilizada para mejorar la calidad de los <em>bins</em>. Evalúa la integridad, combina los resultados de diferentes <em>bineadores</em> y por consenso selecciona los mejores <em>bins</em> de cada herramienta. Una vez que DASTool ha seleccionado los mejores bins, realiza un proceso de refinamiento para optimizar los resultados.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/06.DASTool.png" class="img-fluid figure-img" alt="Sieber et al. 2018. Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy. Nat. Micro." width="935"></p>
+<figcaption>DASTool</figcaption>
+</figure>
+</div>
+<p>Vamos a correr DASTool …</p>
+<p>Primero crea el directorio para los resultados</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/08.dastool</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>DASTool necesita como entrada un archivo tabular con información de los resultados de cada programa de <em>binning.</em></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Fasta_to_Contig2Bin.sh</span> <span class="at">-i</span> results/04.metabat/ <span class="at">-e</span> fa <span class="op">&gt;</span> results/08.dastool/48hrs_metabat.dastool.tsv</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Fasta_to_Contig2Bin.sh</span> <span class="at">-i</span> results/05.maxbin/ <span class="at">-e</span> fasta <span class="op">&gt;</span> results/08.dastool/48hrs_maxbin.dastool.tsv</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Fasta_to_Contig2Bin.sh</span> <span class="at">-i</span> results/06.vamb/48hrs/bins/ <span class="at">-e</span> fna <span class="op">&gt;</span> results/08.dastool/48hrs_vamb.dastool.tsv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ya que tenemos los archivos tsv podemos empezar con el refinamiento!! 🥳</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">DAS_Tool</span> <span class="at">-i</span> results/08.dastool/48hrs_metabat.dastool.tsv,results/08.dastool/48hrs_maxbin.dastool.tsv,results/08.dastool/48hrs_vamb.dastool.tsv <span class="at">-l</span> metabat,maxbin,vamb <span class="at">-c</span> results/02.ensambles/48hrs.fasta <span class="at">-o</span> results/08.dastool/48hrs <span class="at">-t</span> 4 <span class="at">--write_bins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1"></h3>
+</section>
+</section>
+<section id="dereplicación" class="level2">
+<h2 class="anchored" data-anchor-id="dereplicación">Dereplicación</h2>
+<section id="drep" class="level3">
+<h3 class="anchored" data-anchor-id="drep">dRep</h3>
+<p>La desreplicación es el proceso de identificar conjuntos de genomas que son “iguales” en una lista de genomas y eliminar todos los genomas excepto el “mejor” de cada conjunto redundante. <a href="https://drep.readthedocs.io/en/latest/overview.html">dRep</a> es una herramienta útil para esto.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://drep.readthedocs.io/en/latest/overview.html"><img src="Figures/dRep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="423" alt="dRep"></a></p>
+</figure>
+</div>
+<figcaption>dRep</figcaption>
+</figure>
+</div>
+<p>Ya que tenemos los resultados de los dos refinadores ejecutaremos dRep para desreplicar y seleccionar el mejor representante de cada <em>bin</em>.</p>
+<p>Primero vamos a crear el directorio de resultados para dRep.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/09.drep/bins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Y entraremos al directorio bins dentro del directorio de resultados para colocar los bins que queremos comparar. En este caso los generados por ambos refinadores.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> results/09.drep/bins/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Con las siguientes lineas podemos copiar los bins en este directorio:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="va">$(</span><span class="fu">ls</span> ../../08.dastool/48hrs_DASTool_bins/<span class="pp">*</span>.fa<span class="va">)</span> <span class="kw">;</span> <span class="cf">do</span> <span class="va">name</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">$i</span> .fa<span class="va">)</span><span class="kw">;</span> <span class="fu">cp</span> <span class="va">$i</span> <span class="va">$name</span><span class="st">".fasta"</span> <span class="kw">;</span> <span class="cf">done</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ../../07.binning_refiner/48hrs_Binning_refiner_outputs/48hrs_refined_bins/<span class="pp">*</span>.fasta .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ya que los copiamos, regresemos al directorio principal.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> taller_metagenomica_pozol/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Y ahora si, vamos a correr dRep …</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PATH</span><span class="op">=</span>/miniconda3/envs/metagenomics/bin:<span class="va">$PATH</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="ex">dRep</span> dereplicate results/09.drep/ <span class="at">-d</span> <span class="at">-comp</span> 50 <span class="at">-con</span> 10 <span class="at">--SkipSecondary</span> <span class="at">-g</span> results/09.drep/bins/<span class="pp">*</span>.fasta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Este es uno de los plots generados por dRep, que representa los mejores bins desreplicados.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Figures/09.dRepWinningGenomes.png" class="img-fluid figure-img"></p>
+<figcaption>dRepWinningGenomes</figcaption>
+</figure>
+</div>
+<p>Vamos a desactivar el ambiente de dRep</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Para reflexionar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Qué harías si antes de desreplicar tienes un bin que tiene 98 % de completitud y 11 % de contaminación?. dRep en automático lo descartaría.</p>
+<p>Propondrías alguna manera para quedarte con este bin y curarlo para reducir su contaminación?</p>
+<p>Por suerte hay más programas que pueden ayudarnos a curar nuestros bins manualmente, una herramienta útil para esto es <a href="https://kasperskytte.github.io/mmgenome2/articles/mmgenome2.html"><strong>mmgenome2</strong></a></p>
+</div>
+</div>
+<p>Para tomar en consideración:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ya que tenemos los <em>bins</em> refinados y desreplicados opcionalmente podrías reensamblarlos. La manera sería mapear las lecturas de toda la muestra a los <em>bins</em> finales y con las lecturas mapeadas y el <em>bin,</em> generar un ensamble genómico para cada uno. Con esta aproximación se genera un MAG más pulido y la contaminación se reduce.</p>
+<p>Aunque en muchos reportes verás que los autores reensamblan sus MAGs, en otros no lo hacen y no hacerlo no está mal, pero hacerlo mejora la calidad.</p>
+</div>
+</div>
+<hr>
+<p>Ahora te toca a tí</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicio 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ahora te toca a tí.</p>
+<ul>
+<li><p>Reúnanse en equipos y repliquen todo el flujo hasta este punto con la muestra que les toca.</p></li>
+<li><p>Discutan cada resultado obtenido.</p></li>
+<li><p>En la <a href="https://drive.google.com/drive/folders/1iKfhMz_JdfImmsCmkPg10r-NC-nrzhQ4?usp=sharing">carpeta compartida de Drive</a> busquen la presentación para el Ejercicio 2, en la diapositiva correspondiente resuman sus resultados obtenidos para que los presenten.</p></li>
+</ul>
+<p>Tiempo de actividad (1 hr)</p>
+<p>Tiempo de presentación de resultados (5 min por equipo)</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01.Preprocessing.html" class="pagination-link" aria-label="01.Preprocessing">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">01.Preprocessing</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./gtdbtk.html" class="pagination-link" aria-label="Asignación taxonómica">
+        <span class="nav-page-text">Asignación taxonómica</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Diana Hernández-Oaxaca</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

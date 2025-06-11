@@ -1,0 +1,8 @@
+"0","# change variable to factor"
+"0","metadata_with_hill$Mangrove.system <- "
+"0","  factor(metadata_with_hill$Mangrove.system)"
+"0",""
+"0","# Change to Fossil Lagoon reference"
+"0","metadata_with_hill$Mangrove.system <- "
+"0","  relevel(metadata_with_hill$Mangrove.system,ref = ""Fossil Lagoon"")"
+"0",""

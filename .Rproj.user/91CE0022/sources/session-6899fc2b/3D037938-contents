@@ -1,0 +1,454 @@
+---
+title: "Preprocessing"
+---
+
+Prior to conducting analyses that will elucidate the microbial dynamics associated with the mangroves under study, it is necessary to process the amplicon sequencing data. The following workflow was employed to achieve this purpose.
+
+First, the workspace was prepared:
+
+::: callout-tip
+## Workspace
+
+`Directory` structure and content information
+
+`data/` Directory with raw sequences and symbolic links of sequences.
+
+`src/` Scripts directory to perform each analysis
+
+`results/` Contains results of each analysis.
+
+`outs/` Contains the output reports of each analysis.
+:::
+
+Once the directories were prepared, the following steps were executed:
+
+## 01. Remove adapters
+
+``` bash
+#Remove primers
+
+mkdir -p results/02.cutadapt
+out="results/02.cutadapt"
+FASTQ=$(ls data/*.gz | sed 's/_.*//' | sed 's/data\///' | sort -u)
+
+date
+
+for FILE in ${FASTQ[@]}; do
+    echo -e "Run cutadapt to $FILE sample"
+        CUTADAPT='cutadapt -m 200 --pair-filter any --no-indels -g CCTACGGGNGGCWGCAG -G GACTACHVGGGTATCTAATCC -Z -j 80 -o '$out'/'$FILE'_1.fastq.gz -p '$out'/'$FILE'_2.fastq.gz data/'$FILE'_R1.fastq.gz  data/'$FILE'_R2.fastq.gz'
+        echo -e $CUTADAPT "\n"
+        $CUTADAPT
+done
+```
+
+## 02. Get ASVs with DADA2
+
+``` r
+# Get path info
+getwd()
+
+# Load packages
+library(Rcpp)
+library(dada2)
+library(ggplot2)
+library(gridExtra)
+
+##### 01. Prepare files -------------------------------------------------------
+
+#Load trim fastq files and list fastq_path content
+fastq_path <- "/axolote/diana/manglares/v0.2/results/02.cutadapt"
+list.files(fastq_path) 
+
+#Sort file names
+Fs <- sort(list.files(fastq_path, pattern="_1.fastq"))
+Rs <- sort(list.files(fastq_path, pattern="_2.fastq"))
+
+# Extract sample names
+sampleNames <- sapply(strsplit(Fs, "_1"), `[`, 1)
+sampleNames
+
+# Add complete path to remove ambiguities errors
+Fs <- file.path(fastq_path, Fs)
+Rs <- file.path(fastq_path, Rs)
+
+##### 02. Check Quality --------------------------------------------------------
+
+# Quality check plot with only the first fastq file
+QC_F1_15 <- plotQualityProfile(Fs[1:15], aggregate = TRUE)
+QC_R1_15 <- plotQualityProfile(Rs[1:15], aggregate = TRUE)
+QCsFR1_15 <- grid.arrange(QC_F1_15, QC_R1_15, nrow = 1)
+
+#save in png format
+ggsave("results/plots/01.QualityProfile_1-15.png", QCsFR1_15, width = 7, height = 3)
+
+#save in pdf format
+QCsFR1_15 <- grid.arrange(QC_F1_15, QC_R1_15, nrow = 1)
+ggsave("results/plots/01.QualityProfile_1-15.pdf", QCsFR1_15, width = 7, height = 3)
+
+##### 03.Quality control -------------------------------------------------------
+
+# Create directory for clean reads
+filt_path <- file.path("results/03.Dada2" , "01.filter_reads") 
+if(!file_test("-d", filt_path)) 
+  dir.create(filt_path)
+filtFs <- file.path(filt_path, paste0(sampleNames, "_F_filt.fastq.gz"))
+filtRs <- file.path(filt_path, paste0(sampleNames, "_R_filt.fastq.gz"))
+
+# Filter versions
+
+# V1 
+out1 <- filterAndTrim(Fs, filtFs, Rs, filtRs,
+                      truncLen=c(250,200),
+                      maxN=0, maxEE=c(5,5), truncQ=2, rm.phix=TRUE,
+                      compress=TRUE, multithread=TRUE) 
+head(out1)
+
+#V2 extra permissive
+out2 <- filterAndTrim(Fs, filtFs, Rs, filtRs,
+                      maxN=0, maxEE=c(5,5), truncQ=2, rm.phix=TRUE,
+                      compress=TRUE, multithread=TRUE) 
+head(out2)
+
+#V3
+out3 <- filterAndTrim(Fs, filtFs, Rs, filtRs,
+                      truncLen=c(280,200),
+                      maxN=0, maxEE=c(5,5), truncQ=2, rm.phix=TRUE,
+                      compress=TRUE, multithread=TRUE) 
+head(out3)
+
+##v4
+out4 <- filterAndTrim(Fs, filtFs, Rs, filtRs,
+                      truncLen=c(0,200),
+                      maxN=0, maxEE=c(5,5), truncQ=2, rm.phix=TRUE,
+                      compress=TRUE, multithread=TRUE) 
+head(out4)
+
+##v5
+out5 <- filterAndTrim(Fs, filtFs, Rs, filtRs,
+                      truncLen=c(260,200),
+                      maxN=0, maxEE=c(5,5), truncQ=2, rm.phix=TRUE,
+                      compress=TRUE, multithread=TRUE)
+head(out5)
+
+## compare trunc versions
+v1 <- as.data.frame(out1)
+v2 <- as.data.frame(out2)
+v3 <- as.data.frame(out3)
+v4 <- as.data.frame(out4)
+v5 <- as.data.frame(out5)
+
+
+# Percentage function
+calculate_percentage <- function(df, group_name) {
+  df$percentage <- (df$reads.out / df$reads.in) * 100
+  df$version <- group_name
+  return(df)
+}
+
+# Get percentage
+out1_with_percentage <- calculate_percentage(v1, 'v1:250-200')
+out2_with_percentage <- calculate_percentage(v2, 'v2:0-0')
+out3_with_percentage <- calculate_percentage(v3, 'v3:280-200')
+out4_with_percentage <- calculate_percentage(v4, 'v4:0-200')
+out5_with_percentage <- calculate_percentage(v5, 'v5:260-200')
+
+# Combine percentage versions
+combined_data <- rbind(out1_with_percentage, out2_with_percentage, 
+                       out3_with_percentage, out4_with_percentage,
+                       out5_with_percentage)
+
+# Compare plot
+boxplot_versions <- ggplot(combined_data, aes(x = version, y = percentage, 
+                    fill = version)) + geom_boxplot() + theme_bw() +
+  labs(x = "Filter version", y = "Percentage of reads after filter") +
+  scale_fill_brewer(palette = "Set2")
+
+boxplot_versions
+
+#save plot as png
+ggsave("results/plots/02.boxplot_trunc_versions.png", boxplot_versions, width = 6)
+
+#save plot as pdf
+ggsave("results/plots/02.boxplot_trunc_versions.pdf", boxplot_versions, width = 6)
+
+#Save info of final version
+#We chose v5 
+write.table(out5_with_percentage, file="results/03.Dada2/Dada_clean_reads.tsv", quote=F, sep="\t",col.names=NA) # Table with the totals before and after cleaning
+
+##### 04.Error Model -----------------------------------------------------------
+
+#De-replicate to reduce redundance 
+
+derepFs <- derepFastq(filtFs, verbose=TRUE)
+derepRs <- derepFastq(filtRs, verbose=TRUE)
+
+# Add names to de-rep object
+names(derepFs) <- sampleNames
+names(derepRs) <- sampleNames
+
+#Generate Error model IMPORTANT
+errF <- learnErrors(derepFs, multithread=TRUE, verbose = TRUE)
+errR <- learnErrors(derepRs, multithread=TRUE, verbose=TRUE)
+
+save.image(file = "src/Dada2.RData") # Save point to stop for now
+
+##### 0.5 Get ASVs -------------------------------------------------------------
+# ASVs inference
+dadaFs <- dada(derepFs, err=errF, multithread=TRUE, pool = "pseudo", verbose=TRUE)
+dadaRs <- dada(derepRs, err=errR, multithread=TRUE, pool = "pseudo", verbose = TRUE)
+
+save.image(file = "src/Dada2.RData") # Save point to stop for now
+
+# Merge pairs
+mergers <- mergePairs(dadaFs, derepFs, dadaRs, derepRs, minOverlap = 8, verbose=TRUE)
+
+# Create ASVs table 
+seqtabAll <- makeSequenceTable(mergers)
+table(nchar(getSequences(seqtabAll)))
+
+# Remove chimeras
+seqtab_nochim <- removeBimeraDenovo(seqtabAll, method="consensus", multithread=TRUE, verbose=TRUE)
+
+dim(seqtab_nochim)
+sum(seqtab_nochim)/sum(seqtabAll)
+
+##### 0.6 info -----------------------------------------------------------------
+
+# create a new table with each ASV number and its representative sequence
+PE.table_tsv_output <- seqtab_nochim
+PE.table_tsv_output[PE.table_tsv_output==1]=0 # Don't consider those values that have a single observation per sample, make them 0 (sample singletons)
+PE.table_tsv_output <- PE.table_tsv_output[,colSums(PE.table_tsv_output)>1] # filter singleton ASVs across the table
+
+# Export sequences as in fasta format
+uniquesToFasta(PE.table_tsv_output, fout="results/03.Dada2/ASVs.fasta", ids=paste("ASV_",1:ncol(PE.table_tsv_output), sep=""))
+nochim=PE.table_tsv_output
+write.table(cbind("ASVs"=1:nrow(t(PE.table_tsv_output)),"rep_seq"=rownames(t(PE.table_tsv_output))), file="results/03.Dada2/ASV_to_seqs-nochim.tsv", quote=F, sep="\t",row.names=FALSE)
+
+# replace the rep_seq with an incremental ASV number
+PE.table_tsv_output <- t(PE.table_tsv_output)
+rownames(PE.table_tsv_output) <- paste0("ASV_",1:nrow(PE.table_tsv_output))
+
+# and print the output ASV table
+write.table(PE.table_tsv_output, file="results/03.Dada2/ASV_to_seqs-nochim.tsv", quote=F, sep="\t",col.names=NA)
+
+# evaluate the total table dimensions
+dim(nochim)
+
+table(nchar(getSequences(nochim))) 
+
+###Track reads lost per step ###
+
+# By using this, we can create a function to automate this for all samples in a set:
+getN <- function(x) sum(getUniques(x)) # Where getUniques gets non-repeated sequences from a dada2 object or merger object (joined reads)
+track <- cbind(out1, sapply(derepFs, getN), sapply(dadaFs, getN), sapply(dadaRs, getN), rowSums(seqtabAll), rowSums(nochim))
+colnames(track) <- c("Raw", "Qual_filter", "Derep", "ASVs R1", "ASVs R2", "Merged", "nonchim")
+rownames(track) <- sampleNames
+write.table(track, "results/03.Dada2/Seqs_lost_in_ASVs_processing.tsv", col.names=NA, sep="\t")
+
+
+# Create a quick assesment of sequences lost throughout the process
+png("results/plots/03.preview_reads_passing_ASV_processing.png")
+# And same thing for the percentage remaining
+matplot(t(track[,-5]/track[,1]*100),type='l',xaxt='n', main="Sequences remaining after each step  - R1 (%)", xlab="Step", ylab=" Percentage of Sequences remaining")
+axis(1,at=1:ncol(track[,-5]),labels=colnames(track[,-5]))
+# R2
+matplot(t(track[,-4]/track[,1]*100),type='l',xaxt='n', main="Sequences remaining after each step  - R2 (%)", xlab="Step", ylab=" Percentage of Sequences remaining")
+axis(1,at=1:ncol(track[,-4]),labels=colnames(track[,-4]))
+dev.off()
+
+##Add final table
+track2 <- data.frame(track)
+track2$percentage_used <-(track2$nonchim / track2$Raw) * 100
+track2
+write.table(track2, "results/03.Dada2/Seqs_lost_in_ASVs_processing_percentage.tsv", col.names=NA, sep="\t")
+
+# Save work so far
+save.image(file = "src/Dada2.RData") 
+```
+
+## 03. Import to QIIME2
+
+``` bash
+#!/usr/bin/bash
+## DianaOaxaca
+## Import data to QIIME2
+
+#Run in qiime conda environment
+#conda activate qiime2-2023.5
+
+#import rep seqs
+qiime tools import --input-path results/03.Dada2/ASVs.fasta --type 'FeatureData[Sequence]' --output-path results/04.qiime/ASV_rep_seq.qza
+
+# append missing header to the table for import
+cat <(echo -n "#OTU Table") results/03.Dada2/ASV_to_seqs-nochim.tsv > temp.txt
+
+# convert to biom
+biom convert -i temp.txt -o temp.biom --table-type="OTU table" --to-hdf5
+
+# and create table-type qza
+qiime tools import --input-path temp.biom --type 'FeatureTable[Frequency]' --input-format BIOMV210Format --output-path results/04.qiime/ASV_table.qza
+
+# remove temporal files
+rm temp.*
+```
+
+## 04. Taxonomic assignment
+
+``` bash
+#!/usr/bin/bash
+## DianaOaxaca
+## Import data to QIIME2
+
+#Run in qiime conda environment
+#conda activate qiime2-2023.5
+
+#import rep seqs
+qiime tools import --input-path results/03.Dada2/ASVs.fasta --type 'FeatureData[Sequence]' --output-path results/04.qiime/ASV_rep_seq.qza
+
+# append missing header to the table for import
+cat <(echo -n "#OTU Table") results/03.Dada2/ASV_to_seqs-nochim.tsv > temp.txt
+
+# convert to biom
+biom convert -i temp.txt -o temp.biom --table-type="OTU table" --to-hdf5
+
+# and create table-type qza
+qiime tools import --input-path temp.biom --type 'FeatureTable[Frequency]' --input-format BIOMV210Format --output-path results/04.qiime/ASV_table.qza
+
+# remove temporal files
+rm temp.*
+```
+
+## 05. Filters
+
+``` bash
+#!/usr/bin/bash
+#DianaOaxaca
+#Filters
+
+#Summary of the qza table imported from R
+qiime feature-table summarize \
+--i-table results/04.qiime/ASV_table.qza \
+--o-visualization results/04.qiime/ASV_table.qzv
+
+#Filter by frequency
+#Here I removed all ASVs with a frequency of less than 0.1% of the mean sample depth. 
+#This cut-off excludes ASVs that are likely due to MiSeq bleed-through between runs (reported by Illumina to be 0.1% of reads). 
+#To calculate this cut-off I identified the mean sample depth, multiplied it by 0.001, and rounded to the nearest integer. 
+#This step are describe in [this paper](https://journals.asm.org/doi/pdf/10.1128/msystems.00127-16)
+
+qiime feature-table filter-features --i-table  results/04.qiime/ASV_table.qza \
+ --p-min-samples 1 --p-min-frequency 218 --o-filtered-table results/04.qiime/ASV_table_filter_freq218.qza
+
+qiime feature-table summarize --i-table results/04.qiime/ASV_table_filter_freq218.qza \
+ --o-visualization results/04.qiime/ASV_table_filter_freq218.qzv
+
+#Filter Mitochondria, chloroplast and Eukaryota
+
+qiime taxa filter-table --i-table results/04.qiime/ASV_table_filter_freq218.qza \
+ --i-taxonomy results/04.qiime/taxonomy.qza --p-exclude Eukaryota,Mitochondria,Chloroplast \
+ --p-include p__ --o-filtered-table results/04.qiime/ASV_table_filter_freq218_emc.qza
+
+qiime feature-table summarize --i-table results/04.qiime/ASV_table_filter_freq218_emc.qza \
+ --o-visualization results/04.qiime/ASV_table_filter_freq218_emc.qzv
+
+#remove in fasta sequences
+qiime feature-table filter-seqs  --i-table results/04.qiime/ASV_table_filter_freq218_emc.qza \
+ --i-data results/04.qiime/ASV_rep_seq.qza --o-filtered-data results/04.qiime/ASV_rep_seq_filters.qza
+```
+
+## 06. Phylogeny
+
+``` bash
+#!/usr/bin/bash
+#Get iqtree phylogeny
+
+date
+echo "Start phylogeny"
+
+qiime phylogeny align-to-tree-mafft-iqtree \
+ --p-n-threads auto --i-sequences results/04.qiime/ASV_rep_seq_filters.qza \
+ --o-alignment results/04.qiime/align.qza \
+ --o-masked-alignment results/04.qiime/masked-align.qza \
+ --o-tree results/04.qiime/unrooted-tree-iqtree.qza \
+ --o-rooted-tree results/04.qiime/rooted-tree-iqtree.qza --verbose
+
+echo "finish phylogeny!"
+
+date
+```
+
+## 07. Get public data
+
+``` bash
+# Yaxche
+```
+
+::: callout-important
+## Public data preprocessing
+
+The public data obtained for comparative purposes was preprocessed in the same way as described in the previous steps.
+:::
+
+## 08. Clustering types of mangroves for comparative analysis
+
+``` bash
+#Run in qiime conda environment
+conda activate qiime2-2023.5
+
+#Repeat with every ASV_table (Celestún, Estero Pargo and San Pedro River)
+#import rep seqs
+qiime tools import --input-path results/03.Dada2/ASVs.fasta --type 'FeatureData[Sequence]' --output-path results/04.qiime/ASV_rep_seq.qza
+
+# append missing header to the table for import
+cat <(echo -n "#OTU Table") results/03.Dada2/ASV_to_seqs-nochim.tsv > temp.txt
+
+# convert to biom
+biom convert -i temp.txt -o temp.biom --table-type="OTU table" --to-hdf5
+
+# and create table-type qza
+qiime tools import --input-path temp.biom --type 'FeatureTable[Frequency]' --input-format BIOMV210Format --output-path results/04.qiime/ASV_table.qza
+
+# remove temporal files
+rm temp.*
+
+#Merge of the frequency tables from distinct analysis
+qiime feature-table merge 
+--i-tables ASV_table_Celestun.qza ASV_table_Estero.qza ASV_table_SanPedro.qza --p-overlap-method sum 
+--o-merged-table merged-table.qza
+
+#Merge of the Representative sequences from distinct analysis 
+qiime feature-table merge-seqs 
+--i-data ASV_Celestun_rep_seq.qza ASV_Estero_rep_seq.qza ASV_SanPedro_rep_seq.qza 
+--o-merged-data merged-rep_seqs.qza
+
+#Closed reference clustering for Meta-Analysis
+qiime vsearch cluster-features-closed-reference   
+--i-table merged-table.qza   
+--i-sequences merged-rep_seqs.qza   
+--i-reference-sequences silva-138-99-seqs.qza   
+--p-perc-identity 0.97   
+--o-clustered-table table-cr-97.qza   
+--o-clustered-sequences rep-seqs-cr-97.qza   
+--o-unmatched-sequences unmatched-cr-97.qza
+
+#Taxonomic assignment with SILVA
+ qiime feature-classifier classify-sklearn   
+--i-classifier classifier_silva_138_trained.qza   
+--i-reads rep-seqs-cr-97.qza    
+--o-classification taxonomyEstero.qza 
+--p-n-jobs 40
+
+#Filter by frequency
+qiime feature-table filter-features --i-table  merged_table.qza 
+--p-min-samples 1 
+--p-min-frequency 218 
+--o-filtered-table clustered_table_filter_freq218.qza
+
+#Filter Mitochondria, chloroplast and Eukaryota
+qiime taxa filter-table 
+--i-table Clustered_table_filter_freq218.qza 
+--i-taxonomy taxonomy.qza 
+--p-exclude Eukaryota,Mitochondria,Chloroplast  
+--p-include p__ 
+--o-filtered-table clustered_table_filter_freq218_emcEstero.qza
+```

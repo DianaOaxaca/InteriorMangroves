@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Data Prepare – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02.1.AlphaDiversity.html" rel="next">
+<link href="./A_InteriorCoastalCompare.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-42e8decf3429976a47c1c54a1701cbb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-da771dd4e3759026f460526871f487d2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta property="og:title" content="Data Prepare – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:image" content="02.SurfaceComparison_files/figure-html/unnamed-chunk-8-1.png">
+<meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:title" content="Data Prepare – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:image" content="Figures/CONAHCYT.png">
+<meta name="twitter:creator" content="@HOaxacaDiana">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./02.SurfaceComparison.html">How similar are coastal and inland mangroves?</a></li><li class="breadcrumb-item"><a href="./02.SurfaceComparison.html">Data Prepare</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="https://private-user-images.githubusercontent.com/139167629/277791045-f8b17154-01fc-4acf-b997-72e445e8ea59.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDkwNzEyNDIsIm5iZiI6MTc0OTA3MDk0MiwicGF0aCI6Ii8xMzkxNjc2MjkvMjc3NzkxMDQ1LWY4YjE3MTU0LTAxZmMtNGFjZi1iOTk3LTcyZTQ0NWU4ZWE1OS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwNFQyMTAyMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wZDk2N2JjYjdiZjYyN2JiNGIzZDE2MjliOGM5NjBmZGZhMDJiMjk4NGZkYzgwMmE2MjYyZDFmMTc1MDZiMzUxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.C0UjXoTq8hThZ_k1JlqhDGRXuHjjm--2xXeNibwyVDw" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/DianaOaxaca" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00.Presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01.Preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preprocessing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./A_InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interior and coastal mangroves compare</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">How similar are coastal and inland mangroves?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.SurfaceComparison.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data Prepare</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.1.AlphaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Alpha diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.2.BetaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02.3.Coremicrobiome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core microbiome</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+      </ul>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#select-samples" id="toc-select-samples" class="nav-link active" data-scroll-target="#select-samples">01. Select samples</a></li>
+  <li>
+<a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">02. Data preparation</a>
+  <ul class="collapse">
+<li><a href="#remove-empty-asvs-and-singletons" id="toc-remove-empty-asvs-and-singletons" class="nav-link" data-scroll-target="#remove-empty-asvs-and-singletons">02.1 Remove empty ASVs and singletons</a></li>
+  <li><a href="#rename-mangrove-system" id="toc-rename-mangrove-system" class="nav-link" data-scroll-target="#rename-mangrove-system">02.2 Rename mangrove system</a></li>
+  <li><a href="#add-mangrove-type" id="toc-add-mangrove-type" class="nav-link" data-scroll-target="#add-mangrove-type">02.3 Add mangrove type</a></li>
+  <li><a href="#create-color-pallete" id="toc-create-color-pallete" class="nav-link" data-scroll-target="#create-color-pallete">02.4 Create color pallete</a></li>
+  <li><a href="#check-samples" id="toc-check-samples" class="nav-link" data-scroll-target="#check-samples">02.5 Check samples</a></li>
+  <li><a href="#save-objects-in-rds-to-next-analysis" id="toc-save-objects-in-rds-to-next-analysis" class="nav-link" data-scroll-target="#save-objects-in-rds-to-next-analysis">02.6 Save objects in RDS to next analysis</a></li>
+  </ul>
+</li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./02.SurfaceComparison.html">How similar are coastal and inland mangroves?</a></li><li class="breadcrumb-item"><a href="./02.SurfaceComparison.html">Data Prepare</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Data Prepare</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How similar are coastal and inland mangroves❓
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To answer this question, only samples that met the selection criteria were selected for comparison with each other. These samples were as follows:</p>
+<ol type="1">
+<li>They hailed from the same depth range.</li>
+<li>They hailed from the strip, in the case of coastal mangroves.</li>
+<li>They hailed from the flooding season, in the case of coastal mangroves.</li>
+</ol>
+</div>
+</div>
+<section id="select-samples" class="level2"><h2 class="anchored" data-anchor-id="select-samples">01. Select samples</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Los filtros que hizo Yaxche</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="data-preparation" class="level2"><h2 class="anchored" data-anchor-id="data-preparation">02. Data preparation</h2>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load</span></span>
+<span><span class="va">physeq_qiime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/physeq_objeto_Estero.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="remove-empty-asvs-and-singletons" class="level3"><h3 class="anchored" data-anchor-id="remove-empty-asvs-and-singletons">02.1 Remove empty ASVs and singletons</h3>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check data</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://microbiome.github.io/microbiome">microbiome</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#library(microbiome)</span></span>
+<span><span class="fu">microbiome</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/microbiome/man/summarize_phyloseq.html">summarize_phyloseq</a></span><span class="op">(</span><span class="va">physeq_qiime</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Compositional = NO2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>1] Min. number of reads = 35812] Max. number of reads = 1504313] Total number of reads = 19263064] Average number of reads = 77052.245] Median number of reads = 783677] Sparsity = 0.5742662632375196] Any OTU sum to 1 or less? YES8] Number of singletons = 849] Percent of OTUs that are singletons 
+        (i.e. exactly one read detected across all samples)010] Number of sample variables are: 25SampleIDBioSampleIDSRASampleNameCollection_datedepthsiteelevationBroad_scale_environmental_contextLocal_scale_environmental_contextEnvironmental_mediumLatitude_and_LongitudeGeographic.LocationStudy_zoneEcological_typeParametrosTemperaturaSalinidadpHRedox.mVS.2SO4seasonfilter2</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "1] Min. number of reads = 3581"
+
+[[2]]
+[1] "2] Max. number of reads = 150431"
+
+[[3]]
+[1] "3] Total number of reads = 1926306"
+
+[[4]]
+[1] "4] Average number of reads = 77052.24"
+
+[[5]]
+[1] "5] Median number of reads = 78367"
+
+[[6]]
+[1] "7] Sparsity = 0.574266263237519"
+
+[[7]]
+[1] "6] Any OTU sum to 1 or less? YES"
+
+[[8]]
+[1] "8] Number of singletons = 84"
+
+[[9]]
+[1] "9] Percent of OTUs that are singletons \n        (i.e. exactly one read detected across all samples)0"
+
+[[10]]
+[1] "10] Number of sample variables are: 25"
+
+[[11]]
+ [1] "SampleID"                          "BioSample"                        
+ [3] "ID"                                "SRA"                              
+ [5] "SampleName"                        "Collection_date"                  
+ [7] "depth"                             "site"                             
+ [9] "elevation"                         "Broad_scale_environmental_context"
+[11] "Local_scale_environmental_context" "Environmental_medium"             
+[13] "Latitude_and_Longitude"            "Geographic.Location"              
+[15] "Study_zone"                        "Ecological_type"                  
+[17] "Parametros"                        "Temperatura"                      
+[19] "Salinidad"                         "pH"                               
+[21] "Redox.mV"                          "S.2"                              
+[23] "SO4"                               "season"                           
+[25] "filter"                           </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get sums</span></span>
+<span><span class="va">taxa_sums</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/taxa_sums.html">taxa_sums</a></span><span class="op">(</span><span class="va">physeq_qiime</span><span class="op">)</span></span>
+<span><span class="co"># Identify ASVs with sum 0 present in all samples</span></span>
+<span><span class="va">zero_taxa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/taxa_names-methods.html">taxa_names</a></span><span class="op">(</span><span class="va">physeq_qiime</span><span class="op">)</span><span class="op">[</span><span class="va">taxa_sums</span> <span class="op">==</span> <span class="fl">0</span><span class="op">]</span></span>
+<span><span class="co"># Remove ASVs with sum 0</span></span>
+<span><span class="va">physeq_qiime2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/prune_taxa-methods.html">prune_taxa</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/taxa_names-methods.html">taxa_names</a></span><span class="op">(</span><span class="va">physeq_qiime</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span></span>
+<span>                                <span class="va">zero_taxa</span>, <span class="va">physeq_qiime</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Remove singletons</span></span>
+<span><span class="va">physeq_qiime3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/filter_taxa.html">filter_taxa</a></span><span class="op">(</span><span class="va">physeq_qiime2</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">1</span>, <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="rename-mangrove-system" class="level3"><h3 class="anchored" data-anchor-id="rename-mangrove-system">02.2 Rename mangrove system</h3>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract metadata</span></span>
+<span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu">as</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span>, <span class="st">"data.frame"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Rename specific levels in the Mangrove system column</span></span>
+<span><span class="co">#library(dplyr)</span></span>
+<span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="va">metadata</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>`Mangrove system` <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">Study_zone</span> <span class="op">==</span> <span class="st">"Rio San Pedro"</span> <span class="op">~</span> <span class="st">"San Pedro River"</span>,</span>
+<span>    <span class="va">Study_zone</span> <span class="op">==</span> <span class="st">"Laguna Cacahuate"</span> <span class="op">~</span> <span class="st">"Fossil Lagoon"</span>,</span>
+<span>    <span class="va">Study_zone</span> <span class="op">==</span> <span class="st">"Estero_pargo"</span> <span class="op">~</span> <span class="st">"Términos Lagoon"</span>,</span>
+<span>    <span class="va">Study_zone</span> <span class="op">==</span> <span class="st">"Celestún"</span> <span class="op">~</span> <span class="st">"Celestún Lagoon"</span>,</span>
+<span>    <span class="cn">TRUE</span> <span class="op">~</span> <span class="va">Study_zone</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="add-mangrove-type" class="level3"><h3 class="anchored" data-anchor-id="add-mangrove-type">02.3 Add mangrove type</h3>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract sample_data</span></span>
+<span><span class="va">sample_data_df</span> <span class="op">&lt;-</span> <span class="fu">as</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span>, <span class="st">"data.frame"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Join sample_data with metadata to add Mangrove system</span></span>
+<span><span class="va">sample_data_df</span> <span class="op">&lt;-</span> <span class="va">sample_data_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">metadata</span>, <span class="va">SampleID</span>, <span class="va">`Mangrove system`</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"SampleID"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Create Mangrove_type</span></span>
+<span><span class="va">sample_data_df</span> <span class="op">&lt;-</span> <span class="va">sample_data_df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Mangrove_type <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">`Mangrove system`</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span>, <span class="st">"San Pedro River"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"Interior"</span>,</span>
+<span>    <span class="va">`Mangrove system`</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Celestún Lagoon"</span>, <span class="st">"Términos Lagoon"</span><span class="op">)</span> <span class="op">~</span> <span class="st">"Coastal"</span>,</span>
+<span>    <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA_character_</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># add .fastq.gz to SampleID </span></span>
+<span><span class="va">sample_data_df</span><span class="op">$</span><span class="va">SampleID</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">"_R1$"</span>, <span class="st">"_R1.fastq.gz"</span>, <span class="va">sample_data_df</span><span class="op">$</span><span class="va">SampleID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># add rownames as SampleID</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">sample_data_df</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">sample_data_df</span><span class="op">$</span><span class="va">SampleID</span></span>
+<span></span>
+<span><span class="co"># update sample_data in phyloseq object</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">sample_data_df</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># check</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   SampleID    BioSample  ID          SRA
+SRR9973332                       SRR9973332 SAMN12325037 Cel        TM5.8
+SRR9973344                       SRR9973344 SAMN12325034 Cel        TM5.5
+SRR9973347                       SRR9973347 SAMN12325033 Cel        TM5.4
+zr2502_14_R1.fastq.gz zr2502_14_R1.fastq.gz                E zr2502_14_R1
+zr2502_1_R1.fastq.gz   zr2502_1_R1.fastq.gz                E  zr2502_1_R1
+zr2502_37_R1.fastq.gz zr2502_37_R1.fastq.gz                E zr2502_37_R1
+                      SampleName Collection_date depth site elevation
+SRR9973332            SRS5272925      2018-10-04  0.15              3
+SRR9973344            SRS5272913      2018-10-04  0.15              3
+SRR9973347            SRS5272910      2018-10-04  0.15              3
+zr2502_14_R1.fastq.gz                 17/01/2018     5             NA
+zr2502_1_R1.fastq.gz                  17/01/2018     5             NA
+zr2502_37_R1.fastq.gz                 30/05/2018     5             NA
+                      Broad_scale_environmental_context
+SRR9973332                                ENVO:01000181
+SRR9973344                                ENVO:01000181
+SRR9973347                                ENVO:01000181
+zr2502_14_R1.fastq.gz                                  
+zr2502_1_R1.fastq.gz                                   
+zr2502_37_R1.fastq.gz                                  
+                      Local_scale_environmental_context Environmental_medium
+SRR9973332                                ENVO:00000057             sediment
+SRR9973344                                ENVO:00000057             sediment
+SRR9973347                                ENVO:00000057             sediment
+zr2502_14_R1.fastq.gz                                                       
+zr2502_1_R1.fastq.gz                                                        
+zr2502_37_R1.fastq.gz                                                       
+                      Latitude_and_Longitude Geographic.Location   Study_zone
+SRR9973332                   20.85 N 90.37 W      Mexico:Yucatan     Celestún
+SRR9973344                   20.85 N 90.37 W      Mexico:Yucatan     Celestún
+SRR9973347                   20.85 N 90.37 W      Mexico:Yucatan     Celestún
+zr2502_14_R1.fastq.gz                            Mexico:Campeche Estero_pargo
+zr2502_1_R1.fastq.gz                             Mexico:Campeche Estero_pargo
+zr2502_37_R1.fastq.gz                            Mexico:Campeche Estero_pargo
+                      Ecological_type Parametros Temperatura Salinidad pH
+SRR9973332                     Fringe         no          NA        NA NA
+SRR9973344                     Fringe         no          NA        NA NA
+SRR9973347                     Fringe         no          NA        NA NA
+zr2502_14_R1.fastq.gz          Fringe         no          NA        NA NA
+zr2502_1_R1.fastq.gz           Fringe         no          NA        NA NA
+zr2502_37_R1.fastq.gz          Fringe         no          NA        NA NA
+                      Redox.mV S.2 SO4 season filter Mangrove.system
+SRR9973332                  NA  NA  NA  flood     si Celestún Lagoon
+SRR9973344                  NA  NA  NA  flood     si Celestún Lagoon
+SRR9973347                  NA  NA  NA  flood     si Celestún Lagoon
+zr2502_14_R1.fastq.gz       NA  NA  NA  flood     si Términos Lagoon
+zr2502_1_R1.fastq.gz        NA  NA  NA  flood     si Términos Lagoon
+zr2502_37_R1.fastq.gz       NA  NA  NA  flood     si Términos Lagoon
+                      Mangrove_type
+SRR9973332                  Coastal
+SRR9973344                  Coastal
+SRR9973347                  Coastal
+zr2502_14_R1.fastq.gz       Coastal
+zr2502_1_R1.fastq.gz        Coastal
+zr2502_37_R1.fastq.gz       Coastal</code></pre>
+</div>
+</div>
+</section><section id="create-color-pallete" class="level3"><h3 class="anchored" data-anchor-id="create-color-pallete">02.4 Create color pallete</h3>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Mangrove system colors</span></span>
+<span><span class="va">loc_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span><span class="op">=</span> <span class="st">"#A7fcc1"</span>,</span>
+<span>                <span class="st">"San Pedro River"</span> <span class="op">=</span> <span class="st">"#26B170"</span>,</span>
+<span>                <span class="st">"Términos Lagoon"</span> <span class="op">=</span> <span class="st">"#329D9C"</span>,</span>
+<span>                <span class="st">"Celestún Lagoon"</span> <span class="op">=</span> <span class="st">"#41e8d3"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Mangrove type colors</span></span>
+<span><span class="va">mt_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Interior"</span><span class="op">=</span> <span class="st">"#A7fcc1"</span>,</span>
+<span>                <span class="st">"Coastal"</span> <span class="op">=</span> <span class="st">"#41e8d3"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="check-samples" class="level3"><h3 class="anchored" data-anchor-id="check-samples">02.5 Check samples</h3>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Samples Plot</span></span>
+<span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu">as</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span>, <span class="st">"data.frame"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">samples_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span>, y <span class="op">=</span> <span class="va">..count..</span>,</span>
+<span>fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">Mangrove_type</span>, scales <span class="op">=</span> <span class="st">"free_x"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Samples of the analysis"</span>, y <span class="op">=</span> <span class="st">"Number of Samples"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Mangrove system"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">loc_colors</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># show plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">samples_plot</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+ℹ Please use `after_stat(count)` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="02.SurfaceComparison_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="save-objects-in-rds-to-next-analysis" class="level3"><h3 class="anchored" data-anchor-id="save-objects-in-rds-to-next-analysis">02.6 Save objects in RDS to next analysis</h3>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">physeq_qiime3</span>, <span class="st">"rds/compare_mangroves/physeq_qiime3.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./A_InteriorCoastalCompare.html" class="pagination-link" aria-label="Interior and coastal mangroves compare">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Interior and coastal mangroves compare</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02.1.AlphaDiversity.html" class="pagination-link" aria-label="Alpha diversity">
+        <span class="nav-page-text">Alpha diversity</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Copyright 2025, Diana Hernández-Oaxaca</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with ❤ science 🦠 🧬 and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>

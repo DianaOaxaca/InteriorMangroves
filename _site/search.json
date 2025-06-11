@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "01.PrepararProyecto.html",
+    "href": "01.PrepararProyecto.html",
+    "title": "Preparemos todo para el proyecto",
+    "section": "",
+    "text": "Reglas del juego\n\n\n\n\nEn este tutorial haremos el ejemplo corriendo la muestra de 48 hrs.\nSe formaran 6 equipos (2 de los tiempos 0, 9 y 24 hrs).\nLos equipos discutirán y presentarán sus resultados."
+  },
+  {
+    "objectID": "01.PrepararProyecto.html#espacio-de-trabajo",
+    "href": "01.PrepararProyecto.html#espacio-de-trabajo",
+    "title": "Preparemos todo para el proyecto",
+    "section": "Espacio de trabajo",
+    "text": "Espacio de trabajo\n\nEntra a tu cuenta en el servidor y sitúate en tu $HOME\nObten los datos y la estructura de tu directorio del proyecto clonando el siguiente repositorio:\n\ngit clone https://github.com/DianaOaxaca/taller_metagenomica_pozol.git\n\nDescomprime el contenido del directorio:\n\ngunzip -r taller_metagenomica_pozol\n\nEntra al directorio del proyecto\n\ncd taller_metagenomica_pozol\n&lt;p style=“text-align: justify; color: blue;”&gt;\nLa presente práctica sólo es una representación del flujo de trabajo para el análisis metagenómico, sin embargo, no sustituye los manuales de cada programa y el flujo puede variar dependiendo del tipo de datos y pregunta de investigación, de hecho para fines del taller, con frecuencia se utilizan las lineas de comando más simples para eficientar tiempo y recursos, tómalo en cuenta.\n&lt;/p&gt;\nCada programa tiene una ayuda y un manual de usuario, es importante revisarlo y conocer cada parámetro que se ejecute. En terminal se puede consultar el manual con el comando man y también se puede consultar la ayuda con -h o --help, por ejemplo fastqc -h.\n\n\n\n\n\n\nImportant\n\n\n\n🧠 Mantenlo en mente\nEn bioinformática cualquier línea de comandos generará un resultado, de ahí a que esos resultados sean correctos puede haber una gran diferencia.\nEn cada paso detente a revisar la información de cada programa, lee el manual, visista foros de ayuda y selecciona los argumentos que se ajusten a las necesidades de tus datos."
+  },
+  {
+    "objectID": "Project.html",
+    "href": "Project.html",
+    "title": "Preparemos todo para el proyecto",
+    "section": "",
+    "text": "Reglas del juego\n\n\n\n\nEn este tutorial haremos el ejemplo corriendo la muestra de 48 hrs.\nSe formaran 6 equipos (2 de los tiempos 0, 9 y 24 hrs).\nLos equipos discutirán y presentarán sus resultados."
+  },
+  {
+    "objectID": "Project.html#espacio-de-trabajo",
+    "href": "Project.html#espacio-de-trabajo",
+    "title": "Preparemos todo para el proyecto",
+    "section": "Espacio de trabajo",
+    "text": "Espacio de trabajo\n\nEntra a tu cuenta en el servidor y sitúate en tu $HOME\nObten los datos y la estructura de tu directorio del proyecto clonando el siguiente repositorio:\n\ngit clone https://github.com/DianaOaxaca/taller_metagenomica_pozol.git\n\nDescomprime el contenido del directorio:\n\ngunzip -r taller_metagenomica_pozol\n\nEntra al directorio del proyecto\n\ncd taller_metagenomica_pozol\n\nLa presente práctica sólo es una representación del flujo de trabajo para el análisis metagenómico, sin embargo, no sustituye los manuales de cada programa y el flujo puede variar dependiendo del tipo de datos y pregunta de investigación, de hecho para fines del taller, con frecuencia se utilizan las lineas de comando más simples para eficientar tiempo y recursos, tómalo en cuenta.\n\nCada programa tiene una ayuda y un manual de usuario, es importante revisarlo y conocer cada parámetro que se ejecute. En terminal se puede consultar el manual con el comando man y también se puede consultar la ayuda con -h o --help, por ejemplo fastqc -h.\n\n\n\n\n\n\nImportant\n\n\n\n🧠 Mantenlo en mente\nEn bioinformática cualquier línea de comandos generará un resultado, de ahí a que esos resultados sean correctos puede haber una gran diferencia.\nEn cada paso detente a revisar la información de cada programa, lee el manual, visista foros de ayuda y selecciona los argumentos que se ajusten a las necesidades de tus datos."
+  },
+  {
+    "objectID": "Binning.html",
+    "href": "Binning.html",
+    "title": "Genomas a partir de metagenomas",
+    "section": "",
+    "text": "La metagenómica hace referencia a todo el ADN de los organismos que se encuentran en un ambiente. La secuenciación de este material genético produce lecturas que pueden ensamblarse para conocer la diversidad microbiana y sus funciones.\nTípicamente los metagenomas pueden estudiarse mediante dos aproximaciones:\nEn este apartado nos enfocaremos en la segunda aproximación. Los MAGs se reconstruyen a partir de un ensamble metagenómico, los contigs de dicho ensamble se agrupan mediante la información de cobertura y frecuencia de tetranucleótidos. Esta agrupación puede generar errores, por lo que es indispensable evaluar la calidad de los MAGs mediante la completitud y redundancia de genes de copia única (MerenLab y col.)\nPara obtener MAGs podemos seguir el siguiente flujo de análisis:"
+  },
+  {
+    "objectID": "Binning.html#binning",
+    "href": "Binning.html#binning",
+    "title": "Genomas a partir de metagenomas",
+    "section": "Binning",
+    "text": "Binning\nEn la sección anterior aprendimos como evaluar la calidad, filtrar las lecturas y a ensamblarlas, por lo que este apartado comenzará con el ensamble ya generado.\nDe acuerdo con el flujo de análisis (Figura 2), debemos partir de un ensamble y mapear las lecturas a dicho ensamble para obtener un archivo de profundidad de cada contig en el ensamble.\n\n\n\n\n\n\nNota\n\n\n\nEl proceso de mapeo es demandante en tiempo de ejecución y recursos. Así que nos dimos a la tarea de generar el archivo de profundidad para comenzar directamente con el binning.\nPara generar este archivo se utilizaron las siguientes lineas de código.\n\n\n\n\n\n\nAtención\n\n\n\nNo las ejecutes, sólo son un ejemplo para que las puedas usar con tus propios datos en el futuro.\n\n\n\n\n\n\n\n\nMaxBin2\nMaxBin2 es una herramienta que permite agrupar contigs de acuerdo a la información de cobertura, composición nucleotídica y genes de marcadores de copia única.\n\n\nVamos a ejecutarlo, es necesario activar un ambiente conda.\n\n\n\n\n\n\nActivar ambiente para MaxBin2\n\n\n\n\nbetterlab\nconda activate metagenomics\n\n\n\n\n\n\n\nMaxBin2. Wu et al., 2014. https://doi.org/10.1186/2049-2618-2-26\n\n\n\n\n# Crear el directorio para los resultados de MaxBin2\nmkdir -p results/04.maxbin\n# Desplegar la ayuda\nrun_MaxBin.pl\nAhora si, vamos a ejecutarlo.\n# Correr MaxBin2\nrun_MaxBin.pl -thread 4 -min_contig_length 1500 -contig results/02.ensambles/48hrs/48hrs.fasta -out results/04.maxbin/48hrs_maxbin -abund results/03.profundidad/48hrs.mgh_depth.txt\n\n\nMetabat2\n\n\n\nMetabat2. Kang et al., 2015. DOI:10.7717/peerj.1165\n\n\n\n\nVamb\n\n\nCOMEbin"
+  },
+  {
+    "objectID": "Binning.html#refinamiento",
+    "href": "Binning.html#refinamiento",
+    "title": "Genomas a partir de metagenomas",
+    "section": "Refinamiento",
+    "text": "Refinamiento\n\nDASTool\n\n\nBinning_refiner"
+  },
+  {
+    "objectID": "Binning.html#dereplicación",
+    "href": "Binning.html#dereplicación",
+    "title": "Genomas a partir de metagenomas",
+    "section": "Dereplicación",
+    "text": "Dereplicación"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Microbioma_del_pozol",
+    "section": "",
+    "text": "En este taller introductorio aprenderemos a reconstruir genomas a partir de metagenomas (MAGs), a clasificar los MAGs taxonómicamente y a predecir sus genes e inferir su metabolismo. Además, abordaremos un poco sobre el análisis de amplicones del gene 16S ARNr."
+  },
+  {
+    "objectID": "index.html#taller-introductorio-al-análisis-de-metagenomas-centrado-en-genomas-y-análisis-de-amplicones-del-gene-16s-arnr.",
+    "href": "index.html#taller-introductorio-al-análisis-de-metagenomas-centrado-en-genomas-y-análisis-de-amplicones-del-gene-16s-arnr.",
+    "title": "Microbioma_del_pozol",
+    "section": "",
+    "text": "En este taller introductorio aprenderemos a reconstruir genomas a partir de metagenomas (MAGs), a clasificar los MAGs taxonómicamente y a predecir sus genes e inferir su metabolismo. Además, abordaremos un poco sobre el análisis de amplicones del gene 16S ARNr."
+  },
+  {
+    "objectID": "index.html#temario",
+    "href": "index.html#temario",
+    "title": "Microbioma_del_pozol",
+    "section": "Temario",
+    "text": "Temario\nDía 3\n\n\n\nHora\nTema\n\n\n\n\n9:00 - 9:30\nReconstrucción de genomas\n\n\n9:30 - 9:50\n¿Qué es el binning?\n\n\n9:50 - 10:00\nDescanso\n\n\n10:00 - 12:15\nReconstrucción de genomas\n\n\n12:15 - 12:30\nDescanso\n\n\n12:30 - 13:30\nEjercicio por equipo\n\n\n13:30 - 14:00\nDiscusión de resultados\n\n\n14:00 - 15:30\nComida\n\n\n15:30 - 16:00\nDereplicación\n\n\n16:00 - 17:00\nClasificación taxonómica\n\n\n\nDía 4\n\n\n\n\n\n\n\nHora\nTema\n\n\n\n\n9:00 - 10:00\nPredicción génica\n\n\n10:00 - 10:30\nPlática sobre el microbioma del chinicuil\n\n\n10:30 - 10:45\nDescanso\n\n\n10:45 - 12:00\nRbims\n\n\n12:00 - 12:15\nDescanso\n\n\n12:15 - 14:00\nOtras inferencias metabólicas y discusión de resultados\n\n\n14:00 - 15:30\nComida\n\n\n15:30 - 17:00\nVistazo a la reconstrucción viral y eucariótica\n\n\n\nDía 5\n\n\n\n\n\n\n\nHora\nTema\n\n\n\n\n9:00 - 10:00\nIntroducción al análisis de amplicones\n\n\n10:00 - 10:30\nIntroducción a QIIME2\n\n\n10:30 - 10:45\nDescanso\n\n\n10:45 - 12:00\nImportación de datos e inferencia de ASVs\n\n\n12:00 - 12:15\nDescanso\n\n\n12:15 - 14:00\nAsignación taxonómica, limpieza e inferencia filogenética\n\n\n14:00 - 15:30\nComida\n\n\n15:30 - 17:00\nImportación a R, gráficos y diversidad"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "El pozol",
+    "section": "",
+    "text": "El pozol es un alimento ácido, fermentado a partir de maíz nixtamalizado. No se inocula y al final de su fermentación tiene alta diversidad microbiana.\n🧬🔊🦠 Imaginemos que se quiere impulsar la producción de esta bebida y para ello necesitan saber todo acerca de su naturaleza microbiana. Secuenciaron cuatro puntos de fermentación de muestras que se obtuvieron en un mercado de Campeche. Las muestras se secuenciaron con Illumina NextSeq500 con lecturas pareadas de 75 pb.\nUna importante industria alimenticia los contacta como expertos en ecología microbiana y les pide ayuda para descubrir los siguientes puntos:\n\n¿Qué actores microbianos están presentes durante el proceso de fermentación?\n¿Cómo ocurre la bioconversión del maíz durante la fermentación, quién participa y cómo lo hace? ¿Qué funciones metabólicas están ocurriendo?\n¿Hay potenciales patógenos?\n¿Cambia la comunidad microbiana a lo largo del proceso?\n\n\n\n\n\n\n\nImportante\n\n\n\nComo las muestras contienen maíz, es indispensable remover las lecturas que correspondan al genoma del maíz, no hacerlo producirá un ensamble muy fragmentado, mayoritariamente del maíz y poco microbiano.\nEl autor del artículo amablemente nos proporcionó sus muestras libres del maíz y el código que usó para ello está disponible en un repositorio público de GitHub.\n\n\nEl artículo: López-Sánchez et al., 2023. Analysing the dynamics of the bacterial community in pozol, a Mexican fermented corn dough. 10.1099/mic.0.001355"
+  }
+]

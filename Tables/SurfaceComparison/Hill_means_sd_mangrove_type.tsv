@@ -1,0 +1,13 @@
+Mangrove_type	Mangrove.system	qs	means	sd
+1	Coastal	Celestún Lagoon	q0=Observed	1202	207.184458876625
+2	Coastal	Celestún Lagoon	q1=Exp Shannon	496.110066703932	87.592578892167
+3	Coastal	Celestún Lagoon	q2=Inv Simpson	233.538458994221	40.452049986336
+4	Coastal	Términos Lagoon	q0=Observed	140	61.7980582219215
+5	Coastal	Términos Lagoon	q1=Exp Shannon	78.783231239837	48.8694449560084
+6	Coastal	Términos Lagoon	q2=Inv Simpson	51.1679444895184	32.6834470270844
+7	Interior	Fossil Lagoon	q0=Observed	1230	134.057201721255
+8	Interior	Fossil Lagoon	q1=Exp Shannon	299.954437012168	75.0891992395865
+9	Interior	Fossil Lagoon	q2=Inv Simpson	86.5239754417822	26.9181577647571
+10	Interior	San Pedro River	q0=Observed	1368.42857142857	165.597762809825
+11	Interior	San Pedro River	q1=Exp Shannon	254.39231086151	105.079458413297
+12	Interior	San Pedro River	q2=Inv Simpson	71.7241967516991	38.4100367335076

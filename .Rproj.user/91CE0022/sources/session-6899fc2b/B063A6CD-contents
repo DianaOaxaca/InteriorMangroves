@@ -1,0 +1,284 @@
+---
+title: "Beta diversity"
+---
+
+::: callout-tip
+The analysis of beta diversity was conducted using both NMDS and PERMANOVA to identify the factors that influenced the structure of the microbial community.
+:::
+
+------------------------------------------------------------------------
+
+## Load libraries and prepare data
+
+```{r}
+#| label: libraries
+#| message: false
+#| warning: false
+# load libraries
+library(vegan)
+library(phyloseq)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(pairwiseAdonis)
+library(reshape2)
+```
+
+```{r}
+#load data
+physeq_qiime3 <- readRDS("rds/compare_mangroves/physeq_qiime3.rds")
+```
+
+```{r}
+#Mangrove system colors
+loc_colors <- c("Fossil Lagoon"= "#A7fcc1",
+                "San Pedro River" = "#26B170",
+                "Términos Lagoon" = "#329D9C",
+                "Celestún Lagoon" = "#41e8d3")
+```
+
+```{r}
+# Extract data from phyloseq object
+#library(phyloseq)
+otu_data <- otu_table(physeq_qiime3, taxa_are_rows = TRUE)
+metadata <- as(sample_data(physeq_qiime3), "data.frame")
+
+sample_data <- data.frame(sample_data(physeq_qiime3))
+```
+
+## 01. NMDS
+
+### Get distances and stress
+
+::: callout-note
+Bray-Curtis dissimilarity distances are a measure of the dissimilarity between microbial communities based on their species composition.
+:::
+
+```{r}
+# library(vegan)
+# library(dplyr)
+# distances
+set.seed(123)
+bray=vegdist(t(otu_data), method = "bray")
+nmds_source_bray = vegan::metaMDS(bray, trymax = 20, k = 2)
+
+# stress
+var_stress_nmds_bray <- round(nmds_source_bray$stress, 5)
+
+# score
+scores_source_bray= nmds_source_bray %>% vegan::scores()
+```
+
+### Plot
+
+```{r}
+#| message: false
+#| warning: false
+# library(ggplot2)
+# library(tidyverse)
+
+nmds_plot_bray <- ggplot() +
+  geom_point(data=data.frame(scores_source_bray) %>%
+               rownames_to_column(var = "SampleID")%>%
+               left_join(metadata, by = "SampleID"),
+             aes(x=NMDS1, y=NMDS2,  color = Mangrove.system, 
+                 shape = Mangrove_type),
+             size=5) + theme_linedraw()+
+  scale_fill_manual(values = loc_colors)+
+  scale_color_manual(values = loc_colors)+
+  theme(axis.text = element_text(colour = "black", size = 12),
+        axis.title = element_text(colour = "black", size = 12),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 12),
+        legend.position = "right",
+        legend.box = "vertical")+ theme_bw() +
+  labs(title="Bray-Curtis distances") +
+  ylab("NMDS2")+xlab("NMDS1")
+
+## stress legend
+nmds_plot_bray <- nmds_plot_bray +
+  annotate("text", x = Inf, y = -Inf,
+           label = paste("Stress:", var_stress_nmds_bray),
+           hjust = 1.1, vjust = -1.1, size = 4)
+
+# show plot
+nmds_plot_bray
+
+```
+
+## 02. PERMANOVA
+
+::: callout-note
+To test the effects of Mangrove type and Mangrove system on the Bray-Curtis dissimilarity, a PERMANOVA analysis was conducted using adonis2.
+:::
+
+```{r}
+# Extract and transpose OTU table
+otu_mat <- t(otu_table(physeq_qiime3))
+
+# PERMANOVA with adonis2
+set.seed(123)
+adonis_result <- adonis2(otu_mat ~ Mangrove_type * Mangrove.system,
+                         data = sample_data,
+                         method = "bray",
+                         permutations = 999,
+                         by = "terms")
+
+# show adonis result
+print(adonis_result)
+```
+
+### Plot with PERMANOVA results
+
+```{r}
+#| message: false
+#| warning: false
+#add to plot
+nmds_plot_bray_perm <- nmds_plot_bray + annotate("text", x = Inf, y = -Inf,
+           label = paste("PERMANOVA:",
+                         "Mangrove system: R² = 0.206, p = 0.001\n",
+                         "Mangrove type: R² = 0.283, p = 0.001\n",
+                         "Residual: R² = 0.511"),
+           hjust = 1.1, vjust = -7, size = 4)
+
+# Mostrar el gráfico
+print(nmds_plot_bray_perm)
+
+#save
+ggsave("Figures/SurfaceComparison/beta-diversity.pdf", nmds_plot_bray_perm, width = 7.3, height = 5.5)
+```
+
+## 03. Post-hoc adonis
+
+::: callout-note
+To test differences between the Mangrove systems a Post-hoc pairwise PERMANOVA was conducted using pairwise.adonis
+:::
+
+### Pairwise adonis
+
+```{r}
+## Post-hoc Mangrove.system
+#library(pairwiseAdonis)
+pairwise_adonis <- pairwiseAdonis::pairwise.adonis2(otu_mat ~ 
+                  Mangrove.system, data = sample_data, 
+                  method = "bray",  permutations = 999)
+
+print(pairwise_adonis)
+```
+
+### P-values matrix
+
+```{r}
+# heatmap 
+# library(ggplot2)
+# library(reshape2)
+
+#  p-values of pairwise_adonis
+p_values <- c(
+  "San Pedro River_vs_Fossil Lagoon" = 0.004,
+  "San Pedro River_vs_Celestún Lagoon" = 0.001,
+  "San Pedro River_vs_Términos Lagoon" = 0.007,
+  "Fossil Lagoon_vs_Celestún Lagoon" = 0.001,
+  "Fossil Lagoon_vs_Términos Lagoon" = 0.02,
+  "Celestún Lagoon_vs_Términos Lagoon" = 0.003
+)
+
+# matrix of p-values
+locations <- c("San Pedro River", "Fossil Lagoon", "Celestún Lagoon", "Términos Lagoon")
+p_matrix <- matrix(NA, nrow = length(locations), ncol = length(locations),
+                   dimnames = list(locations, locations))
+
+# Fill matrix with p-values (only for the upper half then make symmetrical)
+pairs <- strsplit(names(p_values), "_vs_")
+for (i in seq_along(pairs)) {
+  row_name <- pairs[[i]][1]
+  col_name <- pairs[[i]][2]
+  p_matrix[row_name, col_name] <- p_values[i]
+  p_matrix[col_name, row_name] <- p_values[i]  # symmetrical
+}
+diag(p_matrix) <- 1  # compare with itself
+
+# long format
+p_melt <- melt(p_matrix)
+```
+
+### Heatmap of adonis posthoc
+
+```{r}
+# heatmap
+heatmap_plot <- ggplot(p_melt, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(low = "blue", mid = "white", high = "red",
+                       midpoint = 0.025, limits = c(0, 0.05),
+                       name = "p-value") +
+  geom_text(aes(label = sprintf("%.3f", value)), color = "black", size = 3) +
+  theme_minimal() +
+  labs(title = "Pairwise PERMANOVA post-hoc)",
+       x = "Mangrove system", y = "Mangrove system") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 14))
+
+# Mostrar el gráfico
+print(heatmap_plot)
+```
+
+## 04. Beta disper
+
+::: callout-note
+To validate the dissimilarity of the data, and to determine whether the differences found are due to changes in composition or to variations in dispersion within groups, the homogeneity of the dispersions between Mangrove type and Mangrove system was calculated using betadisper. Subsequently, the significance of the differences in dispersion was calculated with permutest
+:::
+
+```{r}
+# library(vegan)
+# library(phyloseq)
+# Bray distance matrix
+dist_matrix <- phyloseq::distance(physeq_qiime3, method = "bray")
+
+```
+
+### By Mangrove system
+
+```{r}
+# betadisper
+disp_location <- betadisper(dist_matrix, sample_data$Mangrove.system)
+print(summary(disp_location))
+```
+
+Permutest
+
+```{r}
+# Significance permutest
+perm_location <- permutest(disp_location, permutations = 999)
+print(perm_location)
+```
+
+```{r}
+# Plots
+plot(disp_location, main = "Beta Dispersión por Mangrove system")
+boxplot(disp_location, main = "Distancias al centroide por Mangrove system")
+```
+
+### By Mangrove type
+
+```{r}
+# Betadisper Mangrove_type
+disp_mangrove_type <- betadisper(dist_matrix, sample_data$Mangrove_type)
+print(summary(disp_mangrove_type))
+
+# Significance permutest
+perm_mangrove_type <- permutest(disp_mangrove_type, permutations = 999)
+print(perm_mangrove_type)
+```
+
+```{r}
+# plots
+plot(disp_mangrove_type, main = "Betadisper  Mangrove_type")
+boxplot(disp_mangrove_type, main = "Dist to centroid Mangrove_type")
+```
+
+## Save rds beta diversity plot
+
+```{r}
+saveRDS(nmds_plot_bray_perm, "rds/compare_mangroves/beta-diversity-surface-plot.rds")
+```

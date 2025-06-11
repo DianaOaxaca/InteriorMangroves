@@ -1,0 +1,5 @@
+"0","# Rename mangrove system columna"
+"0","colnames(sample_data(physeq_qiime3))[colnames(sample_data(physeq_qiime3)) == ""Mangrove system""] <- ""Mangrove_system"""
+"0",""
+"0","# Convert Mangrove_system to factor"
+"0","sample_data(physeq_qiime3)$Mangrove_system <- as.factor(sample_data(physeq_qiime3)$Mangrove_system)"
