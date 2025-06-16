@@ -14,8 +14,8 @@ To answer this question, only samples that met the selection criteria were selec
 
 ## 01. Select samples
 
-``` bash
-## Los filtros que hizo Yaxche
+```{r}
+
 ```
 
 ## 02. Data preparation

@@ -17,21 +17,21 @@ website:
 
   twitter-card:
     creator: "@HOaxacaDiana"
-    image: "Figures/CONAHCYT.png"
 
   page-footer:
-    right: "This page is built with ❤ science 🦠 🧬 and [Quarto](https://quarto.org/)."
+    right: "This page is built with ❤ Science 🦠 🧬 and [Quarto](https://quarto.org/)."
     left: "&copy; Copyright 2025, Diana Hernández-Oaxaca"
+    center: "LandaLab"
     background: "#f1ebf9"
 
   sidebar:
     background: "#DEEBF7"
-    logo: "https://private-user-images.githubusercontent.com/139167629/277791045-f8b17154-01fc-4acf-b997-72e445e8ea59.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDkwNzEyNDIsIm5iZiI6MTc0OTA3MDk0MiwicGF0aCI6Ii8xMzkxNjc2MjkvMjc3NzkxMDQ1LWY4YjE3MTU0LTAxZmMtNGFjZi1iOTk3LTcyZTQ0NWU4ZWE1OS5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNjA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDYwNFQyMTAyMjJaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wZDk2N2JjYjdiZjYyN2JiNGIzZDE2MjliOGM5NjBmZGZhMDJiMjk4NGZkYzgwMmE2MjYyZDFmMTc1MDZiMzUxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.C0UjXoTq8hThZ_k1JlqhDGRXuHjjm--2xXeNibwyVDw"
+    logo: "images/landalab.jpg"
     pinned: true
     align: center
     tools:
       - icon: github
-        href: https://github.com/DianaOaxaca
+        href: https://github.com/DianaOaxaca/InteriorMangroves
         text: GitHub organization
 
     style: "docked"
