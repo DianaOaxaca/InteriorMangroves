@@ -1,0 +1,143 @@
+id	SampleID	BioSample	ID	SRA	SampleName	Collection_date	depth	site	elevation	Broad_scale_environmental_context	Local_scale_environmental_context	Environmental_medium	Latitude_and_Longitude	Geographic Location	Study_zone	Ecological_type	Parametros	Temperatura	Salinidad	pH	Redox mV	S-2	SO4	season	filter
+SRR9973307	SRR9973307	SAMN12325001	Cel	TM2.1	SRS5272950	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973308	SRR9973308	SAMN12325002	Cel	TM2.2	SRS5272949	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973311	SRR9973311	SAMN12325005	Cel	TM2.5	SRS5272946	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973312	SRR9973312	SAMN12325006	Cel	TM2.6	SRS5272945	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973313	SRR9973313	SAMN12325003	Cel	TM2.3	SRS5272944	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973314	SRR9973314	SAMN12325004	Cel	TM2.4	SRS5272943	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973316	SRR9973316	SAMN12325007	Cel	TM2.7	SRS5272941	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973317	SRR9973317	SAMN12325008	Cel	TM2.8	SRS5272940	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973318	SRR9973318	SAMN12325027	Cel	TM4.9	SRS5272939	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973319	SRR9973319	SAMN12325028	Cel	TM4.10	SRS5272938	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973320	SRR9973320	SAMN12325039	Cel	TM5.10	SRS5272937	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973321	SRR9973321	SAMN12325040	Cel	TM5.11	SRS5272936	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973322	SRR9973322	SAMN12325036	Cel	TM5.7	SRS5272935	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973323	SRR9973323	SAMN12325035	Cel	TM5.6	SRS5272934	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973324	SRR9973324	SAMN12325030	Cel	TM5.1	SRS5272933	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973325	SRR9973325	SAMN12325029	Cel	TM4.11	SRS5272932	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973326	SRR9973326	SAMN12325032	Cel	TM5.3	SRS5272931	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973327	SRR9973327	SAMN12325031	Cel	TM5.2	SRS5272930	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973328	SRR9973328	SAMN12325020	Cel	TM4.12	SRS5272929	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973329	SRR9973329	SAMN12325018	Cel	TM3.10	SRS5272928	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973330	SRR9973330	SAMN12325017	Cel	TM3.8	SRS5272927	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973331	SRR9973331	SAMN12325038	Cel	TM5.9	SRS5272926	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973332	SRR9973332	SAMN12325037	Cel	TM5.8	SRS5272925	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973333	SRR9973333	SAMN12325012	Cel	TM3.2	SRS5272924	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973334	SRR9973334	SAMN12325011	Cel	TM3.1	SRS5272923	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973335	SRR9973335	SAMN12325010	Cel	TM2.12	SRS5272922	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973336	SRR9973336	SAMN12325009	Cel	TM2.11	SRS5272921	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Dwarf	no							flood	si
+SRR9973337	SRR9973337	SAMN12325016	Cel	TM3.7	SRS5272920	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973338	SRR9973338	SAMN12325015	Cel	TM3.6	SRS5272919	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973339	SRR9973339	SAMN12325014	Cel	TM3.5	SRS5272918	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973340	SRR9973340	SAMN12325013	Cel	TM3.4	SRS5272917	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973341	SRR9973341	SAMN12325023	Cel	TM4.4	SRS5272916	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973342	SRR9973342	SAMN12325024	Cel	TM4.5	SRS5272915	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973343	SRR9973343	SAMN12325025	Cel	TM4.6	SRS5272914	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973344	SRR9973344	SAMN12325034	Cel	TM5.5	SRS5272913	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+SRR9973345	SRR9973345	SAMN12325026	Cel	TM4.7	SRS5272912	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973346	SRR9973346	SAMN12325019	Cel	TM4.1	SRS5272911	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Basin	no							flood	si
+SRR9973347	SRR9973347	SAMN12325033	Cel	TM5.4	SRS5272910	2018-10-04	0.15		3	ENVO:01000181	ENVO:00000057	sediment	20.85 N 90.37 W	Mexico:Yucatan	Celestún	Fringe	no							flood	si
+S1A015	S1A015	S1A015	RSP	S1A015		2023-09-28	0-15	1A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S1A1530	S1A1530	S1A1530	RSP	S1A1530		2023-09-28	16-30	1A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S1A3050	S1A3050	S1A3050	RSP	S1A3050		2023-09-28	31-45	1A						Mexico:Tabasco	Rio San Pedro	Fringe	si	31.4	817.5	6.55	121	7.73	537	flood	no 
+S1A5075	S1A5075	S1A5075	RSP	S1A5075		2023-09-28	50-70	1A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S1B07	S1B07	S1B07	RSP	S1B07		2023-09-28	0-15	1B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S1B2230	S1B2230	S1B2230	RSP	S1B2230		2023-09-28	16-30	1B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S1B3040	S1B3040	S1B3040	RSP	S1B3040		2023-09-28	31-45	1B						Mexico:Tabasco	Rio San Pedro	Fringe	si	30.9	794	6.69	1	7.09	550	flood	no 
+S1B6575	S1B6575	S1B6575	RSP	S1B6575		2023-09-28	50-70	1B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S2A1727	S2A1727	S2A1727	RSP	S2A1727		2023-09-28	16-30	2A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S2A3545	S2A3545	S2A3545	RSP	S2A3545		2023-09-28	31-45	2A						Mexico:Tabasco	Rio San Pedro	Fringe	si 	32.2	741.6	7.3	113	0.12	545	flood	no 
+S2A5060	S2A5060	S2A5060	RSP	S2A5060		2023-09-28	50-70	2A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S2B07	S2B07	S2B07	RSP	S2B07		2023-09-28	0-15	2B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S2B1522	S2B1522	S2B1522	RSP	S2B1522		2023-09-28	16-30	2B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S2B3040	S2B3040	S2B3040	RSP	S2B3040		2023-09-28	31-45	2B						Mexico:Tabasco	Rio San Pedro	Fringe	si	31.3	757.8	7.07	95	1.2	553	flood	no 
+S2B5565	S2B5565	S2B5565	RSP	S2B5565		2023-09-28	50-70	2B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S3A07	S3A07	S3A07	RSP	S3A07		2023-09-28	0-15	3A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S3A1522	S3A1522	S3A1522	RSP	S3A1522		2023-09-28	16-30	3A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S3A3040	S3A3040	S3A3040	RSP	S3A3040		2023-09-28	31-45	3A						Mexico:Tabasco	Rio San Pedro	Fringe	si	32	818.2	6.71	-46	6.34	364	flood	no 
+S3A6070	S3A6070	S3A6070	RSP	S3A6070		2023-09-28	50-70	3A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S3B510	S3B510	S3B510	RSP	S3B510		2023-09-28	0-15	3B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S3B2030	S3B2030	S3B2030	RSP	S3B2030		2023-09-28	16-30	3B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S3B3545	S3B3545	S3B3545	RSP	S3B3545		2023-09-28	31-45	3B						Mexico:Tabasco	Rio San Pedro	Fringe	si	32.1	767.9	6.91	15	2.14	495	flood	no 
+S3B6070	S3B6070	S3B6070	RSP	S3B6070		2023-09-28	50-70	3B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S4B07	S4B07	S4B07	RSP	S4B07		2023-09-29	0-15	4B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S4B1522	S4B1522	S4B1522	RSP	S4B1522		2023-09-29	16-30	4B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S4B3040	S4B3040	S4B3040	RSP	S4B3040		2023-09-29	31-45	4B						Mexico:Tabasco	Rio San Pedro	Fringe	si	31.4	816.5	6.83	21	3.66	483	flood	no 
+S4B5565	S4B5565	S4B5565	RSP	S4B5565		2023-09-29	50-70	4B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S5A07	S5A07	S5A07	RSP	S5A07		2023-09-29	0-15	5A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S5A1522	S5A1522	S5A1522	RSP	S5A1522		2023-09-29	16-30	5A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S5A3040	S5A3040	S5A3040	RSP	S5A3040		2023-09-29	31-45	5A						Mexico:Tabasco	Rio San Pedro	Fringe	si	31.9	757.6	6.91	-28	8.34	468	flood	no 
+S5A5565	S5A5565	S5A5565	RSP	S5A5565		2023-09-29	50-70	5A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S5B07	S5B07	S5B07	RSP	S5B07		2023-09-29	0-15	5B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S5B1522	S5B1522	S5B1522	RSP	S5B1522		2023-09-29	16-30	5B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S5B3040	S5B3040	S5B3040	RSP	S5B3040		2023-09-29	31-45	5B						Mexico:Tabasco	Rio San Pedro	Fringe	si	31.5	754.6	7.04	23	2.28	534	flood	no 
+S5B5060	S5B5060	S5B5060	RSP	S5B5060		2023-09-29	50-70	5B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S6A07	S6A07	S6A07	LC	S6A07		2023-09-30	0-15	6A						Mexico:Tabasco	Laguna Cacahuate	Fringe	no							flood	si
+S6A1522	S6A1522	S6A1522	LC	S6A1522		2023-09-30	16-30	6A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S6A3040	S6A3040	S6A3040	LC	S6A3040		2023-09-30	31-45	6A						Mexico:Tabasco	Rio San Pedro	Fringe	si	28.3	442.6	6.86	65	1.07	312.4	flood	no 
+S6A5060	S6A5060	S6A5060	LC	S6A5060		2023-09-30	50-70	6A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S6B07	S6B07	S6B07	LC	S6B07		2023-09-30	0-15	6B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S6B1522	S6B1522	S6B1522	LC	S6B1522		2023-09-30	16-30	6B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S6B3040	S6B3040	S6B3040	LC	S6B3040		2023-09-30	31-45	6B						Mexico:Tabasco	Rio San Pedro	Fringe	si	28.4	467.6	6.8	70	0.02	214	flood	no 
+S6B5060	S6B5060	S6B5060	LC	S6B5060		2023-09-30	50-70	6B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S7A07	S7A07	S7A07	LC	S7A07		2023-09-30	0-15	7A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S7A1522	S7A1522	S7A1522	LC	S7A1522		2023-09-30	16-30	7A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S7A3040	S7A3040	S7A3040	LC	S7A3040		2023-09-30	31-45	7A						Mexico:Tabasco	Rio San Pedro	Fringe	si	30.6	356.8	6.7	45	0.18	151.6	flood	no 
+S7A5060	S7A5060	S7A5060	LC	S7A5060		2023-09-30	50-70	7A						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S7B07	S7B07	S7B07	LC	S7B07		2023-09-30	0-15	7B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	si
+S7B1522	S7B1522	S7B1522	LC	S7B1522		2023-09-30	16-30	7B						Mexico:Tabasco	Rio San Pedro	Fringe	no							flood	no 
+S7B3040	S7B3040	S7B3040	LC	S7B3040		2023-09-30	31-45	7B						Mexico:Tabasco	Rio San Pedro	Fringe	si	30.6	355.1	6.99	99	0.21	150	flood	no 
+S7B5060	S7B5060	S7B5060	LC	S7B5060		2023-09-30	50-70	7B						Mexico:Tabasco	Laguna Cacahuate	Fringe	no							flood	no 
+zr2502_1_R1.fastq.gz	zr2502_1_R1		E	zr2502_1_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Fringe	no							flood	si
+zr2502_10_R1.fastq.gz	zr2502_10_R1		E	zr2502_10_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Basin	no							flood	si
+zr2502_11_R1.fastq.gz	zr2502_11_R1		E	zr2502_11_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_12_R1.fastq.gz	zr2502_12_R1		E	zr2502_12_R1		17/01/2018	40							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_13_R1.fastq.gz	zr2502_13_R1		E	zr2502_13_R1		17/01/2018	40							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_14_R1.fastq.gz	zr2502_14_R1		E	zr2502_14_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Fringe	no							flood	si
+zr2502_15_R1.fastq.gz	zr2502_15_R1		E	zr2502_15_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Fringe	no							dry	no 
+zr2502_17_R1.fastq.gz	zr2502_17_R1		E	zr2502_17_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 
+zr2502_18_R1.fastq.gz	zr2502_18_R1		E	zr2502_18_R1		17/01/2018	40							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 
+zr2502_19_R1.fastq.gz	zr2502_19_R1		E	zr2502_19_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 
+zr2502_2_R1.fastq.gz	zr2502_2_R1		E	zr2502_2_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Fringe	no							dry	si
+zr2502_20_R1.fastq.gz	zr2502_20_R1		E	zr2502_20_R1		17/01/2018	40							Mexico:Campeche	Estero_pargo	Basin	no							flood	no 
+zr2502_21_R1.fastq.gz	zr2502_21_R1		E	zr2502_21_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Basin	no							flood	si
+zr2502_22_R1.fastq.gz	zr2502_22_R1		E	zr2502_22_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Basin	no							flood	no 
+zr2502_23_R1.fastq.gz	zr2502_23_R1		E	zr2502_23_R1		17/01/2018	40							Mexico:Campeche	Estero_pargo	Basin	no							flood	no 
+zr2502_24_R1.fastq.gz	zr2502_24_R1		E	zr2502_24_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Impaired	no							flood	si
+zr2502_25_R1.fastq.gz	zr2502_25_R1		E	zr2502_25_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Impaired	no							flood	no 
+zr2502_26_R1.fastq.gz	zr2502_26_R1		E	zr2502_26_R1		17/01/2018	40							Mexico:Campeche	Estero_pargo	Impaired	no							flood	no 
+zr2502_27_R1.fastq.gz	zr2502_27_R1		E	zr2502_27_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Impaired	no							flood	si
+zr2502_28_R1.fastq.gz	zr2502_28_R1		E	zr2502_28_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Impaired	no							flood	no 
+zr2502_29_R1.fastq.gz	zr2502_29_R1		E	zr2502_29_R1		17/01/2018	40							Mexico:Campeche	Estero_pargo	Impaired	no							flood	no 
+zr2502_3_R1.fastq.gz	zr2502_3_R1		E	zr2502_3_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_30_R1.fastq.gz	zr2502_30_R1		E	zr2502_30_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Impaired	no							flood	si
+zr2502_31_R1.fastq.gz	zr2502_31_R1		E	zr2502_31_R1		17/01/2018	20							Mexico:Campeche	Estero_pargo	Impaired	no							flood	no 
+zr2502_32_R1.fastq.gz	zr2502_32_R1		E	zr2502_32_R1		17/01/2018	40							Mexico:Campeche	Estero_pargo	Impaired	no							flood	no 
+zr2502_33_R1.fastq.gz	zr2502_33_R1		E	zr2502_33_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_34_R1.fastq.gz	zr2502_34_R1		E	zr2502_34_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_35_R1.fastq.gz	zr2502_35_R1		E	zr2502_35_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_36_R1.fastq.gz	zr2502_36_R1		E	zr2502_36_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_37_R1.fastq.gz	zr2502_37_R1		E	zr2502_37_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Fringe	no							flood	si
+zr2502_38_R1.fastq.gz	zr2502_38_R1		E	zr2502_38_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_39_R1.fastq.gz	zr2502_39_R1		E	zr2502_39_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Fringe	no							flood	no 
+zr2502_4_R1.fastq.gz	zr2502_4_R1		E	zr2502_4_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Basin	no							dry	si
+zr2502_40_R1.fastq.gz	zr2502_40_R1		E	zr2502_40_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 
+zr2502_41_R1.fastq.gz	zr2502_41_R1		E	zr2502_41_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 
+zr2502_42_R1.fastq.gz	zr2502_42_R1		E	zr2502_42_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 
+zr2502_43_R1.fastq.gz	zr2502_43_R1		E	zr2502_43_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Basin	no							dry	si
+zr2502_44_R1.fastq.gz	zr2502_44_R1		E	zr2502_44_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 
+zr2502_45_R1.fastq.gz	zr2502_45_R1		E	zr2502_45_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 
+zr2502_46_R1.fastq.gz	zr2502_46_R1		E	zr2502_46_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Impaired	no							dry	si
+zr2502_47_R1.fastq.gz	zr2502_47_R1		E	zr2502_47_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Impaired	no							dry	no 
+zr2502_48_R1.fastq.gz	zr2502_48_R1		E	zr2502_48_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Impaired	no							dry	no 
+zr2502_49_R1.fastq.gz	zr2502_49_R1		E	zr2502_49_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Impaired	no							dry	si
+zr2502_5_R1.fastq.gz	zr2502_5_R1		E	zr2502_5_R1		17/01/2018	5							Mexico:Campeche	Estero_pargo	Basin	no							dry	si
+zr2502_50_R1.fastq.gz	zr2502_50_R1		E	zr2502_50_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Impaired	no							dry	no 
+zr2502_51_R1.fastq.gz	zr2502_51_R1		E	zr2502_51_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Impaired	no							dry	no 
+zr2502_52_R1.fastq.gz	zr2502_52_R1		E	zr2502_52_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Impaired	no							dry	si
+zr2502_53_R1.fastq.gz	zr2502_53_R1		E	zr2502_53_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Impaired	no							dry	no 
+zr2502_54_R1.fastq.gz	zr2502_54_R1		E	zr2502_54_R1		30/05/2018	40							Mexico:Campeche	Estero_pargo	Impaired	no							dry	no 
+zr2502_6_R1.fastq.gz	zr2502_6_R1		E	zr2502_6_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Fringe	no							dry	si
+zr2502_7_R1.fastq.gz	zr2502_7_R1		E	zr2502_7_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Fringe	no							dry	si
+zr2502_8_R1.fastq.gz	zr2502_8_R1		E	zr2502_8_R1		30/05/2018	5							Mexico:Campeche	Estero_pargo	Basin	no							dry	si
+zr2502_9_R1.fastq.gz	zr2502_9_R1		E	zr2502_9_R1		30/05/2018	20							Mexico:Campeche	Estero_pargo	Basin	no							dry	no 

@@ -1,1 +1,1 @@
-{"entries":[],"headings":["select-samples","data-preparation","remove-empty-asvs-and-singletons","rename-mangrove-system","add-mangrove-type","create-color-pallete","check-samples","save-objects-in-rds-to-next-analysis"]}
+{"headings":["select-samples","data-preparation","remove-empty-asvs-and-singletons","rename-mangrove-system","add-mangrove-type","create-color-pallete","check-samples","save-objects-in-rds-to-next-analysis"],"entries":[]}

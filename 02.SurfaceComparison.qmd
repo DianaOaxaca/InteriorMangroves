@@ -15,7 +15,54 @@ To answer this question, only samples that met the selection criteria were selec
 ## 01. Select samples
 
 ```{r}
+library(ggplot2)
+library(qiime2R)
+library(phyloseq)
+#Create phyloseq objects with qiime2 artifacts
+physeq_qiime3 <- qza_to_phyloseq(
+  features = "data/cluster_table_filter_freq218_emcEstero.qza",
+  taxonomy = "data/taxonomyEstero.qza",
+  metadata = "data/metadata14.tsv")
+```
 
+```{r}
+#Filter metadata
+# Extract metadata from phyloseq object
+metadat <- data.frame(phyloseq::sample_data(physeq_qiime3), check.names = FALSE)
+
+```
+
+```{r}
+#Filter metadata by Study_zone column
+filtered_metadat <- metadat[metadat$Study_zone %in% c("Estero_pargo", "Rio San Pedro", "Celestún"), ]
+
+```
+
+```{r}
+#Filter again by Ecological Type column, selecting Fringe parameter
+filtered_metadat2 <- filtered_metadat[filtered_metadat$Ecological_type %in% c("Fringe"), ]
+
+```
+
+```{r}
+#Filter again by season column to include all samples that were collected form a flood season
+filtered_metadat3 <- filtered_metadat2[filtered_metadat2$season %in%c("flood"),]
+
+```
+
+```{r}
+#Filter again by season column to include all samples that were collected form the surface
+filtered_metadat4 <- filtered_metadat3[filtered_metadat3$depth %in%c("0-15", "0.15", "5"),]
+```
+
+```{r}
+#Combine filtered metadata with phyloseq object to create a filtered phyloseq object
+filtered_physeq2 <- prune_samples(rownames(filtered_metadat4), physeq_qiime3)
+```
+
+```{r}
+#Save your new phyloseq object
+saveRDS(filtered_physeq2, file = "physeq_objeto_Estero.rds") 
 ```
 
 ## 02. Data preparation

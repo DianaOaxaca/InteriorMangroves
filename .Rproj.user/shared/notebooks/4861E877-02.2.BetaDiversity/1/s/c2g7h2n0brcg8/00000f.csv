@@ -1,6 +1,0 @@
-"0","# Extract data from phyloseq object"
-"0","#library(phyloseq)"
-"0","otu_data <- otu_table(physeq_qiime3, taxa_are_rows = TRUE)"
-"0","metadata <- as(sample_data(physeq_qiime3), ""data.frame"")"
-"0",""
-"0","sample_data <- data.frame(sample_data(physeq_qiime3))"

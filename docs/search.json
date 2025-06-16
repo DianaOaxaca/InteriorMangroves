@@ -519,7 +519,7 @@
     "href": "02.SurfaceComparison.html#select-samples",
     "title": "Data Prepare",
     "section": "01. Select samples",
-    "text": "01. Select samples\n## Los filtros que hizo Yaxche",
+    "text": "01. Select samples\n\nlibrary(ggplot2)\nlibrary(qiime2R)\nlibrary(phyloseq)\n#Create phyloseq objects with qiime2 artifacts\nphyseq_qiime3 &lt;- qza_to_phyloseq(\n  features = \"data/cluster_table_filter_freq218_emcEstero.qza\",\n  taxonomy = \"data/taxonomyEstero.qza\",\n  metadata = \"data/metadata14.tsv\")\n\n\n#Filter metadata\n# Extract metadata from phyloseq object\nmetadat &lt;- data.frame(phyloseq::sample_data(physeq_qiime3), check.names = FALSE)\n\n\n#Filter metadata by Study_zone column\nfiltered_metadat &lt;- metadat[metadat$Study_zone %in% c(\"Estero_pargo\", \"Rio San Pedro\", \"Celestún\"), ]\n\n\n#Filter again by Ecological Type column, selecting Fringe parameter\nfiltered_metadat2 &lt;- filtered_metadat[filtered_metadat$Ecological_type %in% c(\"Fringe\"), ]\n\n\n#Filter again by season column to include all samples that were collected form a flood season\nfiltered_metadat3 &lt;- filtered_metadat2[filtered_metadat2$season %in%c(\"flood\"),]\n\n\n#Filter again by season column to include all samples that were collected form the surface\nfiltered_metadat4 &lt;- filtered_metadat3[filtered_metadat3$depth %in%c(\"0-15\", \"0.15\", \"5\"),]\n\n\n#Combine filtered metadata with phyloseq object to create a filtered phyloseq object\nfiltered_physeq2 &lt;- prune_samples(rownames(filtered_metadat4), physeq_qiime3)\n\n\n#Save your new phyloseq object\nsaveRDS(filtered_physeq2, file = \"physeq_objeto_Estero.rds\")",
     "crumbs": [
       "Interior and coastal mangroves compare",
       "How similar are coastal and inland mangroves?",

@@ -1,5 +1,0 @@
-"0",""
-"0","#save table"
-"0","write.table(metadata_with_hill, ""Tables/SurfaceComparison/Metadata_with_hill.tsv"","
-"0","            quote = FALSE, sep = ""\t"", row.names = TRUE, col.names=TRUE)"
-"0",""
