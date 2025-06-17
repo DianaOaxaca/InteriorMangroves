@@ -165,17 +165,17 @@ df_fig_pair2_Mangrove_system <- res_pair_Mangrove_system %>%
                 `diff_Mangrove_systemCL_Mangrove_systemSPR` == 1 |
                 `diff_Mangrove_systemCL_Mangrove_systemTL` == 1) %>%
    dplyr::mutate(lfc1 = ifelse(`passed_ss_Mangrove_systemSPR` == 1 & 
-                `diff_Mangrove_systemSPR` == 1, "blue", "black"),
+                `diff_Mangrove_systemSPR` == 1, "darkblue", "black"),
                 lfc2 = ifelse(`passed_ss_Mangrove_systemTL` == 1 & 
-                `diff_Mangrove_systemTL` == 1, "#00CCFF", "black"),
+                `diff_Mangrove_systemTL` == 1, "darkblue", "black"),
                 lfc3 = ifelse(`passed_ss_Mangrove_systemCL` == 1 &
-                `diff_Mangrove_systemCL` == 1, "#00CCFF", "black"),
+                `diff_Mangrove_systemCL` == 1, "darkblue", "black"),
                 lfc4 = ifelse(`passed_ss_Mangrove_systemTL_Mangrove_systemSPR` == 1 &
-                `diff_Mangrove_systemTL_Mangrove_systemSPR` == 1, "#00CCFF", "black"),
+                `diff_Mangrove_systemTL_Mangrove_systemSPR` == 1, "darkblue", "black"),
                 lfc5 = ifelse(`passed_ss_Mangrove_systemCL_Mangrove_systemSPR` == 1 &
-                `diff_Mangrove_systemCL_Mangrove_systemSPR` == 1, "#00CCFF", "black"),
+                `diff_Mangrove_systemCL_Mangrove_systemSPR` == 1, "darkblue", "black"),
                 lfc6 = ifelse(`passed_ss_Mangrove_systemCL_Mangrove_systemTL` == 1 &
-                `diff_Mangrove_systemCL_Mangrove_systemTL` == 1, "#00CCFF", "black")) %>% 
+                `diff_Mangrove_systemCL_Mangrove_systemTL` == 1, "darkblue", "black")) %>% 
   tidyr::pivot_longer(cols = lfc1:lfc6, names_to = "group", values_to = "color") %>% dplyr::arrange(taxon)
 ```
 
@@ -220,16 +220,17 @@ mid <- (lo + up) / 2
 heatmap_fig_pair_Mangrove_system <- df_fig_pair_Mangrove_system %>%
   ggplot(aes(x = group, y = taxon, fill = value)) +
   geom_tile(color = "black") +
-  scale_fill_gradient2(low = "#37474FFF", high = "#907c9BFf", mid = "#bFD8DCFF", #a71a50
+  scale_fill_gradient2(low = "#37485FFF", high = "#907c9BFf", mid = "#cad8DCFF", #a71a50
                        na.value = "white", midpoint = mid, limit = c(lo, up),
                        name = "LFC") +
- # geom_text(aes(label = round(value, 2), color = color), size = 5, na.rm = TRUE) +
+  geom_text(aes(label = round(value, 2), color = color), size = 3.5, na.rm = TRUE) +
   scale_color_identity(guide = FALSE) +
-  labs(x = NULL, y = NULL, title = "LFC between Mangrove system comparison") +
+  labs(x = NULL, y = NULL, title = "Differential abundance between mangrove system") +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5, size = 11),
-        axis.text.y = element_text(size = 9),
-        axis.text.x = element_text(size = 8.5, angle = 45, hjust = 0.8))
+        axis.text.y = element_text(size = 9, color = "black"),
+        axis.text.x = element_text(size = 8.5, angle = 45, 
+                                   hjust = 0.8, color = "black"))
 
 # show
 print(heatmap_fig_pair_Mangrove_system)
