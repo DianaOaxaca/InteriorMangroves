@@ -219,7 +219,7 @@ mid <- (lo + up) / 2
 # heatmap
 heatmap_fig_pair_Mangrove_system <- df_fig_pair_Mangrove_system %>%
   ggplot(aes(x = group, y = taxon, fill = value)) +
-  geom_tile(color = "black") +
+  geom_tile(color = "gray50") +
   scale_fill_gradient2(low = "#37485FFF", high = "#907c9BFf", mid = "#cad8DCFF", #a71a50
                        na.value = "white", midpoint = mid, limit = c(lo, up),
                        name = "LFC") +
@@ -227,10 +227,10 @@ heatmap_fig_pair_Mangrove_system <- df_fig_pair_Mangrove_system %>%
   scale_color_identity(guide = FALSE) +
   labs(x = NULL, y = NULL, title = "Differential abundance between mangrove system") +
   theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5, size = 11),
-        axis.text.y = element_text(size = 9, color = "black"),
-        axis.text.x = element_text(size = 8.5, angle = 45, 
-                                   hjust = 0.8, color = "black"))
+  theme(plot.title = element_text(hjust = 0.5, size = 13),
+        axis.text.y = element_text(size = 12, color = "black"),
+        axis.text.x = element_text(size = 9, angle = 0, 
+                                   hjust = 0.5, color = "black"))
 
 # show
 print(heatmap_fig_pair_Mangrove_system)

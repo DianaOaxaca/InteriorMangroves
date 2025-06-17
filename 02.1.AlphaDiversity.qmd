@@ -194,7 +194,7 @@ q0plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q0, fill = Man
           color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "q0 = Observed", y = NULL, x = NULL) + #,
   #caption = "letters by lm emmeans") +
-  theme_bw() + scale_fill_manual(values = loc_colors) +
+  theme_classic() + scale_fill_manual(values = loc_colors) +
   theme(legend.position = "none", axis.text.x = element_blank())
 ```
 
@@ -227,7 +227,7 @@ q1plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system , y = q1, fill = Ma
   geom_text(data = q1_emmeans_df, aes(y = emmean, label = .group), vjust = -5,
           color = "black", fontface = "bold", position = position_dodge(0.9)) +   labs(title = "q1 = Exp Shannon", y = NULL, x = NULL) + #,
   #caption = "letters by lm emmeans") +
-  theme_bw() + scale_fill_manual(values = loc_colors) +
+  theme_classic() + scale_fill_manual(values = loc_colors) +
   theme(legend.position = "none", axis.text.x = element_blank())
 ```
 
@@ -261,7 +261,7 @@ q2plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q2, fill = Man
             color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "q2 = Inv Simpson", y = NULL, x = NULL,
   caption = "letters by lm emmeans") +
-  theme_bw() + scale_fill_manual(values = loc_colors) +
+  theme_classic() + scale_fill_manual(values = loc_colors) +
   theme(legend.position = "none")
 ```
 

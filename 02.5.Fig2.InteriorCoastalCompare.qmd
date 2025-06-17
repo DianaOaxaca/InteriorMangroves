@@ -28,12 +28,14 @@ dahm <- readRDS("rds/compare_mangroves/DA_heatmap_surface.rds")
 ```{r}
 #| message: false
 #| warning: false
-beta_core <- plot_grid(beta, core, labels = c("B", "C)"),
-                        ncol = 2, rel_widths = c(1, 1.1))
-beta_core_da <- plot_grid(beta_core, dabar, labels = c("", "D)"),
+beta_core <- plot_grid(beta, core, labels = c("B", "D)"),
+                        label_fontface = "bold",
                         ncol = 1, rel_heights = c(0.8, 1))
+beta_core_da <- plot_grid(beta_core, dahm, labels = c("", "C)"),
+                        label_fontface = "bold",
+                        ncol = 2, rel_widths = c(1, 0.9))
 alpha_beta_core_da_2 <- plot_grid(alpha, beta_core_da,
-                        ncol = 2, rel_widths = c(0.3, 0.9))
+                        ncol = 2, rel_widths = c(0.35, 1))
 alpha_beta_core_da_2
 ```
 

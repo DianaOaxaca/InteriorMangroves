@@ -91,7 +91,7 @@ nmds_plot_bray <- ggplot() +
         legend.text = element_text(size = 10),
         legend.title = element_text(size = 12),
         legend.position = "right",
-        legend.box = "vertical")+ theme_bw() +
+        legend.box = "vertical")+ theme_classic() +
   labs(title="Bray-Curtis distances") +
   ylab("NMDS2")+xlab("NMDS1")
 
