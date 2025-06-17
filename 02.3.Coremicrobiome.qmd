@@ -12,6 +12,8 @@ title: "Core microbiome"
 library(phyloseq)
 library(dplyr)
 library(UpSetR)
+library(ggplot2)
+library(ggalluvial)
 ```
 
 ```{r}
@@ -334,8 +336,83 @@ print(head(taxonomy_unique_df))
 write.csv(taxonomy_unique_df, file = "Tables/SurfaceComparison/unique_asvs_taxonomy.csv", row.names = FALSE)
 ```
 
+## 06. Get core taxonomy
+
+```{r}
+shared_asvs <- Reduce(intersect, core_list)
+print(shared_asvs)
+```
+
+```{r}
+shared_taxonomy <- get_taxonomy(shared_asvs)
+print(shared_taxonomy)
+```
+
+```{r}
+shared_family <- unique(shared_taxonomy$Family[!is.na(shared_taxonomy$Family)])
+print(shared_family)
+```
+
+```{r}
+shared_phyla <- unique(shared_taxonomy$Phylum[!is.na(shared_taxonomy$Phylum)])
+print(shared_phyla)
+```
+
+## 07. Relative abundance of core asv
+
+```{r}
+# Filter
+physeq_shared <- prune_taxa(shared_asvs, physeq_qiime3)
+otu_table(physeq_shared)
+
+# rel abundance
+physeq_rel <- transform_sample_counts(physeq_shared, function(x){x / sum(x)})
+otu_table(physeq_shared)
+```
+
+```{r}
+#| warning: false
+# Aggregate data by Mangrove_system
+physeq_agg <- merge_samples(physeq_rel, "Mangrove_system")
+
+# Convert to relative abundance
+physeq_agg_rel <- transform_sample_counts(physeq_agg, function(x) x / sum(x))
+
+# Map Mangrove_type back as a simple vector
+sample_data(physeq_agg_rel)$Mangrove_type <- unlist(sapply(sample_names(physeq_agg_rel), function(sys) {
+  unique(sample_data(physeq_rel)[sample_data(physeq_rel)$Mangrove_system == sys, "Mangrove_type"])[1]
+}))
+```
+
+```{r}
+# Create the bar plot with facet by Mangrove_type
+barplot_core <- phyloseq::plot_bar(physeq_agg_rel, fill = "Family") +
+    geom_bar(aes(color = Family, fill = Family), stat = "identity", position = "stack") +
+    labs(x = "", y = "Relative Abundance", element_text(size = 9)) +
+    facet_wrap(~ Mangrove_type, scales = "free_x", nrow = 1) +
+    scale_fill_manual(values = c("#2B0082", "#54278F", "#724BB1", "#706AF5", "#706BB1", "#BCBDDC", "#DADAEB")) +
+    scale_color_manual(values = c("#2B0082", "#54278F", "#724BB1", "#706AF5", "#706BB1", "#BCBDDC", "#DADAEB")) +
+  theme(axis.text = element_text(colour = "black", size = 10),
+        axis.title = element_text(colour = "black", size = 10),
+        legend.text = element_text(size = 9),
+        legend.title = element_text(size = 10),
+        axis.text.x = element_text(size = 9, angle = 0, 
+                        hjust = 0.5, color = "black"),
+      axis.text.y = element_text(size = 9, color = "black"),
+      #strip.background = element_blank(),
+      panel.background = element_blank())
+
+barplot_core
+```
+
+```{r}
+pdf("Figures/SurfaceComparison/rel_abun_core.pdf")
+barplot_core
+dev.off()
+```
+
 ## Save rds core plot
 
 ```{r}
-saveRDS(upset_plot, "Figures/SurfaceComparison/upset_surface_plot.rds")
+saveRDS(upset_plot, "rds/compare_mangroves/upset_surface_plot.rds")
 ```
