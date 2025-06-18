@@ -388,18 +388,19 @@ sample_data(physeq_agg_rel)$Mangrove_type <- unlist(sapply(sample_names(physeq_a
 # Create the bar plot with facet by Mangrove_type
 barplot_core <- phyloseq::plot_bar(physeq_agg_rel, fill = "Family") +
     geom_bar(aes(color = Family, fill = Family), stat = "identity", position = "stack") +
-    labs(x = "", y = "Relative Abundance", element_text(size = 9)) +
+    labs(x = "", y = "Relative Abundance", element_text(size = 12)) +
     facet_wrap(~ Mangrove_type, scales = "free_x", nrow = 1) +
-    scale_fill_manual(values = c("#2B0082", "#54278F", "#724BB1", "#706AF5", "#706BB1", "#BCBDDC", "#DADAEB")) +
-    scale_color_manual(values = c("#2B0082", "#54278F", "#724BB1", "#706AF5", "#706BB1", "#BCBDDC", "#DADAEB")) +
-  theme(axis.text = element_text(colour = "black", size = 10),
-        axis.title = element_text(colour = "black", size = 10),
-        legend.text = element_text(size = 9),
-        legend.title = element_text(size = 10),
+    scale_fill_manual(values = c("#2B0082", "#706AF5", "#77178F",  "#bfaDDC", "#724BB1", "#DADAEB")) +
+    scale_color_manual(values = c("#2B0082", "#706AF5", "#77178F",  "#bfaDDC", "#724BB1", "#DADAEB")) + # #716EC1
+  theme(axis.text = element_text(colour = "black", size = 12),
+        axis.title = element_text(colour = "black", size = 12),
+        legend.text = element_text(size = 12),
+        legend.title = element_text(size = 11),
         axis.text.x = element_text(size = 9, angle = 0, 
                         hjust = 0.5, color = "black"),
-      axis.text.y = element_text(size = 9, color = "black"),
-      #strip.background = element_blank(),
+      axis.text.y = element_text(size = 11, color = "black"),
+      strip.text = element_text(size = 14, 
+                                color = "black"), #face = "bold"
       panel.background = element_blank())
 
 barplot_core
@@ -409,6 +410,13 @@ barplot_core
 pdf("Figures/SurfaceComparison/rel_abun_core.pdf")
 barplot_core
 dev.off()
+```
+Extract relative abundance info
+
+```{r}
+otu_rel_df <- psmelt(physeq_agg_rel)
+otu_rel_df_agg <- aggregate(Abundance ~ Sample + Family, data = otu_rel_df, sum)
+print(otu_rel_df_agg)
 ```
 
 ## Save rds core plot
