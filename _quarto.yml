@@ -56,6 +56,19 @@ website:
                   - 02.3.Coremicrobiome.qmd
                   - 02.4.DifferentialAbundance.qmd
                   - 02.5.Fig2.InteriorCoastalCompare.qmd
+      - section: "Interior mangroves explore"
+        href: 03.InteriorMangroves.qmd
+        contents:
+          - section: "What makes inland mangroves different and unique?"
+            contents:
+              - 03.1.RelativeAbundances.qmd
+              - 03.2.AlphaDiversity.qmd
+              - 03.3.BetaDiversity.qmd
+              - 03.4.Coremicrobiome.qmd
+              - 03.5.DifferentialAbundance.qmd
+              - 03.6.MetabolicInference.qmd
+              - 03.7.Fig3.InteriorMangroves.qmd
+
 
 
 format:

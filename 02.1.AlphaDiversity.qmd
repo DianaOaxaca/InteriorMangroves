@@ -130,7 +130,6 @@ pdf("Figures/SurfaceComparison/sample_effort.pdf")
 system.time(rarecurve(mat, step = 100, sample = raremax, col = "green4", 
                       label = FALSE))
 dev.off()
-
 ```
 
 ## 04. Get significant differences
@@ -174,7 +173,7 @@ q0_lm_means <- emmeans(q0lm, pairwise ~ Mangrove.system)
 #library(multcomp)
 cld_results <- cld(object = q0_lm_means$emmeans, Letters = letters)
 
-# Convertir a data frame
+# Convert to data frame
 q0_emmeans_df <- as.data.frame(cld_results)
 q0_emmeans_df
 
