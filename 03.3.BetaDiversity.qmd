@@ -1,3 +1,738 @@
 ---
 title: "Beta diversity"
 ---
+
+# Load libraries and prepare data
+
+```{r}
+#| label: libraries
+#| message: false
+#| warning: false
+#Load libraries
+library(vegan)
+library(phyloseq)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(pairwiseAdonis)
+library(reshape2)
+library(ggpubr)
+library(cowplot)
+```
+
+```{r}
+#load data
+ps <- readRDS("rds/interior_mangroves/phyloseq.rds")
+```
+
+```{r}
+# Extract data from phyloseq object
+#library(phyloseq)
+otu_data <- otu_table(ps, taxa_are_rows = TRUE)
+metadata <- as(sample_data(ps), "data.frame")
+sample_data <- data.frame(sample_data(ps))
+```
+
+```{r}
+# color pallet
+depth_colors <- c("0-15" = "#f5e5c4",
+                 "16-30" = "#baa179",
+                 "31-45" = "#a67451",
+                 "50-75" = "#80673b")
+
+loc_colors <- c("Fossil Lagoon"= "#A3D9A8",
+                "Reforma Waterfalls" = "#44C17B",
+                "Miguelito Dike" = "#2E8B57")
+```
+
+# 01. Weighted Unifrac
+
+## 01.1 All samples
+
+### 01.1.1 Get distances and stress
+
+```{r}
+# NMDS wu
+set.seed(123)
+nmds_wunifrac <- ordinate(ps, method = "NMDS", distance = "wunifrac")
+
+# stress variable
+var_stress_nmds_wu <- round(nmds_wunifrac$stress, 5)
+var_stress_nmds_wu
+```
+
+### 01.1.2 Plot
+
+```{r}
+#| message: false
+#| warning: false
+# Convert Depth to factor 
+sample_data(ps)$Depths <- factor(sample_data(ps)$Depths, levels = c("0-15", "16-30", "31-45", "50-75"))
+
+#plot
+nmds_wu <- plot_ordination(ps, nmds_wunifrac, color = "Depths") + theme_classic() + 
+  labs(col = "Depth") + 
+  labs(title="Weighted UniFrac") +
+  geom_point(size=5) +
+    scale_fill_manual(values = depth_colors)+ 
+    scale_color_manual(values = depth_colors)
+
+nmds_wu <- nmds_wu +
+  annotate("text", x = Inf, y = -Inf, label = paste("Stress:", var_stress_nmds_wu),
+           hjust = 1.1, vjust = -1.1, size = 4)
+
+#show
+nmds_wu
+```
+
+### 01.1.3 PERMANOVA
+
+::: callout-note
+To test the effects of Depth and Location on the Weighted Unifrac dissimilarity, a PERMANOVA analysis was conducted using adonis2.
+:::
+
+```{r}
+# UniFrac
+wunifrac_distances <- UniFrac(ps, weighted = TRUE)
+
+# Convert distances 'dist' class
+wunifrac_distances <- as.dist(wunifrac_distances)
+
+# PERMANOVA 
+set.seed(123)
+adonis2_wunifrac <- adonis2(
+  wunifrac_distances ~ Depths + Location,
+  data = metadata,
+  permutations = 999,
+  strata = metadata$ID,
+  by = "terms")
+
+# Results
+perm_results <- data.frame(
+  Term = c("Depth_cm", "Location", "Residual"),
+  R2 = c(adonis2_wunifrac$R2[1], adonis2_wunifrac$R2[2], adonis2_wunifrac$R2[3]),
+  p_value = c(adonis2_wunifrac$`Pr(>F)`[1], adonis2_wunifrac$`Pr(>F)`[2], NA))
+
+perm_results
+
+# PERMANOVA text
+perm_text <- paste(
+  "PERMANOVA:",
+  paste("Depths: R² =", round(perm_results$R2[1], 3), ", p =", perm_results$p_value[1]),
+  paste("Location: R² =", round(perm_results$R2[2], 3), ", p =", perm_results$p_value[2]),
+  paste("Residual: R² =", round(perm_results$R2[3], 3)),
+  sep = "\n")
+```
+
+### 01.1.4 Plot with permanova
+
+```{r}
+#| warning: false
+
+# add to plot
+nmds_wu <- nmds_wu +
+  annotate(
+    "text", x = Inf, y = Inf, label = perm_text,
+    hjust = 1.1, vjust = 1.6, size = 3, color = "black"
+  )
+
+# Mostrar el gráfico
+nmds_wu
+```
+
+```{r}
+ggsave("Figures/interior_mangroves/nmds_wunifrac_all.pdf", nmds_wu, width = 20, height = 15, units = "cm")
+```
+
+## 01.2 Surface and deep samples
+
+### 01.2.1 Filter depths
+
+```{r}
+# Filter data 0-15 y 50-75
+sample_data(ps)$Depths_fltr <- factor(sample_data(ps)$Depths, levels = c("0-15", "50-75"))
+
+ps_fltr <- prune_samples(sample_data(ps)$Depths_fltr %in% c("0-15", "50-75"), ps)
+
+metadata_fltr <- as(sample_data(ps_fltr), "data.frame")
+```
+
+### 01.2.2 Get distances and stress
+
+```{r}
+# Distances
+set.seed(123)
+nmds_wunifrac_fltr <- ordinate(ps_fltr, method = "NMDS", distance = "wunifrac")
+
+# stress
+var_stress_nmds_wu_fltr <- round(nmds_wunifrac_fltr$stress, 5)
+```
+
+### 01.2.3 NMDS plot
+
+```{r}
+# Plot NMDS
+nmds_wu_fltr <- plot_ordination(ps_fltr, nmds_wunifrac_fltr, color = "Depths") + 
+  theme_classic() + 
+  labs(col = "Depths") + 
+  labs(title = "Weighted UniFrac") +
+  geom_point(size = 5) +
+  scale_fill_manual(values = depth_colors) + 
+  scale_color_manual(values = depth_colors)
+
+# add stress
+nmds_wu_fltr <- nmds_wu_fltr +
+  annotate("text", x = Inf, y = -Inf, label = paste("Stress:", var_stress_nmds_wu_fltr),
+           hjust = 1.1, vjust = -1.2, size = 3)
+```
+
+### 01.2.4 PERMANOVA
+
+```{r}
+# UniFrac distances
+wunifrac_distances_fltr <- UniFrac(ps_fltr, weighted = TRUE)
+
+# Convert 'dist' class
+wunifrac_distances_fltr <- as.dist(wunifrac_distances_fltr)
+
+# PERMANOVA 
+set.seed(123)
+adonis2_wunifrac_fltr <- adonis2(
+  wunifrac_distances_fltr ~ Depths_fltr + Location,
+  data = metadata_fltr,
+  permutations = 999,
+  strata = metadata_fltr$ID,
+  by = "terms")
+
+# Results
+perm_results_fltr <- data.frame(
+  Term = c("Depth_cm", "Location", "Residual"),
+  R2 = c(adonis2_wunifrac_fltr$R2[1], adonis2_wunifrac_fltr$R2[2], adonis2_wunifrac_fltr$R2[3]),
+  p_value = c(adonis2_wunifrac_fltr$`Pr(>F)`[1], adonis2_wunifrac_fltr$`Pr(>F)`[2], NA))
+
+perm_results_fltr
+
+# PERMANOVA text
+perm_text_fltr <- paste(
+  "PERMANOVA:",
+  paste("Depths: R² =", round(perm_results_fltr$R2[1], 3), ", p =", perm_results_fltr$p_value[1]),
+  paste("Location: R² =", round(perm_results_fltr$R2[2], 3), ", p =", perm_results_fltr$p_value[2]), sep = "\n")
+```
+
+### 01.2.5 Post-hoc adonis
+
+::: callout-note
+To test differences between the Mangrove systems a Post-hoc pairwise PERMANOVA was conducted using pairwise.adonis
+:::
+
+### 01.2.6 Pairwise adonis
+
+```{r}
+## Post-hoc Depths
+# Pairwise PERMANOVA  Weighted UniFrac
+set.seed(123)
+pairwise_adonis_fltr <- pairwiseAdonis::pairwise.adonis2(
+  wunifrac_distances_fltr ~ Depths_fltr,
+  data = metadata_fltr,
+  permutations = 999)
+
+# show
+pairwise_adonis_fltr
+
+# Extract pairwise adonis results
+pairwise_text_fltr <- paste(
+  "Pairwise PERMANOVA Depths:",
+  paste("R² =", round(pairwise_adonis_fltr$`0-15_vs_50-75`$R2[1], 3), 
+        ", p =", pairwise_adonis_fltr$`0-15_vs_50-75`$`Pr(>F)`[1]),
+  sep = "\n")
+```
+
+### 01.2.7 Beta disper
+
+::: callout-important
+Given the pairwise PERMANOVA showed a highly significant result (p = 0.001), it is prudent to calculate the beta dispersion to validate that this result reflects real differences in microbial community composition between “0-15” and “50-75,” and not just differences in variability within each depth. In addition, R² = 0.346 indicates a moderate effect, but the 65.4% residual variance suggests unexplained variability, which could include differences in dispersion.
+:::
+
+```{r}
+# Beta disp
+beta_disp_fltr <- betadisper(wunifrac_distances_fltr, metadata_fltr$Depths_fltr)
+
+# Significant test
+anova_beta_disp_fltr <- anova(beta_disp_fltr)
+anova_beta_disp_fltr
+
+# Show dispersion by group
+beta_disp_fltr$group.distances
+
+# boxplot betadisper
+beta_data_fltr <- data.frame(
+  Group = metadata_fltr$Depths_fltr,
+  Distance_to_centroid = beta_disp_fltr$distances
+)
+beta_plot_fltr <- ggplot(beta_data_fltr, aes(x = Group, y = Distance_to_centroid, fill = Group)) +
+  geom_boxplot() +
+  scale_fill_manual(values = depth_colors) +
+  labs(title = "Betadisper by depth wUniFrac") +
+  theme_classic()
+
+#show
+beta_plot_fltr
+```
+
+Save boxplot
+
+```{r}
+ggsave("Figures/interior_mangroves/Betadisper_depth.pdf", beta_plot_fltr, bg='transparent', width = 4, height = 4.5)
+```
+
+### 01.2.8 Plot with PERMANOVA, pairwise PERMANOVA and Betadisper
+
+```{r}
+# add betadisper p-value text
+beta_text_fltr <- paste("Betadisper p-value:", round(anova_beta_disp_fltr$`Pr(>F)`[1], 3))
+```
+
+```{r}
+#| warning: false
+# Añadir texto de PERMANOVA y dispersión beta
+nmds_wu_fltr <- nmds_wu_fltr +
+  annotate(
+    "text", x = Inf, y = Inf, 
+    label = paste(perm_text_fltr, pairwise_text_fltr, beta_text_fltr, sep = "\n"),
+    hjust = 1.1, vjust = 1.2, size = 3, color = "black")
+nmds_wu_fltr
+```
+
+save
+
+```{r}
+ggsave("Figures/interior_mangroves/NMDS_wu_depth.pdf", nmds_wu_fltr, bg='transparent', width = 6, height = 4.5)
+```
+
+# 02. Unweighted UniFrac
+
+## 02.1 Get distances and stress
+
+```{r}
+## Unweighted UniFrac
+nmds_unifrac <- ordinate(ps, method = "NMDS", distance = "unifrac")
+# stress variable
+var_stress_nmds_u <- round(nmds_unifrac$stress, 5)
+var_stress_nmds_u
+```
+
+## 02.2 NMDS
+
+```{r}
+# Reorder 'Location'
+sample_data(ps)$Location <- factor(sample_data(ps)$Location, levels = c("Fossil Lagoon", "Reforma Waterfalls", "Miguelito Dike"))
+
+# NMDS
+nmds_u <- plot_ordination(ps, nmds_unifrac, color = "Location") + 
+  theme_classic() + 
+  labs(col = "Location", title = "Unweighted UniFrac") +
+  geom_point(size = 5) +
+  scale_fill_manual(values = loc_colors) + 
+  scale_color_manual(values = loc_colors) +
+  annotate("text", x = Inf, y = -Inf, label = paste("Stress:", var_stress_nmds_u),
+           hjust = 1.1, vjust = -1.3, size = 3)
+```
+
+## 02.3 PERMANOVA
+
+```{r}
+# UniFrac distances
+unifrac_distances <- UniFrac(ps, weighted = FALSE)
+
+# Convert 'dist' class
+unifrac_distances <- as.dist(unifrac_distances)
+
+# PERMANOVA 
+set.seed(123)
+adonis2_unifrac <- adonis2(
+  unifrac_distances ~ Location + Depths,
+  data = metadata,
+  permutations = 999,
+  strata = metadata$ID,
+  by = "terms")
+
+# Results
+perm_results <- data.frame(
+  Term = c("Location","Depths", "Residual"),
+  R2 = c(adonis2_unifrac$R2[1], adonis2_unifrac$R2[2], adonis2_unifrac$R2[3]),
+  p_value = c(adonis2_unifrac$`Pr(>F)`[1], adonis2_unifrac$`Pr(>F)`[2], NA))
+
+perm_results
+
+# PERMANOVA text
+perm_text <- paste(
+  "PERMANOVA:",
+  paste("Location: R² =", round(perm_results$R2[1], 3), ", p =", perm_results$p_value[1]),
+  paste("Depths: R² =", round(perm_results$R2[2], 3), ", p =", perm_results$p_value[2]), sep = "\n")
+```
+
+## 02.4 Post-hoc adonis
+
+::: callout-important
+To test differences between the Mangrove systems a Post-hoc pairwise PERMANOVA was conducted using pairwise.adonis
+:::
+
+## 02.5 Pairwise adonis
+
+```{r}
+## Post-hoc Location
+# Pairwise PERMANOVA  Weighted UniFrac
+set.seed(123)
+pairwise_adonis_u <- pairwiseAdonis::pairwise.adonis2(
+  unifrac_distances ~ Location + Depths,
+  data = metadata,
+  permutations = 999)
+
+# show
+pairwise_adonis_u
+```
+
+## 02.6 Extract p-values
+
+```{r}
+# Define abbrevs
+location_abbrevs <- c(
+  "Miguelito Dike" = "MD",
+  "Reforma Waterfalls" = "RW",
+  "Fossil Lagoon" = "FL")
+
+# Extract values
+locations <- unique(metadata$Location)
+p_matrix <- matrix(NA, nrow = length(locations), ncol = length(locations),
+                   dimnames = list(locations, locations))
+r2_matrix <- matrix(NA, nrow = length(locations), ncol = length(locations),
+                    dimnames = list(locations, locations))
+
+for (comp in names(pairwise_adonis_u)[-1]) {  # Exclude 'parent_call'
+  pair <- strsplit(comp, "_vs_")[[1]]
+  loc1 <- pair[1]
+  loc2 <- pair[2]
+  p_matrix[loc1, loc2] <- pairwise_adonis_u[[comp]]$`Pr(>F)`[1]
+  p_matrix[loc2, loc1] <- pairwise_adonis_u[[comp]]$`Pr(>F)`[1]  # Simetric
+  r2_matrix[loc1, loc2] <- pairwise_adonis_u[[comp]]$R2[1]
+  r2_matrix[loc2, loc1] <- pairwise_adonis_u[[comp]]$R2[1]  # Sim
+}
+diag(p_matrix) <- 1  # p-value = 1 
+diag(r2_matrix) <- 0  # R² = 0 
+
+# abbrevs in matrix
+abbrev_locations <- location_abbrevs[locations]
+names(abbrev_locations) <- NULL
+dimnames(p_matrix) <- list(abbrev_locations, abbrev_locations)
+dimnames(r2_matrix) <- list(abbrev_locations, abbrev_locations)
+
+# Convert to long format
+p_melt <- melt(p_matrix, na.rm = TRUE)
+colnames(p_melt) <- c("Location1", "Location2", "p_value")
+r2_melt <- melt(r2_matrix, na.rm = TRUE)
+colnames(r2_melt) <- c("Location1", "Location2", "R2")
+
+```
+
+## 02.7 Heatmap
+
+```{r}
+# Heatmap of p-values
+heatmap_plot_p <- ggplot(p_melt, aes(x = Location1, y = Location2, fill = p_value)) +
+  geom_tile(color = "gray40") +
+  scale_fill_gradient2(low = "white", mid = "white", high = "gray40",
+                       midpoint = 0.025, limits = c(0, 1),
+                       name = "p-value") +
+  geom_text(aes(label = sprintf("%.3f", p_value)), color = "black", size = 3) +
+  theme_minimal() +
+  labs(title = "Pairwise PERMANOVA Unweighted UniFrac", y = "Location") +
+  theme(axis.text.x = element_blank(),  # Ocult axis x
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size = 12),
+        plot.title = element_text(size = 12))
+
+# Heatmap de R²
+heatmap_plot_r2 <- ggplot(r2_melt, aes(x = Location1, y = Location2, fill = R2)) +
+  geom_tile(color = "gray40") +
+  scale_fill_gradient(low = "white", high = "gray40",
+                      name = "R²") +
+  geom_text(aes(label = sprintf("%.3f", R2)), color = "black", size = 3) +
+  theme_minimal() +
+  labs(title = NULL,
+       x = "Location", y = "Location") +
+  theme(axis.text.x = element_text(angle = 0, hjust = 1, size = 12),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 12))
+
+# join cowplot
+combined_heatmap <- plot_grid(
+  heatmap_plot_p, heatmap_plot_r2,
+  nrow = 2, align = "v", axis = "lr"
+)
+
+# show
+combined_heatmap
+```
+
+save
+
+```{r}
+ggsave("Figures/interior_mangroves/pairwiseheatmap.pdf", combined_heatmap, bg='transparent', width = 4, height = 4.5)
+```
+
+## 02.8 Beta disper
+
+::: callout-important
+Given the pairwise PERMANOVA showed a highly significant results, it is prudent to calculate the beta dispersion to validate that this result reflects real differences in microbial community composition between mangrove location and not just differences in variability within mangrove site.
+:::
+
+```{r}
+# Beta disp
+beta_disp_u <- betadisper(unifrac_distances, metadata$Location)
+anova_beta_disp_u <- anova(beta_disp_u)
+
+# Show dispersion by group
+beta_disp_u$group.distances
+
+# boxplot betadisper
+beta_data <- data.frame(
+  Group = metadata$Location,
+  Distance_to_centroid = beta_disp_u$distances
+)
+beta_plot <- ggplot(beta_data, aes(x = Group, y = Distance_to_centroid, fill = Group)) +
+  geom_boxplot() +
+  scale_fill_manual(values = loc_colors) +
+  labs(title = "Betadisper by location wUniFrac") +
+  theme_classic()
+
+#show
+beta_plot
+```
+
+```{r}
+ggsave("Figures/interior_mangroves/Betadisper_location.pdf", beta_plot, bg='transparent', width = 5.5, height = 4)
+```
+
+## 02.9 Plot with PERMANOVA, pairwise PERMANOVA and Betadisper
+
+```{r}
+beta_text <- paste("Betadisper, p-value:", 
+                   round(anova_beta_disp_u$`Pr(>F)`[1], 3))
+```
+
+```{r}
+#| warning: false
+# Add texts to NMDS
+nmds_u <- nmds_u +
+  annotate(
+    "text", x = Inf, y = Inf, 
+    label = paste(perm_text, beta_text, sep = "\n"),
+    hjust = 1.1, vjust = 1.2, size = 3, color = "black"
+  )
+```
+
+Save
+
+```{r}
+ggsave("Figures/interior_mangroves/NMDS_u_location.pdf", nmds_u, bg='transparent', width = 6, height = 4.5)
+```
+
+# 03. dbRDA
+
+## 03.1 Load an prepare data
+
+```{r}
+# read data
+phychem <- read.csv("data/physicochemists.csv", stringsAsFactors = FALSE)
+
+# Rename specific levels
+phychem <- phychem %>%
+  mutate(`Locality` = case_when(
+    Locality == "El Cacahuate" ~ "Fossil Lagoon",
+    Locality == "La Piedad" ~ "Reforma Waterfalls",
+    Locality == "Dique Miguelito" ~ "Miguelito Dike",
+    TRUE ~ Locality))
+
+# extract intersticial samples 30 cm
+ps_phychem30cm <- prune_samples(sample_data(ps)$Depths == "31-45", ps)
+
+# Extract metadata from filter object
+metadata_phychem30cm <- as.data.frame(sample_data(ps_phychem30cm))
+
+# convert to data frame
+metadata_phychem30cm_df <- data.frame(as(sample_data(ps_phychem30cm), 
+                                         "data.frame"))
+# join
+combined_metadata <- merge(metadata_phychem30cm_df, phychem,
+                           by = "Sample", all.x = TRUE)
+
+# rownames
+rownames(combined_metadata) <- combined_metadata$Sample
+
+# Convert to sample_data
+sample_data_combined <- sample_data(combined_metadata)
+
+# save into phyloseq object
+sample_data(ps_phychem30cm) <- sample_data_combined
+```
+
+## 03.2 Get distances
+
+```{r}
+# Calcular las distancias Unifrac no ponderadas
+unifrac_distances_phychem30cm<- distance(ps_phychem30cm, method = "unifrac", weighted = FALSE)
+```
+
+## 03.3 Calculate dbRDA
+
+```{r}
+# Convert distance matrix to vegdist object
+unifrac_vegdist_phychem30cm <- as.dist(unifrac_distances_phychem30cm)
+
+# db-RDA
+dbrda_result <- capscale(unifrac_vegdist_phychem30cm ~ Temperature...C. + 
+                           Salinity..ppm. + pH + Redox.mV..Eh. + 
+                           S.2..mg.l. + SO....mg.l., data = phychem)
+
+# summary
+summary(dbrda_result)
+```
+
+## 03.4 Get significance
+
+```{r}
+# Significance
+anova_axes <- anova(dbrda_result, by = "axis", 
+                    permutations = 999)
+anova_axes
+
+# Significance by variable
+anova_terms <- anova(dbrda_result, by = "terms", 
+                     permutations = 999)
+
+anova_terms
+```
+
+```{r}
+# variance by each axis
+summary(dbrda_result)$cont$importance
+```
+
+## 03.5 PERMANOVA
+
+```{r}
+# PERMANOVA
+set.seed(123)
+permanova_result <- adonis2(unifrac_distances_phychem30cm ~ Temperature...C. + Salinity..ppm. + pH +
+Redox.mV..Eh. + S.2..mg.l. + SO....mg.l., 
+data = phychem, by="terms", permutations = 999)
+
+# show
+permanova_result
+```
+
+## 03.6 PERMANOVA Plot
+
+```{r}
+# Extract PERMANOVA results
+permanova_df <- data.frame(
+  Variable = rownames(permanova_result)[1:(nrow(permanova_result)-2)],
+  R2 = permanova_result$R2[1:(nrow(permanova_result)-2)],
+  p_value = permanova_result$`Pr(>F)`[1:(nrow(permanova_result)-2)])
+
+# names
+var_abbrevs <- c(
+  "Temperature...C." = "Temperature",
+  "Salinity..ppm." = "Salinity",
+  "pH" = "pH",
+  "Redox.mV..Eh." = "Redox",
+  "S.2..mg.l." = "S2",
+  "SO....mg.l." = "Sulfates")
+
+permanova_df$Variable <- var_abbrevs[permanova_df$Variable]
+```
+
+```{r}
+# plot
+permanova_plot <- ggplot(permanova_df, aes(x = Variable, 
+                        y = R2, fill = p_value < 0.05)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("TRUE" = "cyan4", "FALSE" = "gray80"), 
+                labels = c("TRUE" = "p < 0.05", "FALSE" = "p ≥ 0.05")) +
+  labs(x = "Environmental variable", 
+       y = "R² Proportion of Variance Explained", 
+       fill = "Significance") +
+  theme_classic() +
+  theme(
+    axis.text = element_text(size = 9),
+    axis.title = element_text(size = 12),
+    legend.text = element_text(size = 12),
+    legend.title = element_text(size = 12),
+    plot.title = element_text(size = 12))
+
+# show
+permanova_plot
+```
+
+```{r}
+ggsave("Figures/interior_mangroves/Physicochemyc_Significance.pdf", permanova_plot, bg='transparent', width = 5.7, height = 4)
+```
+
+## 03.7 dbRDA Plot
+
+```{r}
+#| warning: false
+# Extract site scores
+scores_samples <- scores(dbrda_result, display = "sites")
+
+# Convert to data.frame
+scores_df <- data.frame(scores_samples, Location = phychem$Locality)
+
+# Extra environmental scores
+env_scores <- scores(dbrda_result, display = "bp")
+env_scores_df <- data.frame(env_scores)
+env_scores_df$Variable <- rownames(env_scores_df)
+
+# Explain variance percentage
+explained_var <- summary(dbrda_result)$cont$importance[2, 1:2] * 100  # CAP1 and CAP2
+
+#plot
+capphychem_plot <- ggplot(scores_df, aes(x = CAP1, y = CAP2, 
+  color = Location)) + geom_point(size = 5) + theme_classic() +  
+  labs(
+    col = "Location",
+    title = "db-RDA Unweighted UniFrac",
+    x = paste0("CAP1 (", round(explained_var[1], 1), "%)"),
+    y = paste0("CAP2 (", round(explained_var[2], 1), "%)")
+  ) +
+  scale_color_manual(values = loc_colors) +  
+  geom_segment(data = env_scores_df, aes(
+    x = 0, y = 0, xend = CAP1, yend = CAP2),
+               arrow = arrow(length = unit(0.15, "cm")), 
+    color = "gray20", size = 0.6) +
+  # environmental variables
+  geom_text(data = env_scores_df, aes(x = CAP1 * 1.1, 
+                            y = CAP2 * 1.1, label = Variable),
+            color = "black", size = 3.5) +
+  theme(legend.position = "right")
+
+capphychem_plot
+```
+
+```{r}
+#save
+ggsave("Figures/interior_mangroves/dbRDA.pdf", capphychem_plot, width = 6, height = 4)
+```
+
+# Save rds plots
+
+```{r}
+#| warning: false
+# save plots
+nmds_u
+nmds_wu_fltr
+
+saveRDS(nmds_u, "rds/interior_mangroves/nmds_u.rds")
+saveRDS(nmds_wu_fltr, "rds/interior_mangroves/nmds_wu.rds")
+saveRDS(capphychem_plot, "rds/interior_mangroves/dbRDA.rds")
+```

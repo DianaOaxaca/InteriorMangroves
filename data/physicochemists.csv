@@ -1,0 +1,14 @@
+Locality,Site,Temperature (°C),Salinity (ppm),pH,Redox mV (Eh),S-2 (mg/l),SO₄² (mg/l),Sample
+Dique Miguelito,S1A,31.4,817.5,6.55,121,7.73,537.0,S1A3050
+Dique Miguelito,S1B,30.9,794.0,6.69,1,7.09,550.0,S1B3040
+Dique Miguelito,S2A,32.2,741.6,7.30,113,0.12,545.0,S2A3545
+Dique Miguelito,S2B,31.3,757.8,7.07,95,1.20,553.0,S2B3040
+Dique Miguelito,S3A,32.0,818.2,6.71,-46,6.34,364.0,S3A3040
+Dique Miguelito,S3B,32.1,767.9,6.91,15,2.14,495.0,S3B3545
+La Piedad,S4B,31.4,816.5,6.83,21,3.66,544.0,S4B3040
+La Piedad,S5A,31.9,757.6,6.91,-28,8.34,468.0,S5A3040
+La Piedad,S5B,31.5,754.6,7.04,23,2.28,534.0,S5B3040
+El Cacahuate,S6A,28.3,442.6,6.86,65,1.07,312.0,S6A3040
+El Cacahuate,S6B,28.4,467.6,6.80,70,0.01,214.0,S6B3040
+El Cacahuate,S7A,30.6,356.8,6.70,45,0.18,151.6,S7A3040
+El Cacahuate,S7B,30.6,355.1,6.99,99,0.21,150.0,S7B3040
