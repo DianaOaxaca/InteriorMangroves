@@ -1,3 +1,311 @@
 ---
 title: "Differential Abundance"
 ---
+
+# Load libraries and prepare data
+
+```{r}
+#| message: false
+#| warning: false
+# load libraries
+library(phyloseq)
+library(dplyr)
+library(ANCOMBC)
+library(tidyverse)
+library(cowplot)
+library(DT)
+options(DT.options = list(
+  initComplete = JS("function(settings, json) {",
+                    "$(this.api().table().header()).css({'background-color':
+  '#000', 'color': '#fff'});","}")))
+
+```
+
+```{r}
+#load data
+ps <- readRDS("rds/interior_mangroves/phyloseq.rds")
+```
+
+# **Differential abundance ANCOMBC2**
+
+## 01. By Depth
+
+### **01.1 Prepare data**
+
+```{r}
+#| message: false
+#| warning: false
+# phyloseq to TreeSummarizedExperiment
+tse <- mia::convertFromPhyloseq(ps)
+
+# contrast matrix
+contrast_matrices <- list(
+  matrix(c(1, -1, 0,
+           0, 1, -1,
+           0, 0, 1),
+         nrow = 3, byrow = TRUE),
+  matrix(c(1, 0, -1,
+           0, 1, -1,
+           0, 0, 1),
+         nrow = 3, byrow = TRUE),
+  matrix(c(1, 0, 0,
+           0, 1, -1,
+           0, 0, 1),
+         nrow = 3, byrow = TRUE),
+  matrix(c(1, -1, 0,
+           0, 1, 0,
+           0, 0, 1),
+         nrow = 3, byrow = TRUE))
+
+# nodes
+nodes <- list(1, 1, 1, 1)
+```
+
+### 01.2 Run ANCOM-BC2
+
+``` R
+# ANCOMBC2
+output <- ancombc2(
+  data = tse,
+  assay_name = "counts",
+  tax_level = "Phylum",
+  fix_formula = "Location + Depth_cm",
+  rand_formula = "(1 | ID)",
+  p_adj_method = "holm",
+  pseudo_sens = TRUE,
+  prv_cut = 0.10,
+  lib_cut = 1000,
+  s0_perc = 0.05,
+  group = "Depth_cm",
+  struc_zero = TRUE,
+  neg_lb = TRUE,
+  alpha = 0.05,
+  n_cl = 2,
+  verbose = TRUE,
+  global = TRUE,
+  pairwise = TRUE,
+  dunnet = TRUE,
+  trend = TRUE,
+  iter_control = list(tol = 1e-2, max_iter = 20, verbose = TRUE),
+  em_control = list(tol = 1e-5, max_iter = 100),
+  lme_control = lme4::lmerControl(),
+  mdfdr_control = list(fwer_ctrl_method = "holm", B = 100),
+  trend_control = list(
+    contrast = contrast_matrices,
+    node = nodes,
+    solver = "ECOS",
+    B = 100))
+```
+
+```{r}
+#| include: false
+output <- readRDS("rds/interior_mangroves/output_depth.rds")
+```
+
+```{r}
+#See results
+res_pair <- output$res_pair
+
+head(res_pair)
+```
+
+### 01.3 Get differential data
+
+```{r}
+# Create dataframe df_fig_pair1 to log-fold change (LFC) values
+df_fig_pair1 <- res_pair %>%
+  dplyr::filter(`diff_Depth_cm16-30` == 1 |
+                  `diff_Depth_cm31-45` == 1 |
+                  `diff_Depth_cm50-75` == 1 |
+                  `diff_Depth_cm31-45_Depth_cm16-30` == 1 |
+                  `diff_Depth_cm50-75_Depth_cm16-30` == 1 |
+                  `diff_Depth_cm50-75_Depth_cm31-45` == 1) %>%
+  dplyr::mutate(lfc1 = ifelse(`diff_Depth_cm16-30` == 1, round(`lfc_Depth_cm16-30`, 2), NA),
+                lfc2 = ifelse(`diff_Depth_cm31-45` == 1, round(`lfc_Depth_cm31-45`, 2), NA),
+                lfc3 = ifelse(`diff_Depth_cm50-75` == 1, round(`lfc_Depth_cm50-75`, 2), NA),
+                lfc4 = ifelse(`diff_Depth_cm31-45_Depth_cm16-30` == 1, 
+                      round(`lfc_Depth_cm31-45_Depth_cm16-30`, 2), NA),
+                lfc5 = ifelse(`diff_Depth_cm50-75_Depth_cm16-30` == 1, 
+                      round(`lfc_Depth_cm50-75_Depth_cm16-30`, 2), NA),
+                lfc6 = ifelse(`diff_Depth_cm50-75_Depth_cm31-45` == 1, 
+                      round(`lfc_Depth_cm50-75_Depth_cm31-45`, 2), NA)) %>%
+  tidyr::pivot_longer(cols = lfc1:lfc6, names_to = "group", 
+                      values_to = "value") %>% dplyr::arrange(taxon)
+```
+
+```{r}
+# Create dataframe df_fig_pair2 to significant values
+
+df_fig_pair2 <- res_pair %>%
+  dplyr::filter(`diff_Depth_cm16-30` == 1 |
+                  `diff_Depth_cm31-45` == 1 |
+                  `diff_Depth_cm50-75` == 1 |
+                  `diff_Depth_cm31-45_Depth_cm16-30` == 1 |
+                  `diff_Depth_cm50-75_Depth_cm16-30` == 1 |
+                  `diff_Depth_cm50-75_Depth_cm31-45` == 1) %>%
+  dplyr::mutate(lfc1 = ifelse(`passed_ss_Depth_cm16-30` == 1 & `diff_Depth_cm16-30` == 1, "darkblue", "black"),
+                lfc2 = ifelse(`passed_ss_Depth_cm31-45` == 1 & `diff_Depth_cm31-45` == 1, "darkblue", "black"),
+                lfc3 = ifelse(`passed_ss_Depth_cm50-75` == 1 & `diff_Depth_cm50-75` == 1, "darkblue", "black"),
+                lfc4 = ifelse(`passed_ss_Depth_cm31-45_Depth_cm16-30` == 1 & `diff_Depth_cm31-45_Depth_cm16-30` == 1, "darkblue", "black"),
+                lfc5 = ifelse(`passed_ss_Depth_cm50-75_Depth_cm16-30` == 1 & `diff_Depth_cm50-75_Depth_cm16-30` == 1, "darkblue", "black"),
+                lfc6 = ifelse(`passed_ss_Depth_cm50-75_Depth_cm31-45` == 1 & `diff_Depth_cm50-75_Depth_cm31-45` == 1, "darkblue", "black")) %>%
+  tidyr::pivot_longer(cols = lfc1:lfc6, names_to = "group", values_to = "color") %>%
+  dplyr::arrange(taxon)
+```
+
+```{r}
+# Combine dataframes df_fig_pair1 and df_fig_pair2
+df_fig_pair <- df_fig_pair1 %>%
+  dplyr::left_join(df_fig_pair2, by = c("taxon", "group"))
+
+# Rename groups
+df_fig_pair$group <- recode(df_fig_pair$group,
+                            `lfc1` = "16-30 vs 0-15",
+                            `lfc2` = "31-45 vs 0-15",
+                            `lfc3` = "50-75 vs 0-15",
+                            `lfc4` = "31-45 vs 16-30",
+                            `lfc5` = "50-75 vs 16-30",
+                            `lfc6` = "50-75 vs 31-45")
+
+df_fig_pair$group <- factor(df_fig_pair$group,
+                            levels = c("16-30 vs 0-15",
+                                       "31-45 vs 0-15",
+                                       "50-75 vs 0-15",
+                                       "31-45 vs 16-30",
+                                       "50-75 vs 16-30",
+                                       "50-75 vs 31-45"))
+
+# Filter comparisons with significant values
+df_fig_pair <- df_fig_pair %>%
+  group_by(group) %>%
+  filter(any(!is.na(value))) %>%
+  ungroup()
+
+# Calculate limits
+lo <- floor(min(df_fig_pair$value, na.rm = TRUE))
+up <- ceiling(max(df_fig_pair$value, na.rm = TRUE))
+mid <- (lo + up) / 2
+```
+
+### 01.4 Heatmap Plot
+
+```{r}
+fig_pair <- df_fig_pair %>%
+  ggplot(aes(x = group, y = taxon, fill = value)) +
+  geom_tile(color = "gray40") +
+  scale_fill_gradient2(low = "#c05098", high = "#3FB6AFFF", mid = "gray90",
+                       na.value = "white", midpoint = mid, 
+                       limit = c(lo, up),name = "LFC") +
+  geom_text(aes(label = round(value, 2), color = color), 
+            size = 3.5, na.rm = TRUE) + 
+  scale_color_identity(guide = FALSE) +
+  labs(x = NULL, y = NULL) + theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),
+        axis.text.y = element_text(size = 12, color = "black"),
+        axis.text.x = element_text(size = 10, color = "black"))
+
+fig_pair
+```
+
+### 01.5 Relative abundance of differential Phyla
+
+#### 01.5.1 Filter and prepare data
+
+```{r}
+#| message: false
+#| warning: false
+
+# Filter da phyla
+differential_phyla <- c("Zixibacteria", "WS2", "uncultured",
+                        "Thermoplasmatota", "TA06", "Sva0485",
+                        "Spirochaetota", "RCP2-54", "Nitrospinota", 
+                        "NB1-j", "Myxococcota", "Modulibacteria", 
+                        "Methylomirabilota", "MBNT15", "LCP-89",
+                        "Latescibacterota", "Fibrobacterota", 
+                        "Crenarchaeota", "Chloroflexi", 
+                        "Calditrichota", "Armatimonadota")
+
+# Filter in phyloseq
+ps_da <- subset_taxa(ps, Phylum %in% differential_phyla)
+
+# Depth aggregation
+ps_da_agg <- merge_samples(ps_da, "Depths")
+
+# relative abundance
+ps_da_agg_rel <- transform_sample_counts(ps_da_agg, function(x) x / sum(x))
+
+# check value and names Depths
+depths <- unique(sample_data(ps)$Depths)
+sample_names(ps_da_agg_rel) <- depths
+sample_data(ps_da_agg_rel)$Depths <- factor(depths, levels = depths)
+
+# Convert to data frame
+df_abundance <- psmelt(ps_da_agg_rel)
+
+# summary by depth and phylum
+df_abundance_summary <- df_abundance %>%
+  group_by(Phylum, Depths) %>%
+  summarise(Abundance = mean(Abundance, na.rm = TRUE)) %>%
+  ungroup()
+
+# Replace NA with 0
+df_abundance_summary$Abundance[is.na(df_abundance_summary$Abundance)] <- 0
+```
+
+#### 01.5.2 Bubble plot
+
+```{r}
+# Define colors
+depth_colors <- c("0-15" = "#f5e5c4",
+                  "16-30" = "#baa179",
+                  "31-45" = "#a67451",
+                  "50-75" = "#80673b")
+
+# bubble plot
+bubble_plot <- ggplot(df_abundance_summary, 
+                      aes(x = Depths, y = Phylum, size = Abundance,
+                          fill = Depths)) +
+  geom_point(shape = 21, color = "gray40") +
+  scale_size_continuous(range = c(1, 12), guide = "none") +
+  scale_fill_manual(values = depth_colors) +
+  labs(y = NULL, x=NULL , fill = NULL) +
+  theme_classic() +
+  theme(
+    axis.text.x = element_text(angle = 0, hjust = 0.5, 
+                               size = 8.5, color = "black"),
+    axis.text.y = element_text(size = 12, color = "black"),
+    legend.position = "none")
+
+# show
+bubble_plot
+```
+
+### 01.6 Join relative and differential abundance plots
+
+```{r}
+fig_pair <- fig_pair +
+  theme(
+    axis.text.y = element_blank(),
+    axis.text.x = element_text(size = 8.5 , color = "black"),
+    axis.line.y = element_blank(),
+    axis.line.x = element_line(color = "black"))
+```
+
+```{r}
+depth_abundances <- plot_grid(bubble_plot, fig_pair, ncol = 2, rel_widths = c(0.95, 1.1))
+
+depth_abundances
+```
+
+```{r}
+# save
+ggsave("Figures/interior_mangroves/DA_and_RA_BubbleHeatmap_depth.pdf",
+       depth_abundances, bg='transparent', 
+       width = 6.7, height = 8)
+```
+
+### 01.7 Save RDS plot
+
+```{r}
+saveRDS(depth_abundances, "rds/interior_mangroves/da_ra_depth_plot.rds")
+```

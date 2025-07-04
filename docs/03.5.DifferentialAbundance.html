@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.37">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</title>
 <style>
 code{white-space: pre-wrap;}
@@ -20,8 +17,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -41,8 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-42e8decf3429976a47c1c54a1701cbb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-da771dd4e3759026f460526871f487d2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark-da771dd4e3759026f460526871f487d2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -69,21 +98,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-
-
 <meta property="og:title" content="Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:image" content="03.5.DifferentialAbundance_files/figure-html/unnamed-chunk-9-1.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:image" content="03.5.DifferentialAbundance_files/figure-html/unnamed-chunk-9-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -94,16 +120,11 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/landalab.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+      <img src="./images/landalab.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/DianaOaxaca/InteriorMangroves" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -116,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./00.Presentation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentation</span></a>
@@ -136,8 +157,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">How similar are coastal and inland mangroves?</span></a>
@@ -145,8 +166,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02.SurfaceComparison.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Prepare</span></a>
@@ -160,8 +181,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02.1.AlphaDiversity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Alpha diversity</span></a>
@@ -192,11 +213,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
       </ul>
-  </li>
+</li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./03.InteriorMangroves.html" class="sidebar-item-text sidebar-link">
@@ -205,8 +226,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">What makes inland mangroves different and unique?</span></a>
@@ -214,8 +235,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03.1.RelativeAbundances.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Relative Abundances</span></a>
@@ -258,22 +279,39 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#load-libraries-and-prepare-data" id="toc-load-libraries-and-prepare-data" class="nav-link active" data-scroll-target="#load-libraries-and-prepare-data">Load libraries and prepare data</a></li>
+  <li>
+<a href="#differential-abundance-ancombc2" id="toc-differential-abundance-ancombc2" class="nav-link" data-scroll-target="#differential-abundance-ancombc2"><strong>Differential abundance ANCOMBC2</strong></a>
+  <ul class="collapse">
+<li>
+<a href="#by-depth" id="toc-by-depth" class="nav-link" data-scroll-target="#by-depth">01. By Depth</a>
+  <ul class="collapse">
+<li><a href="#prepare-data" id="toc-prepare-data" class="nav-link" data-scroll-target="#prepare-data"><strong>01.1 Prepare data</strong></a></li>
+  <li><a href="#run-ancom-bc2" id="toc-run-ancom-bc2" class="nav-link" data-scroll-target="#run-ancom-bc2">01.2 Run ANCOM-BC2</a></li>
+  <li><a href="#get-differential-data" id="toc-get-differential-data" class="nav-link" data-scroll-target="#get-differential-data">01.3 Get differential data</a></li>
+  <li><a href="#heatmap-plot" id="toc-heatmap-plot" class="nav-link" data-scroll-target="#heatmap-plot">01.4 Heatmap Plot</a></li>
+  <li><a href="#relative-abundance-of-differential-phyla" id="toc-relative-abundance-of-differential-phyla" class="nav-link" data-scroll-target="#relative-abundance-of-differential-phyla">01.5 Relative abundance of differential Phyla</a></li>
+  <li><a href="#join-relative-and-differential-abundance-plots" id="toc-join-relative-and-differential-abundance-plots" class="nav-link" data-scroll-target="#join-relative-and-differential-abundance-plots">01.6 Join relative and differential abundance plots</a></li>
+  <li><a href="#save-rds-plot" id="toc-save-rds-plot" class="nav-link" data-scroll-target="#save-rds-plot">01.7 Save RDS plot</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03.InteriorMangroves.html">Interior mangroves explore</a></li><li class="breadcrumb-item"><a href="./03.1.RelativeAbundances.html">What makes inland mangroves different and unique?</a></li><li class="breadcrumb-item"><a href="./03.5.DifferentialAbundance.html">Differential Abundance</a></li></ol></nav>
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03.InteriorMangroves.html">Interior mangroves explore</a></li><li class="breadcrumb-item"><a href="./03.1.RelativeAbundances.html">What makes inland mangroves different and unique?</a></li><li class="breadcrumb-item"><a href="./03.5.DifferentialAbundance.html">Differential Abundance</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">Differential Abundance</h1>
 </div>
 
@@ -288,14 +326,419 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
+</header><section id="load-libraries-and-prepare-data" class="level1"><h1>Load libraries and prepare data</h1>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load libraries</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://dx.plos.org/10.1371/journal.pone.0061217">phyloseq</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/FrederickHuangLin/ANCOMBC">ANCOMBC</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/DT">DT</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>DT.options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  initComplete <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/htmlwidgets/man/JS.html">JS</a></span><span class="op">(</span><span class="st">"function(settings, json) {"</span>,</span>
+<span>                    <span class="st">"$(this.api().table().header()).css({'background-color':</span></span>
+<span><span class="st">  '#000', 'color': '#fff'});"</span>,<span class="st">"}"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load data</span></span>
+<span><span class="va">ps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/interior_mangroves/phyloseq.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="differential-abundance-ancombc2" class="level1"><h1><strong>Differential abundance ANCOMBC2</strong></h1>
+<section id="by-depth" class="level2"><h2 class="anchored" data-anchor-id="by-depth">01. By Depth</h2>
+<section id="prepare-data" class="level3"><h3 class="anchored" data-anchor-id="prepare-data"><strong>01.1 Prepare data</strong></h3>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># phyloseq to TreeSummarizedExperiment</span></span>
+<span><span class="va">tse</span> <span class="op">&lt;-</span> <span class="fu">mia</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mia/man/convertFromPhyloseq.html">convertFromPhyloseq</a></span><span class="op">(</span><span class="va">ps</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># contrast matrix</span></span>
+<span><span class="va">contrast_matrices</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">0</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>         nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>         nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>         nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">0</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>,</span>
+<span>           <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>         nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># nodes</span></span>
+<span><span class="va">nodes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="run-ancom-bc2" class="level3"><h3 class="anchored" data-anchor-id="run-ancom-bc2">01.2 Run ANCOM-BC2</h3>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ANCOMBC2</span></span>
+<span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ANCOMBC/man/ancombc2.html">ancombc2</a></span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="va">tse</span>,</span>
+<span>  assay_name <span class="op">=</span> <span class="st">"counts"</span>,</span>
+<span>  tax_level <span class="op">=</span> <span class="st">"Phylum"</span>,</span>
+<span>  fix_formula <span class="op">=</span> <span class="st">"Location + Depth_cm"</span>,</span>
+<span>  rand_formula <span class="op">=</span> <span class="st">"(1 | ID)"</span>,</span>
+<span>  p_adj_method <span class="op">=</span> <span class="st">"holm"</span>,</span>
+<span>  pseudo_sens <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  prv_cut <span class="op">=</span> <span class="fl">0.10</span>,</span>
+<span>  lib_cut <span class="op">=</span> <span class="fl">1000</span>,</span>
+<span>  s0_perc <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>  group <span class="op">=</span> <span class="st">"Depth_cm"</span>,</span>
+<span>  struc_zero <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  neg_lb <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>  n_cl <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  global <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  pairwise <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dunnet <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  trend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  iter_control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>tol <span class="op">=</span> <span class="fl">1e-2</span>, max_iter <span class="op">=</span> <span class="fl">20</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  em_control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>tol <span class="op">=</span> <span class="fl">1e-5</span>, max_iter <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  lme_control <span class="op">=</span> <span class="fu">lme4</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmerControl.html">lmerControl</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  mdfdr_control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fwer_ctrl_method <span class="op">=</span> <span class="st">"holm"</span>, B <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  trend_control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    contrast <span class="op">=</span> <span class="va">contrast_matrices</span>,</span>
+<span>    node <span class="op">=</span> <span class="va">nodes</span>,</span>
+<span>    solver <span class="op">=</span> <span class="st">"ECOS"</span>,</span>
+<span>    B <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#See results</span></span>
+<span><span class="va">res_pair</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">res_pair</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">res_pair</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              taxon lfc_Depth_cm16-30 lfc_Depth_cm31-45 lfc_Depth_cm50-75
+1    Proteobacteria           -0.2127            -0.196            -0.337
+2       Chloroflexi            1.0161             1.094             1.482
+3  Latescibacterota           -0.0353            -0.348            -0.782
+4       Myxococcota           -0.0741            -0.477            -0.737
+5      Zixibacteria            0.6524             0.567             0.886
+6 Methylomirabilota           -0.2690            -0.977            -1.240
+  lfc_Depth_cm31-45_Depth_cm16-30 lfc_Depth_cm50-75_Depth_cm16-30
+1                          0.0164                          -0.124
+2                          0.0774                           0.465
+3                         -0.3130                          -0.747
+4                         -0.4030                          -0.663
+5                         -0.0857                           0.234
+6                         -0.7075                          -0.971
+  lfc_Depth_cm50-75_Depth_cm31-45 se_Depth_cm16-30 se_Depth_cm31-45
+1                          -0.140            0.246            0.245
+2                           0.388            0.186            0.184
+3                          -0.434            0.233            0.232
+4                          -0.260            0.232            0.231
+5                           0.320            0.214            0.212
+6                          -0.263            0.288            0.286
+  se_Depth_cm50-75 se_Depth_cm31-45_Depth_cm16-30
+1            0.256                          0.276
+2            0.194                          0.223
+3            0.244                          0.265
+4            0.243                          0.263
+5            0.223                          0.247
+6            0.310                          0.314
+  se_Depth_cm50-75_Depth_cm16-30 se_Depth_cm50-75_Depth_cm31-45 W_Depth_cm16-30
+1                          0.286                          0.285          -0.864
+2                          0.231                          0.230           5.474
+3                          0.275                          0.274          -0.151
+4                          0.274                          0.273          -0.319
+5                          0.256                          0.255           3.055
+6                          0.336                          0.335          -0.935
+  W_Depth_cm31-45 W_Depth_cm50-75 W_Depth_cm31-45_Depth_cm16-30
+1          -0.802           -1.31                        0.0594
+2           5.937            7.65                        0.3476
+3          -1.501           -3.20                       -1.1833
+4          -2.069           -3.04                       -1.5306
+5           2.671            3.98                       -0.3471
+6          -3.412           -4.00                       -2.2538
+  W_Depth_cm50-75_Depth_cm16-30 W_Depth_cm50-75_Depth_cm31-45 p_Depth_cm16-30
+1                        -0.433                        -0.492        1.00e+00
+2                         2.017                         1.690        4.13e-06
+3                        -2.714                        -1.583        8.81e-01
+4                        -2.422                        -0.955        7.51e-01
+5                         0.913                         1.253        4.35e-03
+6                        -2.891                        -0.787        3.56e-01
+  p_Depth_cm31-45 p_Depth_cm50-75 p_Depth_cm31-45_Depth_cm16-30
+1        1.00e+00        1.00e+00                         1.000
+2        1.03e-06        6.59e-09                         0.730
+3        1.42e-01        2.90e-03                         0.245
+4        4.62e-02        4.49e-03                         0.135
+5        1.15e-02        3.41e-04                         0.731
+6        1.73e-03        3.35e-04                         0.031
+  p_Depth_cm50-75_Depth_cm16-30 p_Depth_cm50-75_Depth_cm31-45 q_Depth_cm16-30
+1                       1.00000                         1.000        1.00e+00
+2                       0.05159                         0.100        3.63e-05
+3                       0.01033                         0.122        1.00e+00
+4                       0.02085                         0.346        1.00e+00
+5                       0.36788                         0.219        4.26e-02
+6                       0.00674                         0.437        1.00e+00
+  q_Depth_cm31-45 q_Depth_cm50-75 q_Depth_cm31-45_Depth_cm16-30
+1        1.00e+00        1.00e+00                         1.000
+2        1.01e-05        7.12e-08                         1.000
+3        1.00e+00        3.14e-02                         1.000
+4        4.06e-01        4.84e-02                         1.000
+5        1.01e-01        3.68e-03                         1.000
+6        1.69e-02        3.62e-03                         0.242
+  q_Depth_cm50-75_Depth_cm16-30 q_Depth_cm50-75_Depth_cm31-45
+1                        1.0000                         1.000
+2                        0.4024                         0.681
+3                        0.1012                         1.000
+4                        0.2043                         1.000
+5                        1.0000                         1.000
+6                        0.0594                         1.000
+  diff_Depth_cm16-30 diff_Depth_cm31-45 diff_Depth_cm50-75
+1              FALSE              FALSE              FALSE
+2               TRUE               TRUE               TRUE
+3              FALSE              FALSE               TRUE
+4              FALSE              FALSE               TRUE
+5               TRUE              FALSE               TRUE
+6              FALSE               TRUE               TRUE
+  diff_Depth_cm31-45_Depth_cm16-30 diff_Depth_cm50-75_Depth_cm16-30
+1                            FALSE                            FALSE
+2                            FALSE                            FALSE
+3                            FALSE                            FALSE
+4                            FALSE                            FALSE
+5                            FALSE                            FALSE
+6                            FALSE                            FALSE
+  diff_Depth_cm50-75_Depth_cm31-45 passed_ss_Depth_cm16-30
+1                            FALSE                    TRUE
+2                            FALSE                    TRUE
+3                            FALSE                    TRUE
+4                            FALSE                    TRUE
+5                            FALSE                    TRUE
+6                            FALSE                    TRUE
+  passed_ss_Depth_cm31-45 passed_ss_Depth_cm50-75
+1                    TRUE                    TRUE
+2                    TRUE                    TRUE
+3                    TRUE                    TRUE
+4                    TRUE                    TRUE
+5                   FALSE                    TRUE
+6                   FALSE                    TRUE
+  passed_ss_Depth_cm31-45_Depth_cm16-30 passed_ss_Depth_cm50-75_Depth_cm16-30
+1                                  TRUE                                  TRUE
+2                                  TRUE                                  TRUE
+3                                  TRUE                                 FALSE
+4                                  TRUE                                 FALSE
+5                                  TRUE                                  TRUE
+6                                  TRUE                                 FALSE
+  passed_ss_Depth_cm50-75_Depth_cm31-45
+1                                  TRUE
+2                                  TRUE
+3                                  TRUE
+4                                  TRUE
+5                                  TRUE
+6                                  TRUE</code></pre>
+</div>
+</div>
+</section><section id="get-differential-data" class="level3"><h3 class="anchored" data-anchor-id="get-differential-data">01.3 Get differential data</h3>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create dataframe df_fig_pair1 to log-fold change (LFC) values</span></span>
+<span><span class="va">df_fig_pair1</span> <span class="op">&lt;-</span> <span class="va">res_pair</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">`diff_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm50-75`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm31-45_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm50-75_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm50-75_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lfc1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Depth_cm16-30`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Depth_cm31-45`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Depth_cm50-75`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Depth_cm50-75`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Depth_cm31-45_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Depth_cm31-45_Depth_cm16-30`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc5 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Depth_cm50-75_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Depth_cm50-75_Depth_cm16-30`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>                lfc6 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`diff_Depth_cm50-75_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span>, </span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">`lfc_Depth_cm50-75_Depth_cm31-45`</span>, <span class="fl">2</span><span class="op">)</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">lfc1</span><span class="op">:</span><span class="va">lfc6</span>, names_to <span class="op">=</span> <span class="st">"group"</span>, </span>
+<span>                      values_to <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create dataframe df_fig_pair2 to significant values</span></span>
+<span></span>
+<span><span class="va">df_fig_pair2</span> <span class="op">&lt;-</span> <span class="va">res_pair</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">`diff_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm50-75`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm31-45_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm50-75_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
+<span>                  <span class="va">`diff_Depth_cm50-75_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>lfc1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">`diff_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"darkblue"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">`diff_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"darkblue"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc3 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Depth_cm50-75`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">`diff_Depth_cm50-75`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"darkblue"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc4 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Depth_cm31-45_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">`diff_Depth_cm31-45_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"darkblue"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc5 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Depth_cm50-75_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">`diff_Depth_cm50-75_Depth_cm16-30`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"darkblue"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>                lfc6 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">`passed_ss_Depth_cm50-75_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">`diff_Depth_cm50-75_Depth_cm31-45`</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"darkblue"</span>, <span class="st">"black"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">lfc1</span><span class="op">:</span><span class="va">lfc6</span>, names_to <span class="op">=</span> <span class="st">"group"</span>, values_to <span class="op">=</span> <span class="st">"color"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Combine dataframes df_fig_pair1 and df_fig_pair2</span></span>
+<span><span class="va">df_fig_pair</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">df_fig_pair2</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"taxon"</span>, <span class="st">"group"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Rename groups</span></span>
+<span><span class="va">df_fig_pair</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">df_fig_pair</span><span class="op">$</span><span class="va">group</span>,</span>
+<span>                            `lfc1` <span class="op">=</span> <span class="st">"16-30 vs 0-15"</span>,</span>
+<span>                            `lfc2` <span class="op">=</span> <span class="st">"31-45 vs 0-15"</span>,</span>
+<span>                            `lfc3` <span class="op">=</span> <span class="st">"50-75 vs 0-15"</span>,</span>
+<span>                            `lfc4` <span class="op">=</span> <span class="st">"31-45 vs 16-30"</span>,</span>
+<span>                            `lfc5` <span class="op">=</span> <span class="st">"50-75 vs 16-30"</span>,</span>
+<span>                            `lfc6` <span class="op">=</span> <span class="st">"50-75 vs 31-45"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_fig_pair</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">df_fig_pair</span><span class="op">$</span><span class="va">group</span>,</span>
+<span>                            levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"16-30 vs 0-15"</span>,</span>
+<span>                                       <span class="st">"31-45 vs 0-15"</span>,</span>
+<span>                                       <span class="st">"50-75 vs 0-15"</span>,</span>
+<span>                                       <span class="st">"31-45 vs 16-30"</span>,</span>
+<span>                                       <span class="st">"50-75 vs 16-30"</span>,</span>
+<span>                                       <span class="st">"50-75 vs 31-45"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Filter comparisons with significant values</span></span>
+<span><span class="va">df_fig_pair</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/any.html">any</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Calculate limits</span></span>
+<span><span class="va">lo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">df_fig_pair</span><span class="op">$</span><span class="va">value</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">up</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">ceiling</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">df_fig_pair</span><span class="op">$</span><span class="va">value</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">mid</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">lo</span> <span class="op">+</span> <span class="va">up</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="heatmap-plot" class="level3"><h3 class="anchored" data-anchor-id="heatmap-plot">01.4 Heatmap Plot</h3>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fig_pair</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">group</span>, y <span class="op">=</span> <span class="va">taxon</span>, fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"gray40"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"#c05098"</span>, high <span class="op">=</span> <span class="st">"#3FB6AFFF"</span>, mid <span class="op">=</span> <span class="st">"gray90"</span>,</span>
+<span>                       na.value <span class="op">=</span> <span class="st">"white"</span>, midpoint <span class="op">=</span> <span class="va">mid</span>, </span>
+<span>                       limit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">lo</span>, <span class="va">up</span><span class="op">)</span>,name <span class="op">=</span> <span class="st">"LFC"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">2</span><span class="op">)</span>, color <span class="op">=</span> <span class="va">color</span><span class="op">)</span>, </span>
+<span>            size <span class="op">=</span> <span class="fl">3.5</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html">scale_color_identity</a></span><span class="op">(</span>guide <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>        axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fig_pair</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `guide` argument in `scale_*()` cannot be `FALSE`. This was deprecated in
+ggplot2 3.3.4.
+ℹ Please use "none" instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03.5.DifferentialAbundance_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="relative-abundance-of-differential-phyla" class="level3"><h3 class="anchored" data-anchor-id="relative-abundance-of-differential-phyla">01.5 Relative abundance of differential Phyla</h3>
+<section id="filter-and-prepare-data" class="level4"><h4 class="anchored" data-anchor-id="filter-and-prepare-data">01.5.1 Filter and prepare data</h4>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filter da phyla</span></span>
+<span><span class="va">differential_phyla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Zixibacteria"</span>, <span class="st">"WS2"</span>, <span class="st">"uncultured"</span>,</span>
+<span>                        <span class="st">"Thermoplasmatota"</span>, <span class="st">"TA06"</span>, <span class="st">"Sva0485"</span>,</span>
+<span>                        <span class="st">"Spirochaetota"</span>, <span class="st">"RCP2-54"</span>, <span class="st">"Nitrospinota"</span>, </span>
+<span>                        <span class="st">"NB1-j"</span>, <span class="st">"Myxococcota"</span>, <span class="st">"Modulibacteria"</span>, </span>
+<span>                        <span class="st">"Methylomirabilota"</span>, <span class="st">"MBNT15"</span>, <span class="st">"LCP-89"</span>,</span>
+<span>                        <span class="st">"Latescibacterota"</span>, <span class="st">"Fibrobacterota"</span>, </span>
+<span>                        <span class="st">"Crenarchaeota"</span>, <span class="st">"Chloroflexi"</span>, </span>
+<span>                        <span class="st">"Calditrichota"</span>, <span class="st">"Armatimonadota"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Filter in phyloseq</span></span>
+<span><span class="va">ps_da</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/subset_taxa-methods.html">subset_taxa</a></span><span class="op">(</span><span class="va">ps</span>, <span class="va">Phylum</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">differential_phyla</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Depth aggregation</span></span>
+<span><span class="va">ps_da_agg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/merge_samples-methods.html">merge_samples</a></span><span class="op">(</span><span class="va">ps_da</span>, <span class="st">"Depths"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># relative abundance</span></span>
+<span><span class="va">ps_da_agg_rel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/transformcounts.html">transform_sample_counts</a></span><span class="op">(</span><span class="va">ps_da_agg</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># check value and names Depths</span></span>
+<span><span class="va">depths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">ps</span><span class="op">)</span><span class="op">$</span><span class="va">Depths</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_names-methods.html">sample_names</a></span><span class="op">(</span><span class="va">ps_da_agg_rel</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">depths</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">ps_da_agg_rel</span><span class="op">)</span><span class="op">$</span><span class="va">Depths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">depths</span>, levels <span class="op">=</span> <span class="va">depths</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Convert to data frame</span></span>
+<span><span class="va">df_abundance</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/psmelt.html">psmelt</a></span><span class="op">(</span><span class="va">ps_da_agg_rel</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># summary by depth and phylum</span></span>
+<span><span class="va">df_abundance_summary</span> <span class="op">&lt;-</span> <span class="va">df_abundance</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Phylum</span>, <span class="va">Depths</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>Abundance <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Abundance</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Replace NA with 0</span></span>
+<span><span class="va">df_abundance_summary</span><span class="op">$</span><span class="va">Abundance</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">df_abundance_summary</span><span class="op">$</span><span class="va">Abundance</span><span class="op">)</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="bubble-plot" class="level4"><h4 class="anchored" data-anchor-id="bubble-plot">01.5.2 Bubble plot</h4>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Define colors</span></span>
+<span><span class="va">depth_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0-15"</span> <span class="op">=</span> <span class="st">"#f5e5c4"</span>,</span>
+<span>                  <span class="st">"16-30"</span> <span class="op">=</span> <span class="st">"#baa179"</span>,</span>
+<span>                  <span class="st">"31-45"</span> <span class="op">=</span> <span class="st">"#a67451"</span>,</span>
+<span>                  <span class="st">"50-75"</span> <span class="op">=</span> <span class="st">"#80673b"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># bubble plot</span></span>
+<span><span class="va">bubble_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_abundance_summary</span>, </span>
+<span>                      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Depths</span>, y <span class="op">=</span> <span class="va">Phylum</span>, size <span class="op">=</span> <span class="va">Abundance</span>,</span>
+<span>                          fill <span class="op">=</span> <span class="va">Depths</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="fl">21</span>, color <span class="op">=</span> <span class="st">"gray40"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html">scale_size_continuous</a></span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">12</span><span class="op">)</span>, guide <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">depth_colors</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="cn">NULL</span>, x<span class="op">=</span><span class="cn">NULL</span> , fill <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">0</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, </span>
+<span>                               size <span class="op">=</span> <span class="fl">8.5</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>    axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>    legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># show</span></span>
+<span><span class="va">bubble_plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03.5.DifferentialAbundance_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="join-relative-and-differential-abundance-plots" class="level3"><h3 class="anchored" data-anchor-id="join-relative-and-differential-abundance-plots">01.6 Join relative and differential abundance plots</h3>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fig_pair</span> <span class="op">&lt;-</span> <span class="va">fig_pair</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span></span>
+<span>    axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8.5</span> , color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>    axis.line.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    axis.line.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">depth_abundances</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">bubble_plot</span>, <span class="va">fig_pair</span>, ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.95</span>, <span class="fl">1.1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">depth_abundances</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03.5.DifferentialAbundance_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/DA_and_RA_BubbleHeatmap_depth.pdf"</span>,</span>
+<span>       <span class="va">depth_abundances</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, </span>
+<span>       width <span class="op">=</span> <span class="fl">6.7</span>, height <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="save-rds-plot" class="level3"><h3 class="anchored" data-anchor-id="save-rds-plot">01.7 Save RDS plot</h3>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">depth_abundances</span>, <span class="st">"rds/interior_mangroves/da_ra_depth_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -839,9 +1282,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./03.4.Coremicrobiome.html" class="pagination-link" aria-label="Core Microbiome">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Core Microbiome</span>
       </a>          
@@ -853,8 +1294,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>© Copyright 2025, Diana Hernández-Oaxaca</p>
 </div>   
@@ -866,8 +1306,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>

@@ -219,7 +219,7 @@ heatmap_plot <- ggplot(p_melt, aes(x = Var1, y = Var2, fill = value)) +
         axis.title = element_text(size = 12),
         plot.title = element_text(size = 14))
 
-# Mostrar el gráfico
+# show
 print(heatmap_plot)
 ```
 

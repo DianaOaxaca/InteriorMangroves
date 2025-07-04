@@ -1,3 +1,524 @@
 ---
 title: "Core Microbiome"
 ---
+
+## Load libraries and prepare data
+
+```{r}
+#| label: libraries
+#| message: false
+#| warning: false
+# load libraries
+library(phyloseq)
+library(dplyr)
+library(UpSetR)
+library(ggplot2)
+library(ggalluvial)
+library(RColorBrewer)
+library(tibble)
+library(ampvis2)
+```
+
+```{r}
+#load data
+physeq <- readRDS("rds/interior_mangroves/phyloseq.rds")
+```
+
+```{r}
+# Convert Location to factor
+sample_data(physeq)$Location <- as.factor(sample_data(physeq)$Location)
+```
+
+## 01. Calculate core
+
+```{r}
+#| label: calculate core
+#| echo: true
+# Prevalence threshold
+prevalence_threshold <- 0.8
+
+# Storage ASVs core list
+core_list <- list()
+locations <- levels(sample_data(physeq)$Location)
+
+# Calculate core
+for (loc in locations) {
+  # Filter samples by mangrove system
+  physeq_loc <- prune_samples(sample_data(physeq)$Location == loc, physeq)
+  n_samples_loc <- nsamples(physeq_loc)
+
+  # Extract OTU table
+  otu <- as(otu_table(physeq_loc), "matrix")
+
+  # Calc prevalence
+  prevalence <- rowSums(otu > 0) / n_samples_loc
+
+  # Identify ASVs with prevalence >= umbral
+  core_taxa <- names(prevalence)[prevalence >= prevalence_threshold]
+
+  # Guardar en la lista
+  core_list[[loc]] <- core_taxa
+}
+
+# Show ASVs core by mangrove system
+print(lapply(core_list, length))
+
+# checkpoint,if empty try threshold = 1
+if (all(sapply(core_list, length) == 0)) {
+  cat("Try prevalence = 1...\n")
+  prevalence_threshold <- 1.0
+  core_list <- list()
+  for (loc in locations) {
+    physeq_loc <- prune_samples(sample_data(physeq)$Location == loc, physeq)
+    n_samples_loc <- nsamples(physeq_loc)
+    otu <- as(otu_table(physeq_loc), "matrix")
+    prevalence <- rowSums(otu > 0) / n_samples_loc
+    core_taxa <- names(prevalence)[prevalence >= prevalence_threshold]
+    core_list[[loc]] <- core_taxa
+  }
+  print(lapply(core_list, length))
+}
+```
+
+## 02. Extract core info
+
+```{r}
+#| label: core info
+# Unique core ASV list
+all_core_asvs <- unique(unlist(core_list))
+
+# Create matrix presence/absence
+core_matrix <- matrix(0, nrow = length(all_core_asvs), ncol = length(locations),
+                      dimnames = list(all_core_asvs, locations))
+
+# fill matrix: 
+for (loc in locations) {
+  core_matrix[core_list[[loc]], loc] <- 1
+}
+
+# Convert to data frame to UpSetR
+core_df <- as.data.frame(core_matrix)
+
+# Create intersection list
+queries_list <- list()
+```
+
+## 03. plot aesthetics
+
+```{r}
+#library(UpSetR)
+# Fossil Lagoon
+queries_list <- append(queries_list, list(
+  list(query = intersects, params = list("Fossil Lagoon"), color = "#A3D9A8",
+       active = TRUE, query.name = "Fossil Lagoon")))
+
+# Reforma Waterfalls
+queries_list <- append(queries_list, list(
+  list(query = intersects, params = list("Reforma Waterfalls"), color = "#44C17B",
+       active = TRUE, query.name = "Reforma Waterfalls")))
+
+# Miguelito Dike
+queries_list <- append(queries_list, list(
+  list(query = intersects, params = list("Miguelito Dike"), color = "#2E8B57",
+       active = TRUE, query.name = "Miguelito Dike")))
+
+
+# Core
+queries_list <- append(queries_list, list(
+  list(query = intersects, params = list("Fossil Lagoon", 
+                                         "Reforma Waterfalls",
+                                         "Miguelito Dike"),
+       color = "#8D3CA3", active = TRUE, query.name = "Core")))
+```
+
+## 04. UpSet plot
+
+```{r}
+#library(UpSetR)
+upset_plot <- upset(core_df,
+                    sets = colnames(core_df),
+                    order.by = "freq",
+                    mainbar.y.label = "Shared ASVs",
+                    sets.x.label = "ASVs per Site",
+                    text.scale = 1.3,
+                    point.size = 4,
+                    line.size = 1.5,
+                    query.legend = "bottom",
+                    sets.bar.color = 
+                      c("#44C17B","#A3D9A8","#2E8B57"),
+                    queries = queries_list)
+
+# show
+print(upset_plot)
+```
+
+save plot
+
+```{r}
+pdf("Figures/interior_mangroves/core_upset.pdf", width = 5.8, height = 4)
+upset_plot
+dev.off()
+```
+
+## 05. Get unique and core ASV info
+
+```{r}
+### get unique ASVs per mangrove system
+unique_asvs <- list()
+for (loc in colnames(core_df)) {
+  unique_asvs[[loc]] <- rownames(core_df)[rowSums(core_df == 1) == 1 & core_df[[loc]] == 1]
+  cat(loc, ": Unique ASVs:", length(unique_asvs[[loc]]), "\n")
+  print(head(unique_asvs[[loc]], 5))  # Show first 5
+}
+#unique_asvs
+```
+
+```{r}
+# Verify taxonomy
+if (!is.null(tax_table(physeq))) {
+  tax_table_df <- as.data.frame(tax_table(physeq))
+
+  # Get taxonomy function
+  get_taxonomy <- function(asv_list) {
+    if (length(asv_list) > 0) {
+      taxonomy <- tax_table_df[asv_list, , drop = FALSE]
+      return(taxonomy)
+    } else {
+      return(NULL)
+    }
+  }
+
+  # Get taxonomy
+  taxonomy_unique <- lapply(unique_asvs, get_taxonomy)
+
+  # show first 5  unique ASVs
+  for (loc in names(taxonomy_unique)) {
+    cat("\nFirst unique ASVs taxonomy", loc, ":\n")
+    if (!is.null(taxonomy_unique[[loc]])) {
+      print(head(taxonomy_unique[[loc]], 5))
+    } else {
+      cat("There are no unique ASV to", loc, "\n")
+    }
+  }
+} else {
+  cat("Please import taxonomy.\n")
+}
+
+# Confirm the total number of unique ASVs
+lapply(taxonomy_unique, function(x) if (!is.null(x)) nrow(x) else 0)
+```
+
+Get taxonomy
+
+Phylum level
+
+```{r}
+# Create a list to store unique asv to Phylum level
+phylum_unique <- list()
+
+# Iterate on each Mangrove system
+for (loc in names(taxonomy_unique)) {
+  if (!is.null(taxonomy_unique[[loc]])) {
+    # Extract taxonomy phylum
+    tax_df <- taxonomy_unique[[loc]]
+    if ("Phylum" %in% colnames(tax_df)) {
+      phylum <- tax_df$Phylum
+      phylum <- phylum[!is.na(phylum)]  # Exclude NA
+      phylum_unique[[loc]] <- unique(phylum)
+    } else {
+      cat("Phylum is not available to", loc, "\n")
+      phylum_unique[[loc]] <- character(0)
+    }
+  } else {
+    phylum_unique[[loc]] <- character(0)
+  }
+}
+
+# Identify exclusive phylum for Mangrove system
+all_phylums <- unique(unlist(phylum_unique))
+phylum_exclusive <- list()
+for (loc in names(phylum_unique)) {
+  other_locations <- setdiff(names(phylum_unique), loc)
+  other_phylum <- unique(unlist(phylum_unique[other_locations]))
+  exclusive_phylum <- setdiff(phylum_unique[[loc]], other_phylum)
+  phylum_exclusive[[loc]] <- exclusive_phylum
+  cat("Exclusive phylum in", loc, ":", length(exclusive_phylum), "\n")
+  if (length(exclusive_phylum) > 0) {
+    print(exclusive_phylum)
+  } else {
+    cat("There are not exclusive phylum.\n")
+  }
+}
+```
+
+Class level
+
+```{r}
+# Create a list to store unique asv to Class level
+class_unique <- list()
+
+# Iterate on each Location
+for (loc in names(taxonomy_unique)) {
+  if (!is.null(taxonomy_unique[[loc]])) {
+    # Extract taxonomy class
+    tax_df <- taxonomy_unique[[loc]]
+    if ("Class" %in% colnames(tax_df)) {
+      class <- tax_df$Class
+      class <- class[!is.na(class)]  # Exclude NA
+      class_unique[[loc]] <- unique(class)
+    } else {
+      cat("Class is not available to", loc, "\n")
+      class_unique[[loc]] <- character(0)
+    }
+  } else {
+    class_unique[[loc]] <- character(0)
+  }
+}
+
+# Identify exclusive phylum for Mangrove system
+all_class <- unique(unlist(class_unique))
+class_exclusive <- list()
+for (loc in names(class_unique)) {
+  other_locations <- setdiff(names(class_unique), loc)
+  other_class <- unique(unlist(class_unique[other_locations]))
+  exclusive_class <- setdiff(class_unique[[loc]], other_class)
+  class_exclusive[[loc]] <- exclusive_class
+  cat("Exclusive class in", loc, ":", length(exclusive_class), "\n")
+  if (length(exclusive_class) > 0) {
+    print(exclusive_class)
+  } else {
+    cat("There are not exclusive class.\n")
+  }
+}
+```
+
+Family level
+
+```{r}
+# Create a list to store unique asv to specific taxonomy level
+families_unique <- list()
+
+# Iterate on each Mangrove system
+for (loc in names(taxonomy_unique)) {
+  if (!is.null(taxonomy_unique[[loc]])) {
+    # Extract taxonomy families
+    tax_df <- taxonomy_unique[[loc]]
+    if ("Family" %in% colnames(tax_df)) {
+      families <- tax_df$Family
+      families <- families[!is.na(families)]  # Exclude NA
+      families_unique[[loc]] <- unique(families)
+    } else {
+      cat("Family is not available to", loc, "\n")
+      families_unique[[loc]] <- character(0)
+    }
+  } else {
+    families_unique[[loc]] <- character(0)
+  }
+}
+
+# Identify exclusive family for Mangrove system
+all_families <- unique(unlist(families_unique))
+families_exclusive <- list()
+for (loc in names(families_unique)) {
+  other_locations <- setdiff(names(families_unique), loc)
+  other_families <- unique(unlist(families_unique[other_locations]))
+  exclusive_families <- setdiff(families_unique[[loc]], other_families)
+  families_exclusive[[loc]] <- exclusive_families
+  cat("Exclusive family in", loc, ":", length(exclusive_families), "\n")
+  if (length(exclusive_families) > 0) {
+    print(exclusive_families)
+  } else {
+    cat("There are not exclusive family.\n")
+  }
+}
+```
+
+Get core table
+
+```{r}
+# Combine taxonomy in data.frame
+taxonomy_unique_df <- do.call(rbind, lapply(names(taxonomy_unique), function(loc) {
+  if (!is.null(taxonomy_unique[[loc]])) {
+    df <- taxonomy_unique[[loc]]
+    df$Location <- loc
+    df$ASV <- rownames(df)# add name asv column
+    return(df)
+  } else {
+    return(NULL)
+  }
+}))
+
+# Move columns
+taxonomy_unique_df <- taxonomy_unique_df[, c("ASV", "Location", setdiff(names(taxonomy_unique_df), c("ASV", "Location")))]
+
+# show first rows of data.frame to verify
+print(head(taxonomy_unique_df))
+```
+
+```{r}
+# save data.frame
+write.csv(taxonomy_unique_df, file = "Tables/interior_mangroves/unique_asvs_taxonomy.csv", row.names = FALSE)
+```
+
+## 06. Get core taxonomy
+
+```{r}
+shared_asvs <- Reduce(intersect, core_list)
+print(shared_asvs)
+```
+
+```{r}
+shared_taxonomy <- get_taxonomy(shared_asvs)
+print(shared_taxonomy)
+```
+
+```{r}
+shared_family <- unique(shared_taxonomy$Family[!is.na(shared_taxonomy$Family)])
+print(shared_family)
+```
+
+```{r}
+shared_phyla <- unique(shared_taxonomy$Phylum[!is.na(shared_taxonomy$Phylum)])
+print(shared_phyla)
+```
+
+## 07. Relative abundance of core asv
+
+```{r}
+# Filter
+physeq_shared <- prune_taxa(shared_asvs, physeq)
+head(otu_table(physeq_shared))
+
+# rel abundance
+physeq_rel <- transform_sample_counts(physeq_shared, function(x){x / sum(x)})
+head(otu_table(physeq_shared))
+```
+
+```{r}
+#| warning: false
+# Aggregate data by Location
+physeq_agg <- merge_samples(physeq_rel, "Location")
+
+# Convert to relative abundance
+physeq_agg_rel <- transform_sample_counts(physeq_agg, function(x) x / sum(x))
+
+# Location names
+locations <- unique(sample_data(physeq_rel)$Location)
+sample_names(physeq_agg_rel) <- locations
+sample_data(physeq_agg_rel)$Location <- factor(locations, levels = locations)
+```
+
+Barplot of core by Phylum level
+
+```{r}
+#| message: false
+#| warning: false
+
+# Numbers of ASV
+n_asvs <- length(unique(tax_table(physeq_agg_rel)[, "Phylum"]))
+
+# color palette
+base_colors <- c(
+  "#4B0082",
+  "cyan4",
+  "#FF1493",  
+  "#FFD700",  
+  "#8A2BE6",  
+  "#74F3D3FF",
+  "#F3E33ABA",
+  "#AC9ECEFF",
+  "#6EC5ABFF",
+  "#8D3CA3")
+custom_palette <- colorRampPalette(base_colors)(n_asvs)
+
+# Create the bar plot with facet by Mangrove_type
+barplot_core <- phyloseq::plot_bar(physeq_agg_rel, fill = "Phylum") +
+    geom_bar(aes(color = Phylum, fill = Phylum), 
+               stat = "identity", position = "stack") +
+    labs(x = "", y = "Relative Abundance", element_text(size = 12)) +
+    facet_wrap(~ Location, scales = "free_x", nrow = 1) +
+    scale_fill_manual(values = custom_palette) +
+    scale_color_manual(values = custom_palette) +
+  theme_minimal() +
+  theme(axis.text = element_text(colour = "black", size = 10),
+        axis.title = element_text(colour = "black", size = 10),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 11),
+        legend.position = "bottom",
+        axis.text.x = element_text(size = 10, angle = 0, 
+                        hjust = 0.5, color = "black"),
+      axis.text.y = element_text(size = 10, color = "black"),
+      strip.text = element_text(size = 12, 
+                                color = "black"),
+      panel.background = element_blank())
+
+barplot_core
+```
+
+```{r}
+pdf("Figures/interior_mangroves/rel_abun_core.pdf")
+barplot_core
+dev.off()
+```
+
+### 07.2 Ampvis heatmap
+
+```{r}
+# create and extract otu table
+otu_table_ampvis <- data.frame(OTU = rownames(phyloseq::otu_table(physeq_shared)@.Data),
+                                 phyloseq::otu_table(physeq_shared)@.Data,
+                                 phyloseq::tax_table(physeq_shared)@.Data,
+                                 check.names = FALSE)
+
+# Metadata
+meta_data_ampvis <- data.frame(phyloseq::sample_data(physeq_shared),
+                                 check.names = FALSE)
+
+# change index by SampleID
+meta_data_ampvis <- meta_data_ampvis %>% rownames_to_column(var = "SampleID")
+
+# ampvis object
+av2 <- amp_load(otu_table_ampvis, meta_data_ampvis)
+```
+
+```{r}
+ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
+            group_by = "Location",
+            #facet_by = "Location",
+            plot_values = TRUE,
+            tax_show = 23,
+            showRemainingTaxa = TRUE,
+            tax_aggregate = "Phylum",
+            plot_colorscale = "log10",
+            plot_values_size = 3,
+            min_abundance = 0.001,
+            round = 2,
+            color_vector = c("#703AF5","#DADAEB" ,"#75157a")) + #"#DADAEB"
+  theme(axis.text.x = element_text(angle = 0, size=11, 
+                                   vjust = 1, hjust = 0.5),
+        axis.text.y = element_text(size=12),
+        legend.position="right")
+
+ampv_heatmap_abundances_phylum_core
+```
+
+```{r}
+# save
+ggsave("Figures/interior_mangroves/Core_RelativeAbundance_heatmap.pdf",
+       ampv_heatmap_abundances_phylum_core, bg='transparent', 
+       width = 4, height = 5.5)
+```
+
+### 07.3 Extract relative abundance info
+
+```{r}
+otu_rel_df <- psmelt(physeq_agg_rel)
+otu_rel_df_agg <- aggregate(Abundance ~ Sample + Phylum, data = otu_rel_df, sum)
+print(otu_rel_df_agg)
+```
+
+## Save rds core plot
+
+```{r}
+saveRDS(upset_plot, "rds/interior_mangroves/upset_surface_plot.rds")
+```
