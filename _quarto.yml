@@ -20,7 +20,8 @@ website:
 
   page-footer:
     right: "This page is built with ❤ Science 🦠 🧬 and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2025, Diana Hernández-Oaxaca"
+    left: "Diana Hernández-Oaxaca and Yaxche Lona
+    \n &copy; Copyright 2025"
     center: "LandaLab"
     background: "#f1ebf9"
 

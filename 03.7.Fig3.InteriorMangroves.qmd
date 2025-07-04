@@ -1,3 +1,79 @@
 ---
 title: "Fig. 3 Interior Mangroves"
 ---
+
+# Load libraries
+
+```{r}
+#| message: false
+#| warning: false
+library(ggplot2)
+library(cowplot)
+```
+
+# Load figures
+
+```{r}
+#| message: false
+#| warning: false
+
+alpha <- readRDS("rds/interior_mangroves/alpha_diversity_interior_depth_plot.rds")
+
+beta_u <- readRDS("rds/interior_mangroves/nmds_u.rds")
+beta_wu <- readRDS("rds/interior_mangroves/nmds_wu.rds")
+dbrda <- readRDS("rds/interior_mangroves/dbRDA.rds")
+
+core <- readRDS("rds/interior_mangroves/upset_plot.rds")
+
+da_tax <- readRDS("rds/interior_mangroves/da_ra_depth_plot.rds")
+
+da_ko <- readRDS("rds/interior_mangroves/DA_picrust.rds")
+```
+
+# Combine plots
+
+```{r}
+#| message: false
+#| warning: false
+betas <- plot_grid(beta_wu, beta_u, dbrda, labels = c("B"," "," "),
+                        label_fontface = "bold",
+                        ncol = 3, rel_widths = c(1,1.2,1))
+```
+
+```{r}
+#| message: false
+#| warning: false
+alpha_betas <- plot_grid(alpha, betas, ncol = 2, rel_widths = c(0.2,1))
+```
+
+```{r}
+#| message: false
+#| warning: false
+dataxcoreko <- plot_grid(da_tax, core, da_ko, labels = c("C","D","E"),
+                        label_fontface = "bold",
+                        ncol = 3, rel_widths = c(0.35,0.35,0.3))
+```
+
+```{r}
+#| message: false
+#| warning: false
+all <- plot_grid(alpha_betas, dataxcoreko, ncol = 1, 
+                 rel_heights = c(0.3,0.7))
+```
+
+```{r}
+ggsave("Figures/interior_mangroves/Fig3.InteriorMangroves.pdf",
+       all, width = 19, height = 13)
+```
+
+```{r}
+all
+```
+
+Core and KO differential abundance are not shown because they are not a direct format of ggplot, so we will insert them in Inkscape
+
+::: callout-caution
+## Edit figure in Inkscape
+
+The UpSet and ko abundance plots insertion and other details were done in Inkscape. The final figure is shown below:
+:::

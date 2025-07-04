@@ -1,0 +1,17 @@
+{
+  "hash": "8574084cfb947a444c4420e2ff0e206e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Fig. 3 Interior Mangroves\"\n---\n\n\n\n\n# Load libraries\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\nlibrary(cowplot)\n```\n:::\n\n\n\n\n# Load figures\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nalpha <- readRDS(\"rds/interior_mangroves/alpha_diversity_interior_depth_plot.rds\")\n\nbeta_u <- readRDS(\"rds/interior_mangroves/nmds_u.rds\")\nbeta_wu <- readRDS(\"rds/interior_mangroves/nmds_wu.rds\")\ndbrda <- readRDS(\"rds/interior_mangroves/dbRDA.rds\")\n\ncore <- readRDS(\"rds/interior_mangroves/upset_plot.rds\")\n\nda_tax <- readRDS(\"rds/interior_mangroves/da_ra_depth_plot.rds\")\n\nda_ko <- readRDS(\"rds/interior_mangroves/DA_picrust.rds\")\n```\n:::\n\n\n\n\n# Combine plots\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nbetas <- plot_grid(beta_wu, beta_u, dbrda, labels = c(\"B\",\" \",\" \"),\n                        label_fontface = \"bold\",\n                        ncol = 3, rel_widths = c(1,1.2,1))\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nalpha_betas <- plot_grid(alpha, betas, ncol = 2, rel_widths = c(0.2,1))\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\ndataxcoreko <- plot_grid(da_tax, core, da_ko, labels = c(\"C\",\"D\",\"E\"),\n                        label_fontface = \"bold\",\n                        ncol = 3, rel_widths = c(0.35,0.35,0.3))\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nall <- plot_grid(alpha_betas, dataxcoreko, ncol = 1, \n                 rel_heights = c(0.3,0.7))\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggsave(\"Figures/interior_mangroves/Fig3.InteriorMangroves.pdf\",\n       all, width = 19, height = 13)\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nall\n```\n\n::: {.cell-output-display}\n![](03.7.Fig3.InteriorMangroves_files/figure-html/unnamed-chunk-8-1.png){width=672}\n:::\n:::\n\n\n\n\nCore and KO differential abundance are not shown because they are not a direct format of ggplot, so we will insert them in Inkscape\n\n::: callout-caution\n## Edit figure in Inkscape\n\nThe UpSet and ko abundance plots insertion and other details were done in Inkscape. The final figure is shown below:\n:::\n",
+    "supporting": [
+      "03.7.Fig3.InteriorMangroves_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

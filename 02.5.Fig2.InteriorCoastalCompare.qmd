@@ -1,5 +1,5 @@
 ---
-title: "Figure Interior and Coastal mangroves compare"
+title: "Fig.2 Interior and Coastal mangroves compare"
 ---
 
 ```{r}
@@ -43,3 +43,11 @@ alpha_beta_core_da_2
 ggsave("Figures/SurfaceComparison/Fig2.SurfaceComparison_2.pdf",
        alpha_beta_core_da_2, width = 19, height = 12)
 ```
+
+::: callout-caution
+## Edit figure in Inkscape
+
+The UpSet plot insertion and other details were done in Inkscape. The final figure is shown below:
+:::
+
+![](Figures/SurfaceComparison/Fig2.SurfaceComparison_InkEdited.pdf){fig-align="center" width="640" height="480"}

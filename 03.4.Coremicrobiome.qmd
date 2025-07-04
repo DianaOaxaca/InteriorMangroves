@@ -520,5 +520,5 @@ print(otu_rel_df_agg)
 ## Save rds core plot
 
 ```{r}
-saveRDS(upset_plot, "rds/interior_mangroves/upset_surface_plot.rds")
+saveRDS(upset_plot, "rds/interior_mangroves/upset_plot.rds")
 ```

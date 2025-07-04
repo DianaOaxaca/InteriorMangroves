@@ -423,11 +423,13 @@ q0_emmeans_df
 q0plot <- ggplot(metadata_with_hill, aes(x = Depths, y = q0, fill = Depths)) +
   geom_boxplot() +
   geom_jitter(aes(fill = Depths), width = 0.1, alpha = 0.4) +
-  geom_text(data = q0_emmeans_df, aes(y = emmean, label = .group), vjust = -9, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  geom_text(data = q0_emmeans_df, aes(y = emmean, label = .group), vjust = -4, color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "Observed Richness", y = NULL, x = NULL ) + #,
        #caption = "letters by lmer emmeans") +
     theme_classic() + scale_fill_manual(values = depth_colors) +
-    theme(legend.position = "none", axis.text.x = element_blank())
+    theme(legend.position = "none",
+          axis.text.y = element_text(size = 9),
+          axis.text.x = element_blank())
 
 q0plot
 ```
@@ -576,12 +578,14 @@ emmeans_dfqf
 qfplot <- ggplot(metadata_with_hill, aes(x = Depths, y = qf, fill = Depths)) +
   geom_boxplot() +
   geom_jitter(aes(fill = Depths), width = 0.1, alpha = 0.4) +
-  geom_text(data = emmeans_dfqf, aes(y = emmean, label = .group), vjust = -8, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  geom_text(data = emmeans_dfqf, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "PD Faith", y = NULL, x = NULL,
-       caption = "letters by lmer emmeans \n
-       taken depth, location and sediment core") +
+       caption = "lmer (depth, location and sediment core)") +
     theme_classic() + scale_fill_manual(values = depth_colors) +
-    theme(legend.position = "none")
+    theme(legend.position = "none",
+          axis.text.y = element_text(size = 9),
+          axis.text.x = element_text(size = 9),
+    plot.caption = element_text(size = 7, face = "italic"))
 qfplot
 ```
 
@@ -595,8 +599,8 @@ A combined plot of the observed richness and phylogenetic diversity was created 
 #Combine plot
 
 ytitle <- ggdraw() + draw_label("Effective number of ASVs", angle = 90, size = 12)
-alphaplots <- plot_grid(q0plot, qfplot, ncol = 1, rel_heights = c(1, 1))
-alphaplots_y <- plot_grid(ytitle, alphaplots, ncol = 2, rel_widths = c(0.05, 1), labels = c("A", ""))    
+alphaplots <- plot_grid(q0plot, qfplot, ncol = 1, rel_heights = c(0.75, 1))
+alphaplots_y <- plot_grid(ytitle, alphaplots, ncol = 2, rel_widths = c(0.05, 1), labels = c(" ", "A"))    
 alphaplots_y
 
 # save
@@ -640,13 +644,12 @@ q0emmeans_df_loc
 q0plotloc <- ggplot(metadata_with_hill, aes(x = Location, y = q0, fill = Location)) +
   geom_boxplot() +
   geom_jitter(aes(fill = Location), width = 0.1, alpha = 0.4) +
-  geom_text(data = q0emmeans_df_loc, aes(y = emmean, label = .group), vjust = -5, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  geom_text(data = q0emmeans_df_loc, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "Observed Richness", y = NULL, x = NULL ) + #,
        #caption = "letters by lmer emmeans") +
     theme_classic() + scale_fill_manual(values = loc_colors) +
     theme(legend.position = "none", axis.text.x = element_blank())
 ```
-
 ### q1 Exp Shannon diversity
 
 ```{r}
@@ -682,7 +685,7 @@ q1emmeans_df_loc
 q1plotloc <- ggplot(metadata_with_hill, aes(x = Location, y = q1, fill = Location)) +
   geom_boxplot() +
   geom_jitter(aes(fill = Location), width = 0.1, alpha = 0.4) +
-  geom_text(data = q1emmeans_df_loc, aes(y = emmean, label = .group), vjust = -5, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  geom_text(data = q1emmeans_df_loc, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "Exp Shannon", y = NULL, x = NULL ) + #,
        #caption = "letters by lmer emmeans") +
     theme_classic() + scale_fill_manual(values = loc_colors) +
@@ -723,7 +726,7 @@ q2emmeans_df_loc
 q2plotloc <- ggplot(metadata_with_hill, aes(x = Location, y = q2, fill = Location)) +
   geom_boxplot() +
   geom_jitter(aes(fill = Location), width = 0.1, alpha = 0.4) +
-  geom_text(data = q2emmeans_df_loc, aes(y = emmean, label = .group), vjust = -5, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  geom_text(data = q2emmeans_df_loc, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "Exp Shannon", y = NULL, x = NULL ) + #,
        #caption = "letters by lmer emmeans") +
     theme_classic() + scale_fill_manual(values = loc_colors) +
@@ -765,7 +768,7 @@ qfemmeans_df_loc
 qfplotloc <- ggplot(metadata_with_hill, aes(x = Location, y = qf, fill = Location)) +
   geom_boxplot() +
   geom_jitter(aes(fill = Location), width = 0.1, alpha = 0.4) +
-  geom_text(data = qfemmeans_df_loc, aes(y = emmean, label = .group), vjust = -5, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  geom_text(data = qfemmeans_df_loc, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "Exp Shannon", y = NULL, x = NULL,
        caption = "letters by lmer emmeans") +
     theme_classic() + scale_fill_manual(values = loc_colors) +
