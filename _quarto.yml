@@ -20,8 +20,7 @@ website:
 
   page-footer:
     right: "This page is built with ❤ Science 🦠 🧬 and [Quarto](https://quarto.org/)."
-    left: "Diana Hernández-Oaxaca and Yaxche Lona
-    \n &copy; Copyright 2025"
+    left: "Diana Hernández-Oaxaca and Yaxche Lona, &copy; Copyright 2025"
     center: "LandaLab"
     background: "#f1ebf9"
 
@@ -57,6 +56,16 @@ website:
                   - 02.3.Coremicrobiome.qmd
                   - 02.4.DifferentialAbundance.qmd
                   - 02.5.Fig2.InteriorCoastalCompare.qmd
+          - section: "How are coastal and inland mangroves similar, considering their depth?"
+            contents:
+              - 04.DepthComparison.qmd
+              - section: "Analysis"
+                contents:
+                  - 04.1.AlphaDiversity.qmd
+                  - 04.2.BetaDiversity.qmd
+                  - 04.3.Coremicrobiome.qmd
+                  - 04.4.DifferentialAbundance.qmd
+                  - 04.5.Fig4.InteriorCoastalDepthCompare.qmd
       - section: "Interior mangroves explore"
         href: 03.InteriorMangroves.qmd
         contents:

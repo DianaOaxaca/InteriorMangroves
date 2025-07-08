@@ -35,39 +35,38 @@ da_ko <- readRDS("rds/interior_mangroves/DA_picrust.rds")
 ```{r}
 #| message: false
 #| warning: false
-betas <- plot_grid(beta_wu, beta_u, dbrda, labels = c("B"," "," "),
+betas_u_core <- plot_grid(beta_u, dbrda, core, labels = c("A","B", "C"),
                         label_fontface = "bold",
-                        ncol = 3, rel_widths = c(1,1.2,1))
+                        ncol = 1, rel_heights = c(0.3, 0.3, 0.5))
 ```
 
 ```{r}
 #| message: false
 #| warning: false
-alpha_betas <- plot_grid(alpha, betas, ncol = 2, rel_widths = c(0.2,1))
-```
-
-```{r}
-#| message: false
-#| warning: false
-dataxcoreko <- plot_grid(da_tax, core, da_ko, labels = c("C","D","E"),
+dataxbeta_wu <- plot_grid(beta_wu,da_tax, labels = c("D","F"),
                         label_fontface = "bold",
-                        ncol = 3, rel_widths = c(0.35,0.35,0.3))
+                        ncol = 1, rel_widths = c(0.3,0.7))
+```
+
+```{r}
+#| message: false 
+#| warning: false
+alpha_kos <- plot_grid(alpha, da_ko,labels = c("E","G"),
+                        label_fontface = "bold",
+                       ncol = 1, rel_widths = c(0.3,7))
 ```
 
 ```{r}
 #| message: false
 #| warning: false
-all <- plot_grid(alpha_betas, dataxcoreko, ncol = 1, 
-                 rel_heights = c(0.3,0.7))
+all <- plot_grid(betas_u_core, dataxbeta_wu, alpha_kos, 
+                 ncol = 3, 
+                 rel_widths = c(0.4,0.35,0.30))
 ```
 
 ```{r}
 ggsave("Figures/interior_mangroves/Fig3.InteriorMangroves.pdf",
        all, width = 19, height = 13)
-```
-
-```{r}
-all
 ```
 
 Core and KO differential abundance are not shown because they are not a direct format of ggplot, so we will insert them in Inkscape
@@ -77,3 +76,5 @@ Core and KO differential abundance are not shown because they are not a direct f
 
 The UpSet and ko abundance plots insertion and other details were done in Inkscape. The final figure is shown below:
 :::
+
+![](Figures/interior_mangroves/Fig3.InteriorMangroves_InkscapeEdited.pdf){fig-align="center" width="650" height="520"}

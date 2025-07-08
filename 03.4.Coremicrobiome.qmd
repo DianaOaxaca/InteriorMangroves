@@ -364,22 +364,22 @@ write.csv(taxonomy_unique_df, file = "Tables/interior_mangroves/unique_asvs_taxo
 
 ```{r}
 shared_asvs <- Reduce(intersect, core_list)
-print(shared_asvs)
+head(shared_asvs)
 ```
 
 ```{r}
 shared_taxonomy <- get_taxonomy(shared_asvs)
-print(shared_taxonomy)
+head(shared_taxonomy)
 ```
 
 ```{r}
 shared_family <- unique(shared_taxonomy$Family[!is.na(shared_taxonomy$Family)])
-print(shared_family)
+head(shared_family)
 ```
 
 ```{r}
 shared_phyla <- unique(shared_taxonomy$Phylum[!is.na(shared_taxonomy$Phylum)])
-print(shared_phyla)
+head(shared_phyla)
 ```
 
 ## 07. Relative abundance of core asv

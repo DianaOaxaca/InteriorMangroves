@@ -461,15 +461,14 @@ heatmap_plot_r2 <- ggplot(r2_melt, aes(x = Location1, y = Location2, fill = R2))
   theme_minimal() +
   labs(title = NULL,
        x = "Location", y = "Location") +
-  theme(axis.text.x = element_text(angle = 0, hjust = 1, size = 12),
+  theme(axis.text.x = element_text(angle = 0, hjust = 0.5, size = 9),
         axis.title = element_text(size = 12),
-        plot.title = element_text(size = 12))
+        plot.title = element_text(size = 10))
 
 # join cowplot
 combined_heatmap <- plot_grid(
   heatmap_plot_p, heatmap_plot_r2,
-  nrow = 2, align = "v", axis = "lr"
-)
+  nrow = 2, align = "v", axis = "lr")
 
 # show
 combined_heatmap

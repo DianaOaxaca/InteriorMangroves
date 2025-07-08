@@ -218,26 +218,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">How are coastal and inland mangroves similar, considering their depth?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.DepthComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Prepare</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.1.AlphaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Alpha Diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.2.BetaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta Diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.3.Coremicrobiome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core Microbiome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.4.DifferentialAbundance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Abundance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04.5.Fig4.InteriorCoastalDepthCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fig 4. Interior and Coastal with depth comparison</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+      </ul>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./03.InteriorMangroves.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Interior mangroves explore</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
  <span class="menu-text">What makes inland mangroves different and unique?</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03.1.RelativeAbundances.html" class="sidebar-item-text sidebar-link">
@@ -829,1143 +887,45 @@ ASV_2092 Bathyarchaeia Bathyarchaeia Bathyarchaeia uncultured_methanogenic</code
 </section><section id="get-core-taxonomy" class="level2"><h2 class="anchored" data-anchor-id="get-core-taxonomy">06. Get core taxonomy</h2>
 <div class="cell">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_asvs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Reduce</a></span><span class="op">(</span><span class="va">intersect</span>, <span class="va">core_list</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shared_asvs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shared_asvs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] "ASV_120"  "ASV_1769" "ASV_513"  "ASV_537"  "ASV_2449" "ASV_167" 
-  [7] "ASV_480"  "ASV_2782" "ASV_1291" "ASV_1967" "ASV_4990" "ASV_1489"
- [13] "ASV_231"  "ASV_3"    "ASV_551"  "ASV_645"  "ASV_9"    "ASV_10"  
- [19] "ASV_20"   "ASV_48"   "ASV_506"  "ASV_913"  "ASV_2363" "ASV_18"  
- [25] "ASV_85"   "ASV_97"   "ASV_798"  "ASV_253"  "ASV_198"  "ASV_1302"
- [31] "ASV_1518" "ASV_3187" "ASV_802"  "ASV_969"  "ASV_2829" "ASV_1443"
- [37] "ASV_1523" "ASV_19"   "ASV_24"   "ASV_35"   "ASV_501"  "ASV_1093"
- [43] "ASV_1322" "ASV_1865" "ASV_1344" "ASV_25"   "ASV_376"  "ASV_51"  
- [49] "ASV_977"  "ASV_1375" "ASV_1514" "ASV_1853" "ASV_2591" "ASV_6"   
- [55] "ASV_33"   "ASV_16"   "ASV_1987" "ASV_2604" "ASV_160"  "ASV_1189"
- [61] "ASV_1873" "ASV_4157" "ASV_2866" "ASV_3516" "ASV_39"   "ASV_41"  
- [67] "ASV_68"   "ASV_1042" "ASV_1246" "ASV_3880" "ASV_2297" "ASV_511" 
- [73] "ASV_1356" "ASV_4894" "ASV_743"  "ASV_1573" "ASV_746"  "ASV_1089"
- [79] "ASV_1116" "ASV_118"  "ASV_58"   "ASV_62"   "ASV_204"  "ASV_3227"
- [85] "ASV_3698" "ASV_2303" "ASV_1041" "ASV_2235" "ASV_2317" "ASV_3225"
- [91] "ASV_130"  "ASV_300"  "ASV_692"  "ASV_552"  "ASV_7"    "ASV_250" 
- [97] "ASV_103"  "ASV_114"  "ASV_197"  "ASV_36"   "ASV_109"  "ASV_79"  
-[103] "ASV_61"   "ASV_256"  "ASV_196"  "ASV_321"  "ASV_123"  "ASV_105" 
-[109] "ASV_162"  "ASV_166"  "ASV_395"  "ASV_3212" "ASV_246"  "ASV_8"   
-[115] "ASV_15"   "ASV_12"   "ASV_11"   "ASV_71"   "ASV_568"  "ASV_487" 
-[121] "ASV_689"  "ASV_892"  "ASV_584"  "ASV_362"  "ASV_1595" "ASV_1786"
-[127] "ASV_329"  "ASV_2126" "ASV_3984" "ASV_643"  "ASV_557"  "ASV_781" 
-[133] "ASV_1254" "ASV_1032" "ASV_23"   "ASV_93"   "ASV_86"   "ASV_147" 
-[139] "ASV_1080" "ASV_297"  "ASV_331"  "ASV_4"    "ASV_230"  "ASV_653" 
-[145] "ASV_396"  "ASV_21"   "ASV_2616" "ASV_3087" "ASV_450"  "ASV_3338"
-[151] "ASV_516"  "ASV_1911" "ASV_2747" "ASV_141"  "ASV_784"  "ASV_771" 
-[157] "ASV_2787" "ASV_1075" "ASV_2600" "ASV_2301" "ASV_345"  "ASV_942" 
-[163] "ASV_558"  "ASV_92"   "ASV_283"  "ASV_289"  "ASV_221"  "ASV_434" 
-[169] "ASV_239"  "ASV_341"  "ASV_148"  "ASV_116"  "ASV_747"  "ASV_127" 
-[175] "ASV_4434" "ASV_3540" "ASV_1256" "ASV_1264" "ASV_1124" "ASV_2786"
-[181] "ASV_3411" "ASV_29"   "ASV_59"   "ASV_60"   "ASV_505"  "ASV_163" 
-[187] "ASV_2082" "ASV_1751" "ASV_3218" "ASV_317"  "ASV_1487" "ASV_1552"
-[193] "ASV_935"  "ASV_1370" "ASV_1408" "ASV_280"  "ASV_473"  "ASV_40"  
-[199] "ASV_399"  "ASV_110"  "ASV_201"  "ASV_383"  "ASV_1646" "ASV_227" 
-[205] "ASV_278"  "ASV_668"  "ASV_1208" "ASV_921"  "ASV_1020" "ASV_14"  
-[211] "ASV_249"  "ASV_453"  "ASV_4485" "ASV_22"   "ASV_622"  "ASV_65"  
-[217] "ASV_2949" "ASV_3929" "ASV_275"  "ASV_451"  "ASV_155"  "ASV_548" 
-[223] "ASV_3387" "ASV_3539" "ASV_1062" "ASV_2653" "ASV_774"  "ASV_1081"
-[229] "ASV_1727" "ASV_2603" "ASV_3016" "ASV_222"  "ASV_2448" "ASV_243" 
-[235] "ASV_470"  "ASV_1839" "ASV_215"  "ASV_226"  "ASV_944"  "ASV_286" 
-[241] "ASV_442"  "ASV_4817" "ASV_1163" "ASV_493"  "ASV_150"  "ASV_2"   
-[247] "ASV_412"  "ASV_475"  "ASV_157"  "ASV_415"  "ASV_776"  "ASV_494" 
-[253] "ASV_125"  "ASV_13"   "ASV_1"   </code></pre>
+<pre><code>[1] "ASV_120"  "ASV_1769" "ASV_513"  "ASV_537"  "ASV_2449" "ASV_167" </code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_taxonomy</span> <span class="op">&lt;-</span> <span class="fu">get_taxonomy</span><span class="op">(</span><span class="va">shared_asvs</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>             Kingdom            Phylum                  Class
-ASV_120   d__Archaea     Crenarchaeota          Bathyarchaeia
-ASV_1769 d__Bacteria   Planctomycetota         Planctomycetes
-ASV_513  d__Bacteria       Sumerlaeota             Sumerlaeia
-ASV_537  d__Bacteria Verrucomicrobiota       Verrucomicrobiae
-ASV_2449 d__Bacteria Verrucomicrobiota       Verrucomicrobiae
-ASV_167  d__Bacteria      Deinococcota             Deinococci
-ASV_480  d__Bacteria   Patescibacteria        Saccharimonadia
-ASV_2782 d__Bacteria   Patescibacteria        Saccharimonadia
-ASV_1291 d__Bacteria   Patescibacteria          Parcubacteria
-ASV_1967 d__Bacteria   Patescibacteria          Parcubacteria
-ASV_4990 d__Bacteria   Patescibacteria          Parcubacteria
-ASV_1489 d__Bacteria   Patescibacteria                   ABY1
-ASV_231  d__Bacteria   Acidobacteriota          Aminicenantia
-ASV_3    d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_551  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_645  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_9    d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_10   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_20   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_48   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_506  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_913  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_2363 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_18   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_85   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_97   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_798  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_253  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_198  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1302 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1518 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_3187 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_802  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_969  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_2829 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1443 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1523 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_19   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_24   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_35   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_501  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1093 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1322 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1865 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1344 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_25   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_376  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_51   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_977  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1375 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1514 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1853 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_2591 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_6    d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_33   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_16   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1987 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_2604 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_160  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1189 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1873 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_4157 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_2866 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_3516 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_39   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_41   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_68   d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1042 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1246 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_3880 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_2297 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_511  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1356 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_4894 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_743  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1573 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_746  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1089 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_1116 d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_118  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_58   d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_62   d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_204  d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_3227 d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_3698 d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_2303 d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_1041 d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_2235 d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_2317 d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_3225 d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_130  d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_300  d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_692  d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_552  d__Bacteria    Proteobacteria    Alphaproteobacteria
-ASV_7    d__Bacteria           Sva0485                Sva0485
-ASV_250  d__Bacteria           Sva0485                Sva0485
-ASV_103  d__Bacteria           Sva0485                Sva0485
-ASV_114  d__Bacteria           Sva0485                Sva0485
-ASV_197  d__Bacteria           Sva0485                Sva0485
-ASV_36   d__Bacteria           Sva0485                Sva0485
-ASV_109  d__Bacteria           Sva0485                Sva0485
-ASV_79   d__Bacteria           Sva0485                Sva0485
-ASV_61   d__Bacteria           Sva0485                Sva0485
-ASV_256  d__Bacteria           Sva0485                Sva0485
-ASV_196  d__Bacteria           Sva0485                Sva0485
-ASV_321  d__Bacteria           Sva0485                Sva0485
-ASV_123  d__Bacteria  Desulfobacterota        Desulfobacteria
-ASV_105  d__Bacteria  Desulfobacterota        Desulfobacteria
-ASV_162  d__Bacteria  Desulfobacterota        Desulfobacteria
-ASV_166  d__Bacteria  Desulfobacterota        Desulfobacteria
-ASV_395  d__Bacteria  Desulfobacterota             uncultured
-ASV_3212 d__Bacteria       Myxococcota              Polyangia
-ASV_246  d__Bacteria            MBNT15                 MBNT15
-ASV_8    d__Bacteria      Bacteroidota            Bacteroidia
-ASV_15   d__Bacteria      Bacteroidota            Bacteroidia
-ASV_12   d__Bacteria      Bacteroidota            Bacteroidia
-ASV_11   d__Bacteria      Bacteroidota            Bacteroidia
-ASV_71   d__Bacteria      Bacteroidota            Bacteroidia
-ASV_568  d__Bacteria      Bacteroidota            Bacteroidia
-ASV_487  d__Bacteria      Bacteroidota            Bacteroidia
-ASV_689  d__Bacteria      Bacteroidota            Bacteroidia
-ASV_892  d__Bacteria      Bacteroidota            Bacteroidia
-ASV_584  d__Bacteria      Bacteroidota            Bacteroidia
-ASV_362  d__Bacteria      Bacteroidota            Bacteroidia
-ASV_1595 d__Bacteria      Bacteroidota            Bacteroidia
-ASV_1786 d__Bacteria      Bacteroidota            Bacteroidia
-ASV_329  d__Bacteria      Bacteroidota            Bacteroidia
-ASV_2126 d__Bacteria      Bacteroidota            Bacteroidia
-ASV_3984 d__Bacteria      Bacteroidota            Bacteroidia
-ASV_643  d__Bacteria      Bacteroidota         Ignavibacteria
-ASV_557  d__Bacteria      Bacteroidota         Ignavibacteria
-ASV_781  d__Bacteria      Bacteroidota              Kryptonia
-ASV_1254 d__Bacteria  Campilobacterota        Campylobacteria
-ASV_1032 d__Bacteria     Spirochaetota           Spirochaetia
-ASV_23   d__Bacteria      Nitrospirota Thermodesulfovibrionia
-ASV_93   d__Bacteria      Nitrospirota Thermodesulfovibrionia
-ASV_86   d__Bacteria      Nitrospirota Thermodesulfovibrionia
-ASV_147  d__Bacteria      Nitrospirota Thermodesulfovibrionia
-ASV_1080 d__Bacteria   Acidobacteriota            Subgroup_18
-ASV_297  d__Bacteria     Calditrichota           Calditrichia
-ASV_331  d__Bacteria      Zixibacteria           Zixibacteria
-ASV_4    d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_230  d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_653  d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_396  d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_21   d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_2616 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_3087 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_450  d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_3338 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_516  d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_1911 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_2747 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_141  d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_784  d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_771  d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_2787 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_1075 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_2600 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_2301 d__Bacteria  Actinobacteriota         Actinobacteria
-ASV_345  d__Bacteria  Actinobacteriota         Coriobacteriia
-ASV_942  d__Bacteria  Actinobacteriota         Coriobacteriia
-ASV_558  d__Bacteria       Chloroflexi                   &lt;NA&gt;
-ASV_92   d__Bacteria       Chloroflexi        Dehalococcoidia
-ASV_283  d__Bacteria       Chloroflexi        Dehalococcoidia
-ASV_289  d__Bacteria       Chloroflexi        Dehalococcoidia
-ASV_221  d__Bacteria       Chloroflexi        Dehalococcoidia
-ASV_434  d__Bacteria       Chloroflexi        Dehalococcoidia
-ASV_239  d__Bacteria       Chloroflexi        Dehalococcoidia
-ASV_341  d__Bacteria       Chloroflexi        Dehalococcoidia
-ASV_148  d__Bacteria       Chloroflexi        Dehalococcoidia
-ASV_116  d__Bacteria       Chloroflexi           Anaerolineae
-ASV_747  d__Bacteria       Chloroflexi           Anaerolineae
-ASV_127  d__Bacteria       Chloroflexi           Anaerolineae
-ASV_4434 d__Bacteria       Chloroflexi           Chloroflexia
-ASV_3540 d__Bacteria   Acidobacteriota         Acidobacteriae
-ASV_1256 d__Bacteria     Cyanobacteria      Sericytochromatia
-ASV_1264 d__Bacteria    Fusobacteriota          Fusobacteriia
-ASV_1124 d__Bacteria        Firmicutes             Clostridia
-ASV_2786 d__Bacteria        Firmicutes             Clostridia
-ASV_3411 d__Bacteria        Firmicutes             Clostridia
-ASV_29   d__Bacteria        Firmicutes          Negativicutes
-ASV_59   d__Bacteria        Firmicutes          Negativicutes
-ASV_60   d__Bacteria        Firmicutes          Negativicutes
-ASV_505  d__Bacteria        Firmicutes          Negativicutes
-ASV_163  d__Bacteria        Firmicutes          Negativicutes
-ASV_2082 d__Bacteria        Firmicutes          Negativicutes
-ASV_1751 d__Bacteria        Firmicutes          Negativicutes
-ASV_3218 d__Bacteria        Firmicutes          Negativicutes
-ASV_317  d__Bacteria        Firmicutes          Negativicutes
-ASV_1487 d__Bacteria        Firmicutes          Negativicutes
-ASV_1552 d__Bacteria        Firmicutes          Negativicutes
-ASV_935  d__Bacteria        Firmicutes          Negativicutes
-ASV_1370 d__Bacteria        Firmicutes          Negativicutes
-ASV_1408 d__Bacteria        Firmicutes          Negativicutes
-ASV_280  d__Bacteria        Firmicutes          Negativicutes
-ASV_473  d__Bacteria        Firmicutes          Negativicutes
-ASV_40   d__Bacteria        Firmicutes          Negativicutes
-ASV_399  d__Bacteria    Proteobacteria    Gammaproteobacteria
-ASV_110  d__Bacteria        Firmicutes                Bacilli
-ASV_201  d__Bacteria        Firmicutes                Bacilli
-ASV_383  d__Bacteria        Firmicutes                Bacilli
-ASV_1646 d__Bacteria        Firmicutes                Bacilli
-ASV_227  d__Bacteria        Firmicutes                Bacilli
-ASV_278  d__Bacteria        Firmicutes                Bacilli
-ASV_668  d__Bacteria        Firmicutes                Bacilli
-ASV_1208 d__Bacteria        Firmicutes                Bacilli
-ASV_921  d__Bacteria        Firmicutes                Bacilli
-ASV_1020 d__Bacteria        Firmicutes                Bacilli
-ASV_14   d__Bacteria        Firmicutes                Bacilli
-ASV_249  d__Bacteria        Firmicutes                Bacilli
-ASV_453  d__Bacteria        Firmicutes                Bacilli
-ASV_4485 d__Bacteria        Firmicutes                Bacilli
-ASV_22   d__Bacteria        Firmicutes                Bacilli
-ASV_622  d__Bacteria        Firmicutes                Bacilli
-ASV_65   d__Bacteria        Firmicutes                Bacilli
-ASV_2949 d__Bacteria        Firmicutes                Bacilli
-ASV_3929 d__Bacteria        Firmicutes                Bacilli
-ASV_275  d__Bacteria        Firmicutes                Bacilli
-ASV_451  d__Bacteria        Firmicutes                Bacilli
-ASV_155  d__Bacteria        Firmicutes                Bacilli
-ASV_548  d__Bacteria        Firmicutes                Bacilli
-ASV_3387 d__Bacteria        Firmicutes                Bacilli
-ASV_3539 d__Bacteria        Firmicutes                Bacilli
-ASV_1062 d__Bacteria        Firmicutes                Bacilli
-ASV_2653 d__Bacteria        Firmicutes                Bacilli
-ASV_774  d__Bacteria        Firmicutes                Bacilli
-ASV_1081 d__Bacteria        Firmicutes                Bacilli
-ASV_1727 d__Bacteria        Firmicutes                Bacilli
-ASV_2603 d__Bacteria        Firmicutes                Bacilli
-ASV_3016 d__Bacteria        Firmicutes                Bacilli
-ASV_222  d__Bacteria        Firmicutes                Bacilli
-ASV_2448 d__Bacteria        Firmicutes                Bacilli
-ASV_243  d__Bacteria        Firmicutes                Bacilli
-ASV_470  d__Bacteria        Firmicutes                Bacilli
-ASV_1839 d__Bacteria        Firmicutes                Bacilli
-ASV_215  d__Bacteria        Firmicutes                Bacilli
-ASV_226  d__Bacteria        Firmicutes                Bacilli
-ASV_944  d__Bacteria        Firmicutes                Bacilli
-ASV_286  d__Bacteria        Firmicutes                Bacilli
-ASV_442  d__Bacteria        Firmicutes                Bacilli
-ASV_4817 d__Bacteria        Firmicutes                Bacilli
-ASV_1163 d__Bacteria        Firmicutes                Bacilli
-ASV_493  d__Bacteria        Firmicutes                Bacilli
-ASV_150  d__Bacteria        Firmicutes                Bacilli
-ASV_2    d__Bacteria        Firmicutes                Bacilli
-ASV_412  d__Bacteria        Firmicutes                Bacilli
-ASV_475  d__Bacteria        Firmicutes                Bacilli
-ASV_157  d__Bacteria        Firmicutes                Bacilli
-ASV_415  d__Bacteria        Firmicutes                Bacilli
-ASV_776  d__Bacteria        Firmicutes                Bacilli
-ASV_494  d__Bacteria        Firmicutes                Bacilli
-ASV_125  d__Bacteria        Firmicutes                Bacilli
-ASV_13   d__Bacteria        Firmicutes                Bacilli
-ASV_1    d__Bacteria        Firmicutes                Bacilli
-                                  Order                       Family
-ASV_120                   Bathyarchaeia                Bathyarchaeia
-ASV_1769                  Isosphaerales               Isosphaeraceae
-ASV_513                    Sumerlaeales                Sumerlaeaceae
-ASV_537                  Pedosphaerales              Pedosphaeraceae
-ASV_2449                 Pedosphaerales              Pedosphaeraceae
-ASV_167                   Deinococcales               Deinococcaceae
-ASV_480               Saccharimonadales           Saccharimonadaceae
-ASV_2782              Saccharimonadales            Saccharimonadales
-ASV_1291                  Parcubacteria                Parcubacteria
-ASV_1967      Candidatus_Kaiserbacteria    Candidatus_Kaiserbacteria
-ASV_4990                           &lt;NA&gt;                         &lt;NA&gt;
-ASV_1489   Candidatus_Magasanikbacteria Candidatus_Magasanikbacteria
-ASV_231                 Aminicenantales              Aminicenantales
-ASV_3                  Enterobacterales           Enterobacteriaceae
-ASV_551                Enterobacterales           Enterobacteriaceae
-ASV_645                Enterobacterales           Enterobacteriaceae
-ASV_9                  Enterobacterales           Enterobacteriaceae
-ASV_10                 Enterobacterales           Enterobacteriaceae
-ASV_20                 Enterobacterales           Enterobacteriaceae
-ASV_48                 Enterobacterales           Enterobacteriaceae
-ASV_506                Enterobacterales           Enterobacteriaceae
-ASV_913                Enterobacterales           Enterobacteriaceae
-ASV_2363               Enterobacterales           Enterobacteriaceae
-ASV_18                 Enterobacterales           Enterobacteriaceae
-ASV_85                 Enterobacterales           Enterobacteriaceae
-ASV_97                 Enterobacterales               Morganellaceae
-ASV_798                Enterobacterales               Morganellaceae
-ASV_253                Enterobacterales               Morganellaceae
-ASV_198                Enterobacterales                 Yersiniaceae
-ASV_1302               Enterobacterales                 Yersiniaceae
-ASV_1518               Enterobacterales           Enterobacteriaceae
-ASV_3187               Enterobacterales           Enterobacteriaceae
-ASV_802                Enterobacterales           Enterobacteriaceae
-ASV_969                Enterobacterales           Enterobacteriaceae
-ASV_2829               Enterobacterales           Enterobacteriaceae
-ASV_1443               Enterobacterales           Enterobacteriaceae
-ASV_1523               Enterobacterales           Enterobacteriaceae
-ASV_19                 Enterobacterales           Enterobacteriaceae
-ASV_24                 Enterobacterales           Enterobacteriaceae
-ASV_35                 Enterobacterales           Enterobacteriaceae
-ASV_501                Enterobacterales               Morganellaceae
-ASV_1093               Enterobacterales               Morganellaceae
-ASV_1322               Enterobacterales               Morganellaceae
-ASV_1865               Enterobacterales               Morganellaceae
-ASV_1344               Enterobacterales               Morganellaceae
-ASV_25                    Aeromonadales               Aeromonadaceae
-ASV_376                   Aeromonadales               Aeromonadaceae
-ASV_51                  Pseudomonadales                Moraxellaceae
-ASV_977                 Pseudomonadales                Moraxellaceae
-ASV_1375                Pseudomonadales                Moraxellaceae
-ASV_1514                Pseudomonadales                Moraxellaceae
-ASV_1853                Pseudomonadales                Moraxellaceae
-ASV_2591                Pseudomonadales                Moraxellaceae
-ASV_6                   Pseudomonadales             Pseudomonadaceae
-ASV_33                  Pseudomonadales             Pseudomonadaceae
-ASV_16                  Pseudomonadales             Pseudomonadaceae
-ASV_1987                Pseudomonadales             Pseudomonadaceae
-ASV_2604                Pseudomonadales             Pseudomonadaceae
-ASV_160                     KF-JG30-C25                  KF-JG30-C25
-ASV_1189                Xanthomonadales             Xanthomonadaceae
-ASV_1873                Xanthomonadales             Xanthomonadaceae
-ASV_4157                Xanthomonadales             Xanthomonadaceae
-ASV_2866                Xanthomonadales             Xanthomonadaceae
-ASV_3516                Xanthomonadales             Xanthomonadaceae
-ASV_39             Acidiferrobacterales        Acidiferrobacteraceae
-ASV_41                  Burkholderiales                       B1-7BS
-ASV_68                  Burkholderiales                       B1-7BS
-ASV_1042                Burkholderiales               Comamonadaceae
-ASV_1246                Burkholderiales               Comamonadaceae
-ASV_3880                Burkholderiales               Comamonadaceae
-ASV_2297                Burkholderiales               Comamonadaceae
-ASV_511                 Burkholderiales             Burkholderiaceae
-ASV_1356                Burkholderiales             Burkholderiaceae
-ASV_4894                Burkholderiales             Burkholderiaceae
-ASV_743                 Burkholderiales               Alcaligenaceae
-ASV_1573                Burkholderiales                Neisseriaceae
-ASV_746                 Burkholderiales             Oxalobacteraceae
-ASV_1089                Burkholderiales             Oxalobacteraceae
-ASV_1116                Burkholderiales            Nitrosomonadaceae
-ASV_118                 Burkholderiales            Nitrosomonadaceae
-ASV_58                      Rhizobiales            Xanthobacteraceae
-ASV_62                      Rhizobiales            Xanthobacteraceae
-ASV_204                     Rhizobiales             Beijerinckiaceae
-ASV_3227                    Rhizobiales             Beijerinckiaceae
-ASV_3698                    Rhizobiales             Beijerinckiaceae
-ASV_2303                    Rhizobiales            Xanthobacteraceae
-ASV_1041                    Rhizobiales                 Rhizobiaceae
-ASV_2235                    Rhizobiales                 Rhizobiaceae
-ASV_2317                    Rhizobiales                 Rhizobiaceae
-ASV_3225               Sphingomonadales            Sphingomonadaceae
-ASV_130                 Acetobacterales             Acetobacteraceae
-ASV_300                 Acetobacterales             Acetobacteraceae
-ASV_692                 Acetobacterales             Acetobacteraceae
-ASV_552                 Acetobacterales             Acetobacteraceae
-ASV_7                           Sva0485                      Sva0485
-ASV_250                         Sva0485                      Sva0485
-ASV_103                         Sva0485                      Sva0485
-ASV_114                         Sva0485                      Sva0485
-ASV_197                         Sva0485                      Sva0485
-ASV_36                          Sva0485                      Sva0485
-ASV_109                         Sva0485                      Sva0485
-ASV_79                          Sva0485                      Sva0485
-ASV_61                          Sva0485                      Sva0485
-ASV_256                         Sva0485                      Sva0485
-ASV_196                         Sva0485                      Sva0485
-ASV_321                         Sva0485                      Sva0485
-ASV_123              Desulfatiglandales          Desulfatiglandaceae
-ASV_105               Desulfobacterales           Desulfosarcinaceae
-ASV_162               Desulfobacterales           Desulfosarcinaceae
-ASV_166               Desulfobacterales           Desulfosarcinaceae
-ASV_395                      uncultured                   uncultured
-ASV_3212                   Polyangiales                      BIrii41
-ASV_246                          MBNT15                       MBNT15
-ASV_8                     Bacteroidales               Prevotellaceae
-ASV_15                    Bacteroidales               Prevotellaceae
-ASV_12                    Bacteroidales               Prevotellaceae
-ASV_11                    Bacteroidales               Prevotellaceae
-ASV_71                    Bacteroidales               Prevotellaceae
-ASV_568                   Bacteroidales               Prevotellaceae
-ASV_487                   Bacteroidales               Prevotellaceae
-ASV_689                   Bacteroidales               Prevotellaceae
-ASV_892                   Bacteroidales            Dysgonomonadaceae
-ASV_584                   Bacteroidales            Dysgonomonadaceae
-ASV_362                   Bacteroidales            Dysgonomonadaceae
-ASV_1595                  Bacteroidales            Dysgonomonadaceae
-ASV_1786                  Bacteroidales            Dysgonomonadaceae
-ASV_329                   Bacteroidales            Paludibacteraceae
-ASV_2126               Flavobacteriales                Weeksellaceae
-ASV_3984               Flavobacteriales                Weeksellaceae
-ASV_643               Ignavibacteriales           Ignavibacteriaceae
-ASV_557               Ignavibacteriales                         &lt;NA&gt;
-ASV_781                    Kryptoniales                        BSV26
-ASV_1254              Campylobacterales              Arcobacteraceae
-ASV_1032                 Spirochaetales              Spirochaetaceae
-ASV_23                       uncultured                   uncultured
-ASV_93                       uncultured                   uncultured
-ASV_86                       uncultured                   uncultured
-ASV_147                      uncultured                   uncultured
-ASV_1080                    Subgroup_18                  Subgroup_18
-ASV_297                  Calditrichales              Calditrichaceae
-ASV_331                    Zixibacteria                 Zixibacteria
-ASV_4                 Bifidobacteriales           Bifidobacteriaceae
-ASV_230               Bifidobacteriales           Bifidobacteriaceae
-ASV_653               Bifidobacteriales           Bifidobacteriaceae
-ASV_396               Bifidobacteriales           Bifidobacteriaceae
-ASV_21                    Micrococcales               Micrococcaceae
-ASV_2616                  Micrococcales               Dermacoccaceae
-ASV_3087                  Micrococcales           Intrasporangiaceae
-ASV_450                   Micrococcales             Dermabacteraceae
-ASV_3338                  Micrococcales               Micrococcaceae
-ASV_516             Streptosporangiales              Nocardiopsaceae
-ASV_1911            Streptosporangiales              Nocardiopsaceae
-ASV_2747            Propionibacteriales         Propionibacteriaceae
-ASV_141               Corynebacteriales           Corynebacteriaceae
-ASV_784               Corynebacteriales           Corynebacteriaceae
-ASV_771               Corynebacteriales           Corynebacteriaceae
-ASV_2787              Corynebacteriales           Corynebacteriaceae
-ASV_1075              Corynebacteriales                 Nocardiaceae
-ASV_2600              Corynebacteriales                 Nocardiaceae
-ASV_2301               Streptomycetales            Streptomycetaceae
-ASV_345                Coriobacteriales              Eggerthellaceae
-ASV_942                Coriobacteriales                 Atopobiaceae
-ASV_558                            &lt;NA&gt;                         &lt;NA&gt;
-ASV_92                             GIF3                         GIF3
-ASV_283                            GIF3                         GIF3
-ASV_289                            &lt;NA&gt;                         &lt;NA&gt;
-ASV_221                       vadinBA26                    vadinBA26
-ASV_434                            GIF9                         GIF9
-ASV_239                            GIF9                         GIF9
-ASV_341                            GIF9                         GIF9
-ASV_148                            S085                         S085
-ASV_116                  Anaerolineales              Anaerolineaceae
-ASV_747                  Anaerolineales              Anaerolineaceae
-ASV_127                  Anaerolineales              Anaerolineaceae
-ASV_4434              Thermomicrobiales           Thermomicrobiaceae
-ASV_3540                 Solibacterales              Solibacteraceae
-ASV_1256              Sericytochromatia            Sericytochromatia
-ASV_1264                Fusobacteriales             Leptotrichiaceae
-ASV_1124                Oscillospirales              Ruminococcaceae
-ASV_2786                Oscillospirales              Ruminococcaceae
-ASV_3411                Oscillospirales              Ruminococcaceae
-ASV_29   Veillonellales-Selenomonadales              Veillonellaceae
-ASV_59   Veillonellales-Selenomonadales             Selenomonadaceae
-ASV_60   Veillonellales-Selenomonadales             Selenomonadaceae
-ASV_505  Veillonellales-Selenomonadales             Selenomonadaceae
-ASV_163  Veillonellales-Selenomonadales             Selenomonadaceae
-ASV_2082 Veillonellales-Selenomonadales             Selenomonadaceae
-ASV_1751 Veillonellales-Selenomonadales             Selenomonadaceae
-ASV_3218 Veillonellales-Selenomonadales             Selenomonadaceae
-ASV_317  Veillonellales-Selenomonadales              Veillonellaceae
-ASV_1487 Veillonellales-Selenomonadales              Veillonellaceae
-ASV_1552 Veillonellales-Selenomonadales              Veillonellaceae
-ASV_935  Veillonellales-Selenomonadales              Veillonellaceae
-ASV_1370 Veillonellales-Selenomonadales              Veillonellaceae
-ASV_1408 Veillonellales-Selenomonadales              Veillonellaceae
-ASV_280  Veillonellales-Selenomonadales              Veillonellaceae
-ASV_473  Veillonellales-Selenomonadales              Veillonellaceae
-ASV_40   Veillonellales-Selenomonadales              Veillonellaceae
-ASV_399                Enterobacterales           Enterobacteriaceae
-ASV_110              Erysipelotrichales          Erysipelotrichaceae
-ASV_201               Entomoplasmatales           Entomoplasmataceae
-ASV_383              Erysipelotrichales    Erysipelatoclostridiaceae
-ASV_1646             Erysipelotrichales    Erysipelatoclostridiaceae
-ASV_227                Staphylococcales            Staphylococcaceae
-ASV_278                Staphylococcales            Staphylococcaceae
-ASV_668                Staphylococcales            Staphylococcaceae
-ASV_1208                     Bacillales                  Bacillaceae
-ASV_921                      Bacillales                  Bacillaceae
-ASV_1020                Lactobacillales              Enterococcaceae
-ASV_14                  Lactobacillales              Enterococcaceae
-ASV_249                 Lactobacillales              Enterococcaceae
-ASV_453                 Lactobacillales              Enterococcaceae
-ASV_4485                Lactobacillales                Vagococcaceae
-ASV_22                  Lactobacillales             Lactobacillaceae
-ASV_622                 Lactobacillales             Lactobacillaceae
-ASV_65                  Lactobacillales             Lactobacillaceae
-ASV_2949                Lactobacillales             Lactobacillaceae
-ASV_3929                Lactobacillales             Lactobacillaceae
-ASV_275                 Lactobacillales             Lactobacillaceae
-ASV_451                 Lactobacillales             Lactobacillaceae
-ASV_155                 Lactobacillales             Lactobacillaceae
-ASV_548                 Lactobacillales             Lactobacillaceae
-ASV_3387                Lactobacillales             Lactobacillaceae
-ASV_3539                Lactobacillales             Lactobacillaceae
-ASV_1062                Lactobacillales             Lactobacillaceae
-ASV_2653                Lactobacillales             Lactobacillaceae
-ASV_774                 Lactobacillales             Lactobacillaceae
-ASV_1081                Lactobacillales             Lactobacillaceae
-ASV_1727                Lactobacillales             Lactobacillaceae
-ASV_2603                Lactobacillales             Lactobacillaceae
-ASV_3016                Lactobacillales             Lactobacillaceae
-ASV_222                 Lactobacillales             Lactobacillaceae
-ASV_2448                Lactobacillales             Lactobacillaceae
-ASV_243                 Lactobacillales             Lactobacillaceae
-ASV_470                 Lactobacillales             Leuconostocaceae
-ASV_1839                Lactobacillales             Leuconostocaceae
-ASV_215                 Lactobacillales              Enterococcaceae
-ASV_226                 Lactobacillales             Streptococcaceae
-ASV_944                 Lactobacillales             Streptococcaceae
-ASV_286                 Lactobacillales             Streptococcaceae
-ASV_442                 Lactobacillales             Streptococcaceae
-ASV_4817                Lactobacillales              Enterococcaceae
-ASV_1163                Lactobacillales              Enterococcaceae
-ASV_493                 Lactobacillales              Enterococcaceae
-ASV_150                 Lactobacillales              Enterococcaceae
-ASV_2                   Lactobacillales              Enterococcaceae
-ASV_412                 Lactobacillales              Enterococcaceae
-ASV_475                 Lactobacillales              Enterococcaceae
-ASV_157                 Lactobacillales              Enterococcaceae
-ASV_415                 Lactobacillales              Enterococcaceae
-ASV_776                 Lactobacillales              Enterococcaceae
-ASV_494                 Lactobacillales              Enterococcaceae
-ASV_125                 Lactobacillales              Enterococcaceae
-ASV_13                  Lactobacillales              Enterococcaceae
-ASV_1                   Lactobacillales              Enterococcaceae
-                                                      Genus
-ASV_120                                       Bathyarchaeia
-ASV_1769                                         uncultured
-ASV_513                                           Sumerlaea
-ASV_537                                          uncultured
-ASV_2449                                         uncultured
-ASV_167                                         Deinococcus
-ASV_480                                                TM7a
-ASV_2782                                  Saccharimonadales
-ASV_1291                                      Parcubacteria
-ASV_1967                          Candidatus_Kaiserbacteria
-ASV_4990                                               &lt;NA&gt;
-ASV_1489                       Candidatus_Magasanikbacteria
-ASV_231                                     Aminicenantales
-ASV_3                                          Enterobacter
-ASV_551                                        Enterobacter
-ASV_645                                        Enterobacter
-ASV_9                                                  &lt;NA&gt;
-ASV_10                                                 &lt;NA&gt;
-ASV_20                                                 &lt;NA&gt;
-ASV_48                                                 &lt;NA&gt;
-ASV_506                                                &lt;NA&gt;
-ASV_913                                                &lt;NA&gt;
-ASV_2363                                       Enterobacter
-ASV_18                                                 &lt;NA&gt;
-ASV_85                                                 &lt;NA&gt;
-ASV_97                                           Morganella
-ASV_798                                          Morganella
-ASV_253                                          Morganella
-ASV_198                                            Serratia
-ASV_1302                                           Serratia
-ASV_1518                                         Shimwellia
-ASV_3187                                         Raoultella
-ASV_802                                          Raoultella
-ASV_969                                          Raoultella
-ASV_2829                                               &lt;NA&gt;
-ASV_1443                                               &lt;NA&gt;
-ASV_1523                                               &lt;NA&gt;
-ASV_19                                                 &lt;NA&gt;
-ASV_24                                 Escherichia-Shigella
-ASV_35                                                 &lt;NA&gt;
-ASV_501                                             Proteus
-ASV_1093                                        Providencia
-ASV_1322                                        Providencia
-ASV_1865                                        Providencia
-ASV_1344                                            Proteus
-ASV_25                                            Aeromonas
-ASV_376                                           Aeromonas
-ASV_51                                        Enhydrobacter
-ASV_977                                       Acinetobacter
-ASV_1375                                      Acinetobacter
-ASV_1514                                      Acinetobacter
-ASV_1853                                      Acinetobacter
-ASV_2591                                      Acinetobacter
-ASV_6                                           Pseudomonas
-ASV_33                                          Pseudomonas
-ASV_16                                          Pseudomonas
-ASV_1987                                        Pseudomonas
-ASV_2604                                        Pseudomonas
-ASV_160                                         KF-JG30-C25
-ASV_1189                                         Luteimonas
-ASV_1873                                   Stenotrophomonas
-ASV_4157                                   Stenotrophomonas
-ASV_2866                                   Stenotrophomonas
-ASV_3516                                         Lysobacter
-ASV_39                                        Sulfurifustis
-ASV_41                                               B1-7BS
-ASV_68                                               B1-7BS
-ASV_1042                                               &lt;NA&gt;
-ASV_1246                                            Delftia
-ASV_3880                                         uncultured
-ASV_2297                                       Schlegelella
-ASV_511          Burkholderia-Caballeronia-Paraburkholderia
-ASV_1356                                          Ralstonia
-ASV_4894                                          Ralstonia
-ASV_743                                                &lt;NA&gt;
-ASV_1573                                         uncultured
-ASV_746                                            Massilia
-ASV_1089                                           Massilia
-ASV_1116                                          Ellin6067
-ASV_118                                                MND1
-ASV_58                                       Bradyrhizobium
-ASV_62                                       Bradyrhizobium
-ASV_204                      Methylobacterium-Methylorubrum
-ASV_3227                     Methylobacterium-Methylorubrum
-ASV_3698                     Methylobacterium-Methylorubrum
-ASV_2303                                       Pseudolabrys
-ASV_1041                                      Mesorhizobium
-ASV_2235                                            Ensifer
-ASV_2317 Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium
-ASV_3225                                        Sphingobium
-ASV_130                                         Acetobacter
-ASV_300                                         Acetobacter
-ASV_692                                         Acetobacter
-ASV_552                                         Acetobacter
-ASV_7                                               Sva0485
-ASV_250                                             Sva0485
-ASV_103                                             Sva0485
-ASV_114                                             Sva0485
-ASV_197                                             Sva0485
-ASV_36                                              Sva0485
-ASV_109                                             Sva0485
-ASV_79                                              Sva0485
-ASV_61                                              Sva0485
-ASV_256                                             Sva0485
-ASV_196                                             Sva0485
-ASV_321                                             Sva0485
-ASV_123                                      Desulfatiglans
-ASV_105                              Sva0081_sediment_group
-ASV_162                              Sva0081_sediment_group
-ASV_166                              Sva0081_sediment_group
-ASV_395                                          uncultured
-ASV_3212                                            BIrii41
-ASV_246                                              MBNT15
-ASV_8                                            Prevotella
-ASV_15                                           Prevotella
-ASV_12                                           Prevotella
-ASV_11                                           Prevotella
-ASV_71                                           Prevotella
-ASV_568                                          Prevotella
-ASV_487                                          Prevotella
-ASV_689                                          Prevotella
-ASV_892                                        Dysgonomonas
-ASV_584                                        Dysgonomonas
-ASV_362                                        Dysgonomonas
-ASV_1595                                               &lt;NA&gt;
-ASV_1786                                               &lt;NA&gt;
-ASV_329                                                &lt;NA&gt;
-ASV_2126                                    Cloacibacterium
-ASV_3984                                         uncultured
-ASV_643                                     Ignavibacterium
-ASV_557                                                &lt;NA&gt;
-ASV_781                                               BSV26
-ASV_1254                                         Arcobacter
-ASV_1032                                        Spirochaeta
-ASV_23                                           uncultured
-ASV_93                                           uncultured
-ASV_86                                           uncultured
-ASV_147                                          uncultured
-ASV_1080                                        Subgroup_18
-ASV_297                                         Calorithrix
-ASV_331                                        Zixibacteria
-ASV_4                                       Bifidobacterium
-ASV_230                                     Bifidobacterium
-ASV_653                                     Bifidobacterium
-ASV_396                                     Bifidobacterium
-ASV_21                                          Micrococcus
-ASV_2616                                         Kytococcus
-ASV_3087                                               &lt;NA&gt;
-ASV_450                                     Brachybacterium
-ASV_3338                                   Paenarthrobacter
-ASV_516                                        Nocardiopsis
-ASV_1911                                       Nocardiopsis
-ASV_2747                                      Cutibacterium
-ASV_141                                     Corynebacterium
-ASV_784                                     Corynebacterium
-ASV_771                                     Corynebacterium
-ASV_2787                                    Corynebacterium
-ASV_1075                                        Rhodococcus
-ASV_2600                                        Rhodococcus
-ASV_2301                                       Streptomyces
-ASV_345                                          uncultured
-ASV_942                                           Olsenella
-ASV_558                                                &lt;NA&gt;
-ASV_92                                                 GIF3
-ASV_283                                                GIF3
-ASV_289                                                &lt;NA&gt;
-ASV_221                                           vadinBA26
-ASV_434                                                GIF9
-ASV_239                                                GIF9
-ASV_341                                                GIF9
-ASV_148                                                S085
-ASV_116                                          uncultured
-ASV_747                                          uncultured
-ASV_127                                          uncultured
-ASV_4434                                        Nitrolancea
-ASV_3540                              Candidatus_Solibacter
-ASV_1256                                  Sericytochromatia
-ASV_1264                                       Leptotrichia
-ASV_1124                                   Faecalibacterium
-ASV_2786                                   Faecalibacterium
-ASV_3411                                   Faecalibacterium
-ASV_29                                           uncultured
-ASV_59                                           Pectinatus
-ASV_60                                           Pectinatus
-ASV_505                                          Pectinatus
-ASV_163                                          Pectinatus
-ASV_2082                                         Pectinatus
-ASV_1751                                         Pectinatus
-ASV_3218                                         Pectinatus
-ASV_317                                         Megasphaera
-ASV_1487                                        Megasphaera
-ASV_1552                                        Megasphaera
-ASV_935                                           Dialister
-ASV_1370                                         uncultured
-ASV_1408                                         uncultured
-ASV_280                                          uncultured
-ASV_473                                          uncultured
-ASV_40                                           uncultured
-ASV_399                                                &lt;NA&gt;
-ASV_110                                             ZOR0006
-ASV_201                                        Entomoplasma
-ASV_383                                      Asteroleplasma
-ASV_1646                                            UCG-004
-ASV_227                                      Staphylococcus
-ASV_278                                      Staphylococcus
-ASV_668                                      Staphylococcus
-ASV_1208                                           Bacillus
-ASV_921                                      Oceanobacillus
-ASV_1020                                       Enterococcus
-ASV_14                                         Enterococcus
-ASV_249                                        Enterococcus
-ASV_453                                        Enterococcus
-ASV_4485                                         Vagococcus
-ASV_22                                        Lactobacillus
-ASV_622                                       Lactobacillus
-ASV_65                                        Lactobacillus
-ASV_2949                                      Lactobacillus
-ASV_3929                                      Lactobacillus
-ASV_275                                       Lactobacillus
-ASV_451                                       Lactobacillus
-ASV_155                                       Lactobacillus
-ASV_548                                       Lactobacillus
-ASV_3387                                      Lactobacillus
-ASV_3539                                      Lactobacillus
-ASV_1062                                      Lactobacillus
-ASV_2653                                        Pediococcus
-ASV_774                                                &lt;NA&gt;
-ASV_1081                                      Lactobacillus
-ASV_1727                                      Lactobacillus
-ASV_2603                                      Lactobacillus
-ASV_3016                                      Lactobacillus
-ASV_222                                       Lactobacillus
-ASV_2448                                      Lactobacillus
-ASV_243                                       Lactobacillus
-ASV_470                                           Weissella
-ASV_1839                                        Leuconostoc
-ASV_215                                        Enterococcus
-ASV_226                                       Streptococcus
-ASV_944                                       Streptococcus
-ASV_286                                         Lactococcus
-ASV_442                                         Lactococcus
-ASV_4817                                       Enterococcus
-ASV_1163                                       Enterococcus
-ASV_493                                        Enterococcus
-ASV_150                                        Enterococcus
-ASV_2                                          Enterococcus
-ASV_412                                        Enterococcus
-ASV_475                                        Enterococcus
-ASV_157                                        Enterococcus
-ASV_415                                        Enterococcus
-ASV_776                                        Enterococcus
-ASV_494                                        Enterococcus
-ASV_125                                        Enterococcus
-ASV_13                                         Enterococcus
-ASV_1                                          Enterococcus
-                                    Species
-ASV_120                                &lt;NA&gt;
-ASV_1769                               &lt;NA&gt;
-ASV_513                 uncultured_organism
-ASV_537                                &lt;NA&gt;
-ASV_2449               uncultured_bacterium
-ASV_167                     Deinococcus_sp.
-ASV_480                uncultured_bacterium
-ASV_2782                               &lt;NA&gt;
-ASV_1291                               &lt;NA&gt;
-ASV_1967               uncultured_bacterium
-ASV_4990                               &lt;NA&gt;
-ASV_1489               uncultured_bacterium
-ASV_231            uncultured_Aminicenantes
-ASV_3                                  &lt;NA&gt;
-ASV_551                                &lt;NA&gt;
-ASV_645                                &lt;NA&gt;
-ASV_9                                  &lt;NA&gt;
-ASV_10                                 &lt;NA&gt;
-ASV_20                                 &lt;NA&gt;
-ASV_48                                 &lt;NA&gt;
-ASV_506                                &lt;NA&gt;
-ASV_913                                &lt;NA&gt;
-ASV_2363                               &lt;NA&gt;
-ASV_18                                 &lt;NA&gt;
-ASV_85                                 &lt;NA&gt;
-ASV_97                                 &lt;NA&gt;
-ASV_798                                &lt;NA&gt;
-ASV_253                                &lt;NA&gt;
-ASV_198                                &lt;NA&gt;
-ASV_1302                               &lt;NA&gt;
-ASV_1518             Cronobacter_muytjensii
-ASV_3187                               &lt;NA&gt;
-ASV_802                                &lt;NA&gt;
-ASV_969                                &lt;NA&gt;
-ASV_2829                               &lt;NA&gt;
-ASV_1443                               &lt;NA&gt;
-ASV_1523                               &lt;NA&gt;
-ASV_19                                 &lt;NA&gt;
-ASV_24                   Citrobacter_koseri
-ASV_35                                 &lt;NA&gt;
-ASV_501                                &lt;NA&gt;
-ASV_1093                               &lt;NA&gt;
-ASV_1322                               &lt;NA&gt;
-ASV_1865                               &lt;NA&gt;
-ASV_1344                               &lt;NA&gt;
-ASV_25                                 &lt;NA&gt;
-ASV_376                                &lt;NA&gt;
-ASV_51                                 &lt;NA&gt;
-ASV_977              Acinetobacter_ursingii
-ASV_1375             Acinetobacter_ursingii
-ASV_1514           Acinetobacter_schindleri
-ASV_1853           Acinetobacter_schindleri
-ASV_2591           Acinetobacter_schindleri
-ASV_6                                  &lt;NA&gt;
-ASV_33                                 &lt;NA&gt;
-ASV_16                                 &lt;NA&gt;
-ASV_1987        Pseudomonas_psychrotolerans
-ASV_2604                  Pseudomonas_fragi
-ASV_160                 uncultured_organism
-ASV_1189                               &lt;NA&gt;
-ASV_1873                               &lt;NA&gt;
-ASV_4157                               &lt;NA&gt;
-ASV_2866                               &lt;NA&gt;
-ASV_3516                               &lt;NA&gt;
-ASV_39           uncultured_proteobacterium
-ASV_41                 uncultured_bacterium
-ASV_68                 uncultured_bacterium
-ASV_1042                               &lt;NA&gt;
-ASV_1246                               &lt;NA&gt;
-ASV_3880                     Leptothrix_sp.
-ASV_2297                               &lt;NA&gt;
-ASV_511                                &lt;NA&gt;
-ASV_1356                               &lt;NA&gt;
-ASV_4894                Ralstonia_insidiosa
-ASV_743                                &lt;NA&gt;
-ASV_1573               uncultured_bacterium
-ASV_746                                &lt;NA&gt;
-ASV_1089                               &lt;NA&gt;
-ASV_1116                               &lt;NA&gt;
-ASV_118                uncultured_bacterium
-ASV_58                                 &lt;NA&gt;
-ASV_62                                 &lt;NA&gt;
-ASV_204                                &lt;NA&gt;
-ASV_3227                               &lt;NA&gt;
-ASV_3698        Methylobacterium_isbiliense
-ASV_2303                               &lt;NA&gt;
-ASV_1041                               &lt;NA&gt;
-ASV_2235                               &lt;NA&gt;
-ASV_2317                               &lt;NA&gt;
-ASV_3225             Sphingobium_yanoikuyae
-ASV_130                                &lt;NA&gt;
-ASV_300                                &lt;NA&gt;
-ASV_692                                &lt;NA&gt;
-ASV_552                                &lt;NA&gt;
-ASV_7             uncultured_Spirochaetales
-ASV_250           uncultured_Spirochaetales
-ASV_103                                &lt;NA&gt;
-ASV_114                                &lt;NA&gt;
-ASV_197                                &lt;NA&gt;
-ASV_36                     uncultured_delta
-ASV_109                    uncultured_delta
-ASV_79                                 &lt;NA&gt;
-ASV_61                                 &lt;NA&gt;
-ASV_256                    uncultured_delta
-ASV_196                    uncultured_delta
-ASV_321                    uncultured_delta
-ASV_123                                &lt;NA&gt;
-ASV_105                                &lt;NA&gt;
-ASV_162                                &lt;NA&gt;
-ASV_166                                &lt;NA&gt;
-ASV_395                    uncultured_delta
-ASV_3212                               &lt;NA&gt;
-ASV_246                    uncultured_delta
-ASV_8                          unidentified
-ASV_15                         unidentified
-ASV_12                         unidentified
-ASV_11                         unidentified
-ASV_71                         unidentified
-ASV_568                        unidentified
-ASV_487                                &lt;NA&gt;
-ASV_689                                &lt;NA&gt;
-ASV_892                                &lt;NA&gt;
-ASV_584     Dysgonomonas_capnocytophagoides
-ASV_362                                &lt;NA&gt;
-ASV_1595                               &lt;NA&gt;
-ASV_1786                               &lt;NA&gt;
-ASV_329                                &lt;NA&gt;
-ASV_2126                               &lt;NA&gt;
-ASV_3984               uncultured_bacterium
-ASV_643                uncultured_bacterium
-ASV_557                                &lt;NA&gt;
-ASV_781                 uncultured_Chlorobi
-ASV_1254           Arcobacter_cryaerophilus
-ASV_1032               uncultured_bacterium
-ASV_23               uncultured_Nitrospirae
-ASV_93               uncultured_Nitrospirae
-ASV_86                uncultured_prokaryote
-ASV_147               uncultured_prokaryote
-ASV_1080                               &lt;NA&gt;
-ASV_297                uncultured_bacterium
-ASV_331                uncultured_bacterium
-ASV_4                                  &lt;NA&gt;
-ASV_230                                &lt;NA&gt;
-ASV_653            Bifidobacterium_animalis
-ASV_396                                &lt;NA&gt;
-ASV_21                                 &lt;NA&gt;
-ASV_2616                               &lt;NA&gt;
-ASV_3087                               &lt;NA&gt;
-ASV_450                                &lt;NA&gt;
-ASV_3338                               &lt;NA&gt;
-ASV_516                                &lt;NA&gt;
-ASV_1911                               &lt;NA&gt;
-ASV_2747                               &lt;NA&gt;
-ASV_141                                &lt;NA&gt;
-ASV_784  Corynebacterium_tuberculostearicum
-ASV_771                                &lt;NA&gt;
-ASV_2787    Corynebacterium_lipophiloflavum
-ASV_1075     Rhodococcus_corynebacterioides
-ASV_2600                               &lt;NA&gt;
-ASV_2301                               &lt;NA&gt;
-ASV_345                                &lt;NA&gt;
-ASV_942                       Olsenella_sp.
-ASV_558                                &lt;NA&gt;
-ASV_92                 uncultured_bacterium
-ASV_283                uncultured_bacterium
-ASV_289                                &lt;NA&gt;
-ASV_221                uncultured_bacterium
-ASV_434                uncultured_bacterium
-ASV_239              uncultured_Chloroflexi
-ASV_341                uncultured_bacterium
-ASV_148                uncultured_bacterium
-ASV_116          uncultured_Anaerolineaceae
-ASV_747              uncultured_Chloroflexi
-ASV_127                 uncultured_Chlorobi
-ASV_4434               uncultured_bacterium
-ASV_3540                  uncultured_forest
-ASV_1256               uncultured_bacterium
-ASV_1264                               &lt;NA&gt;
-ASV_1124                               &lt;NA&gt;
-ASV_2786                               &lt;NA&gt;
-ASV_3411                               &lt;NA&gt;
-ASV_29                 uncultured_bacterium
-ASV_59           Pectinatus_cerevisiiphilus
-ASV_60           Pectinatus_cerevisiiphilus
-ASV_505          Pectinatus_cerevisiiphilus
-ASV_163          Pectinatus_cerevisiiphilus
-ASV_2082         Pectinatus_cerevisiiphilus
-ASV_1751         Pectinatus_cerevisiiphilus
-ASV_3218         Pectinatus_cerevisiiphilus
-ASV_317                uncultured_bacterium
-ASV_1487               uncultured_bacterium
-ASV_1552               uncultured_bacterium
-ASV_935                uncultured_bacterium
-ASV_1370               uncultured_bacterium
-ASV_1408               uncultured_bacterium
-ASV_280                uncultured_bacterium
-ASV_473                uncultured_bacterium
-ASV_40                 uncultured_bacterium
-ASV_399                                &lt;NA&gt;
-ASV_110                Firmicutes_bacterium
-ASV_201               Entomoplasma_somnilux
-ASV_383                uncultured_bacterium
-ASV_1646                               &lt;NA&gt;
-ASV_227         Staphylococcaceae_bacterium
-ASV_278                                &lt;NA&gt;
-ASV_668                                &lt;NA&gt;
-ASV_1208                    Bacillus_kochii
-ASV_921               Compostibacillus_humi
-ASV_1020                               &lt;NA&gt;
-ASV_14                                 &lt;NA&gt;
-ASV_249                                &lt;NA&gt;
-ASV_453                                &lt;NA&gt;
-ASV_4485                               &lt;NA&gt;
-ASV_22              Lactobacillus_ghanensis
-ASV_622             Lactobacillus_ghanensis
-ASV_65              Lactobacillus_kimchicus
-ASV_2949            Lactobacillus_hilgardii
-ASV_3929            Lactobacillus_kimchicus
-ASV_275             Lactobacillus_kimchicus
-ASV_451             Lactobacillus_kimchicus
-ASV_155       Lactobacillus_paracollinoides
-ASV_548                                &lt;NA&gt;
-ASV_3387                               &lt;NA&gt;
-ASV_3539                               &lt;NA&gt;
-ASV_1062       Lactobacillus_vaccinostercus
-ASV_2653           Pediococcus_argentinicus
-ASV_774                                &lt;NA&gt;
-ASV_1081            Lactobacillus_camelliae
-ASV_1727            Lactobacillus_camelliae
-ASV_2603                               &lt;NA&gt;
-ASV_3016            Lactobacillus_pantheris
-ASV_222                                &lt;NA&gt;
-ASV_2448          Lactobacillus_delbrueckii
-ASV_243     Lactobacillus_ginsenosidimutans
-ASV_470         Weissella_paramesenteroides
-ASV_1839                               &lt;NA&gt;
-ASV_215                                &lt;NA&gt;
-ASV_226                                &lt;NA&gt;
-ASV_944                                &lt;NA&gt;
-ASV_286                Lactococcus_garvieae
-ASV_442                  Lactococcus_lactis
-ASV_4817                               &lt;NA&gt;
-ASV_1163                               &lt;NA&gt;
-ASV_493                                &lt;NA&gt;
-ASV_150                                &lt;NA&gt;
-ASV_2                                  &lt;NA&gt;
-ASV_412                                &lt;NA&gt;
-ASV_475                                &lt;NA&gt;
-ASV_157                                &lt;NA&gt;
-ASV_415                                &lt;NA&gt;
-ASV_776                                &lt;NA&gt;
-ASV_494                                &lt;NA&gt;
-ASV_125                                &lt;NA&gt;
-ASV_13                                 &lt;NA&gt;
-ASV_1                  Enterococcus_mundtii</code></pre>
+<pre><code>             Kingdom            Phylum            Class          Order
+ASV_120   d__Archaea     Crenarchaeota    Bathyarchaeia  Bathyarchaeia
+ASV_1769 d__Bacteria   Planctomycetota   Planctomycetes  Isosphaerales
+ASV_513  d__Bacteria       Sumerlaeota       Sumerlaeia   Sumerlaeales
+ASV_537  d__Bacteria Verrucomicrobiota Verrucomicrobiae Pedosphaerales
+ASV_2449 d__Bacteria Verrucomicrobiota Verrucomicrobiae Pedosphaerales
+ASV_167  d__Bacteria      Deinococcota       Deinococci  Deinococcales
+                  Family         Genus              Species
+ASV_120    Bathyarchaeia Bathyarchaeia                 &lt;NA&gt;
+ASV_1769  Isosphaeraceae    uncultured                 &lt;NA&gt;
+ASV_513    Sumerlaeaceae     Sumerlaea  uncultured_organism
+ASV_537  Pedosphaeraceae    uncultured                 &lt;NA&gt;
+ASV_2449 Pedosphaeraceae    uncultured uncultured_bacterium
+ASV_167   Deinococcaceae   Deinococcus      Deinococcus_sp.</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_family</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shared_family</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shared_family</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Bathyarchaeia"                "Isosphaeraceae"              
- [3] "Sumerlaeaceae"                "Pedosphaeraceae"             
- [5] "Deinococcaceae"               "Saccharimonadaceae"          
- [7] "Saccharimonadales"            "Parcubacteria"               
- [9] "Candidatus_Kaiserbacteria"    "Candidatus_Magasanikbacteria"
-[11] "Aminicenantales"              "Enterobacteriaceae"          
-[13] "Morganellaceae"               "Yersiniaceae"                
-[15] "Aeromonadaceae"               "Moraxellaceae"               
-[17] "Pseudomonadaceae"             "KF-JG30-C25"                 
-[19] "Xanthomonadaceae"             "Acidiferrobacteraceae"       
-[21] "B1-7BS"                       "Comamonadaceae"              
-[23] "Burkholderiaceae"             "Alcaligenaceae"              
-[25] "Neisseriaceae"                "Oxalobacteraceae"            
-[27] "Nitrosomonadaceae"            "Xanthobacteraceae"           
-[29] "Beijerinckiaceae"             "Rhizobiaceae"                
-[31] "Sphingomonadaceae"            "Acetobacteraceae"            
-[33] "Sva0485"                      "Desulfatiglandaceae"         
-[35] "Desulfosarcinaceae"           "uncultured"                  
-[37] "BIrii41"                      "MBNT15"                      
-[39] "Prevotellaceae"               "Dysgonomonadaceae"           
-[41] "Paludibacteraceae"            "Weeksellaceae"               
-[43] "Ignavibacteriaceae"           "BSV26"                       
-[45] "Arcobacteraceae"              "Spirochaetaceae"             
-[47] "Subgroup_18"                  "Calditrichaceae"             
-[49] "Zixibacteria"                 "Bifidobacteriaceae"          
-[51] "Micrococcaceae"               "Dermacoccaceae"              
-[53] "Intrasporangiaceae"           "Dermabacteraceae"            
-[55] "Nocardiopsaceae"              "Propionibacteriaceae"        
-[57] "Corynebacteriaceae"           "Nocardiaceae"                
-[59] "Streptomycetaceae"            "Eggerthellaceae"             
-[61] "Atopobiaceae"                 "GIF3"                        
-[63] "vadinBA26"                    "GIF9"                        
-[65] "S085"                         "Anaerolineaceae"             
-[67] "Thermomicrobiaceae"           "Solibacteraceae"             
-[69] "Sericytochromatia"            "Leptotrichiaceae"            
-[71] "Ruminococcaceae"              "Veillonellaceae"             
-[73] "Selenomonadaceae"             "Erysipelotrichaceae"         
-[75] "Entomoplasmataceae"           "Erysipelatoclostridiaceae"   
-[77] "Staphylococcaceae"            "Bacillaceae"                 
-[79] "Enterococcaceae"              "Vagococcaceae"               
-[81] "Lactobacillaceae"             "Leuconostocaceae"            
-[83] "Streptococcaceae"            </code></pre>
+<pre><code>[1] "Bathyarchaeia"      "Isosphaeraceae"     "Sumerlaeaceae"     
+[4] "Pedosphaeraceae"    "Deinococcaceae"     "Saccharimonadaceae"</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_phyla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shared_phyla</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shared_phyla</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Crenarchaeota"     "Planctomycetota"   "Sumerlaeota"      
- [4] "Verrucomicrobiota" "Deinococcota"      "Patescibacteria"  
- [7] "Acidobacteriota"   "Proteobacteria"    "Sva0485"          
-[10] "Desulfobacterota"  "Myxococcota"       "MBNT15"           
-[13] "Bacteroidota"      "Campilobacterota"  "Spirochaetota"    
-[16] "Nitrospirota"      "Calditrichota"     "Zixibacteria"     
-[19] "Actinobacteriota"  "Chloroflexi"       "Cyanobacteria"    
-[22] "Fusobacteriota"    "Firmicutes"       </code></pre>
+<pre><code>[1] "Crenarchaeota"     "Planctomycetota"   "Sumerlaeota"      
+[4] "Verrucomicrobiota" "Deinococcota"      "Patescibacteria"  </code></pre>
 </div>
 </div>
 </section><section id="relative-abundance-of-core-asv" class="level2"><h2 class="anchored" data-anchor-id="relative-abundance-of-core-asv">07. Relative abundance of core asv</h2>
@@ -2837,7 +1797,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Copyright 2025, Diana Hernández-Oaxaca</p>
+<p>Diana Hernández-Oaxaca and Yaxche Lona, © Copyright 2025</p>
 </div>   
     <div class="nav-footer-center">
 <p>LandaLab</p>
