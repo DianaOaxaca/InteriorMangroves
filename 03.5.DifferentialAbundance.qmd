@@ -63,13 +63,17 @@ nodes <- list(1, 1, 1, 1)
 
 ### 01.2 Run ANCOM-BC2
 
-``` R
+**Nota para Yaxche y después la quitamos.**
+
+**Corre el siguiente bloque, guarda el resultado en un rds y luego leelo para los filtros. Desactiva el bloque para que no corra mientras se renderiza porque tarda mucho este analisis y al renderizar cada vez será una eternidad.**
+
+``` r
 # ANCOMBC2
 output <- ancombc2(
   data = tse,
   assay_name = "counts",
   tax_level = "Phylum",
-  fix_formula = "Location + Depth_cm",
+  fix_formula = "Depth_cm + Location",
   rand_formula = "(1 | ID)",
   p_adj_method = "holm",
   pseudo_sens = TRUE,
@@ -308,4 +312,168 @@ ggsave("Figures/interior_mangroves/DA_and_RA_BubbleHeatmap_depth.pdf",
 
 ```{r}
 saveRDS(depth_abundances, "rds/interior_mangroves/da_ra_depth_plot.rds")
+```
+
+## 02. By Mangrove site
+
+### **02.1 Prepare data**
+
+```{r}
+#| message: false
+#| warning: false
+#To manually change the reference level, not alphabdetic order
+tse$Location = factor(tse$Location, levels = c("Fossil Lagoon", "Reforma Waterfalls", "Miguelito Dike"))
+
+
+#variable
+tse$Location = recode(as.character(tse$Location),
+                     `Fossil Lagoon` = "FL",
+                     `Reforma Waterfalls` = "RW",
+                     `Miguelito Dike` = "MD",
+                     .missing = "unknown")
+```
+
+### 02.2 Run ANCOM-BC2
+
+**Nota para Yaxche y después la quitamos.**
+
+**Corre el siguiente bloque, guarda el resultado en un rds y luego leelo para los filtros. Desactiva el bloque para que no corra mientras se renderiza porque tarda mucho este analisis y al renderizar cada vez será una eternidad.**
+
+``` r
+output_location <- ancombc2(
+  data = tse,
+  assay_name = "counts",
+  tax_level = "Phylum",
+  fix_formula = "Location + Depth",
+  rand_formula = "(1 | ID)",
+  p_adj_method = "holm",
+  pseudo_sens = TRUE,
+  prv_cut = 0.10,
+  lib_cut = 1000,
+  s0_perc = 0.05,
+  group = "Location",
+  struc_zero = TRUE,
+  neg_lb = TRUE,
+  alpha = 0.05,
+  n_cl = 2,
+  verbose = TRUE,
+  global = TRUE,
+  pairwise = TRUE,
+  dunnet = TRUE,
+  trend = TRUE,
+  iter_control = list(tol = 1e-2, max_iter = 20, verbose = TRUE),
+  em_control = list(tol = 1e-5, max_iter = 100),
+  lme_control = lme4::lmerControl(),
+  mdfdr_control = list(fwer_ctrl_method = "holm", B = 100),
+  trend_control = list(contrast = list(matrix(c(1, 0, -1, 1),
+                                              nrow = 2,
+                                              byrow = TRUE),
+                                       matrix(c(-1, 0, 1, -1),
+                                              nrow = 2,
+                                              byrow = TRUE),
+                                       matrix(c(1, 0, 1, -1),
+                                              nrow = 2,
+                                              byrow = TRUE)),
+                       node = list(2, 2, 1),
+                       solver = "ECOS",
+                       B = 100))
+```
+
+``` r
+saveRDS(output_location, "rds/interior_mangroves/output_location.rds")
+```
+
+```{r}
+#| include: false
+output_location <- readRDS("rds/interior_mangroves/output_location.rds")
+```
+
+``` R
+#See results
+res_pair_location <- output_location$res_pair
+
+colnames(res_pair_location)
+```
+
+### 02.3 Get differential data
+
+``` R
+# Create dataframe df_fig_pair1 to log-fold change (LFC) values
+df_fig_pair1_location <- res_pair_location %>%
+  dplyr::filter(`diff_LocationMD` == 1 |
+                  `diff_LocationRW` == 1 |
+                  `diff_LocationRW_LocationMD` == 1) %>%
+  dplyr::mutate(lfc1 = ifelse(`diff_LocationMD` == 1, round(`lfc_LocationMD`, 2), NA),
+                lfc2 = ifelse(`diff_LocationRW` == 1, round(`lfc_LocationRW`, 2), NA),
+                lfc3 = ifelse(`diff_LocationRW_LocationMD` == 1, round(`lfc_LocationRW_LocationMD`, 2), NA)) %>%
+  tidyr::pivot_longer(cols = lfc1:lfc3, names_to = "group", values_to = "value") %>%
+  dplyr::arrange(taxon)
+```
+
+``` R
+# Create dataframe df_fig_pair2 to significant values
+df_fig_pair2_location <- res_pair_location %>%
+  dplyr::filter(`diff_LocationMD` == 1 |
+                  `diff_LocationRW` == 1 |
+                  `diff_LocationRW_LocationMD` == 1) %>%
+  dplyr::mutate(lfc1 = ifelse(`passed_ss_LocationMD` == 1 & `diff_LocationMD` == 1, "darkblue", "black"),
+                lfc2 = ifelse(`passed_ss_LocationRW` == 1 & `diff_LocationRW` == 1, "darkblue", "black"),
+                lfc3 = ifelse(`passed_ss_LocationRW_LocationMD` == 1 & `diff_LocationRW_LocationMD` == 1, "darkblue", "black")) %>%
+  tidyr::pivot_longer(cols = lfc1:lfc3, names_to = "group", values_to = "color") %>%
+  dplyr::arrange(taxon)
+```
+
+::: callout-warning
+## Important
+
+The results indicated that there were no significant differences in the differential abundance of Phyla between mangroves along the san pedro river and therefore it is not included in the final results. however, if after the significance filters the results would have shown any differential phyla the subsequent code would be as follows
+:::
+
+``` R
+#| message: false
+#| warning: false
+# Combine dataframes df_fig_pair1 and df_fig_pair2
+df_fig_pair_location <- df_fig_pair1_location %>%
+  dplyr::left_join(df_fig_pair2_location, by = c("taxon", "group"))
+
+# Rename groups
+df_fig_pair_location$group <- recode(df_fig_pair_location$group,
+                                     `lfc1` = "MD vs FL",
+                                     `lfc2` = "RW vs FL",
+                                     `lfc3` = "RW vs MD")
+
+df_fig_pair_location$group <- factor(df_fig_pair_location$group,
+                                     levels = c("MD vs FL",
+                                                "RW vs FL",
+                                                "RW vs DM"))
+
+
+# Filter comparisons with significant values
+df_fig_pair_location <- df_fig_pair_location %>%
+  group_by(group) %>%
+  filter(any(!is.na(value))) %>%
+  ungroup()
+
+# Calculate limits
+lo <- floor(min(df_fig_pair_location$value, na.rm = TRUE))
+up <- ceiling(max(df_fig_pair_location$value, na.rm = TRUE))
+mid <- (lo + up) / 2
+```
+
+### Heatmap Plot
+
+``` R
+fig_pair_location <- df_fig_pair_location %>%
+  ggplot(aes(x = group, y = taxon, fill = value)) +
+  geom_tile(color = "gray40") +
+  scale_fill_gradient2(low = "lightgreen", high = "red4", mid = "gray90",
+                       na.value = "white", midpoint = mid, 
+                       limit = c(lo, up),name = "LFC") +
+  geom_text(aes(label = round(value, 2), color = color), 
+            size = 3.5, na.rm = TRUE) + 
+  scale_color_identity(guide = FALSE) +
+  labs(x = NULL, y = NULL) + theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5, size = 12),
+        axis.text.y = element_text(size = 12, color = "black"),
+        axis.text.x = element_text(size = 10, color = "black"))
 ```
