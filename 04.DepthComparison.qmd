@@ -22,7 +22,7 @@ To answer this question, only samples that met the selection criteria were selec
 library(ggplot2)
 library(qiime2R)
 library(phyloseq)
-
+library(microbiome)
 #Create phyloseq objects with qiime2 artifacts
 physeq_qiime3 <- qza_to_phyloseq(
   features = "data/cluster_table_filter_freq218_emcEstero.qza",
@@ -53,7 +53,7 @@ filtered_metadat3 <- filtered_metadat2[filtered_metadat2$season %in%c("flood"),]
 
 ```{r}
 #Combine filtered metadata with phyloseq object to create a filtered phyloseq object
-filtered_physeq2 <- prune_samples(rownames(filtered_metadat4), physeq_qiime3)
+filtered_physeq2 <- prune_samples(rownames(filtered_metadat3), physeq_qiime3)
 ```
 
 ```{r}
@@ -106,11 +106,24 @@ metadata <- as(sample_data(physeq_qiime3), "data.frame")
 # Rename specific levels in the Mangrove system column
 #library(dplyr)
 metadata <- metadata %>%
-  mutate(`Mangrove system` = case_when(
+  mutate(`Mangrove.system` = case_when(
     Study_zone == "Rio San Pedro" ~ "San Pedro River",
     Study_zone == "Laguna Cacahuate" ~ "Fossil Lagoon",
     Study_zone == "Estero_pargo" ~ "Términos Lagoon",
     TRUE ~ Study_zone))
+
+```
+
+## 02.4 Rename by depth
+
+```{r}
+#library(dplyr)
+metadata <- metadata %>%
+  mutate(`Depths` = case_when(
+    depth %in% c("0-15", "5") ~ "Surface",
+    depth %in% c("16-30", "20") ~ "mid",
+    depth %in% c("31-45", "50-70", "40") ~ "Deep",
+  TRUE ~ NA_character_))
 ```
 
 ## 02.3 Create color pallete
@@ -119,16 +132,14 @@ metadata <- metadata %>%
 #Mangrove system colors
 loc_colors <- c("Fossil Lagoon"= "#A7fcc1",
                 "San Pedro River" = "#26B170",
-                "Términos Lagoon" = "#329D9C",
-                "Celestún Lagoon" = "#41e8d3")
+                "Términos Lagoon" = "#329D9C")
 ```
 
 ## 02.4 Check samples
 
 ```{r}
-metadata <- as(sample_data(physeq_qiime3), "data.frame")
 
-samples_plot <- ggplot(metadata, aes(x = Mangrove.system, y = ..count..,
+samples_plot <- ggplot(metadata, aes(x = Depths, y = ..count..,
                                      fill = Mangrove.system)) +
   geom_bar(position = "dodge") +
   labs(title = "Samples of the analysis", 
