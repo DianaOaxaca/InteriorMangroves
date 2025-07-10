@@ -72,6 +72,7 @@ website:
               - section: "Analysis"
                 contents:
                   - 05.1.AlphaDiversity.qmd
+                  - 05.2.BetaDiversity.qmd
       - section: "B) Interior mangroves explore"
         href: 03.InteriorMangroves.qmd
         contents:
