@@ -701,7 +701,8 @@ q2lmerloc <- lmer(q2 ~ Location + Depths + (1 | ID), data = metadata_with_hill)
 summary(q2lmerloc)
 ```
 
-```{# Permutation test}
+```{r}
+# Permutation test
 perm_testlocq2 <- rand(q2lmerloc, nsim = 1000)
 perm_testlocq2
 

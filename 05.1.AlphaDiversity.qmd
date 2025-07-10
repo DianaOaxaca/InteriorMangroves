@@ -630,7 +630,7 @@ q2plotloc <- ggplot(metadata_with_hill, aes(x = Mangrove_system, y = q2, fill = 
   geom_boxplot() +
   geom_jitter(aes(fill = Mangrove_system), width = 0.1, alpha = 0.4) +
   geom_text(data = q2emmeans_df_loc, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
-  labs(title = "Exp Shannon", y = NULL, x = NULL ) + #,
+  labs(title = "Inv Simpson", y = NULL, x = NULL ) + #,
        #caption = "letters by lmer emmeans") +
     theme_classic() + scale_fill_manual(values = loc_colors) +
     theme(legend.position = "none")
