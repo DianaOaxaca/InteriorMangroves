@@ -307,13 +307,12 @@ q1plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system , y = q1, fill = Ma
   geom_boxplot() +
   #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
   geom_text(data = q1_emmeans_df, aes(y = emmean, label = .group), vjust = -4,
-          color = "black", fontface = "bold", position = position_dodge(0.9)) +   labs(title = "q1 = Exp Shannon", y = NULL, x = NULL,
-  caption = "lm (Depth sequencing and Mangrove system") +
+          color = "black", fontface = "bold", position = position_dodge(0.9)) +   labs(title = "q1 = Exp Shannon", y = NULL, x = NULL) +#,
+  #caption = "lm (Depth sequencing and Mangrove system") +
   theme_classic() + scale_fill_manual(values = loc_colors) +
   theme(legend.position = "none",
           axis.text.y = element_text(size = 9),
-          axis.text.x = element_text(size = 9),
-    plot.caption = element_text(size = 7, face = "italic"))
+          axis.text.x = element_blank())
 ```
 
 ### q2 Dominance Inv Simpson
@@ -358,7 +357,7 @@ q2plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q2, fill = Man
 ::: callout-important
 ## Take note
 
-Just Shannon diversity was created because showed significant differences
+Just Shannon and Simpson diversity was created because showed significant differences
 :::
 
 ```{r}
@@ -369,18 +368,20 @@ Just Shannon diversity was created because showed significant differences
 ytitle <- ggdraw() + draw_label("Effective number of ASVs",
                                 angle = 90, size = 14 )
 
-q1y_plot <- plot_grid(ytitle, q1plot, ncol = 2, rel_widths = c(0.05, 1))
+q12plots <- plot_grid(q1plot, q2plot, ncol = 1)
+
+q12y_plot <- plot_grid(ytitle, q12plots, ncol = 2, rel_widths = c(0.05, 1))
 
 # show
-q1y_plot
+q12y_plot
 
 # save
 ggsave("Figures/SurfaceComparison/alphadiv_per_loc.pdf",
-       q1y_plot, width = 6.3, height = 9.9)
+       q12y_plot, width = 6.3, height = 9.9)
 ```
 
 ## Save rds alpha diversity plot
 
 ```{r}
-saveRDS(q1y_plot, "rds/compare_mangroves/alpha_diversity_surface_plot.rds")
+saveRDS(q12y_plot, "rds/compare_mangroves/alpha_diversity_surface_plot.rds")
 ```
