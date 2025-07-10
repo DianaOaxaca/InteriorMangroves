@@ -124,6 +124,18 @@ metadata <- metadata %>%
     depth %in% c("16-30", "20") ~ "mid",
     depth %in% c("31-45", "50-70", "40") ~ "Deep",
   TRUE ~ NA_character_))
+
+# add .fastq.gz to SampleID 
+metadata$SampleID <- gsub("_R1$", "_R1.fastq.gz", metadata$SampleID)
+
+# add rownames as SampleID
+rownames(metadata) <- metadata$SampleID
+
+# update sample_data in phyloseq object
+sample_data(physeq_qiime3) <- sample_data(metadata)
+
+# check
+tail(sample_data(physeq_qiime3))
 ```
 
 ## 02.3 Create color pallete
