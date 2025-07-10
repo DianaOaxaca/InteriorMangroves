@@ -1,0 +1,675 @@
+---
+title: "Alpha Diversity"
+---
+
+# Load libraries and prepare data
+
+```{r}
+#| label: libraries
+#| message: false
+#| warning: false
+#Load libraries
+library(phyloseq)
+library(ape)
+library(qiime2R)
+library(hilldiv)
+library(tidyverse)
+library(ggpubr)
+library(ggplot2)
+library(cowplot)
+library(vegan)
+library(emmeans)
+library(multcomp)
+library(lme4)
+library(lmerTest)
+library(easystats)
+```
+
+```{r}
+#load data
+ps <- readRDS("rds/interior_impaired/physeq.rds")
+```
+
+```{r}
+# Extract data from phyloseq object
+#library(phyloseq)
+otu_table <- otu_table(ps, taxa_are_rows = TRUE)
+metadata <- as(sample_data(ps), "data.frame")
+```
+
+```{r}
+#Mangrove system colors
+loc_colors <- c("Fossil Lagoon"= "#A7fcc1",
+                "San Pedro River" = "#26B170",
+                "Impaired Términos Lagoon" = "gray40")
+
+#Mangrove type colors
+mt_colors <- c("Interior"= "#A7fcc1",
+                "Coastal" = "#329D9C")
+
+#Depth colors
+depth_colors <- c("Surface" = "#f5e5c4",
+                 "Mid" = "#baa179",
+                 "Deep" = "#80673b")
+```
+
+# 01. Get Hill numbers
+
+```{r}
+# library(hilldiv)
+# library(tidyverse)
+
+# Get hill numbers
+q0 <- hill_div(otu_table, qvalue = 0) 
+q1 <- hill_div(otu_table, qvalue = 1) 
+q2 <- hill_div(otu_table, qvalue = 2)
+```
+
+```{r}
+# Merge metadata with Hill numbers
+q012_all <- cbind(q0, q1, q2) %>% as.data.frame() %>% rownames_to_column(var = "SampleID")
+metadata_with_hill <- q012_all %>%          
+  inner_join(metadata, by = c("SampleID"="SampleID"))
+
+#save table
+write.table(metadata_with_hill, "Tables/interior_impaired/Metadata_with_hill.tsv", quote = FALSE, sep = "\t", row.names = TRUE, col.names=TRUE)
+
+# show
+metadata_with_hill %>% head()
+```
+
+# 02. Get Hill means
+
+```{r}
+# Reorder q values  
+meta_qs <- metadata_with_hill %>%
+    pivot_longer(cols = q0:q2, names_to = "q", values_to = "value") %>%
+    filter(q %in% c("q0", "q1", "q2")) %>%
+    mutate(
+        qs = case_when(
+            q == "q0" ~ "q0=Observed",
+            q == "q1" ~ "q1=Exp Shannon",
+            q == "q2" ~ "q2=Inv Simpson"))
+
+#Get means of Hill numbers
+means <- meta_qs %>% group_by(Depths, Mangrove_system, Mangrove_type, qs) %>%
+  summarise(means = mean(value, na.rm = TRUE),
+            sd = sd(value, na.rm = TRUE),
+            .groups = 'drop')
+
+#save table
+write.table(means, "Tables/interior_impaired/Hill_means_sd.tsv", quote = FALSE, sep = "\t", row.names = TRUE, col.names=TRUE)
+
+print(means)
+```
+
+```{r}
+#Get means of Hill numbers
+hillmeansloc <- meta_qs %>% group_by(Depths, Mangrove_system, qs) %>%
+  summarise(means = mean(value, na.rm = TRUE),
+            sd = sd(value, na.rm = TRUE),
+            .groups = 'drop')
+hillmeansloc
+
+#save table
+write.table(hillmeansloc, "Tables/interior_impaired/Hill_means_sd_Mangrove_system.tsv", quote = FALSE, sep = "\t", row.names = TRUE, col.names=TRUE)
+```
+
+```{r}
+#Get means of Hill numbers
+hillmeanstype <- meta_qs %>% group_by(Depths, Mangrove_type, qs) %>%
+  summarise(means = mean(value, na.rm = TRUE),
+            sd = sd(value, na.rm = TRUE),
+            .groups = 'drop')
+hillmeanstype
+
+#save table
+write.table(hillmeanstype, "Tables/interior_impaired/Hill_means_sd_type.tsv", quote = FALSE, sep = "\t", row.names = TRUE, col.names=TRUE)
+```
+
+# 03. Get sequencing effort
+
+```{r}
+#| message: false
+#| warning: false
+# faster
+#library(vegan)
+mat <- as(t(otu_table(ps)), "matrix")
+raremax <- min(rowSums(mat))
+
+# loc colors
+Mangrove_system_factor <- sample_data(ps)$Mangrove_system
+sample_colors <- loc_colors[as.character(Mangrove_system_factor)] 
+
+# font size
+par(cex = 0.6) 
+
+# Rarefaction curves
+system.time(rarecurve(mat, step = 100, sample = raremax, 
+                      col = sample_colors, label = FALSE))
+
+# save
+pdf("Figures/interior_impaired/Sample_effort.pdf")
+system.time(rarecurve(mat, step = 100, sample = raremax, 
+                      col = sample_colors, label = FALSE))
+dev.off()
+
+#slow but pretty
+#library(ranacapa)
+#library(ggplot2)
+
+#effort_sampling<- ggrare(ps3, step = 100, color = "sample", label = "sampleID", se = TRUE)
+#rarecurves_plot <- effort_sampling + facet_wrap(~sample)
+```
+
+# 04. Explore hill distribution
+
+::: callout-tip
+## Important
+
+Following the calculation of the diversity indices and confirmation of adequate sequencing effort, an investigation was conducted on their distribution along the sampled sites and depths.
+:::
+
+```{r}
+# factor to reorder plot
+metadata_with_hill$Mangrove_system <- factor(metadata_with_hill$Mangrove_system, levels = c("Fossil Lagoon", "San Pedro River", "Impaired Términos Lagoon"))
+metadata_with_hill$Depth  <- 
+  factor(metadata_with_hill$Depths, 
+         levels = c("Surface", "Mid", "Deep"))
+
+
+#plot
+hill_barplot_explore <- metadata_with_hill %>%
+  pivot_longer(cols = q0:q2, names_to = "q", values_to = "value") %>%
+ filter(q %in% c("q0", "q1", "q2")) %>%
+    mutate(
+        qs = case_when(
+            q == "q0" ~ "q0=Observed",
+            q == "q1" ~ "q1=Exp Shannon",
+            q == "q2" ~ "q2=Inv Simpson")) %>%
+  ggbarplot(
+    x = "Mangrove_system",
+    y = "value",
+    add = "mean_se",
+    facet.by = c("qs", "Depth"),
+    fill = "Mangrove_system") +
+  scale_fill_manual(values = loc_colors) +
+  geom_jitter(size = 0.8, 
+              position = position_jitter(width = 0.1)) +
+  facet_grid(rows = vars(qs), cols = vars(Depth), 
+             scales = "free_y") +
+  theme(
+    strip.background =  element_blank(),
+    strip.text.x = element_text(face= "bold", size = 13,
+                margin = margin(0.5, 0, 0.5, 0)),
+    strip.text.y = element_text(face= "bold", size = 14,
+                angle = 0, margin = margin(0, 0.5, 0, 0.5)),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.line = element_line(colour = "black"),
+    #panel.border = element_blank(),
+    panel.spacing.x = unit(0.5, "lines"),
+    panel.background = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(colour = "black", size = 11),
+    legend.position = "bottom") +
+  labs(
+    fill = "Mangrove_system",
+    y = "",
+    x = "",
+    title = "Biodiversity across Sites and Depths") + 
+   theme(legend.text = element_text(size = 11))
+
+hill_barplot_explore
+
+ggsave("Figures/interior_impaired/Hill_diversity_across_Sites_and_Depths.pdf", hill_barplot_explore, width = 11, height = 11)
+```
+
+::: callout-tip
+At this juncture, the available data permits only the observation of the distribution of the phenomenon under study. However, it must be noted that comparisons at this stage may prove misleading due to the presence of other variables that must be considered to accurately assess the observed differences.
+:::
+
+# 05. Check alpha diversity correlation with sequencing depth
+
+```{r}
+#Get effective reads
+Effective_reads <- colSums(otu_table[-1, ])
+metadata_with_hill$Effective_reads <- Effective_reads
+```
+
+**Alpha diversity depth correlation to order q=0**
+
+```{r}
+# library(ggpubr)
+
+q0_vs_depth <- ggscatter(metadata_with_hill,
+                x = "Effective_reads", y = "q0", 
+                xlab= "Sequencing depth (number of reads)",
+                ylab = "q=0", add = "reg.line",
+   add.params = list(color = "#114e9d", fill = "lightgray"),
+   conf.int = TRUE, # Add confidence interval
+   cor.coef = TRUE, # Add correlation coefficient. 
+   cor.coeff.args = list(method = "pearson", label.x = 3, label.sep = "\n")
+   )+
+  theme(legend.title = element_blank(), legend.position = "none")
+```
+
+**Alpha diversity depth correlation to order q=1**
+
+```{r}
+q1_vs_depth <- ggscatter(metadata_with_hill, 
+                x = "Effective_reads", y = "q1", 
+                xlab= "Sequencing depth (number of reads)",
+                ylab = "q=1", add = "reg.line",
+   add.params = list(color = "#114e9d", fill = "lightgray"),
+   conf.int = TRUE, # Add confidence interval
+   cor.coef = TRUE, # Add correlation coefficient
+   cor.coeff.args = list(method = "pearson", label.x = 3, label.sep = "\n")) +
+  theme(legend.title = element_blank(), 
+        legend.position = "none")
+
+```
+
+**Alpha diversity depth correlation to order q=2**
+
+```{r}
+q2_vs_depth <- ggscatter(metadata_with_hill, 
+                x = "Effective_reads", y = "q2", 
+                xlab= "Sequencing depth (number of reads)",
+                ylab = "q=2", add = "reg.line",
+   add.params = list(color = "#114e9d", fill = "lightgray"),
+   conf.int = TRUE, # Add confidence interval
+   cor.coef = TRUE, # Add correlation coefficient
+   cor.coeff.args = list(method = "pearson", label.x = 3, label.sep = "\n")) +
+  theme(legend.title = element_blank(), 
+        legend.position = "none")
+```
+
+```{r}
+# library(ggplot2)
+# library(cowplot)
+
+#Combine plot
+title_corr_plot <- ggdraw() + 
+  draw_label("Alpha diversity depth correlation")
+
+correlation_plot_q012 <- plot_grid(title_corr_plot,
+                            q0_vs_depth, 
+                            q1_vs_depth, 
+                            q2_vs_depth,
+                            ncol = 1, 
+                            rel_heights = c(0.15, 1, 1, 1))
+
+correlation_plot_q012
+
+# #save plot
+ggsave("Figures/interior_impaired/alpha_depth_correlation.pdf", correlation_plot_q012, width = 8, height = 8)
+```
+
+::: callout-caution
+## Take note
+
+We found a positive correlation between *Observed richness* and *Shannon Diversity* with sequencing depth, indicating that these variables should be considered when conducting meaningful comparisons of this index.
+:::
+
+------------------------------------------------------------------------
+
+::: callout-caution
+The sequencing depth, presence of repeated measures, and imbalances in the project data necessitates model-based comparison. In this instance, the utilization of linear mixed models is a good way to evaluate effects and differences.
+:::
+
+# 06. Get significant differences
+
+::: callout-caution
+## Remember
+
+The significance of the observed differences among mangrove systems was determined by employing a linear mixed model, given the imbalanced sample numbers.
+:::
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+```{r}
+# Change fossil lagoon reference
+metadata_with_hill$Mangrove_system <- relevel(metadata_with_hill$Mangrove_system, ref = "Impaired Términos Lagoon")
+```
+
+## By depth
+
+### q0 Observed Richness
+
+```{r}
+# lmm
+q0lmer <- lmer(q0 ~ log(Effective_reads) + Depth + Mangrove_system + (1 | ID), data = metadata_with_hill)
+# summary
+summary(q0lmer)
+```
+
+```{r}
+# Permutation test con lmerTest
+perm_test <- rand(q0lmer, nsim = 1000)
+perm_test
+
+#effects
+anova(q0lmer)
+```
+
+```{r}
+# check model reliability
+report(q0lmer)
+```
+
+```{r}
+#| message: false
+#| warning: false
+# get differences with emmeans
+q0_lmer_means <- emmeans(q0lmer, pairwise ~ Depth)
+
+# get significance letters
+cld_results <- cld(object = q0_lmer_means$emmeans, Letters = letters)
+
+# Convert to data frame
+q0_emmeans_df <- as.data.frame(cld_results)
+q0_emmeans_df
+```
+
+```{r}
+# boxplot with significance
+q0plot <- ggplot(metadata_with_hill, aes(x = Depth, y = q0, fill = Depth)) +
+  geom_boxplot() +
+  geom_jitter(aes(fill = Depth), width = 0.1, alpha = 0.4) +
+  geom_text(data = q0_emmeans_df, aes(y = emmean, label = .group), vjust = -5, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  labs(title = "Observed Richness", y = NULL, x = NULL,
+       caption = "lmer (depth sequencing, layers, location and sediment core)") +
+    theme_classic() + scale_fill_manual(values = depth_colors) +
+    theme(legend.position = "none",
+          axis.text.y = element_text(size = 9),
+          axis.text.x = element_text(size = 9),
+          plot.caption = element_text(size = 7, face = "italic"))
+
+q0plot
+```
+
+### q1 Diversity Exp Shannon
+
+```{r}
+# Fitted linear mixed model
+q1lmer <- lmer(q1 ~ log(Effective_reads) + Depth + Mangrove_system  + (1 | ID), data = metadata_with_hill)
+# summary
+summary(q1lmer)
+```
+
+```{r}
+# lmerTest
+perm_testq1 <- rand(q1lmer, nsim = 1000)
+
+# Summary
+perm_testq1
+
+# Efects
+anova(q1lmer)
+```
+
+```{r}
+#check_model(q1lmer)
+report(q1lmer)
+```
+
+```{r}
+# Sig dif emmeans
+q1_lmer_means <- emmeans(q1lmer, pairwise ~ Depth)
+
+# letters
+cld_resultsq1 <- cld(object = q1_lmer_means$emmeans, Letters = letters)
+
+# Convert df
+emmeans_dfq1 <- as.data.frame(cld_resultsq1)
+emmeans_dfq1
+```
+
+```{r}
+# plot
+q1plot <- ggplot(metadata_with_hill, aes(x = Depth, y = q1, fill = Depth)) +
+  geom_boxplot() +
+  geom_jitter(aes(fill = Depth), width = 0.1, alpha = 0.4) +
+  geom_text(data = emmeans_dfq1, aes(y = emmean, label = .group), vjust = -9, color = "black", fontface = "bold",position = position_dodge(0.9)) +
+  labs(title = "Exp Shannon", y = NULL, x = NULL ) + #,
+       #caption = "letters by lmer emmeans") +
+    theme_bw() + scale_fill_manual(values = depth_colors) +
+    theme(legend.position = "none")
+q1plot
+```
+
+### q2 Dominance Inv Simpson
+
+```{r}
+# Fitted linear mixed model
+q2lmer <- lmer(q2 ~ Depth + Mangrove_system + (1 | ID), data = metadata_with_hill)
+#summary
+summary(q2lmer)
+```
+
+```{r}
+# lmerTest
+perm_testq2 <- rand(q2lmer, nsim = 1000)
+
+# Summary
+perm_testq2
+
+# Efects
+anova(q2lmer)
+```
+
+```{r}
+#check_model(q2lmer)
+report(q2lmer)
+```
+
+```{r}
+# Sig dif emmeans
+q2_lmer_means <- emmeans(q2lmer, pairwise ~ Depth)
+
+# letters
+cld_resultsq2 <- cld(object = q2_lmer_means$emmeans, Letters = letters)
+
+# Convert df
+emmeans_dfq2 <- as.data.frame(cld_resultsq2)
+emmeans_dfq2
+```
+
+```{r}
+# plot
+q2plot <- ggplot(metadata_with_hill, aes(x = Depth, y = q2, fill = Depth)) +
+  geom_boxplot() +
+  geom_jitter(aes(fill = Depth), width = 0.1, alpha = 0.4) +
+  geom_text(data = emmeans_dfq2, aes(y = emmean, label = .group), vjust = -9, color = "black", fontface = "bold",position = position_dodge(0.9)) +
+  labs(title = "q2 = Inv Simpson", y = NULL, x = NULL ) + #,
+       #caption = "letters by lmer emmeans") +
+    theme_bw() + scale_fill_manual(values = depth_colors) +
+    theme(legend.position = "none")
+q2plot
+```
+
+## By Mangrove_system
+
+### q0 Observed Richness
+
+```{r}
+# lmm
+q0lmerloc <- lmer(q0 ~ log(Effective_reads) + Mangrove_system + Depth + (1 | ID), data = metadata_with_hill)
+# summary
+summary(q0lmerloc)
+```
+
+```{r}
+# Permutation test 
+perm_testloc <- rand(q0lmerloc, nsim = 1000)
+perm_testloc
+
+#effects
+anova(q0lmerloc)
+```
+
+```{r}
+# check model reliability
+report(q0lmerloc)
+```
+
+```{r}
+# emmeans
+q0_lmer_means_loc <- emmeans(q0lmerloc, pairwise ~ Mangrove_system)
+
+# significance letters
+q0cld_results_loc <- cld(object = q0_lmer_means_loc$emmeans, Letters = letters)
+
+# Convert to data frame
+q0emmeans_df_loc <- as.data.frame(q0cld_results_loc)
+q0emmeans_df_loc
+```
+
+```{r}
+# boxplot with significance
+q0plotloc <- ggplot(metadata_with_hill, aes(x = Mangrove_system, y = q0, fill = Mangrove_system)) +
+  geom_boxplot() +
+  geom_jitter(aes(fill = Mangrove_system), width = 0.1, alpha = 0.4) +
+  geom_text(data = q0emmeans_df_loc, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  labs(title = "Observed Richness", y = NULL, x = NULL ) + #,
+       #caption = "letters by lmer emmeans") +
+    theme_classic() + scale_fill_manual(values = loc_colors) +
+    theme(legend.position = "none", axis.text.x = element_blank())
+
+q0plotloc
+```
+
+### q1 Exp Shannon diversity
+
+```{r}
+# lmm
+q1lmerloc <- lmer(q1 ~ Mangrove_system + Depth + (1 | ID), data = metadata_with_hill)
+# summary
+summary(q1lmerloc)
+```
+
+```{r}
+# Permutation test 
+perm_testlocq1 <- rand(q1lmerloc, nsim = 1000)
+perm_testlocq1
+
+#effects
+anova(q1lmerloc)
+```
+
+```{r}
+# check model reliability
+report(q1lmerloc)
+```
+
+```{r}
+# Differences emmeans
+q1lmer_means_loc <- emmeans(q1lmerloc, pairwise ~ Mangrove_system)
+
+# significance letters
+q1cld_results_loc <- cld(object = q1lmer_means_loc$emmeans, Letters = letters)
+
+# Convert to data frame
+q1emmeans_df_loc <- as.data.frame(q1cld_results_loc)
+q1emmeans_df_loc
+```
+
+```{r}
+# boxplot with significance
+q1plotloc <- ggplot(metadata_with_hill, aes(x = Mangrove_system, y = q1, fill = Mangrove_system)) +
+  geom_boxplot() +
+  geom_jitter(aes(fill = Mangrove_system), width = 0.1, alpha = 0.4) +
+  geom_text(data = q1emmeans_df_loc, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  labs(title = "Exp Shannon", y = NULL, x = NULL,
+       caption = "lmer (Depth sequencing, Mangrove system, layers and sediment core)") +
+    theme_classic() + scale_fill_manual(values = loc_colors) +
+    theme(legend.position = "none",
+          axis.text.y = element_text(size = 9),
+          axis.text.x = element_text(size = 9),
+    plot.caption = element_text(size = 7, face = "italic"))
+
+q1plotloc
+```
+
+### q2 Dominance Inv Simpson
+
+```{r}
+# lmm
+q2lmerloc <- lmer(q2 ~ Mangrove_system + Depth + (1 | ID), data = metadata_with_hill)
+# summary
+summary(q2lmerloc)
+```
+
+```{r}
+# Permutation test
+perm_testlocq2 <- rand(q2lmerloc, nsim = 1000)
+perm_testlocq2
+
+#effects
+anova(q2lmerloc)
+```
+
+```{r}
+# Differences  emmeans
+q2lmer_means_loc <- emmeans(q2lmerloc, pairwise ~ Mangrove_system)
+
+# Significance 
+q2cld_results_loc <- cld(object = q2lmer_means_loc$emmeans, Letters = letters)
+
+# Convertir a data frame
+q2emmeans_df_loc <- as.data.frame(q2cld_results_loc)
+q2emmeans_df_loc
+```
+
+```{r}
+# boxplot with significance
+q2plotloc <- ggplot(metadata_with_hill, aes(x = Mangrove_system, y = q2, fill = Mangrove_system)) +
+  geom_boxplot() +
+  geom_jitter(aes(fill = Mangrove_system), width = 0.1, alpha = 0.4) +
+  geom_text(data = q2emmeans_df_loc, aes(y = emmean, label = .group), vjust = -3, color = "black", fontface = "bold", position = position_dodge(0.9)) +
+  labs(title = "Exp Shannon", y = NULL, x = NULL ) + #,
+       #caption = "letters by lmer emmeans") +
+    theme_classic() + scale_fill_manual(values = loc_colors) +
+    theme(legend.position = "none")
+
+q2plotloc
+```
+
+## Combine plots
+
+::: callout-caution
+## Take note
+
+A combined plot of the Observed richness by depth and Mangrove system, and Shannon diversity by Mangrove system was created because the former indices showed significant differences
+:::
+
+```{r}
+#Combine plot
+
+title <- ggdraw() + draw_label("Effective number of ASVs", angle = 90, size = 12)
+alphaplots_loc <- plot_grid(q0plotloc, q1plotloc,
+                      ncol = 1)
+
+alphaplots_loc <- plot_grid(title, alphaplots_loc, ncol = 2, rel_widths = c(0.05, 1))    
+
+alphaplots_loc
+
+alphaplots_depth <- plot_grid(title, q0plot, ncol = 2, rel_widths = c(0.05, 1))    
+
+alphaplots_depth
+```
+
+::: callout-important
+A comparison of alpha diversity indices revealed no significant differences among the mangrove sites. Consequently, incorporation of these into the final plot was unnecessary.
+:::
+
+# Save rds plots
+
+```{r}
+saveRDS(alphaplots_depth, "rds/interior_impaired/alpha_diversity_depth_plot.rds")
+
+saveRDS(alphaplots_loc, "rds/interior_impaired/alpha_diversity_loc_plot.rds")
+```

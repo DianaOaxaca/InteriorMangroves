@@ -1,0 +1,174 @@
+---
+title: "Data Prepare"
+---
+
+::: callout-tip
+## How are inland mangroves similar to a degraded coastal mangrove?❓
+
+To answer this question, only samples that met the selection criteria were selected for comparison with each other. These samples were as follows:
+
+1.  They hailed from the same depth range.
+2.  They hailed from the strip, in the case of coastal mangroves.
+3.  They hailed from the flooding season, in the case of coastal mangroves.
+:::
+
+## Load libraries
+
+```{r}
+#| message: false
+#| warning: false
+library(ggplot2)
+library(qiime2R)
+library(phyloseq)
+library(dplyr)
+library(microbiome)
+```
+
+## 01. Select samples
+
+```{r}
+#Create phyloseq objects with qiime2 artifacts
+ps <- qza_to_phyloseq(
+  features = "data/cluster_table_filter_freq218_emcEstero.qza",
+  taxonomy = "data/taxonomyEstero.qza",
+  metadata = "data/metadata14.tsv")
+```
+
+```{r}
+# Extract metadata from phyloseq object
+metadata <- data.frame(phyloseq::sample_data(ps), check.names = FALSE)
+```
+
+```{r}
+# Filter Study zone and flood samples
+filtered_data <- metadata %>%
+  filter(season %in% c("flood")) %>%
+  filter(Study_zone %in% c("Estero_pargo", "Rio San Pedro", "Laguna Cacahuate")) %>%  
+  filter((Study_zone == "Estero_pargo" & Ecological_type == "Impaired") |  
+         Study_zone == "Rio San Pedro" |  Study_zone == "Laguna Cacahuate")
+```
+
+```{r}
+#Combine filtered metadata with phyloseq object to create a filtered phyloseq object
+
+ps2 <- prune_samples(rownames(filtered_data), ps)
+```
+
+## 02. Data preparation
+
+### 02.1 check data
+
+```{r}
+#library(microbiome)
+microbiome::summarize_phyloseq(ps2)
+```
+
+### 02.2 Rename mangrove system
+
+```{r}
+# Rename specific levels in the Mangrove system column
+#library(dplyr)
+metadata_fltr <- filtered_data %>%
+  mutate(`Mangrove_system` = case_when(
+    Study_zone == "Rio San Pedro" ~ "San Pedro River",
+    Study_zone == "Laguna Cacahuate" ~ "Fossil Lagoon",
+    Study_zone == "Estero_pargo" ~ "Impaired Términos Lagoon",
+    TRUE ~ Study_zone))
+```
+
+### 02.3 Add features
+
+```{r}
+# Extract sample_data
+sample_data_df <- as(sample_data(ps2), "data.frame")
+
+# Join sample_data with metadata to add Mangrove system
+sample_data_df <- sample_data_df %>%
+  left_join(dplyr::select(metadata_fltr, SampleID, Mangrove_system), by = "SampleID")
+```
+
+#### 02.3.1 Mangrove type
+
+```{r}
+# Create Mangrove_type
+sample_data_df <- sample_data_df %>%
+  mutate(Mangrove_type = case_when(
+    `Mangrove_system` %in% c("Fossil Lagoon", "San Pedro River") ~ "Interior",
+    `Mangrove_system` %in% "Impaired Términos Lagoon" ~ "Coastal",
+    TRUE ~ NA_character_ ))
+```
+
+#### 02.3.2 Layers
+
+```{r}
+# Create layers
+sample_data_df <- sample_data_df %>%
+  mutate(Depths = case_when(
+    depth %in% c("0-15", "5") ~ "Surface",
+    depth %in% c("16-30", "20") ~ "Mid",
+    depth %in% c("31-45","50-70", "40") ~ "Deep",
+    TRUE ~ NA_character_))
+```
+
+#### 02.3.3 Save in phyloseq object
+
+```{r}
+# add .fastq.gz to SampleID 
+sample_data_df$SampleID <- gsub("_R1$", "_R1.fastq.gz", sample_data_df$SampleID)
+
+# add rownames as SampleID
+rownames(sample_data_df) <- sample_data_df$SampleID
+
+# update sample_data in phyloseq object
+sample_data(ps2) <- sample_data(sample_data_df)
+
+# check
+tail(sample_data(ps2))
+
+```
+
+### 02.4 Create color pallete
+
+```{r}
+#Mangrove system colors
+loc_colors <- c("Fossil Lagoon"= "#A7fcc1",
+                "San Pedro River" = "#26B170",
+                "Impaired Términos Lagoon" = "gray40")
+
+#Mangrove type colors
+mt_colors <- c("Interior"= "#A7fcc1",
+                "Coastal" = "#329D9C")
+
+#Depth colors
+depth_colors <- c("Surface" = "#f5e5c4",
+                 "Mid" = "#baa179",
+                 "Deep" = "#80673b")
+```
+
+### 02.5 Check samples
+
+```{r}
+#| message: false
+#| warning: false
+# Samples Plot
+metadata <- as(sample_data(ps2), "data.frame")
+
+samples_plot <- ggplot(metadata, aes(x = Depths, y = ..count..,
+fill = Depths)) + geom_bar(position = "dodge") +
+  facet_wrap(~ Mangrove_system, scales = "free_x") +
+  labs(title = "Samples of the analysis", y = "Number of Samples",
+       x = NULL) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 0)) + 
+  scale_fill_manual(values = depth_colors)
+
+# show plot
+print(samples_plot)
+```
+
+### 02.6 Save objects in RDS to next analysis
+
+```{r}
+saveRDS(ps2, "rds/interior_impaired/physeq.rds")
+```
+
