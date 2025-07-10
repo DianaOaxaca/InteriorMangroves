@@ -43,10 +43,10 @@ website:
         href: 00.Presentation.qmd
       - text: Preprocessing
         href: 01.Preprocessing.qmd
-      - section: "Interior and coastal mangroves compare"
+      - section: "A) Interior and coastal mangroves compare"
         href: A_InteriorCoastalCompare.qmd
         contents:
-          - section: "How similar are coastal and inland mangroves?"
+          - section: "1) How similar are coastal and inland mangroves?"
             contents:
               - 02.SurfaceComparison.qmd
               - section: "Analysis"
@@ -56,7 +56,7 @@ website:
                   - 02.3.Coremicrobiome.qmd
                   - 02.4.DifferentialAbundance.qmd
                   - 02.5.Fig2.InteriorCoastalCompare.qmd
-          - section: "How are coastal and inland mangroves similar, considering their depth?"
+          - section: "2) How are coastal and inland mangroves similar, considering their depth?"
             contents:
               - 04.DepthComparison.qmd
               - section: "Analysis"
@@ -66,7 +66,13 @@ website:
                   - 04.3.Coremicrobiome.qmd
                   - 04.4.DifferentialAbundance.qmd
                   - 04.5.Fig4.InteriorCoastalDepthCompare.qmd
-      - section: "Interior mangroves explore"
+          - section: "3) How are inland mangroves similar to a impaired coastal mangrove?"
+            contents:
+              - 05.InteriorImpairedCoastalComparison.qmd
+              - section: "Analysis"
+                contents:
+                  - 05.1.AlphaDiversity.qmd
+      - section: "B) Interior mangroves explore"
         href: 03.InteriorMangroves.qmd
         contents:
           - section: "What makes inland mangroves different and unique?"
