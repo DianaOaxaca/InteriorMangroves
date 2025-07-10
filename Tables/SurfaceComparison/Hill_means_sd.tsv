@@ -8,6 +8,6 @@ Mangrove_type	Mangrove.system	qs	means	sd
 7	Interior	Fossil Lagoon	q0=Observed	1230	134.057201721255
 8	Interior	Fossil Lagoon	q1=Exp Shannon	299.954437012168	75.0891992395865
 9	Interior	Fossil Lagoon	q2=Inv Simpson	86.5239754417822	26.9181577647571
-10	Interior	San Pedro River	q0=Observed	1368.42857142857	165.597762809825
-11	Interior	San Pedro River	q1=Exp Shannon	254.39231086151	105.079458413297
-12	Interior	San Pedro River	q2=Inv Simpson	71.7241967516991	38.4100367335076
+10	Interior	San Pedro River	q0=Observed	1430.55555555556	191.480489287493
+11	Interior	San Pedro River	q1=Exp Shannon	290.633992735304	118.202455232065
+12	Interior	San Pedro River	q2=Inv Simpson	85.746654163423	45.3456384924621

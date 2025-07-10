@@ -22,6 +22,7 @@ library(ggpubr)
 library(ggplot2)
 library(cowplot)
 library(vegan)
+library(easystats)
 library(emmeans)
 library(multcomp)
 ```
@@ -132,12 +133,82 @@ system.time(rarecurve(mat, step = 100, sample = raremax, col = "green4",
 dev.off()
 ```
 
-## 04. Get significant differences
+## 04. **Check alpha diversity correlation with sequencing depth**
+
+```{r}
+#Get effective reads
+Effective_reads <- colSums(otu_data[-1, ])
+metadata_with_hill$Effective_reads <- Effective_reads
+```
+
+**Alpha diversity depth correlation to order q=0**
+
+```{r}
+# library(ggpubr)
+
+q0_vs_depth <- ggscatter(metadata_with_hill,
+                x = "Effective_reads", y = "q0", 
+                xlab= "Sequencing depth (number of reads)",
+                ylab = "q=0", add = "reg.line",
+   add.params = list(color = "#114e9d", fill = "lightgray"),
+   conf.int = TRUE, # Add confidence interval
+   cor.coef = TRUE, # Add correlation coefficient. 
+   cor.coeff.args = list(method = "pearson", label.x = 3, label.sep = "\n")
+   )+
+  theme(legend.title = element_blank(), legend.position = "none")
+```
+
+**Alpha diversity depth correlation to order q=1**
+
+```{r}
+q1_vs_depth <- ggscatter(metadata_with_hill, 
+                x = "Effective_reads", y = "q1", 
+                xlab= "Sequencing depth (number of reads)",
+                ylab = "q=1", add = "reg.line",
+   add.params = list(color = "#114e9d", fill = "lightgray"),
+   conf.int = TRUE, # Add confidence interval
+   cor.coef = TRUE, # Add correlation coefficient
+   cor.coeff.args = list(method = "pearson", label.x = 3, label.sep = "\n")) +
+  theme(legend.title = element_blank(), 
+        legend.position = "none")
+```
+
+**Alpha diversity depth correlation to order q=2**
+
+```{r}
+q2_vs_depth <- ggscatter(metadata_with_hill, 
+                x = "Effective_reads", y = "q2", 
+                xlab= "Sequencing depth (number of reads)",
+                ylab = "q=2", add = "reg.line",
+   add.params = list(color = "#114e9d", fill = "lightgray"),
+   conf.int = TRUE, # Add confidence interval
+   cor.coef = TRUE, # Add correlation coefficient
+   cor.coeff.args = list(method = "pearson", label.x = 3, label.sep = "\n")) +
+  theme(legend.title = element_blank(), 
+        legend.position = "none")
+```
+
+```{r}
+#Combine plot
+title_corr_plot <- ggdraw() + 
+  draw_label("Alpha diversity depth correlation")
+
+correlation_plot_q012 <- plot_grid(title_corr_plot,
+                            q0_vs_depth, 
+                            q1_vs_depth, 
+                            q2_vs_depth,
+                            ncol = 1, 
+                            rel_heights = c(0.15, 1, 1, 1))
+
+correlation_plot_q012
+```
+
+## 05. Get significant differences
 
 ::: callout-caution
 ## Remember
 
-The significance of the observed differences among mangrove systems was determined by employing a linear model, given the imbalanced sample numbers.
+The significance of the observed differences among mangrove systems was determined by employing a linear model, given the imbalanced sample numbers and positive effect of depth sequencing in the Observed richness.
 :::
 
 ```{r}
@@ -155,13 +226,23 @@ metadata_with_hill$Mangrove.system <-
 
 ```{r}
 # linear model adjust
-q0lm <- lm(q0 ~ Mangrove.system, data = metadata_with_hill)
+q0lm <- lm(q0 ~ log(Effective_reads) + Mangrove.system, data = metadata_with_hill)
 # summary
 summary(q0lm)
+```
 
+```{r}
 # check model reliability
 shapiro.test(residuals(q0lm))
+```
 
+```{r}
+#effects
+anova(q0lm)
+```
+
+```{r}
+report(q0lm)
 ```
 
 ```{r}
@@ -176,7 +257,9 @@ cld_results <- cld(object = q0_lm_means$emmeans, Letters = letters)
 # Convert to data frame
 q0_emmeans_df <- as.data.frame(cld_results)
 q0_emmeans_df
+```
 
+```{r}
 # Reorder samples
 metadata_with_hill$Mangrove.system <- factor(
   metadata_with_hill$Mangrove.system,
@@ -194,7 +277,7 @@ q0plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q0, fill = Man
   labs(title = "q0 = Observed", y = NULL, x = NULL) + #,
   #caption = "letters by lm emmeans") +
   theme_classic() + scale_fill_manual(values = loc_colors) +
-  theme(legend.position = "none", axis.text.x = element_blank())
+  theme(legend.position = "none")
 ```
 
 ### q1 Diversity Exp Shannon
@@ -223,11 +306,14 @@ q1_emmeans_df
 q1plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system , y = q1, fill = Mangrove.system)) +
   geom_boxplot() +
   #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
-  geom_text(data = q1_emmeans_df, aes(y = emmean, label = .group), vjust = -5,
-          color = "black", fontface = "bold", position = position_dodge(0.9)) +   labs(title = "q1 = Exp Shannon", y = NULL, x = NULL) + #,
-  #caption = "letters by lm emmeans") +
+  geom_text(data = q1_emmeans_df, aes(y = emmean, label = .group), vjust = -4,
+          color = "black", fontface = "bold", position = position_dodge(0.9)) +   labs(title = "q1 = Exp Shannon", y = NULL, x = NULL,
+  caption = "lm (Depth sequencing and Mangrove system") +
   theme_classic() + scale_fill_manual(values = loc_colors) +
-  theme(legend.position = "none", axis.text.x = element_blank())
+  theme(legend.position = "none",
+          axis.text.y = element_text(size = 9),
+          axis.text.x = element_text(size = 9),
+    plot.caption = element_text(size = 7, face = "italic"))
 ```
 
 ### q2 Dominance Inv Simpson
@@ -256,15 +342,24 @@ q2_emmeans_df
 q2plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q2, fill = Mangrove.system)) +
   geom_boxplot() +
   #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
-  geom_text(data = q2_emmeans_df, aes(y = emmean, label = .group), vjust = -5,
+  geom_text(data = q2_emmeans_df, aes(y = emmean, label = .group), vjust = -4,
             color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "q2 = Inv Simpson", y = NULL, x = NULL,
-  caption = "letters by lm emmeans") +
+  caption = "lm (Depth sequencing and Mangrove system") +
   theme_classic() + scale_fill_manual(values = loc_colors) +
-  theme(legend.position = "none")
+  theme(legend.position = "none",
+          axis.text.y = element_text(size = 9),
+          axis.text.x = element_text(size = 9),
+    plot.caption = element_text(size = 7, face = "italic"))
 ```
 
 ### Combine plots
+
+::: callout-important
+## Take note
+
+Just Shannon diversity was created because showed significant differences
+:::
 
 ```{r}
 #Combine alpha diversity plots
@@ -273,20 +368,19 @@ q2plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q2, fill = Man
 
 ytitle <- ggdraw() + draw_label("Effective number of ASVs",
                                 angle = 90, size = 14 )
-q012plot <- plot_grid(q0plot, q1plot, q2plot,
-                      labels = c("A)", "", ""), ncol = 1)
-q012y_plot <- plot_grid(ytitle, q012plot, ncol = 2, rel_widths = c(0.05, 1))
+
+q1y_plot <- plot_grid(ytitle, q1plot, ncol = 2, rel_widths = c(0.05, 1))
 
 # show
-q012y_plot
+q1y_plot
 
 # save
 ggsave("Figures/SurfaceComparison/alphadiv_per_loc.pdf",
-       q012y_plot, width = 6.3, height = 9.9)
+       q1y_plot, width = 6.3, height = 9.9)
 ```
 
 ## Save rds alpha diversity plot
 
 ```{r}
-saveRDS(q012y_plot, "rds/compare_mangroves/alpha_diversity_surface_plot.rds")
+saveRDS(q1y_plot, "rds/compare_mangroves/alpha_diversity_surface_plot.rds")
 ```

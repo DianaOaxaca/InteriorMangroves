@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.6.37" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+
+<title>Alpha diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<!-- htmldependencies:E3FAD763 -->
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn"
+      data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs"></h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" role="link"
+        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="/index.html" class="sidebar-logo-link">
+      <img src="/images/landalab.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none"/>
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/DianaOaxaca/InteriorMangroves"  title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/00.Presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/01.Preprocessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preprocessing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="/A_InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A) Interior and coastal mangroves compare</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2"  role="navigation" aria-expanded="true">
+ <span class="menu-text">1) How similar are coastal and inland mangroves?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/02.SurfaceComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Prepare</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3"  role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/02.1.AlphaDiversity.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Alpha diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/02.2.BetaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/02.3.Coremicrobiome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core microbiome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/02.4.DifferentialAbundance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Abundance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/02.5.Fig2.InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fig.2 Interior and Coastal mangroves compare</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4"  role="navigation" aria-expanded="true">
+ <span class="menu-text">2) How are coastal and inland mangroves similar, considering their depth?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/04.DepthComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Prepare</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5"  role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/04.1.AlphaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Alpha Diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/04.2.BetaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta Diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/04.3.Coremicrobiome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core Microbiome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/04.4.DifferentialAbundance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Abundance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/04.5.Fig4.InteriorCoastalDepthCompare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fig 4. Interior and Coastal with depth comparison</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6"  role="navigation" aria-expanded="true">
+ <span class="menu-text">3) How are inland mangroves similar to a impaired coastal mangrove?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/05.InteriorImpairedCoastalComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Prepare</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7"  role="navigation" aria-expanded="true">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/05.1.AlphaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Alpha Diversity</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="/03.InteriorMangroves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">B) Interior mangroves explore</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9"  role="navigation" aria-expanded="true">
+ <span class="menu-text">What makes inland mangroves different and unique?</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/03.1.RelativeAbundances.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Relative Abundances</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/03.2.AlphaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Alpha Diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/03.3.BetaDiversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Beta diversity</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/03.4.Coremicrobiome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core Microbiome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/03.5.DifferentialAbundance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Differential Abundance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/03.6.MetabolicInference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metabolic Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="/03.7.Fig3.InteriorMangroves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fig. 3 Interior Mangroves</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" ></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <div id="quarto-toc-target"></div>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Alpha diversity</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#load-libraries-and-prepare-data" id="toc-load-libraries-and-prepare-data">Load libraries and prepare data</a></li>
+  <li><a href="#get-hill-numbers" id="toc-get-hill-numbers">01. Get Hill numbers</a></li>
+  <li><a href="#get-hill-means" id="toc-get-hill-means">02. Get Hill means</a></li>
+  <li><a href="#get-sequencing-effort" id="toc-get-sequencing-effort">03. Get sequencing effort</a></li>
+  <li><a href="#check-alpha-diversity-correlation-with-sequencing-depth" id="toc-check-alpha-diversity-correlation-with-sequencing-depth">04. <strong>Check alpha diversity correlation with sequencing depth</strong></a></li>
+  <li><a href="#get-significant-differences" id="toc-get-significant-differences">05. Get significant differences</a>
+  <ul>
+  <li><a href="#q0-observed-richness" id="toc-q0-observed-richness">q0 Observed richness</a></li>
+  <li><a href="#q1-diversity-exp-shannon" id="toc-q1-diversity-exp-shannon">q1 Diversity Exp Shannon</a></li>
+  <li><a href="#q2-dominance-inv-simpson" id="toc-q2-dominance-inv-simpson">q2 Dominance Inv Simpson</a></li>
+  <li><a href="#combine-plots" id="toc-combine-plots">Combine plots</a></li>
+  </ul></li>
+  <li><a href="#save-rds-alpha-diversity-plot" id="toc-save-rds-alpha-diversity-plot">Save rds alpha diversity plot</a></li>
+  </ul>
+</nav>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Alpha diversity indices were calculated with Hill numbers (q0 = observed richness, q1 = Shannon Exp and q2 = Inv Simpson). The significance of the observed differences among mangrove systems was determined by employing a linear model, given the imbalanced sample numbers.</p>
+</div>
+</div>
+<hr />
+<section id="load-libraries-and-prepare-data" class="level2">
+<h2>Load libraries and prepare data</h2>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(phyloseq)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hilldiv)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(multcomp)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>physeq_qiime3 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">&quot;rds/compare_mangroves/physeq_qiime3.rds&quot;</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Mangrove system colors</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>loc_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Fossil Lagoon&quot;</span><span class="ot">=</span> <span class="st">&quot;#A7fcc1&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;San Pedro River&quot;</span> <span class="ot">=</span> <span class="st">&quot;#26B170&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Términos Lagoon&quot;</span> <span class="ot">=</span> <span class="st">&quot;#329D9C&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;Celestún Lagoon&quot;</span> <span class="ot">=</span> <span class="st">&quot;#41e8d3&quot;</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract data from phyloseq object</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#library(phyloseq)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>otu_data <span class="ot">&lt;-</span> <span class="fu">otu_table</span>(physeq_qiime3, <span class="at">taxa_are_rows =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> <span class="fu">as</span>(<span class="fu">sample_data</span>(physeq_qiime3), <span class="st">&quot;data.frame&quot;</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="get-hill-numbers" class="level2">
+<h2>01. Get Hill numbers</h2>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate hill numbers</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#library(hilldiv)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>q0 <span class="ot">&lt;-</span> <span class="fu">hill_div</span>(otu_data, <span class="at">qvalue =</span> <span class="dv">0</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>q1 <span class="ot">&lt;-</span> <span class="fu">hill_div</span>(otu_data, <span class="at">qvalue =</span> <span class="dv">1</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>q2 <span class="ot">&lt;-</span> <span class="fu">hill_div</span>(otu_data, <span class="at">qvalue =</span> <span class="dv">2</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge metadata with Hill numbers</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#library(tidyverse)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>q012 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(q0, q1, q2) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;SampleID&quot;</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># join</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>metadata_with_hill <span class="ot">&lt;-</span> q012 <span class="sc">%&gt;%</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(metadata, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;SampleID&quot;</span><span class="ot">=</span><span class="st">&quot;SampleID&quot;</span>))</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># show</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>metadata_with_hill <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  SampleID   q0  q1    q2 Collection_date depth  ID Environmental_medium
+1   S1A015 1266 330 106.0      2023-09-28  0-15 S1A             sediment
+2    S1B07 1502 164  36.0      2023-09-28  0-15 S1B             sediment
+3   S2A515 1708 463 161.3      2023-09-28  0-15 S2A             sediment
+4    S2B07 1378 351 106.8      2023-09-28  0-15 S2B             sediment
+5    S3A07 1190 154  37.6      2023-09-28  0-15 S3A             sediment
+6   S3B515 1588 372 108.3      2023-09-28  0-15 S3B             sediment
+  Geographic.Location    Study_zone Ecological_type season Mangrove.system
+1      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+2      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+3      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+4      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+5      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+6      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+  Mangrove_type
+1      Interior
+2      Interior
+3      Interior
+4      Interior
+5      Interior
+6      Interior</code></pre>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#save table</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(metadata_with_hill, <span class="st">&quot;Tables/SurfaceComparison/Metadata_with_hill.tsv&quot;</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="get-hill-means" class="level2">
+<h2>02. Get Hill means</h2>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder q values</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>meta_qs <span class="ot">&lt;-</span> metadata_with_hill <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> q0<span class="sc">:</span>q2, <span class="at">names_to =</span> <span class="st">&quot;q&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(q <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;q0&quot;</span>, <span class="st">&quot;q1&quot;</span>, <span class="st">&quot;q2&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">qs =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>      q <span class="sc">==</span> <span class="st">&quot;q0&quot;</span> <span class="sc">~</span> <span class="st">&quot;q0=Observed&quot;</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>      q <span class="sc">==</span> <span class="st">&quot;q1&quot;</span> <span class="sc">~</span> <span class="st">&quot;q1=Exp Shannon&quot;</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>      q <span class="sc">==</span> <span class="st">&quot;q2&quot;</span> <span class="sc">~</span> <span class="st">&quot;q2=Inv Simpson&quot;</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Get means of Hill numbers</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> meta_qs <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Mangrove_type, Mangrove.system, qs) <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">&#39;drop&#39;</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(means)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 5
+   Mangrove_type Mangrove.system qs              means    sd
+   &lt;chr&gt;         &lt;chr&gt;           &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+ 1 Coastal       Celestún Lagoon q0=Observed    1202   207. 
+ 2 Coastal       Celestún Lagoon q1=Exp Shannon  496.   87.6
+ 3 Coastal       Celestún Lagoon q2=Inv Simpson  234.   40.5
+ 4 Coastal       Términos Lagoon q0=Observed     140    61.8
+ 5 Coastal       Términos Lagoon q1=Exp Shannon   78.8  48.9
+ 6 Coastal       Términos Lagoon q2=Inv Simpson   51.2  32.7
+ 7 Interior      Fossil Lagoon   q0=Observed    1230   134. 
+ 8 Interior      Fossil Lagoon   q1=Exp Shannon  300.   75.1
+ 9 Interior      Fossil Lagoon   q2=Inv Simpson   86.5  26.9
+10 Interior      San Pedro River q0=Observed    1431.  191. 
+11 Interior      San Pedro River q1=Exp Shannon  291.  118. 
+12 Interior      San Pedro River q2=Inv Simpson   85.7  45.3</code></pre>
+</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#save table</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(means, <span class="st">&quot;Tables/SurfaceComparison/Hill_means_sd.tsv&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># group by mangrove type</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>means_mangrove_type <span class="ot">&lt;-</span> meta_qs <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Mangrove_type, qs) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">.groups =</span> <span class="st">&#39;drop&#39;</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(means_mangrove_type)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  Mangrove_type qs              means    sd
+  &lt;chr&gt;         &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+1 Coastal       q0=Observed     974.  488. 
+2 Coastal       q1=Exp Shannon  407.  195. 
+3 Coastal       q2=Inv Simpson  194.   86.3
+4 Interior      q0=Observed    1369.  195. 
+5 Interior      q1=Exp Shannon  294.  104. 
+6 Interior      q2=Inv Simpson   86.0  39.4</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(means, <span class="st">&quot;Tables/SurfaceComparison/Hill_means_sd_mangrove_type.tsv&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>, <span class="at">col.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="get-sequencing-effort" class="level2">
+<h2>03. Get sequencing effort</h2>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Sample effort</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#library(vegan)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">as</span>(<span class="fu">t</span>(<span class="fu">otu_table</span>(physeq_qiime3)), <span class="st">&quot;matrix&quot;</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>raremax <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">rowSums</span>(mat))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">rarecurve</span>(mat, <span class="at">step =</span> <span class="dv">100</span>, <span class="at">sample =</span> raremax, <span class="at">col =</span> <span class="st">&quot;green4&quot;</span>, </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">label =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672" /></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  5.305   0.213   5.531 </code></pre>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;Figures/SurfaceComparison/sample_effort.pdf&quot;</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">rarecurve</span>(mat, <span class="at">step =</span> <span class="dv">100</span>, <span class="at">sample =</span> raremax, <span class="at">col =</span> <span class="st">&quot;green4&quot;</span>, </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">label =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   user  system elapsed 
+  5.515   0.186   5.709 </code></pre>
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>quartz_off_screen 
+                2 </code></pre>
+</div>
+</div>
+</section>
+<section id="check-alpha-diversity-correlation-with-sequencing-depth" class="level2">
+<h2>04. <strong>Check alpha diversity correlation with sequencing depth</strong></h2>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Get effective reads</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>Effective_reads <span class="ot">&lt;-</span> <span class="fu">colSums</span>(otu_data[<span class="sc">-</span><span class="dv">1</span>, ])</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>metadata_with_hill<span class="sc">$</span>Effective_reads <span class="ot">&lt;-</span> Effective_reads</span></code></pre></div>
+</div>
+<p><strong>Alpha diversity depth correlation to order q=0</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggpubr)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>q0_vs_depth <span class="ot">&lt;-</span> <span class="fu">ggscatter</span>(metadata_with_hill,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> <span class="st">&quot;Effective_reads&quot;</span>, <span class="at">y =</span> <span class="st">&quot;q0&quot;</span>, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlab=</span> <span class="st">&quot;Sequencing depth (number of reads)&quot;</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">ylab =</span> <span class="st">&quot;q=0&quot;</span>, <span class="at">add =</span> <span class="st">&quot;reg.line&quot;</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">&quot;#114e9d&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgray&quot;</span>),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>   <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="co"># Add confidence interval</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>   <span class="at">cor.coef =</span> <span class="cn">TRUE</span>, <span class="co"># Add correlation coefficient. </span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>   <span class="at">cor.coeff.args =</span> <span class="fu">list</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.sep =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>   )<span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+</div>
+<p><strong>Alpha diversity depth correlation to order q=1</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>q1_vs_depth <span class="ot">&lt;-</span> <span class="fu">ggscatter</span>(metadata_with_hill, </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> <span class="st">&quot;Effective_reads&quot;</span>, <span class="at">y =</span> <span class="st">&quot;q1&quot;</span>, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlab=</span> <span class="st">&quot;Sequencing depth (number of reads)&quot;</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ylab =</span> <span class="st">&quot;q=1&quot;</span>, <span class="at">add =</span> <span class="st">&quot;reg.line&quot;</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>   <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">&quot;#114e9d&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgray&quot;</span>),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>   <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="co"># Add confidence interval</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">cor.coef =</span> <span class="cn">TRUE</span>, <span class="co"># Add correlation coefficient</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>   <span class="at">cor.coeff.args =</span> <span class="fu">list</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.sep =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+</div>
+<p><strong>Alpha diversity depth correlation to order q=2</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>q2_vs_depth <span class="ot">&lt;-</span> <span class="fu">ggscatter</span>(metadata_with_hill, </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> <span class="st">&quot;Effective_reads&quot;</span>, <span class="at">y =</span> <span class="st">&quot;q2&quot;</span>, </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">xlab=</span> <span class="st">&quot;Sequencing depth (number of reads)&quot;</span>,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ylab =</span> <span class="st">&quot;q=2&quot;</span>, <span class="at">add =</span> <span class="st">&quot;reg.line&quot;</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>   <span class="at">add.params =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">&quot;#114e9d&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgray&quot;</span>),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>   <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="co"># Add confidence interval</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>   <span class="at">cor.coef =</span> <span class="cn">TRUE</span>, <span class="co"># Add correlation coefficient</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>   <span class="at">cor.coeff.args =</span> <span class="fu">list</span>(<span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.sep =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Combine plot</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>title_corr_plot <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">draw_label</span>(<span class="st">&quot;Alpha diversity depth correlation&quot;</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>correlation_plot_q012 <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(title_corr_plot,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                            q0_vs_depth, </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                            q1_vs_depth, </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                            q2_vs_depth,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                            <span class="at">ncol =</span> <span class="dv">1</span>, </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>                            <span class="at">rel_heights =</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>correlation_plot_q012</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672" /></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="get-significant-differences" class="level2">
+<h2>05. Get significant differences</h2>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Remember
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The significance of the observed differences among mangrove systems was determined by employing a linear model, given the imbalanced sample numbers and positive effect of depth sequencing in the Observed richness.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change variable to factor</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>metadata_with_hill<span class="sc">$</span>Mangrove.system <span class="ot">&lt;-</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">factor</span>(metadata_with_hill<span class="sc">$</span>Mangrove.system)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to Fossil Lagoon reference</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>metadata_with_hill<span class="sc">$</span>Mangrove.system <span class="ot">&lt;-</span> </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relevel</span>(metadata_with_hill<span class="sc">$</span>Mangrove.system,<span class="at">ref =</span> <span class="st">&quot;Fossil Lagoon&quot;</span>)</span></code></pre></div>
+</div>
+<section id="q0-observed-richness" class="level3">
+<h3>q0 Observed richness</h3>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># linear model adjust</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>q0lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(q0 <span class="sc">~</span> <span class="fu">log</span>(Effective_reads) <span class="sc">+</span> Mangrove.system, <span class="at">data =</span> metadata_with_hill)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(q0lm)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = q0 ~ log(Effective_reads) + Mangrove.system, data = metadata_with_hill)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-300.1 -126.7   29.5   73.7  295.5 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)                       -1437       1327   -1.08    0.290  
+log(Effective_reads)                228        113    2.01    0.056 .
+Mangrove.systemCelestún Lagoon      174        142    1.22    0.236  
+Mangrove.systemSan Pedro River      218        105    2.08    0.049 *
+Mangrove.systemTérminos Lagoon     -399        368   -1.09    0.289  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 173 on 22 degrees of freedom
+Multiple R-squared:  0.856, Adjusted R-squared:  0.83 
+F-statistic: 32.7 on 4 and 22 DF,  p-value: 5.68e-09</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check model reliability</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(q0lm))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(q0lm)
+W = 1, p-value = 0.4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#effects</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(q0lm)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: q0
+                     Df  Sum Sq Mean Sq F value  Pr(&gt;F)    
+log(Effective_reads)  1 3534553 3534553   117.5 2.7e-10 ***
+Mangrove.system       3  406084  135361     4.5   0.013 *  
+Residuals            22  661987   30090                    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">report</span>(q0lm)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Formula contains log- or sqrt-terms.
+  See help(&quot;standardize&quot;) for how such terms are standardized.
+Formula contains log- or sqrt-terms.
+  See help(&quot;standardize&quot;) for how such terms are standardized.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>We fitted a linear model (estimated using OLS) to predict q0 with
+Effective_reads and Mangrove.system (formula: q0 ~ log(Effective_reads) +
+Mangrove.system). The model explains a statistically significant and
+substantial proportion of variance (R2 = 0.86, F(4, 22) = 32.74, p &lt; .001, adj.
+R2 = 0.83). The model&#39;s intercept, corresponding to Effective_reads = 0 and
+Mangrove.system = Fossil Lagoon, is at -1437.09 (95% CI [-4188.40, 1314.22],
+t(22) = -1.08, p = 0.290). Within this model:
+
+  - The effect of Effective reads [log] is statistically non-significant and
+positive (beta = 227.85, 95% CI [-6.69, 462.39], t(22) = 2.01, p = 0.056; Std.
+beta = 1.07, 95% CI [-0.04, 2.17])
+  - The effect of Mangrove system [Celestún Lagoon] is statistically
+non-significant and positive (beta = 173.67, 95% CI [-121.65, 468.99], t(22) =
+1.22, p = 0.236; Std. beta = 0.54, 95% CI [-0.26, 1.34])
+  - The effect of Mangrove system [San Pedro River] is statistically significant
+and positive (beta = 217.81, 95% CI [0.90, 434.71], t(22) = 2.08, p = 0.049;
+Std. beta = 0.54, 95% CI [0.02, 1.06])
+  - The effect of Mangrove system [Términos Lagoon] is statistically
+non-significant and negative (beta = -399.13, 95% CI [-1161.52, 363.27], t(22)
+= -1.09, p = 0.289; Std. beta = -1.25, 95% CI [-2.78, 0.28])
+
+Standardized parameters were obtained by fitting the model on a standardized
+version of the dataset. 95% Confidence Intervals (CIs) and p-values were
+computed using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get differences with emmeans</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#library(emmeans)</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>q0_lm_means <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(q0lm, pairwise <span class="sc">~</span> Mangrove.system)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get significance letters</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co">#library(multcomp)</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>cld_results <span class="ot">&lt;-</span> <span class="fu">cld</span>(<span class="at">object =</span> q0_lm_means<span class="sc">$</span>emmeans, <span class="at">Letters =</span> letters)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to data frame</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>q0_emmeans_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cld_results)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>q0_emmeans_df</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Mangrove.system emmean    SE df lower.CL upper.CL .group
+ Términos Lagoon    732 310.5 22       88     1376  a    
+ Fossil Lagoon     1131  99.6 22      925     1338  a    
+ Celestún Lagoon   1305  73.1 22     1153     1456  a    
+ San Pedro River   1349  70.6 22     1203     1495  a    
+
+Confidence level used: 0.95 
+P value adjustment: tukey method for comparing a family of 4 estimates 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reorder samples</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>metadata_with_hill<span class="sc">$</span>Mangrove.system <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  metadata_with_hill<span class="sc">$</span>Mangrove.system,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Fossil Lagoon&quot;</span>, <span class="st">&quot;San Pedro River&quot;</span>, </span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">&quot;Términos Lagoon&quot;</span>, <span class="st">&quot;Celestún Lagoon&quot;</span>))</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot with significance</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>q0plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(metadata_with_hill, <span class="fu">aes</span>(<span class="at">x =</span> Mangrove.system, <span class="at">y =</span> q0, <span class="at">fill =</span> Mangrove.system)) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> q0_emmeans_df, <span class="fu">aes</span>(<span class="at">y =</span> emmean, <span class="at">label =</span> .group), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">3</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>)) <span class="sc">+</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;q0 = Observed&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>) <span class="sc">+</span> <span class="co">#,</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#caption = &quot;letters by lm emmeans&quot;) +</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> loc_colors) <span class="sc">+</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+</div>
+</section>
+<section id="q1-diversity-exp-shannon" class="level3">
+<h3>q1 Diversity Exp Shannon</h3>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># linear model</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>q1lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(q1 <span class="sc">~</span> Mangrove.system, <span class="at">data =</span> metadata_with_hill)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(q1lm)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = q1 ~ Mangrove.system, data = metadata_with_hill)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-159.3  -72.8   17.5   65.7  172.4 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                      299.95      47.80    6.28  2.1e-06 ***
+Mangrove.systemSan Pedro River    -9.32      57.45   -0.16   0.8725    
+Mangrove.systemTérminos Lagoon  -221.17      73.01   -3.03   0.0060 ** 
+Mangrove.systemCelestún Lagoon   196.16      55.82    3.51   0.0019 ** 
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 95.6 on 23 degrees of freedom
+Multiple R-squared:  0.703, Adjusted R-squared:  0.664 
+F-statistic: 18.1 on 3 and 23 DF,  p-value: 2.93e-06</code></pre>
+</div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check model reliability</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(q1lm))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(q1lm)
+W = 1, p-value = 0.4</code></pre>
+</div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># significance</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>q1_lm_means <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(q1lm, pairwise <span class="sc">~</span> Mangrove.system)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>cld_results <span class="ot">&lt;-</span> <span class="fu">cld</span>(<span class="at">object =</span> q1_lm_means<span class="sc">$</span>emmeans, <span class="at">Letters =</span> letters)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to data frame</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>q1_emmeans_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cld_results)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>q1_emmeans_df</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Mangrove.system emmean   SE df lower.CL upper.CL .group
+ Términos Lagoon     79 55.2 23      -35      193  a    
+ San Pedro River    291 31.9 23      225      357   b   
+ Fossil Lagoon      300 47.8 23      201      399   b   
+ Celestún Lagoon    496 28.8 23      436      556    c  
+
+Confidence level used: 0.95 
+P value adjustment: tukey method for comparing a family of 4 estimates 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>q1plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(metadata_with_hill, <span class="fu">aes</span>(<span class="at">x =</span> Mangrove.system , <span class="at">y =</span> q1, <span class="at">fill =</span> Mangrove.system)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> q1_emmeans_df, <span class="fu">aes</span>(<span class="at">y =</span> emmean, <span class="at">label =</span> .group), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">4</span>,</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>)) <span class="sc">+</span>   <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;q1 = Exp Shannon&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;lm (Depth sequencing and Mangrove system&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> loc_colors) <span class="sc">+</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>, <span class="at">face =</span> <span class="st">&quot;italic&quot;</span>))</span></code></pre></div>
+</div>
+</section>
+<section id="q2-dominance-inv-simpson" class="level3">
+<h3>q2 Dominance Inv Simpson</h3>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>q2lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(q2 <span class="sc">~</span> Mangrove.system, <span class="at">data =</span> metadata_with_hill)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># summary</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(q2lm)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = q2 ~ Mangrove.system, data = metadata_with_hill)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-54.83 -33.51   8.73  20.64  88.13 
+
+Coefficients:
+                               Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)                      86.524     20.088    4.31  0.00026 ***
+Mangrove.systemSan Pedro River   -0.777     24.142   -0.03  0.97459    
+Mangrove.systemTérminos Lagoon  -35.356     30.685   -1.15  0.26106    
+Mangrove.systemCelestún Lagoon  147.014     23.457    6.27  2.1e-06 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 40.2 on 23 degrees of freedom
+Multiple R-squared:  0.809, Adjusted R-squared:  0.785 
+F-statistic: 32.6 on 3 and 23 DF,  p-value: 1.88e-08</code></pre>
+</div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check model reliability</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(q2lm))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(q2lm)
+W = 0.9, p-value = 0.2</code></pre>
+</div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get significance</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>q2_lm_means <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(q2lm, pairwise <span class="sc">~</span> Mangrove.system)</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>cld_results <span class="ot">&lt;-</span> <span class="fu">cld</span>(<span class="at">object =</span> q2_lm_means<span class="sc">$</span>emmeans, <span class="at">Letters =</span> letters)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to data frame</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>q2_emmeans_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cld_results)</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>q2_emmeans_df</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Mangrove.system emmean   SE df lower.CL upper.CL .group
+ Términos Lagoon   51.2 23.2 23      3.2     99.2  a    
+ San Pedro River   85.7 13.4 23     58.0    113.4  a    
+ Fossil Lagoon     86.5 20.1 23     45.0    128.1  a    
+ Celestún Lagoon  233.5 12.1 23    208.5    258.6   b   
+
+Confidence level used: 0.95 
+P value adjustment: tukey method for comparing a family of 4 estimates 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb51"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>q2plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(metadata_with_hill, <span class="fu">aes</span>(<span class="at">x =</span> Mangrove.system, <span class="at">y =</span> q2, <span class="at">fill =</span> Mangrove.system)) <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> q2_emmeans_df, <span class="fu">aes</span>(<span class="at">y =</span> emmean, <span class="at">label =</span> .group), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">4</span>,</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>)) <span class="sc">+</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;q2 = Inv Simpson&quot;</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;lm (Depth sequencing and Mangrove system&quot;</span>) <span class="sc">+</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> loc_colors) <span class="sc">+</span></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>),</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>, <span class="at">face =</span> <span class="st">&quot;italic&quot;</span>))</span></code></pre></div>
+</div>
+</section>
+<section id="combine-plots" class="level3">
+<h3>Combine plots</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Take note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Just Shannon diversity was created because showed significant differences</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb52"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Combine alpha diversity plots</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggplot2)</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># library(cowplot)</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>ytitle <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_label</span>(<span class="st">&quot;Effective number of ASVs&quot;</span>,</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>                                <span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">14</span> )</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>q1y_plot <span class="ot">&lt;-</span> <span class="fu">plot_grid</span>(ytitle, q1plot, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">rel_widths =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="dv">1</span>))</span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co"># show</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>q1y_plot</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672" /></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;Figures/SurfaceComparison/alphadiv_per_loc.pdf&quot;</span>,</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>       q1y_plot, <span class="at">width =</span> <span class="fl">6.3</span>, <span class="at">height =</span> <span class="fl">9.9</span>)</span></code></pre></div>
+</div>
+</section>
+</section>
+<section id="save-rds-alpha-diversity-plot" class="level2">
+<h2>Save rds alpha diversity plot</h2>
+<div class="cell">
+<div class="sourceCode" id="cb54"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(q1y_plot, <span class="st">&quot;rds/compare_mangroves/alpha_diversity_surface_plot.rds&quot;</span>)</span></code></pre></div>
+</div>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uZXh0">Beta diversity</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1wcmV2">Data Prepare</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMC5QcmVzZW50YXRpb24uaHRtbFByZXNlbnRhdGlvbg==">Presentation</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMS5QcmVwcm9jZXNzaW5nLmh0bWxQcmVwcm9jZXNzaW5n">Preprocessing</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tMQ==">A) Interior and coastal mangroves compare</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tMg==">1) How similar are coastal and inland mangroves?</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMi5TdXJmYWNlQ29tcGFyaXNvbi5odG1sRGF0YS1QcmVwYXJl">Data Prepare</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tMw==">Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMi4xLkFscGhhRGl2ZXJzaXR5Lmh0bWxBbHBoYS1kaXZlcnNpdHk=">Alpha diversity</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMi4yLkJldGFEaXZlcnNpdHkuaHRtbEJldGEtZGl2ZXJzaXR5">Beta diversity</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMi4zLkNvcmVtaWNyb2Jpb21lLmh0bWxDb3JlLW1pY3JvYmlvbWU=">Core microbiome</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMi40LkRpZmZlcmVudGlhbEFidW5kYW5jZS5odG1sRGlmZmVyZW50aWFsLUFidW5kYW5jZQ==">Differential Abundance</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMi41LkZpZzIuSW50ZXJpb3JDb2FzdGFsQ29tcGFyZS5odG1sRmlnLjItSW50ZXJpb3ItYW5kLUNvYXN0YWwtbWFuZ3JvdmVzLWNvbXBhcmU=">Fig.2 Interior and Coastal mangroves compare</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tNA==">2) How are coastal and inland mangroves similar, considering their depth?</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wNC5EZXB0aENvbXBhcmlzb24uaHRtbERhdGEtUHJlcGFyZQ==">Data Prepare</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tNQ==">Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wNC4xLkFscGhhRGl2ZXJzaXR5Lmh0bWxBbHBoYS1EaXZlcnNpdHk=">Alpha Diversity</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wNC4yLkJldGFEaXZlcnNpdHkuaHRtbEJldGEtRGl2ZXJzaXR5">Beta Diversity</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wNC4zLkNvcmVtaWNyb2Jpb21lLmh0bWxDb3JlLU1pY3JvYmlvbWU=">Core Microbiome</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wNC40LkRpZmZlcmVudGlhbEFidW5kYW5jZS5odG1sRGlmZmVyZW50aWFsLUFidW5kYW5jZQ==">Differential Abundance</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wNC41LkZpZzQuSW50ZXJpb3JDb2FzdGFsRGVwdGhDb21wYXJlLmh0bWxGaWctNC4tSW50ZXJpb3ItYW5kLUNvYXN0YWwtd2l0aC1kZXB0aC1jb21wYXJpc29u">Fig 4. Interior and Coastal with depth comparison</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tNg==">3) How are inland mangroves similar to a impaired coastal mangrove?</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wNS5JbnRlcmlvckltcGFpcmVkQ29hc3RhbENvbXBhcmlzb24uaHRtbERhdGEtUHJlcGFyZQ==">Data Prepare</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tNw==">Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wNS4xLkFscGhhRGl2ZXJzaXR5Lmh0bWxBbHBoYS1EaXZlcnNpdHk=">Alpha Diversity</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tOA==">B) Interior mangroves explore</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOnF1YXJ0by1zaWRlYmFyLXNlY3Rpb24tOQ==">What makes inland mangroves different and unique?</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMy4xLlJlbGF0aXZlQWJ1bmRhbmNlcy5odG1sUmVsYXRpdmUtQWJ1bmRhbmNlcw==">Relative Abundances</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMy4yLkFscGhhRGl2ZXJzaXR5Lmh0bWxBbHBoYS1EaXZlcnNpdHk=">Alpha Diversity</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMy4zLkJldGFEaXZlcnNpdHkuaHRtbEJldGEtZGl2ZXJzaXR5">Beta diversity</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMy40LkNvcmVtaWNyb2Jpb21lLmh0bWxDb3JlLU1pY3JvYmlvbWU=">Core Microbiome</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMy41LkRpZmZlcmVudGlhbEFidW5kYW5jZS5odG1sRGlmZmVyZW50aWFsLUFidW5kYW5jZQ==">Differential Abundance</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMy42Lk1ldGFib2xpY0luZmVyZW5jZS5odG1sTWV0YWJvbGljLUluZmVyZW5jZQ==">Metabolic Inference</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi8wMy43LkZpZzMuSW50ZXJpb3JNYW5ncm92ZXMuaHRtbEZpZy4tMy1JbnRlcmlvci1NYW5ncm92ZXM=">Fig. 3 Interior Mangroves</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLUEpLUludGVyaW9yLWFuZC1jb2FzdGFsLW1hbmdyb3Zlcy1jb21wYXJl">A) Interior and coastal mangroves compare</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLTEpLUhvdy1zaW1pbGFyLWFyZS1jb2FzdGFsLWFuZC1pbmxhbmQtbWFuZ3JvdmVzPw==">1) How similar are coastal and inland mangroves?</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLUFuYWx5c2lz">Analysis</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLUFscGhhLWRpdmVyc2l0eQ==">Alpha diversity</span></p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="Zm9vdGVyLWxlZnQ=">
+<p>Diana Hernández-Oaxaca and Yaxche Lona, © Copyright 2025</p>
+</div>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="Zm9vdGVyLWNlbnRlcg==">
+<p>LandaLab</p>
+</div>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="Zm9vdGVyLXJpZ2h0">
+<p>This page is built with ❤ Science 🦠 🧬 and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Alpha diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Alpha diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Alpha diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Website of microbial diversity analysis of paper: tal tal tal</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Website of microbial diversity analysis of paper: tal tal tal</span></p>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id = "quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a  href="/02.SurfaceComparison.html" class="pagination-link" aria-label="Data Prepare">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data Prepare</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a  href="/02.2.BetaDiversity.html" class="pagination-link" aria-label="Beta diversity">
+        <span class="nav-page-text">Beta diversity</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <div class='footer-contents'>Diana Hernández-Oaxaca and Yaxche Lona, &copy; Copyright 2025</div>  
+    </div>   
+    <div class="nav-footer-center">
+      <div class='footer-contents'>LandaLab</div>  
+    </div>
+    <div class="nav-footer-right">
+      <div class='footer-contents'>This page is built with ❤ Science 🦠 🧬 and [Quarto](https://quarto.org/).</div>  
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>

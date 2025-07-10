@@ -99,9 +99,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta property="og:title" content="Alpha diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
 <meta property="og:image" content="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-7-1.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Alpha diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
 <meta name="twitter:image" content="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-7-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
 <meta name="twitter:card" content="summary_large_image">
@@ -386,8 +388,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#get-hill-numbers" id="toc-get-hill-numbers" class="nav-link" data-scroll-target="#get-hill-numbers">01. Get Hill numbers</a></li>
   <li><a href="#get-hill-means" id="toc-get-hill-means" class="nav-link" data-scroll-target="#get-hill-means">02. Get Hill means</a></li>
   <li><a href="#get-sequencing-effort" id="toc-get-sequencing-effort" class="nav-link" data-scroll-target="#get-sequencing-effort">03. Get sequencing effort</a></li>
+  <li><a href="#check-alpha-diversity-correlation-with-sequencing-depth" id="toc-check-alpha-diversity-correlation-with-sequencing-depth" class="nav-link" data-scroll-target="#check-alpha-diversity-correlation-with-sequencing-depth">04. <strong>Check alpha diversity correlation with sequencing depth</strong></a></li>
   <li>
-<a href="#get-significant-differences" id="toc-get-significant-differences" class="nav-link" data-scroll-target="#get-significant-differences">04. Get significant differences</a>
+<a href="#get-significant-differences" id="toc-get-significant-differences" class="nav-link" data-scroll-target="#get-significant-differences">05. Get significant differences</a>
   <ul class="collapse">
 <li><a href="#q0-observed-richness" id="toc-q0-observed-richness" class="nav-link" data-scroll-target="#q0-observed-richness">q0 Observed richness</a></li>
   <li><a href="#q1-diversity-exp-shannon" id="toc-q1-diversity-exp-shannon" class="nav-link" data-scroll-target="#q1-diversity-exp-shannon">q1 Diversity Exp Shannon</a></li>
@@ -438,6 +441,7 @@ Tip
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vegandevs/vegan">vegan</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/easystats/">easystats</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvlenth.github.io/emmeans/">emmeans</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -479,41 +483,27 @@ Tip
 <span><span class="co"># show</span></span>
 <span><span class="va">metadata_with_hill</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  SampleID   q0  q1    q2 BioSample  ID    SRA SampleName Collection_date depth
-1   S1A015 1266 330 106.0    S1A015 RSP S1A015                 2023-09-28  0-15
-2    S1B07 1502 164  36.0     S1B07 RSP  S1B07                 2023-09-28  0-15
-3    S2B07 1378 351 106.8     S2B07 RSP  S2B07                 2023-09-28  0-15
-4    S3A07 1190 154  37.6     S3A07 RSP  S3A07                 2023-09-28  0-15
-5    S4B07 1563 388 120.4     S4B07 RSP  S4B07                 2023-09-29  0-15
-6    S5A07 1160 131  32.1     S5A07 RSP  S5A07                 2023-09-29  0-15
-  site elevation Broad_scale_environmental_context
-1   1A        NA                                  
-2   1B        NA                                  
-3   2B        NA                                  
-4   3A        NA                                  
-5   4B        NA                                  
-6   5A        NA                                  
-  Local_scale_environmental_context Environmental_medium Latitude_and_Longitude
-1                                                                              
-2                                                                              
-3                                                                              
-4                                                                              
-5                                                                              
-6                                                                              
-  Geographic.Location    Study_zone Ecological_type Parametros Temperatura
-1      Mexico:Tabasco Rio San Pedro          Fringe         no          NA
-2      Mexico:Tabasco Rio San Pedro          Fringe         no          NA
-3      Mexico:Tabasco Rio San Pedro          Fringe         no          NA
-4      Mexico:Tabasco Rio San Pedro          Fringe         no          NA
-5      Mexico:Tabasco Rio San Pedro          Fringe         no          NA
-6      Mexico:Tabasco Rio San Pedro          Fringe         no          NA
-  Salinidad pH Redox.mV S.2 SO4 season filter Mangrove.system Mangrove_type
-1        NA NA       NA  NA  NA  flood     si San Pedro River      Interior
-2        NA NA       NA  NA  NA  flood     si San Pedro River      Interior
-3        NA NA       NA  NA  NA  flood     si San Pedro River      Interior
-4        NA NA       NA  NA  NA  flood     si San Pedro River      Interior
-5        NA NA       NA  NA  NA  flood     si San Pedro River      Interior
-6        NA NA       NA  NA  NA  flood     si San Pedro River      Interior</code></pre>
+<pre><code>  SampleID   q0  q1    q2 Collection_date depth  ID Environmental_medium
+1   S1A015 1266 330 106.0      2023-09-28  0-15 S1A             sediment
+2    S1B07 1502 164  36.0      2023-09-28  0-15 S1B             sediment
+3   S2A515 1708 463 161.3      2023-09-28  0-15 S2A             sediment
+4    S2B07 1378 351 106.8      2023-09-28  0-15 S2B             sediment
+5    S3A07 1190 154  37.6      2023-09-28  0-15 S3A             sediment
+6   S3B515 1588 372 108.3      2023-09-28  0-15 S3B             sediment
+  Geographic.Location    Study_zone Ecological_type season Mangrove.system
+1      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+2      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+3      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+4      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+5      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+6      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+  Mangrove_type
+1      Interior
+2      Interior
+3      Interior
+4      Interior
+5      Interior
+6      Interior</code></pre>
 </div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="st">"Tables/SurfaceComparison/Metadata_with_hill.tsv"</span>,</span>
@@ -552,9 +542,9 @@ Tip
  7 Interior      Fossil Lagoon   q0=Observed    1230   134. 
  8 Interior      Fossil Lagoon   q1=Exp Shannon  300.   75.1
  9 Interior      Fossil Lagoon   q2=Inv Simpson   86.5  26.9
-10 Interior      San Pedro River q0=Observed    1368.  166. 
-11 Interior      San Pedro River q1=Exp Shannon  254.  105. 
-12 Interior      San Pedro River q2=Inv Simpson   71.7  38.4</code></pre>
+10 Interior      San Pedro River q0=Observed    1431.  191. 
+11 Interior      San Pedro River q1=Exp Shannon  291.  118. 
+12 Interior      San Pedro River q2=Inv Simpson   85.7  45.3</code></pre>
 </div>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">means</span>, <span class="st">"Tables/SurfaceComparison/Hill_means_sd.tsv"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -574,9 +564,9 @@ Tip
 1 Coastal       q0=Observed     974.  488. 
 2 Coastal       q1=Exp Shannon  407.  195. 
 3 Coastal       q2=Inv Simpson  194.   86.3
-4 Interior      q0=Observed    1318.  163. 
-5 Interior      q1=Exp Shannon  271.   94.0
-6 Interior      q2=Inv Simpson   77.1  34.0</code></pre>
+4 Interior      q0=Observed    1369.  195. 
+5 Interior      q1=Exp Shannon  294.  104. 
+6 Interior      q2=Inv Simpson   86.0  39.4</code></pre>
 </div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">means</span>, <span class="st">"Tables/SurfaceComparison/Hill_means_sd_mangrove_type.tsv"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>            sep <span class="op">=</span> <span class="st">"\t"</span>, row.names <span class="op">=</span> <span class="cn">TRUE</span>, col.names<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -599,7 +589,7 @@ Tip
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-   4.71    0.15    4.88 </code></pre>
+  5.305   0.213   5.531 </code></pre>
 </div>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/sample_effort.pdf"</span><span class="op">)</span></span>
@@ -607,7 +597,7 @@ Tip
 <span>                      label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  4.927   0.141   5.096 </code></pre>
+  5.515   0.186   5.709 </code></pre>
 </div>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -615,7 +605,75 @@ Tip
                 2 </code></pre>
 </div>
 </div>
-</section><section id="get-significant-differences" class="level2"><h2 class="anchored" data-anchor-id="get-significant-differences">04. Get significant differences</h2>
+</section><section id="check-alpha-diversity-correlation-with-sequencing-depth" class="level2"><h2 class="anchored" data-anchor-id="check-alpha-diversity-correlation-with-sequencing-depth">04. <strong>Check alpha diversity correlation with sequencing depth</strong>
+</h2>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Get effective reads</span></span>
+<span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">otu_data</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="va">Effective_reads</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Alpha diversity depth correlation to order q=0</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># library(ggpubr)</span></span>
+<span></span>
+<span><span class="va">q0_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>,</span>
+<span>                x <span class="op">=</span> <span class="st">"Effective_reads"</span>, y <span class="op">=</span> <span class="st">"q0"</span>, </span>
+<span>                xlab<span class="op">=</span> <span class="st">"Sequencing depth (number of reads)"</span>,</span>
+<span>                ylab <span class="op">=</span> <span class="st">"q=0"</span>, add <span class="op">=</span> <span class="st">"reg.line"</span>,</span>
+<span>   add.params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#114e9d"</span>, fill <span class="op">=</span> <span class="st">"lightgray"</span><span class="op">)</span>,</span>
+<span>   conf.int <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co"># Add confidence interval</span></span>
+<span>   cor.coef <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co"># Add correlation coefficient. </span></span>
+<span>   cor.coeff.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, label.x <span class="op">=</span> <span class="fl">3</span>, label.sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span>   <span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>, legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Alpha diversity depth correlation to order q=1</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q1_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, </span>
+<span>                x <span class="op">=</span> <span class="st">"Effective_reads"</span>, y <span class="op">=</span> <span class="st">"q1"</span>, </span>
+<span>                xlab<span class="op">=</span> <span class="st">"Sequencing depth (number of reads)"</span>,</span>
+<span>                ylab <span class="op">=</span> <span class="st">"q=1"</span>, add <span class="op">=</span> <span class="st">"reg.line"</span>,</span>
+<span>   add.params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#114e9d"</span>, fill <span class="op">=</span> <span class="st">"lightgray"</span><span class="op">)</span>,</span>
+<span>   conf.int <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co"># Add confidence interval</span></span>
+<span>   cor.coef <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co"># Add correlation coefficient</span></span>
+<span>   cor.coeff.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, label.x <span class="op">=</span> <span class="fl">3</span>, label.sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>        legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Alpha diversity depth correlation to order q=2</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q2_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, </span>
+<span>                x <span class="op">=</span> <span class="st">"Effective_reads"</span>, y <span class="op">=</span> <span class="st">"q2"</span>, </span>
+<span>                xlab<span class="op">=</span> <span class="st">"Sequencing depth (number of reads)"</span>,</span>
+<span>                ylab <span class="op">=</span> <span class="st">"q=2"</span>, add <span class="op">=</span> <span class="st">"reg.line"</span>,</span>
+<span>   add.params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"#114e9d"</span>, fill <span class="op">=</span> <span class="st">"lightgray"</span><span class="op">)</span>,</span>
+<span>   conf.int <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co"># Add confidence interval</span></span>
+<span>   cor.coef <span class="op">=</span> <span class="cn">TRUE</span>, <span class="co"># Add correlation coefficient</span></span>
+<span>   cor.coeff.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, label.x <span class="op">=</span> <span class="fl">3</span>, label.sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span>, </span>
+<span>        legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine plot</span></span>
+<span><span class="va">title_corr_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html">ggdraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_label.html">draw_label</a></span><span class="op">(</span><span class="st">"Alpha diversity depth correlation"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">correlation_plot_q012</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">title_corr_plot</span>,</span>
+<span>                            <span class="va">q0_vs_depth</span>, </span>
+<span>                            <span class="va">q1_vs_depth</span>, </span>
+<span>                            <span class="va">q2_vs_depth</span>,</span>
+<span>                            ncol <span class="op">=</span> <span class="fl">1</span>, </span>
+<span>                            rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.15</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">correlation_plot_q012</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="get-significant-differences" class="level2"><h2 class="anchored" data-anchor-id="get-significant-differences">05. Get significant differences</h2>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -626,11 +684,11 @@ Remember
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The significance of the observed differences among mangrove systems was determined by employing a linear model, given the imbalanced sample numbers.</p>
+<p>The significance of the observed differences among mangrove systems was determined by employing a linear model, given the imbalanced sample numbers and positive effect of depth sequencing in the Observed richness.</p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># change variable to factor</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># change variable to factor</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span> <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span></span>
@@ -640,33 +698,36 @@ Remember
 </div>
 <section id="q0-observed-richness" class="level3"><h3 class="anchored" data-anchor-id="q0-observed-richness">q0 Observed richness</h3>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># linear model adjust</span></span>
-<span><span class="va">q0lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q0</span> <span class="op">~</span> <span class="va">Mangrove.system</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># linear model adjust</span></span>
+<span><span class="va">q0lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q0</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove.system</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span><span class="co"># summary</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">q0lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = q0 ~ Mangrove.system, data = metadata_with_hill)
+lm(formula = q0 ~ log(Effective_reads) + Mangrove.system, data = metadata_with_hill)
 
 Residuals:
    Min     1Q Median     3Q    Max 
--334.0 -102.4    9.6  140.0  247.0 
+-300.1 -126.7   29.5   73.7  295.5 
 
 Coefficients:
-                               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                      1230.0       88.3   13.93  4.5e-12 ***
-Mangrove.systemCelestún Lagoon    -28.0      103.1   -0.27     0.79    
-Mangrove.systemSan Pedro River    138.4      110.7    1.25     0.22    
-Mangrove.systemTérminos Lagoon  -1090.0      134.9   -8.08  7.0e-08 ***
+                               Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)                       -1437       1327   -1.08    0.290  
+log(Effective_reads)                228        113    2.01    0.056 .
+Mangrove.systemCelestún Lagoon      174        142    1.22    0.236  
+Mangrove.systemSan Pedro River      218        105    2.08    0.049 *
+Mangrove.systemTérminos Lagoon     -399        368   -1.09    0.289  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 177 on 21 degrees of freedom
-Multiple R-squared:  0.84,  Adjusted R-squared:  0.817 
-F-statistic: 36.7 on 3 and 21 DF,  p-value: 1.56e-08</code></pre>
+Residual standard error: 173 on 22 degrees of freedom
+Multiple R-squared:  0.856, Adjusted R-squared:  0.83 
+F-statistic: 32.7 on 4 and 22 DF,  p-value: 5.68e-09</code></pre>
 </div>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># check model reliability</span></span>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q0lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -677,7 +738,57 @@ W = 1, p-value = 0.4</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get differences with emmeans</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#effects</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q0lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: q0
+                     Df  Sum Sq Mean Sq F value  Pr(&gt;F)    
+log(Effective_reads)  1 3534553 3534553   117.5 2.7e-10 ***
+Mangrove.system       3  406084  135361     4.5   0.013 *  
+Residuals            22  661987   30090                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">report</span><span class="op">(</span><span class="va">q0lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Formula contains log- or sqrt-terms.
+  See help("standardize") for how such terms are standardized.
+Formula contains log- or sqrt-terms.
+  See help("standardize") for how such terms are standardized.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>We fitted a linear model (estimated using OLS) to predict q0 with
+Effective_reads and Mangrove.system (formula: q0 ~ log(Effective_reads) +
+Mangrove.system). The model explains a statistically significant and
+substantial proportion of variance (R2 = 0.86, F(4, 22) = 32.74, p &lt; .001, adj.
+R2 = 0.83). The model's intercept, corresponding to Effective_reads = 0 and
+Mangrove.system = Fossil Lagoon, is at -1437.09 (95% CI [-4188.40, 1314.22],
+t(22) = -1.08, p = 0.290). Within this model:
+
+  - The effect of Effective reads [log] is statistically non-significant and
+positive (beta = 227.85, 95% CI [-6.69, 462.39], t(22) = 2.01, p = 0.056; Std.
+beta = 1.07, 95% CI [-0.04, 2.17])
+  - The effect of Mangrove system [Celestún Lagoon] is statistically
+non-significant and positive (beta = 173.67, 95% CI [-121.65, 468.99], t(22) =
+1.22, p = 0.236; Std. beta = 0.54, 95% CI [-0.26, 1.34])
+  - The effect of Mangrove system [San Pedro River] is statistically significant
+and positive (beta = 217.81, 95% CI [0.90, 434.71], t(22) = 2.08, p = 0.049;
+Std. beta = 0.54, 95% CI [0.02, 1.06])
+  - The effect of Mangrove system [Términos Lagoon] is statistically
+non-significant and negative (beta = -399.13, 95% CI [-1161.52, 363.27], t(22)
+= -1.09, p = 0.289; Std. beta = -1.25, 95% CI [-2.78, 0.28])
+
+Standardized parameters were obtained by fitting the model on a standardized
+version of the dataset. 95% Confidence Intervals (CIs) and p-values were
+computed using a Wald t-distribution approximation.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get differences with emmeans</span></span>
 <span><span class="co">#library(emmeans)</span></span>
 <span><span class="va">q0_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q0lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span></span>
@@ -685,15 +796,15 @@ W = 1, p-value = 0.4</code></pre>
 <span><span class="co">#library(multcomp)</span></span>
 <span><span class="va">cld_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q0_lm_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Convertir a data frame</span></span>
+<span><span class="co"># Convert to data frame</span></span>
 <span><span class="va">q0_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q0_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Mangrove.system emmean    SE df lower.CL upper.CL .group
- Términos Lagoon    140 102.0 21      -72      352  a    
- Celestún Lagoon   1202  53.3 21     1091     1313   b   
- Fossil Lagoon     1230  88.3 21     1046     1414   b   
- San Pedro River   1368  66.8 21     1230     1507   b   
+ Términos Lagoon    732 310.5 22       88     1376  a    
+ Fossil Lagoon     1131  99.6 22      925     1338  a    
+ Celestún Lagoon   1305  73.1 22     1153     1456  a    
+ San Pedro River   1349  70.6 22     1203     1495  a    
 
 Confidence level used: 0.95 
 P value adjustment: tukey method for comparing a family of 4 estimates 
@@ -702,14 +813,16 @@ NOTE: If two or more means share the same grouping symbol,
       then we cannot show them to be different.
       But we also did not show them to be the same. </code></pre>
 </div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder samples</span></span>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder samples</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span></span>
 <span>  <span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span>,</span>
 <span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span>, <span class="st">"San Pedro River"</span>, </span>
 <span>             <span class="st">"Términos Lagoon"</span>, <span class="st">"Celestún Lagoon"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot with significance</span></span>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot with significance</span></span>
 <span><span class="va">q0plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span>, y <span class="op">=</span> <span class="va">q0</span>, fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
@@ -718,11 +831,11 @@ NOTE: If two or more means share the same grouping symbol,
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"q0 = Observed"</span>, y <span class="op">=</span> <span class="cn">NULL</span>, x <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span> <span class="co">#,</span></span>
 <span>  <span class="co">#caption = "letters by lm emmeans") +</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">loc_colors</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span>, axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="q1-diversity-exp-shannon" class="level3"><h3 class="anchored" data-anchor-id="q1-diversity-exp-shannon">q1 Diversity Exp Shannon</h3>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># linear model</span></span>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># linear model</span></span>
 <span><span class="va">q1lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q1</span> <span class="op">~</span> <span class="va">Mangrove.system</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># summary</span></span>
@@ -733,32 +846,32 @@ Call:
 lm(formula = q1 ~ Mangrove.system, data = metadata_with_hill)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--131.78  -90.32    8.03   70.63  150.27 
+   Min     1Q Median     3Q    Max 
+-159.3  -72.8   17.5   65.7  172.4 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                       300.0       44.3    6.77  1.1e-06 ***
-Mangrove.systemSan Pedro River    -45.6       55.5   -0.82   0.4209    
-Mangrove.systemTérminos Lagoon   -221.2       67.6   -3.27   0.0037 ** 
-Mangrove.systemCelestún Lagoon    196.2       51.7    3.79   0.0011 ** 
+(Intercept)                      299.95      47.80    6.28  2.1e-06 ***
+Mangrove.systemSan Pedro River    -9.32      57.45   -0.16   0.8725    
+Mangrove.systemTérminos Lagoon  -221.17      73.01   -3.03   0.0060 ** 
+Mangrove.systemCelestún Lagoon   196.16      55.82    3.51   0.0019 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 88.6 on 21 degrees of freedom
-Multiple R-squared:  0.763, Adjusted R-squared:  0.729 
-F-statistic: 22.5 on 3 and 21 DF,  p-value: 9.24e-07</code></pre>
+Residual standard error: 95.6 on 23 degrees of freedom
+Multiple R-squared:  0.703, Adjusted R-squared:  0.664 
+F-statistic: 18.1 on 3 and 23 DF,  p-value: 2.93e-06</code></pre>
 </div>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q1lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
 
 data:  residuals(q1lm)
-W = 0.9, p-value = 0.2</code></pre>
+W = 1, p-value = 0.4</code></pre>
 </div>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># significance</span></span>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># significance</span></span>
 <span><span class="va">q1_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q1lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span><span class="va">cld_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q1_lm_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
 <span></span>
@@ -767,10 +880,10 @@ W = 0.9, p-value = 0.2</code></pre>
 <span><span class="va">q1_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Mangrove.system emmean   SE df lower.CL upper.CL .group
- Términos Lagoon     79 51.1 21      -28      185  a    
- San Pedro River    254 33.5 21      185      324   b   
- Fossil Lagoon      300 44.3 21      208      392   b   
- Celestún Lagoon    496 26.7 21      441      552    c  
+ Términos Lagoon     79 55.2 23      -35      193  a    
+ San Pedro River    291 31.9 23      225      357   b   
+ Fossil Lagoon      300 47.8 23      201      399   b   
+ Celestún Lagoon    496 28.8 23      436      556    c  
 
 Confidence level used: 0.95 
 P value adjustment: tukey method for comparing a family of 4 estimates 
@@ -781,19 +894,22 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
 <span><span class="va">q1plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span> , y <span class="op">=</span> <span class="va">q1</span>, fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">q1_emmeans_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">emmean</span>, label <span class="op">=</span> <span class="va">.group</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">5</span>,</span>
-<span>          color <span class="op">=</span> <span class="st">"black"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"q1 = Exp Shannon"</span>, y <span class="op">=</span> <span class="cn">NULL</span>, x <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span> <span class="co">#,</span></span>
-<span>  <span class="co">#caption = "letters by lm emmeans") +</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">q1_emmeans_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">emmean</span>, label <span class="op">=</span> <span class="va">.group</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">4</span>,</span>
+<span>          color <span class="op">=</span> <span class="st">"black"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"q1 = Exp Shannon"</span>, y <span class="op">=</span> <span class="cn">NULL</span>, x <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  caption <span class="op">=</span> <span class="st">"lm (Depth sequencing and Mangrove system"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">loc_colors</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span>, axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>          axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>,</span>
+<span>          axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>,</span>
+<span>    plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">7</span>, face <span class="op">=</span> <span class="st">"italic"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="q2-dominance-inv-simpson" class="level3"><h3 class="anchored" data-anchor-id="q2-dominance-inv-simpson">q2 Dominance Inv Simpson</h3>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Model</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Model</span></span>
 <span><span class="va">q2lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q2</span> <span class="op">~</span> <span class="va">Mangrove.system</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># summary</span></span>
@@ -805,22 +921,22 @@ lm(formula = q2 ~ Mangrove.system, data = metadata_with_hill)
 
 Residuals:
    Min     1Q Median     3Q    Max 
--54.83 -34.13  -3.61  19.39  88.13 
+-54.83 -33.51   8.73  20.64  88.13 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                        86.5       18.7    4.62  0.00015 ***
-Mangrove.systemSan Pedro River    -14.8       23.5   -0.63  0.53567    
-Mangrove.systemTérminos Lagoon    -35.4       28.6   -1.23  0.23063    
-Mangrove.systemCelestún Lagoon    147.0       21.9    6.72  1.2e-06 ***
+(Intercept)                      86.524     20.088    4.31  0.00026 ***
+Mangrove.systemSan Pedro River   -0.777     24.142   -0.03  0.97459    
+Mangrove.systemTérminos Lagoon  -35.356     30.685   -1.15  0.26106    
+Mangrove.systemCelestún Lagoon  147.014     23.457    6.27  2.1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 37.5 on 21 degrees of freedom
-Multiple R-squared:  0.847, Adjusted R-squared:  0.825 
-F-statistic: 38.8 on 3 and 21 DF,  p-value: 9.48e-09</code></pre>
+Residual standard error: 40.2 on 23 degrees of freedom
+Multiple R-squared:  0.809, Adjusted R-squared:  0.785 
+F-statistic: 32.6 on 3 and 23 DF,  p-value: 1.88e-08</code></pre>
 </div>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q2lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -829,7 +945,7 @@ F-statistic: 38.8 on 3 and 21 DF,  p-value: 9.48e-09</code></pre>
 data:  residuals(q2lm)
 W = 0.9, p-value = 0.2</code></pre>
 </div>
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get significance</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get significance</span></span>
 <span><span class="va">q2_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q2lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span><span class="va">cld_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q2_lm_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
 <span></span>
@@ -838,10 +954,10 @@ W = 0.9, p-value = 0.2</code></pre>
 <span><span class="va">q2_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Mangrove.system emmean   SE df lower.CL upper.CL .group
- Términos Lagoon   51.2 21.6 21      6.1     96.2  a    
- San Pedro River   71.7 14.2 21     42.3    101.2  a    
- Fossil Lagoon     86.5 18.8 21     47.5    125.5  a    
- Celestún Lagoon  233.5 11.3 21    210.0    257.0   b   
+ Términos Lagoon   51.2 23.2 23      3.2     99.2  a    
+ San Pedro River   85.7 13.4 23     58.0    113.4  a    
+ Fossil Lagoon     86.5 20.1 23     45.0    128.1  a    
+ Celestún Lagoon  233.5 12.1 23    208.5    258.6   b   
 
 Confidence level used: 0.95 
 P value adjustment: tukey method for comparing a family of 4 estimates 
@@ -852,44 +968,59 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
 <span><span class="va">q2plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span>, y <span class="op">=</span> <span class="va">q2</span>, fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">q2_emmeans_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">emmean</span>, label <span class="op">=</span> <span class="va">.group</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">5</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">q2_emmeans_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">emmean</span>, label <span class="op">=</span> <span class="va">.group</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">4</span>,</span>
 <span>            color <span class="op">=</span> <span class="st">"black"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"q2 = Inv Simpson"</span>, y <span class="op">=</span> <span class="cn">NULL</span>, x <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  caption <span class="op">=</span> <span class="st">"letters by lm emmeans"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  caption <span class="op">=</span> <span class="st">"lm (Depth sequencing and Mangrove system"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">loc_colors</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>          axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>,</span>
+<span>          axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>,</span>
+<span>    plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">7</span>, face <span class="op">=</span> <span class="st">"italic"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="combine-plots" class="level3"><h3 class="anchored" data-anchor-id="combine-plots">Combine plots</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Take note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Just Shannon diversity was created because showed significant differences</p>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine alpha diversity plots</span></span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine alpha diversity plots</span></span>
 <span><span class="co"># library(ggplot2)</span></span>
 <span><span class="co"># library(cowplot)</span></span>
 <span></span>
 <span><span class="va">ytitle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html">ggdraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_label.html">draw_label</a></span><span class="op">(</span><span class="st">"Effective number of ASVs"</span>,</span>
 <span>                                angle <span class="op">=</span> <span class="fl">90</span>, size <span class="op">=</span> <span class="fl">14</span> <span class="op">)</span></span>
-<span><span class="va">q012plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">q0plot</span>, <span class="va">q1plot</span>, <span class="va">q2plot</span>,</span>
-<span>                      labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A)"</span>, <span class="st">""</span>, <span class="st">""</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">q012y_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">ytitle</span>, <span class="va">q012plot</span>, ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">q1y_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">ytitle</span>, <span class="va">q1plot</span>, ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># show</span></span>
-<span><span class="va">q012y_plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">q1y_plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/alphadiv_per_loc.pdf"</span>,</span>
-<span>       <span class="va">q012y_plot</span>, width <span class="op">=</span> <span class="fl">6.3</span>, height <span class="op">=</span> <span class="fl">9.9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>       <span class="va">q1y_plot</span>, width <span class="op">=</span> <span class="fl">6.3</span>, height <span class="op">=</span> <span class="fl">9.9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="save-rds-alpha-diversity-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-alpha-diversity-plot">Save rds alpha diversity plot</h2>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">q012y_plot</span>, <span class="st">"rds/compare_mangroves/alpha_diversity_surface_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">q1y_plot</span>, <span class="st">"rds/compare_mangroves/alpha_diversity_surface_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

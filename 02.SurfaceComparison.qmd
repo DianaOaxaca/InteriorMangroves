@@ -15,6 +15,8 @@ To answer this question, only samples that met the selection criteria were selec
 ## 01. Select samples
 
 ```{r}
+#| message: false
+#| warning: false
 library(ggplot2)
 library(qiime2R)
 library(phyloseq)
@@ -34,7 +36,7 @@ metadat <- data.frame(phyloseq::sample_data(physeq_qiime3), check.names = FALSE)
 
 ```{r}
 #Filter metadata by Study_zone column
-filtered_metadat <- metadat[metadat$Study_zone %in% c("Estero_pargo", "Rio San Pedro", "Celestún"), ]
+filtered_metadat <- metadat[metadat$Study_zone %in% c("Estero_pargo", "Rio San Pedro", "Laguna Cacahuate", "Celestún"), ]
 
 ```
 
@@ -62,7 +64,7 @@ filtered_physeq2 <- prune_samples(rownames(filtered_metadat4), physeq_qiime3)
 
 ```{r}
 #Save your new phyloseq object
-saveRDS(filtered_physeq2, file = "physeq_objeto_Estero.rds") 
+saveRDS(filtered_physeq2, file = "rds/compare_mangroves/physeq_objeto_Estero.rds") 
 ```
 
 ## 02. Data preparation
@@ -169,7 +171,7 @@ mt_colors <- c("Interior"= "#A7fcc1",
 # Samples Plot
 metadata <- as(sample_data(physeq_qiime3), "data.frame")
 
-samples_plot <- ggplot(metadata, aes(x = Mangrove.system, y = ..count..,
+samples_plot <- ggplot(metadata, aes(x = Mangrove.system, y = after_stat(count),
 fill = Mangrove.system)) + geom_bar(position = "dodge") +
   facet_wrap(~ Mangrove_type, scales = "free_x") +
   labs(title = "Samples of the analysis", y = "Number of Samples",
