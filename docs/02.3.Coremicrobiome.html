@@ -424,6 +424,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://github.com/hms-dbmi/UpSetR">UpSetR</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://kasperskytte.github.io/ampvis2">ampvis2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://corybrunson.github.io/ggalluvial/">ggalluvial</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -475,7 +476,7 @@ $`Fossil Lagoon`
 [1] 745
 
 $`San Pedro River`
-[1] 781
+[1] 603
 
 $`Términos Lagoon`
 [1] 16</code></pre>
@@ -604,15 +605,15 @@ $`Términos Lagoon`
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">unique_asvs</span><span class="op">[[</span><span class="va">loc</span><span class="op">]</span><span class="op">]</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span>  <span class="co"># Show first 5</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Celestún Lagoon : Unique ASVs: 186 
+<pre><code>Celestún Lagoon : Unique ASVs: 209 
 [1] "KU578729.1.1383" "JF344529.1.1525" "JN483938.1.1414" "HE804536.1.1436"
 [5] "DQ811792.1.1512"
-Fossil Lagoon : Unique ASVs: 270 
+Fossil Lagoon : Unique ASVs: 315 
 [1] "FN398053.1.1489" "FR667789.1.1446" "EU385876.1.1464" "EU487871.1.1472"
 [5] "JQ989640.1.1399"
-San Pedro River : Unique ASVs: 256 
-[1] "KY618740.1.1206" "EU592483.1.1535" "LN567307.1.1331" "DQ363844.1.926" 
-[5] "HM598151.1.1526"
+San Pedro River : Unique ASVs: 159 
+[1] "EU592483.1.1535" "LN567307.1.1331" "DQ363844.1.926"  "JX521779.1.1486"
+[5] "KY194458.1.1511"
 Términos Lagoon : Unique ASVs: 1 
 [1] "EU487913.1.1482"</code></pre>
 </div>
@@ -704,23 +705,23 @@ JQ989640.1.1399 Marine_Benthic_Group_D_and_DHVEG-1  uncultured_archaeon
 
 First unique ASVs taxonomy San Pedro River :
                     Kingdom           Phylum               Class
-KY618740.1.1206 d__Bacteria       Firmicutes             Bacilli
 EU592483.1.1535 d__Bacteria Desulfobacterota     Desulfobacteria
 LN567307.1.1331 d__Bacteria   Proteobacteria Alphaproteobacteria
 DQ363844.1.926   d__Archaea Thermoplasmatota      Thermoplasmata
-HM598151.1.1526 d__Bacteria Desulfobacterota     Desulfobacteria
+JX521779.1.1486 d__Bacteria Campilobacterota     Campylobacteria
+KY194458.1.1511 d__Bacteria   Proteobacteria Gammaproteobacteria
                              Order              Family          Genus
-KY618740.1.1206         Bacillales         Bacillaceae       Bacillus
 EU592483.1.1535 Desulfatiglandales Desulfatiglandaceae Desulfatiglans
 LN567307.1.1331        Rhizobiales  Methyloligellaceae     uncultured
 DQ363844.1.926          uncultured          uncultured     uncultured
-HM598151.1.1526 Desulfatiglandales Desulfatiglandaceae Desulfatiglans
+JX521779.1.1486  Campylobacterales   Sulfurimonadaceae   Sulfurimonas
+KY194458.1.1511               &lt;NA&gt;                &lt;NA&gt;           &lt;NA&gt;
                              Species
-KY618740.1.1206                 &lt;NA&gt;
 EU592483.1.1535 uncultured_bacterium
 LN567307.1.1331                 &lt;NA&gt;
 DQ363844.1.926   uncultured_archaeon
-HM598151.1.1526                 &lt;NA&gt;
+JX521779.1.1486                 &lt;NA&gt;
+KY194458.1.1511                 &lt;NA&gt;
 
 First unique ASVs taxonomy Términos Lagoon :
                     Kingdom      Phylum        Class          Order
@@ -732,13 +733,13 @@ EU487913.1.1482 Anaerolineaceae uncultured    &lt;NA&gt;</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">taxonomy_unique</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="kw">else</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$`Celestún Lagoon`
-[1] 186
+[1] 209
 
 $`Fossil Lagoon`
-[1] 270
+[1] 315
 
 $`San Pedro River`
-[1] 256
+[1] 159
 
 $`Términos Lagoon`
 [1] 1</code></pre>
@@ -785,15 +786,15 @@ $`Términos Lagoon`
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Exclusive phylum in Celestún Lagoon : 5 
-[1] "SAR324_clade(Marine_group_B)" "RCP2-54"                     
-[3] "Caldatribacteriota"           "CK-2C2-2"                    
-[5] "Nitrospinota"                
-Exclusive phylum in Fossil Lagoon : 12 
- [1] "Patescibacteria" "Modulibacteria"  "Elusimicrobiota" "Halobacterota"  
- [5] "PAUC34f"         "Micrarchaeota"   "Hydrogenedentes" "LCP-89"         
- [9] "Cyanobacteria"   "Armatimonadota"  "Dependentiae"    "Acetothermia"   
-Exclusive phylum in San Pedro River : 3 
-[1] "Dadabacteria"     "Abditibacteriota" "Sumerlaeota"     
+[1] "RCP2-54"            "Caldatribacteriota" "WS1"               
+[4] "CK-2C2-2"           "Nitrospinota"      
+Exclusive phylum in Fossil Lagoon : 15 
+ [1] "Patescibacteria" "Modulibacteria"  "Elusimicrobiota" "GN01"           
+ [5] "Halobacterota"   "PAUC34f"         "Micrarchaeota"   "Hydrogenedentes"
+ [9] "LCP-89"          "Cyanobacteria"   "Armatimonadota"  "WS2"            
+[13] "Dependentiae"    "Acetothermia"    "Euryarchaeota"  
+Exclusive phylum in San Pedro River : 2 
+[1] "Dadabacteria" "Sumerlaeota" 
 Exclusive phylum in Términos Lagoon : 0 
 There are not exclusive phylum.</code></pre>
 </div>
@@ -838,56 +839,58 @@ There are not exclusive phylum.</code></pre>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Exclusive family in Celestún Lagoon : 26 
- [1] "OPB41"                        "SAR324_clade(Marine_group_B)"
- [3] "Hungateiclostridiaceae"       "MBAE14"                      
- [5] "RCP2-54"                      "Odinarchaeia"                
- [7] "Subgroup_9"                   "Nitrosomonadaceae"           
- [9] "EF100-94H03"                  "Desulfomonilaceae"           
-[11] "CCM11a"                       "FW22"                        
-[13] "JS1"                          "Microbulbiferaceae"          
-[15] "Ectothiorhodospiraceae"       "TG3"                         
-[17] "B2M28"                        "Caldilineaceae"              
-[19] "Nitrososphaeraceae"           "Subgroup_21"                 
-[21] "Gaiellaceae"                  "CK-2C2-2"                    
-[23] "Rhizobiales_Incertae_Sedis"   "Geothermarchaeaceae"         
-[25] "PS-B29"                       "P9X2b3D02"                   
-Exclusive family in Fossil Lagoon : 44 
+ [1] "OPB41"                      "Hungateiclostridiaceae"    
+ [3] "MBAE14"                     "RCP2-54"                   
+ [5] "Subgroup_9"                 "Nitrosomonadaceae"         
+ [7] "EF100-94H03"                "Desulfomonilaceae"         
+ [9] "Subgroup_17"                "CCM11a"                    
+[11] "JS1"                        "Microbulbiferaceae"        
+[13] "Ectothiorhodospiraceae"     "TG3"                       
+[15] "B2M28"                      "Caldilineaceae"            
+[17] "WS1"                        "Nitrososphaeraceae"        
+[19] "Subgroup_21"                "SG8-5"                     
+[21] "Gaiellaceae"                "CK-2C2-2"                  
+[23] "Rhizobiales_Incertae_Sedis" "Geothermarchaeaceae"       
+[25] "PS-B29"                     "P9X2b3D02"                 
+Exclusive family in Fossil Lagoon : 59 
  [1] "Micropepsaceae"          "UBA10353_marine_group"  
- [3] "Bdellovibrionaceae"      "Gracilibacteria"        
- [5] "Moduliflexaceae"         "Lineage_IIc"            
- [7] "SM23-30"                 "Methanomicrobiaceae"    
- [9] "PAUC34f"                 "Nitrincolaceae"         
-[11] "MidBa8"                  "PAUC26f"                
-[13] "Bradymonadales"          "Solimonadaceae"         
-[15] "Simkaniaceae"            "67-14"                  
-[17] "vadinHA49"               "Micrarchaeales"         
-[19] "HOC36"                   "Melioribacteraceae"     
-[21] "Hydrogenedensaceae"      "Pla3_lineage"           
-[23] "LCP-89"                  "Rhodobacteraceae"       
-[25] "Micavibrionales"         "Desulfobacteraceae"     
-[27] "Pseudohongiellaceae"     "Nostocaceae"            
-[29] "VHS-B4-70"               "Dissulfuribacteraceae"  
-[31] "Run-SP154"               "Blastocatellaceae"      
-[33] "VHS-B3-70"               "Methylohalobiaceae"     
-[35] "SBYC"                    "Desulfovibrionaceae"    
-[37] "Vermiphilaceae"          "Kineosporiaceae"        
-[39] "Bacteroidetes_vadinHA17" "Syntrophobacteraceae"   
-[41] "Acetothermiia"           "Lentimicrobiaceae"      
-[43] "Haloadaptaceae"          "MD2894-B20"             
-Exclusive family in San Pedro River : 38 
- [1] "Geopsychrobacteraceae"  "OM182_clade"            "Balneolaceae"          
- [4] "Subgroup_17"            "Sulfurovaceae"          "Dadabacteriales"       
- [7] "A4b"                    "Abditibacteriaceae"     "bacteriap25"           
-[10] "Marine_Benthic_Group_A" "t0.6.f"                 "Rhodospirillaceae"     
-[13] "Clostridiaceae"         "Thermoplasmata"         "Saccharospirillaceae"  
-[16] "Subgroup_2"             "DG-20"                  "Spongiibacteraceae"    
-[19] "Pla1_lineage"           "Desulfococcaceae"       "Thiomicrospiraceae"    
-[22] "Emcibacteraceae"        "Eel-36e1D6"             "Thermoplasmatota"      
-[25] "Sumerlaeaceae"          "KI89A_clade"            "PHOS-HE36"             
-[28] "Desulfurivibrionaceae"  "Planococcaceae"         "Hyphomonadaceae"       
-[31] "Colwelliaceae"          "SAR202_clade"           "Arcobacteraceae"       
-[34] "Thiotrichaceae"         "Myxococcaceae"          "C86"                   
-[37] "AB-539-J10"             "Bacteriovoracaceae"    
+ [3] "Arenicellaceae"          "Bdellovibrionaceae"     
+ [5] "Leptospiraceae"          "Gracilibacteria"        
+ [7] "Moduliflexaceae"         "Lineage_IIc"            
+ [9] "GN01"                    "BD7-8"                  
+[11] "SM23-30"                 "Methanomicrobiaceae"    
+[13] "Dehalococcoidia"         "PAUC34f"                
+[15] "Bacillaceae"             "Nitrincolaceae"         
+[17] "MidBa8"                  "Opitutaceae"            
+[19] "PAUC26f"                 "Bradymonadales"         
+[21] "Solimonadaceae"          "Simkaniaceae"           
+[23] "67-14"                   "Micrarchaeales"         
+[25] "HOC36"                   "Melioribacteraceae"     
+[27] "EPR3968-O8a-Bc78"        "BIrii41"                
+[29] "Hydrogenedensaceae"      "Porticoccaceae"         
+[31] "Pla3_lineage"            "KD4-96"                 
+[33] "LCP-89"                  "Rhodobacteraceae"       
+[35] "Micavibrionales"         "Desulfobacteraceae"     
+[37] "UASB-TL25"               "Pseudohongiellaceae"    
+[39] "Nostocaceae"             "Pedosphaeraceae"        
+[41] "VHS-B4-70"               "Dissulfuribacteraceae"  
+[43] "Run-SP154"               "Blastocatellaceae"      
+[45] "WS2"                     "VHS-B3-70"              
+[47] "Syntrophobacteraceae"    "Methylohalobiaceae"     
+[49] "SBYC"                    "Desulfovibrionaceae"    
+[51] "Vermiphilaceae"          "Alicyclobacillaceae"    
+[53] "Kineosporiaceae"         "Cellvibrionaceae"       
+[55] "Bacteroidetes_vadinHA17" "Acetothermiia"          
+[57] "Lentimicrobiaceae"       "Haloadaptaceae"         
+[59] "MD2894-B20"             
+Exclusive family in San Pedro River : 19 
+ [1] "Balneolaceae"       "Dadabacteriales"    "bacteriap25"       
+ [4] "t0.6.f"             "Thermoplasmata"     "Subgroup_2"        
+ [7] "DG-20"              "Spongiibacteraceae" "Pla1_lineage"      
+[10] "Emcibacteraceae"    "Eel-36e1D6"         "KI89A_clade"       
+[13] "Planococcaceae"     "Hyphomonadaceae"    "OM182_clade"       
+[16] "SAR202_clade"       "Arcobacteraceae"    "Thiotrichaceae"    
+[19] "Bacteriovoracaceae"
 Exclusive family in Términos Lagoon : 0 
 There are not exclusive family.</code></pre>
 </div>
@@ -1002,91 +1005,12 @@ FJ712534.1.1514                            &lt;NA&gt;</code></pre>
 <div class="cell">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filter</span></span>
 <span><span class="va">physeq_shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/prune_taxa-methods.html">prune_taxa</a></span><span class="op">(</span><span class="va">shared_asvs</span>, <span class="va">physeq_qiime3</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>OTU Table:          [6 taxa and 25 samples]
-                     taxa are rows
-                S1A015 S1B07 S2B07 S3A07 S4B07 S5A07 S5B07 S6A07 S6B07 S7A07
-DQ811808.1.1527    115   194    59   108    72   216   140    57   182    80
-EU652571.1.1503   5951 12881  5260  8577  6118 13519  8852  6312 11648  5638
-GQ249585.1.1531     67    75    33    19   283    23   112   231   217   284
-AM176885.1.1418    348   658   261   463   292   762   513   402   861   372
-FJ203391.1.1488      2    38    43    16    44    21    51    67     7    72
-FJ712534.1.1514    189    72    32     7   213   114    95   543   365   489
-                S7B07 SRR9973320 SRR9973321 SRR9973322 SRR9973323 SRR9973324
-DQ811808.1.1527    70        853        734        163          7        704
-EU652571.1.1503  5563        397        834         42          8        443
-GQ249585.1.1531   305        214        341        367         23        425
-AM176885.1.1418   270          9         22         13          4         90
-FJ203391.1.1488    28         24         16         13          0         11
-FJ712534.1.1514   380          8         29         12        152          8
-                SRR9973326 SRR9973327 SRR9973331 SRR9973332 SRR9973344
-DQ811808.1.1527        218        345        326        117       1206
-EU652571.1.1503        133        127         58          0        571
-GQ249585.1.1531        122        616        611         37        567
-AM176885.1.1418         34         61         43         17         16
-FJ203391.1.1488          4          8          7          2          9
-FJ712534.1.1514          4         18         42         14         24
-                SRR9973347 zr2502_14_R1.fastq.gz zr2502_1_R1.fastq.gz
-DQ811808.1.1527       1375                   354                   13
-EU652571.1.1503        565                    33                  205
-GQ249585.1.1531        522                    23                   33
-AM176885.1.1418        161                   109                   39
-FJ203391.1.1488         14                    10                   29
-FJ712534.1.1514         54                    28                   72
-                zr2502_37_R1.fastq.gz
-DQ811808.1.1527                   343
-EU652571.1.1503                   286
-GQ249585.1.1531                    16
-AM176885.1.1418                    31
-FJ203391.1.1488                    19
-FJ712534.1.1514                    58</code></pre>
-</div>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># rel abundance</span></span>
-<span><span class="va">physeq_rel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/transformcounts.html">transform_sample_counts</a></span><span class="op">(</span><span class="va">physeq_shared</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span><span class="va">x</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">}</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>OTU Table:          [6 taxa and 25 samples]
-                     taxa are rows
-                S1A015 S1B07 S2B07 S3A07 S4B07 S5A07 S5B07 S6A07 S6B07 S7A07
-DQ811808.1.1527    115   194    59   108    72   216   140    57   182    80
-EU652571.1.1503   5951 12881  5260  8577  6118 13519  8852  6312 11648  5638
-GQ249585.1.1531     67    75    33    19   283    23   112   231   217   284
-AM176885.1.1418    348   658   261   463   292   762   513   402   861   372
-FJ203391.1.1488      2    38    43    16    44    21    51    67     7    72
-FJ712534.1.1514    189    72    32     7   213   114    95   543   365   489
-                S7B07 SRR9973320 SRR9973321 SRR9973322 SRR9973323 SRR9973324
-DQ811808.1.1527    70        853        734        163          7        704
-EU652571.1.1503  5563        397        834         42          8        443
-GQ249585.1.1531   305        214        341        367         23        425
-AM176885.1.1418   270          9         22         13          4         90
-FJ203391.1.1488    28         24         16         13          0         11
-FJ712534.1.1514   380          8         29         12        152          8
-                SRR9973326 SRR9973327 SRR9973331 SRR9973332 SRR9973344
-DQ811808.1.1527        218        345        326        117       1206
-EU652571.1.1503        133        127         58          0        571
-GQ249585.1.1531        122        616        611         37        567
-AM176885.1.1418         34         61         43         17         16
-FJ203391.1.1488          4          8          7          2          9
-FJ712534.1.1514          4         18         42         14         24
-                SRR9973347 zr2502_14_R1.fastq.gz zr2502_1_R1.fastq.gz
-DQ811808.1.1527       1375                   354                   13
-EU652571.1.1503        565                    33                  205
-GQ249585.1.1531        522                    23                   33
-AM176885.1.1418        161                   109                   39
-FJ203391.1.1488         14                    10                   29
-FJ712534.1.1514         54                    28                   72
-                zr2502_37_R1.fastq.gz
-DQ811808.1.1527                   343
-EU652571.1.1503                   286
-GQ249585.1.1531                    16
-AM176885.1.1418                    31
-FJ203391.1.1488                    19
-FJ712534.1.1514                    58</code></pre>
-</div>
+<span></span>
+<span><span class="co"># rel abundance</span></span>
+<span><span class="va">physeq_rel</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/transformcounts.html">transform_sample_counts</a></span><span class="op">(</span><span class="va">physeq_shared</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">{</span><span class="va">x</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Aggregate data by Mangrove_system</span></span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Aggregate data by Mangrove_system</span></span>
 <span><span class="va">physeq_agg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/merge_samples-methods.html">merge_samples</a></span><span class="op">(</span><span class="va">physeq_rel</span>, <span class="st">"Mangrove_system"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Convert to relative abundance</span></span>
@@ -1098,7 +1022,7 @@ FJ712534.1.1514                    58</code></pre>
 <span><span class="op">}</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create the bar plot with facet by Mangrove_type</span></span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create the bar plot with facet by Mangrove_type</span></span>
 <span><span class="va">barplot_core</span> <span class="op">&lt;-</span> <span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/plot_bar.html">plot_bar</a></span><span class="op">(</span><span class="va">physeq_agg_rel</span>, fill <span class="op">=</span> <span class="st">"Family"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">Family</span>, fill <span class="op">=</span> <span class="va">Family</span><span class="op">)</span>, stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"stack"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">"Relative Abundance"</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1125,50 +1049,98 @@ FJ712534.1.1514                    58</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/rel_abun_core.pdf"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create and extract otu table</span></span>
+<span><span class="va">otu_table_ampvis</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>OTU <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span><span class="op">)</span>,</span>
+<span>                                 <span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span>,</span>
+<span>                                 <span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/tax_table-methods.html">tax_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span>,</span>
+<span>                                 check.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Metadata</span></span>
+<span><span class="va">meta_data_ampvis</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span>,</span>
+<span>                                 check.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># change index by SampleID</span></span>
+<span><span class="co">#meta_data_ampvis &lt;- meta_data_ampvis %&gt;% rownames_to_column(var = "SampleID")</span></span>
+<span></span>
+<span><span class="co"># ampvis object</span></span>
+<span><span class="va">av2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_load.html">amp_load</a></span><span class="op">(</span><span class="va">otu_table_ampvis</span>, <span class="va">meta_data_ampvis</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ampv_heatmap_abundances_phylum_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_heatmap.html">amp_heatmap</a></span><span class="op">(</span><span class="va">av2</span>,</span>
+<span>            group_by <span class="op">=</span> <span class="st">"Mangrove_system"</span>,</span>
+<span>            facet_by <span class="op">=</span> <span class="st">"Mangrove_type"</span>,</span>
+<span>            plot_values <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>            tax_show <span class="op">=</span> <span class="fl">23</span>,</span>
+<span>            showRemainingTaxa <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>            tax_aggregate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Phylum"</span>,<span class="st">"Family"</span><span class="op">)</span>,</span>
+<span>            plot_colorscale <span class="op">=</span> <span class="st">"log10"</span>,</span>
+<span>            plot_values_size <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>            min_abundance <span class="op">=</span> <span class="fl">0.001</span>,</span>
+<span>            round <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>            color_vector <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#703AF5"</span>,<span class="st">"#DADAEB"</span> ,<span class="st">"#75157a"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co">#"#DADAEB"</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">0</span>, size<span class="op">=</span><span class="fl">11</span>, </span>
+<span>                                   vjust <span class="op">=</span> <span class="fl">1</span>, hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        legend.position<span class="op">=</span><span class="st">"right"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There are only 6 taxa, showing all</code></pre>
+</div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ampv_heatmap_abundances_phylum_core</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="02.3.Coremicrobiome_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/rel_abun_core.pdf"</span><span class="op">)</span></span>
 <span><span class="va">barplot_core</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>quartz_off_screen 
                 2 </code></pre>
 </div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/rel_abun_coreheatmap.pdf"</span>,</span>
+<span>       <span class="va">ampv_heatmap_abundances_phylum_core</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, </span>
+<span>       width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Extract relative abundance info</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">otu_rel_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/psmelt.html">psmelt</a></span><span class="op">(</span><span class="va">physeq_agg_rel</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">otu_rel_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/psmelt.html">psmelt</a></span><span class="op">(</span><span class="va">physeq_agg_rel</span><span class="op">)</span></span>
 <span><span class="va">otu_rel_df_agg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html">aggregate</a></span><span class="op">(</span><span class="va">Abundance</span> <span class="op">~</span> <span class="va">Sample</span> <span class="op">+</span> <span class="va">Family</span>, data <span class="op">=</span> <span class="va">otu_rel_df</span>, <span class="va">sum</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">otu_rel_df_agg</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Sample             Family Abundance
 1  Celestún Lagoon    Calditrichaceae   0.09042
 2    Fossil Lagoon    Calditrichaceae   0.05669
-3  San Pedro River    Calditrichaceae   0.01253
+3  San Pedro River    Calditrichaceae   0.01068
 4  Términos Lagoon    Calditrichaceae   0.10381
 5  Celestún Lagoon Desulfosarcinaceae   0.29453
 6    Fossil Lagoon Desulfosarcinaceae   0.03343
-7  San Pedro River Desulfosarcinaceae   0.01095
+7  San Pedro River Desulfosarcinaceae   0.01814
 8  Términos Lagoon Desulfosarcinaceae   0.04898
 9  Celestún Lagoon             MBNT15   0.39252
 10   Fossil Lagoon             MBNT15   0.01083
-11 San Pedro River             MBNT15   0.01323
+11 San Pedro River             MBNT15   0.04866
 12 Términos Lagoon             MBNT15   0.37477
 13 Celestún Lagoon              NB1-j   0.00842
 14   Fossil Lagoon              NB1-j   0.00599
-15 San Pedro River              NB1-j   0.00361
+15 San Pedro River              NB1-j   0.00345
 16 Términos Lagoon              NB1-j   0.03912
 17 Celestún Lagoon   Nitrosococcaceae   0.17525
 18   Fossil Lagoon   Nitrosococcaceae   0.84004
-19 San Pedro River   Nitrosococcaceae   0.91084
+19 San Pedro River   Nitrosococcaceae   0.87122
 20 Términos Lagoon   Nitrosococcaceae   0.32112
 21 Celestún Lagoon         uncultured   0.03886
 22   Fossil Lagoon         uncultured   0.05302
-23 San Pedro River         uncultured   0.04883
+23 San Pedro River         uncultured   0.04786
 24 Términos Lagoon         uncultured   0.11220</code></pre>
 </div>
 </div>
 </section><section id="save-rds-core-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-core-plot">Save rds core plot</h2>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">upset_plot</span>, <span class="st">"rds/compare_mangroves/upset_surface_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">upset_plot</span>, <span class="st">"rds/compare_mangroves/upset_surface_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

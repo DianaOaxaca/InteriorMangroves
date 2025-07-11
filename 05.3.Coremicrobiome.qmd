@@ -21,12 +21,12 @@ library(ampvis2)
 
 ```{r}
 #load data
-physeq <- readRDS("rds/interior_mangroves/phyloseq.rds")
+physeq <- readRDS("rds/interior_impaired/physeq.rds")
 ```
 
 ```{r}
-# Convert Location to factor
-sample_data(physeq)$Location <- as.factor(sample_data(physeq)$Location)
+# Convert Mangrove_system to factor
+sample_data(physeq)$Mangrove_system <- as.factor(sample_data(physeq)$Mangrove_system)
 ```
 
 ## 01. Calculate core
@@ -39,12 +39,12 @@ prevalence_threshold <- 0.8
 
 # Storage ASVs core list
 core_list <- list()
-locations <- levels(sample_data(physeq)$Location)
+locations <- levels(sample_data(physeq)$Mangrove_system)
 
 # Calculate core
 for (loc in locations) {
   # Filter samples by mangrove system
-  physeq_loc <- prune_samples(sample_data(physeq)$Location == loc, physeq)
+  physeq_loc <- prune_samples(sample_data(physeq)$Mangrove_system == loc, physeq)
   n_samples_loc <- nsamples(physeq_loc)
 
   # Extract OTU table
@@ -69,7 +69,7 @@ if (all(sapply(core_list, length) == 0)) {
   prevalence_threshold <- 1.0
   core_list <- list()
   for (loc in locations) {
-    physeq_loc <- prune_samples(sample_data(physeq)$Location == loc, physeq)
+    physeq_loc <- prune_samples(sample_data(physeq)$Mangrove_system == loc, physeq)
     n_samples_loc <- nsamples(physeq_loc)
     otu <- as(otu_table(physeq_loc), "matrix")
     prevalence <- rowSums(otu > 0) / n_samples_loc
@@ -109,25 +109,25 @@ queries_list <- list()
 #library(UpSetR)
 # Fossil Lagoon
 queries_list <- append(queries_list, list(
-  list(query = intersects, params = list("Fossil Lagoon"), color = "#A3D9A8",
+  list(query = intersects, params = list("Fossil Lagoon"), color = "#A7fcc1",
        active = TRUE, query.name = "Fossil Lagoon")))
 
 # Reforma Waterfalls
 queries_list <- append(queries_list, list(
-  list(query = intersects, params = list("Reforma Waterfalls"), color = "#44C17B",
-       active = TRUE, query.name = "Reforma Waterfalls")))
+  list(query = intersects, params = list("San Pedro River"), color = "#26B170",
+       active = TRUE, query.name = "San Pedro River")))
 
-# Miguelito Dike
+# Impaired Términos Lagoon
 queries_list <- append(queries_list, list(
-  list(query = intersects, params = list("Miguelito Dike"), color = "#2E8B57",
-       active = TRUE, query.name = "Miguelito Dike")))
+  list(query = intersects, params = list("Impaired Términos Lagoon"), color = "gray40",
+       active = TRUE, query.name = "Impaired Términos Lagoon")))
 
 
 # Core
 queries_list <- append(queries_list, list(
   list(query = intersects, params = list("Fossil Lagoon", 
-                                         "Reforma Waterfalls",
-                                         "Miguelito Dike"),
+                                         "San Pedro River",
+                                         "Impaired Términos Lagoon"),
        color = "#8D3CA3", active = TRUE, query.name = "Core")))
 ```
 
@@ -145,7 +145,7 @@ upset_plot <- upset(core_df,
                     line.size = 1.5,
                     query.legend = "bottom",
                     sets.bar.color = 
-                      c("#44C17B","#A3D9A8","#2E8B57"),
+                      c("gray40","#A3D9A8","#2E8B57"),
                     queries = queries_list)
 
 # show
@@ -155,7 +155,7 @@ print(upset_plot)
 save plot
 
 ```{r}
-pdf("Figures/interior_mangroves/core_upset.pdf", width = 5.8, height = 4)
+pdf("Figures/interior_impaired/core_upset.pdf", width = 5.8, height = 4)
 upset_plot
 dev.off()
 ```
@@ -168,8 +168,8 @@ unique_asvs <- list()
 for (loc in colnames(core_df)) {
   unique_asvs[[loc]] <- rownames(core_df)[rowSums(core_df == 1) == 1 & core_df[[loc]] == 1]
   cat(loc, ": Unique ASVs:", length(unique_asvs[[loc]]), "\n")
-  print(head(unique_asvs[[loc]], 5))  # Show first 5
-}
+  print(head(unique_asvs[[loc]], 5))}
+
 #unique_asvs
 ```
 
@@ -257,7 +257,7 @@ Class level
 # Create a list to store unique asv to Class level
 class_unique <- list()
 
-# Iterate on each Location
+# Iterate on each Mangrove_system
 for (loc in names(taxonomy_unique)) {
   if (!is.null(taxonomy_unique[[loc]])) {
     # Extract taxonomy class
@@ -357,7 +357,7 @@ print(head(taxonomy_unique_df))
 
 ```{r}
 # save data.frame
-write.csv(taxonomy_unique_df, file = "Tables/interior_mangroves/unique_asvs_taxonomy.csv", row.names = FALSE)
+write.csv(taxonomy_unique_df, file = "Tables/interior_impaired/unique_asvs_taxonomy.csv", row.names = FALSE)
 ```
 
 ## 06. Get core taxonomy
@@ -369,7 +369,6 @@ head(shared_asvs)
 
 ```{r}
 shared_taxonomy <- get_taxonomy(shared_asvs)
-head(shared_taxonomy)
 ```
 
 ```{r}
@@ -402,21 +401,18 @@ otu_table_ampvis <- data.frame(OTU = rownames(phyloseq::otu_table(physeq_shared)
 meta_data_ampvis <- data.frame(phyloseq::sample_data(physeq_shared),
                                  check.names = FALSE)
 
-# change index by SampleID
-meta_data_ampvis <- meta_data_ampvis %>% rownames_to_column(var = "SampleID")
-
 # ampvis object
 av2 <- amp_load(otu_table_ampvis, meta_data_ampvis)
 ```
 
 ```{r}
 ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
-            group_by = "Location",
-            #facet_by = "Location",
+            group_by = "Mangrove_system",
+            facet_by = "Mangrove_type",
             plot_values = TRUE,
-            tax_show = 23,
+            tax_show = 16,
             showRemainingTaxa = TRUE,
-            tax_aggregate = "Phylum",
+            tax_aggregate = c("Phylum", "Family"),
             plot_colorscale = "log10",
             plot_values_size = 3,
             min_abundance = 0.001,
@@ -432,7 +428,7 @@ ampv_heatmap_abundances_phylum_core
 
 ```{r}
 # save
-ggsave("Figures/interior_mangroves/Core_RelativeAbundance_heatmap.pdf",
+ggsave("Figures/interior_impaired/Core_RelativeAbundance_heatmap.pdf",
        ampv_heatmap_abundances_phylum_core, bg='transparent', 
        width = 4, height = 5.5)
 ```
@@ -440,5 +436,5 @@ ggsave("Figures/interior_mangroves/Core_RelativeAbundance_heatmap.pdf",
 ## Save rds core plot
 
 ```{r}
-saveRDS(upset_plot, "rds/interior_mangroves/upset_plot.rds")
+saveRDS(upset_plot, "rds/interior_impaired/upset_plot.rds")
 ```

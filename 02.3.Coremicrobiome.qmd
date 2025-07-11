@@ -13,6 +13,7 @@ library(phyloseq)
 library(dplyr)
 library(UpSetR)
 library(ggplot2)
+library(ampvis2)
 library(ggalluvial)
 ```
 
@@ -363,11 +364,9 @@ print(shared_phyla)
 ```{r}
 # Filter
 physeq_shared <- prune_taxa(shared_asvs, physeq_qiime3)
-otu_table(physeq_shared)
 
 # rel abundance
 physeq_rel <- transform_sample_counts(physeq_shared, function(x){x / sum(x)})
-otu_table(physeq_shared)
 ```
 
 ```{r}
@@ -407,10 +406,55 @@ barplot_core
 ```
 
 ```{r}
+# create and extract otu table
+otu_table_ampvis <- data.frame(OTU = rownames(phyloseq::otu_table(physeq_shared)@.Data),
+                                 phyloseq::otu_table(physeq_shared)@.Data,
+                                 phyloseq::tax_table(physeq_shared)@.Data,
+                                 check.names = FALSE)
+
+# Metadata
+meta_data_ampvis <- data.frame(phyloseq::sample_data(physeq_shared),
+                                 check.names = FALSE)
+
+# change index by SampleID
+#meta_data_ampvis <- meta_data_ampvis %>% rownames_to_column(var = "SampleID")
+
+# ampvis object
+av2 <- amp_load(otu_table_ampvis, meta_data_ampvis)
+```
+
+```{r}
+ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
+            group_by = "Mangrove_system",
+            facet_by = "Mangrove_type",
+            plot_values = TRUE,
+            tax_show = 23,
+            showRemainingTaxa = TRUE,
+            tax_aggregate = c("Phylum","Family"),
+            plot_colorscale = "log10",
+            plot_values_size = 3,
+            min_abundance = 0.001,
+            round = 2,
+            color_vector = c("#703AF5","#DADAEB" ,"#75157a")) + #"#DADAEB"
+  theme(axis.text.x = element_text(angle = 0, size=11, 
+                                   vjust = 1, hjust = 0.5),
+        axis.text.y = element_text(size=12),
+        legend.position="right")
+
+ampv_heatmap_abundances_phylum_core
+```
+
+```{r}
 pdf("Figures/SurfaceComparison/rel_abun_core.pdf")
 barplot_core
 dev.off()
+
+ggsave("Figures/SurfaceComparison/rel_abun_coreheatmap.pdf",
+       ampv_heatmap_abundances_phylum_core, bg='transparent', 
+       width = 6, height = 4)
+
 ```
+
 Extract relative abundance info
 
 ```{r}
