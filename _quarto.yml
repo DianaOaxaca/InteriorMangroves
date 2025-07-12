@@ -73,6 +73,8 @@ website:
                 contents:
                   - 05.1.AlphaDiversity.qmd
                   - 05.2.BetaDiversity.qmd
+                  - 05.3.Coremicrobiome.qmd
+                  - 05.4.DifferentialAbundance.qmd
       - section: "B) Interior mangroves explore"
         href: 03.InteriorMangroves.qmd
         contents:
