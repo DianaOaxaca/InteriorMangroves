@@ -75,6 +75,7 @@ website:
                   - 05.2.BetaDiversity.qmd
                   - 05.3.Coremicrobiome.qmd
                   - 05.4.DifferentialAbundance.qmd
+                  - 05.5.Fig5.InteriorImpairedCoastalComparison
       - section: "B) Interior mangroves explore"
         href: 03.InteriorMangroves.qmd
         contents:

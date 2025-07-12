@@ -1,0 +1,74 @@
+---
+title: "Fig. 3 Interior Mangroves"
+---
+
+# Load libraries
+
+```{r}
+#| message: false
+#| warning: false
+library(ggplot2)
+library(cowplot)
+```
+
+# Load figures
+
+```{r}
+#| message: false
+#| warning: false
+
+alpha_depth <- readRDS("rds/interior_impaired/alpha_diversity_depth_plot.rds")
+alpha_loc <- readRDS("rds/interior_impaired/alpha_diversity_loc_plot.rds")
+
+beta <- readRDS("rds/interior_impaired/beta-diversity.rds")
+
+core <- readRDS("rds/interior_impaired/upset_plot.rds")
+```
+
+
+# Combine plots
+
+```{r}
+#| message: false
+#| warning: false
+alphas <- plot_grid(alpha_loc, alpha_depth,
+                    labels = c("A","B"),
+                    label_fontface = "bold",
+                    ncol = 1, 
+                    rel_heights = c(0.66, 0.33))
+```
+
+```{r}
+#| message: false
+#| warning: false
+beta_core <- plot_grid(beta, core,
+                       labels = c("C","D"),
+                       label_fontface = "bold",
+                       ncol = 1,
+                       rel_heights = c(0.4, 0.6))
+```
+
+
+```{r}
+#| message: false
+#| warning: false
+all <- plot_grid(alphas, beta_core,
+                 ncol = 2, 
+                 rel_widths = c(0.38,0.62))
+
+all
+```
+
+```{r}
+ggsave("Figures/interior_impaired/Fig5.InteriorImpairedMangroves.pdf",
+       all, width = 12, height = 13)
+```
+
+Core not shown because they are not a direct format of ggplot, so we will insert them in Inkscape
+
+::: callout-caution
+## Edit figure in Inkscape
+
+The UpSet plot insertion and other details were done in Inkscape. The final figure is shown below:
+:::
+

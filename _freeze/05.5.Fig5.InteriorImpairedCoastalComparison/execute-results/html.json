@@ -1,0 +1,17 @@
+{
+  "hash": "ba519bd2c38d3f481d7d9a9ce5187848",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Fig. 3 Interior Mangroves\"\n---\n\n\n\n# Load libraries\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\nlibrary(cowplot)\n```\n:::\n\n\n\n# Load figures\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nalpha_depth <- readRDS(\"rds/interior_impaired/alpha_diversity_depth_plot.rds\")\nalpha_loc <- readRDS(\"rds/interior_impaired/alpha_diversity_loc_plot.rds\")\n\nbeta <- readRDS(\"rds/interior_impaired/beta-diversity.rds\")\n\ncore <- readRDS(\"rds/interior_impaired/upset_plot.rds\")\n```\n:::\n\n\n\n\n# Combine plots\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nalphas <- plot_grid(alpha_loc, alpha_depth,\n                    labels = c(\"A\",\"B\"),\n                    label_fontface = \"bold\",\n                    ncol = 1, \n                    rel_heights = c(0.66, 0.33))\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nbeta_core <- plot_grid(beta, core,\n                       labels = c(\"C\",\"D\"),\n                       label_fontface = \"bold\",\n                       ncol = 1,\n                       rel_heights = c(0.4, 0.6))\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nall <- plot_grid(alphas, beta_core,\n                 ncol = 2, \n                 rel_widths = c(0.38,0.62))\n\nall\n```\n\n::: {.cell-output-display}\n![](05.5.Fig5.InteriorImpairedCoastalComparison_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nggsave(\"Figures/interior_impaired/Fig5.InteriorImpairedMangroves.pdf\",\n       all, width = 12, height = 13)\n```\n:::\n\n\n\nCore not shown because they are not a direct format of ggplot, so we will insert them in Inkscape\n\n::: callout-caution\n## Edit figure in Inkscape\n\nThe UpSet plot insertion and other details were done in Inkscape. The final figure is shown below:\n:::\n\n",
+    "supporting": [
+      "05.5.Fig5.InteriorImpairedCoastalComparison_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
