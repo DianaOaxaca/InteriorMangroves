@@ -1,3 +1,239 @@
 ---
 title: "Beta Diversity"
 ---
+
+::: callout-note
+For beta diversity analysis, we conducted NMDS and PERMANOVA tests to observe the influence of Depth parameters in the structure of the microbial community
+:::
+
+```{r}
+# load libraries
+library(vegan)
+library(phyloseq)
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(pairwiseAdonis)
+library(reshape2)
+```
+
+```{r}
+#load data
+physeq_qiime3 <- readRDS("rds/Depth_comparison/physeq_qiime3.rds")
+```
+
+```{r}
+#Mangrove system colors
+loc_colors <- c("Fossil Lagoon"= "#A7fcc1",
+                "San Pedro River" = "#26B170",
+                "Términos Lagoon" = "#329D9C")
+```
+
+```{r}
+# Extract data from phyloseq object
+
+otu_data <- otu_table(physeq_qiime3, taxa_are_rows = TRUE)
+metadata <- as(sample_data(physeq_qiime3), "data.frame")
+
+sample_data <- data.frame(sample_data(physeq_qiime3))
+```
+
+## 01. NMDS
+
+### Get distances and stress
+
+```{r}
+set.seed(123)
+bray=vegdist(t(otu_data), method = "bray")
+nmds_source_bray = vegan::metaMDS(bray, trymax = 20, k = 2)
+
+# stress
+var_stress_nmds_bray <- round(nmds_source_bray$stress, 5)
+
+# score
+scores_source_bray= nmds_source_bray %>% vegan::scores()
+```
+
+### Plot
+
+```{r}
+nmds_plot_bray <- ggplot() +
+  geom_point(data=data.frame(scores_source_bray) %>%
+               rownames_to_column(var = "SampleID")%>%
+               left_join(metadata, by = "SampleID"),
+             aes(x=NMDS1, y=NMDS2,  color = Mangrove.system, 
+                 shape = Depths),
+             size=5) + theme_linedraw()+
+  scale_fill_manual(values = loc_colors)+
+  scale_color_manual(values = loc_colors)+
+  theme(axis.text = element_text(colour = "black", size = 12),
+        axis.title = element_text(colour = "black", size = 12),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 12),
+        legend.position = "right",
+        legend.box = "vertical")+ theme_classic() +
+  labs(title="Bray-Curtis distances") +
+  ylab("NMDS2")+xlab("NMDS1")
+
+## stress legend
+nmds_plot_bray <- nmds_plot_bray +
+  annotate("text", x = Inf, y = -Inf,
+           label = paste("Stress:", var_stress_nmds_bray),
+           hjust = 1.1, vjust = -1.1, size = 4)
+
+# show plot
+nmds_plot_bray
+
+```
+
+## 02. PERMANOVA
+
+```{r}
+# Extract and transpose OTU table
+otu_mat <- t(otu_table(physeq_qiime3))
+
+# PERMANOVA with adonis2
+set.seed(123)
+adonis_result <- adonis2(otu_mat ~ Depths * Mangrove.system,
+                         data = sample_data,
+                         method = "bray",
+                         permutations = 999,
+                         by = "terms")
+
+# show adonis result
+print(adonis_result)
+```
+
+### Plot with PERMANOVA results
+
+```{r}
+#add to plot
+nmds_plot_bray_perm <- nmds_plot_bray + annotate("text", x = Inf, y = -Inf,
+           label = paste("PERMANOVA:",
+                         "Mangrove system: R² = 0.328, p = 0.001\n",
+                         "Depths: R² = 0.047, p = 0.007\n",
+                         "Residual: R² = 0.540"),
+           hjust = 1.1, vjust = -7, size = 4)
+
+# Mostrar el gráfico
+print(nmds_plot_bray_perm)
+
+#save
+ggsave("Figures/Depth_comparison/beta-diversity.pdf", nmds_plot_bray_perm, width = 7.3, height = 5.5)
+```
+
+## 03. Post-hoc Adonis
+
+### Pairwise Adonis
+
+```{r}
+pairwise_adonis <- pairwiseAdonis::pairwise.adonis2(otu_mat ~ 
+                  Mangrove.system, data = sample_data, 
+                  method = "bray",  permutations = 999)
+
+print(pairwise_adonis)
+```
+
+### P-values matrix
+
+```{r}
+#  p-values of pairwise_adonis
+p_values <- c("San Pedro River_vs_Fossil Lagoon" = 0.001,
+  "San Pedro River_vs_Términos Lagoon" = 0.001,
+  "Fossil Lagoon_vs_Términos Lagoon" = 0.001
+)
+
+# matrix of p-values
+locations <- c("San Pedro River", "Fossil Lagoon", "Términos Lagoon")
+p_matrix <- matrix(NA, nrow = length(locations), ncol = length(locations),
+                   dimnames = list(locations, locations))
+
+# Fill matrix with p-values (only for the upper half then make symmetrical)
+pairs <- strsplit(names(p_values), "_vs_")
+for (i in seq_along(pairs)) {
+  row_name <- pairs[[i]][1]
+  col_name <- pairs[[i]][2]
+  p_matrix[row_name, col_name] <- p_values[i]
+  p_matrix[col_name, row_name] <- p_values[i]  # symmetrical
+}
+diag(p_matrix) <- 1  # compare with itself
+
+# long format
+p_melt <- melt(p_matrix)
+```
+
+### Heatmap of Adonis Posthoc
+
+```{r}
+# heatmap
+heatmap_plot <- ggplot(p_melt, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(low = "blue", mid = "white", high = "red",
+                       midpoint = 0.025, limits = c(0, 0.05),
+                       name = "p-value") +
+  geom_text(aes(label = sprintf("%.3f", value)), color = "black", size = 3) +
+  theme_minimal() +
+  labs(title = "Pairwise PERMANOVA post-hoc)",
+       x = "Mangrove system", y = "Mangrove system") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        axis.title = element_text(size = 12),
+        plot.title = element_text(size = 14))
+
+# show
+print(heatmap_plot)
+```
+
+## 04. Beta Disper
+
+```{r}
+# Bray distance matrix
+dist_matrix <- phyloseq::distance(physeq_qiime3, method = "bray")
+
+```
+
+### By Mangrove System
+
+```{r}
+# betadisper
+disp_location <- betadisper(dist_matrix, sample_data$Mangrove.system)
+print(summary(disp_location))
+
+```
+
+#### Permutest
+
+```{r}
+# Significance permutest
+perm_location <- permutest(disp_location, permutations = 999)
+print(perm_location)
+```
+
+```{r}
+# Plots
+plot(disp_location, main = "Beta Dispersión por Mangrove system")
+boxplot(disp_location, main = "Distancias al centroide por Mangrove system")
+```
+
+### By Depths
+
+```{r}
+# Betadisper Mangrove_type
+disp_Depths <- betadisper(dist_matrix, sample_data$Depths)
+print(summary(disp_Depths))
+
+# Significance permutest
+perm_Depths <- permutest(disp_Depths, permutations = 999)
+print(perm_Depths)
+```
+
+```{r}
+# plots
+plot(disp_Depths, main = "Betadisper  Depths")
+boxplot(disp_Depths, main = "Dist to centroid Depths")
+```
+
+## Save rds for beta diversity plot
+
+```{r}
+saveRDS(nmds_plot_bray_perm, "rds/Depth_comparison/beta-diversity-Depth-plot.rds")
+```
