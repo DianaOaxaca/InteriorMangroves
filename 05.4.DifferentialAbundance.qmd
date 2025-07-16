@@ -51,7 +51,7 @@ tse$Mangrove_system = factor(recode
 
 ### 02.2 Run ANCOM-BC2
 
-``` R
+``` r
 #| message: false
 #| warning: false
 output_location <- ancombc2(

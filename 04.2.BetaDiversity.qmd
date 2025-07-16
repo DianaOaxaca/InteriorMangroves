@@ -94,7 +94,7 @@ otu_mat <- t(otu_table(physeq_qiime3))
 
 # PERMANOVA with adonis2
 set.seed(123)
-adonis_result <- adonis2(otu_mat ~ Depths * Mangrove.system,
+adonis_result <- adonis2(otu_mat ~ Mangrove.system * Depths,
                          data = sample_data,
                          method = "bray",
                          permutations = 999,
@@ -112,8 +112,10 @@ nmds_plot_bray_perm <- nmds_plot_bray + annotate("text", x = Inf, y = -Inf,
            label = paste("PERMANOVA:",
                          "Mangrove system: R² = 0.328, p = 0.001\n",
                          "Depths: R² = 0.047, p = 0.007\n",
-                         "Residual: R² = 0.540"),
-           hjust = 1.1, vjust = -7, size = 4)
+                         "Residual: R² = 0.540\n", 
+                         "BetaDisper Mangrove.system: p-value = 0.001\n",
+                         "BetaDisper Depths: p-value =  0.728"),
+           hjust = 1.1, vjust = -7, size = 3)
 
 # Mostrar el gráfico
 print(nmds_plot_bray_perm)
@@ -198,6 +200,11 @@ dist_matrix <- phyloseq::distance(physeq_qiime3, method = "bray")
 disp_location <- betadisper(dist_matrix, sample_data$Mangrove.system)
 print(summary(disp_location))
 
+anova_beta_disp <- anova(disp_location)
+
+# Show dispersion by group
+disp_location$group.distances
+
 ```
 
 #### Permutest
@@ -221,6 +228,11 @@ boxplot(disp_location, main = "Distancias al centroide por Mangrove system")
 disp_Depths <- betadisper(dist_matrix, sample_data$Depths)
 print(summary(disp_Depths))
 
+anova_beta_disp_depth <- anova(disp_Depths)
+
+# Show dispersion by group
+disp_Depths$group.distances
+
 # Significance permutest
 perm_Depths <- permutest(disp_Depths, permutations = 999)
 print(perm_Depths)
@@ -230,6 +242,43 @@ print(perm_Depths)
 # plots
 plot(disp_Depths, main = "Betadisper  Depths")
 boxplot(disp_Depths, main = "Dist to centroid Depths")
+```
+
+## 05. Plot with PERMANOVA, pairwise PERMANOVA and BetaDisper
+
+```{r}
+beta_text_ms <- paste("Betadisper Mangrove system, p-value:", 
+                   round(anova_beta_disp$`Pr(>F)`[1], 3))
+beta_text_depth <- paste("Betadisper Depth, p-value:", 
+                   round(anova_beta_disp_depth$`Pr(>F)`[1], 3))
+
+# PERMANOVA text
+# Results
+perm_results <- data.frame(
+  Term = c("Location","Depths", "Residual"),
+  R2 = c(adonis_result$R2[1], adonis_result$R2[2], adonis_result$R2[3]),
+  p_value = c(adonis_result$`Pr(>F)`[1], adonis_result$`Pr(>F)`[2], NA))
+
+# Text
+perm_text <- paste(
+  "PERMANOVA:",
+  paste("Mangrove system: R² =", round(perm_results$R2[1], 3), ", p =", perm_results$p_value[1]),
+  paste("Depths: R² =", round(perm_results$R2[2], 3), ", p =", perm_results$p_value[2]), sep = "\n")
+```
+
+```{r}
+# Add texts to NMDS
+nmds <- nmds_plot_bray +
+  annotate(
+    "text", x = Inf, y = Inf, 
+    label = paste(perm_text, beta_text_ms, beta_text_depth, sep = "\n"),
+    hjust = 1.1, vjust = 1.2, size = 3, color = "black")
+
+nmds
+```
+
+```{r}
+ggsave("Figures/Depth_comparison/NMDS.pdf", nmds, bg='transparent', width = 6, height = 4.5)
 ```
 
 ## Save rds for beta diversity plot

@@ -31,7 +31,7 @@ tse <- mia::convertFromPhyloseq(physeq_qiime3)
 
 ```{r}
 #To manually change the reference level, not alphabetic order
-tse$Mangrove.system = factor(tse$Mangrove.system, levels = c("Fossil Lagoon", "San Pedro River", "Términos Lagoon"))
+tse$Mangrove.system = factor(tse$Mangrove.system, levels = c("Términos Lagoon", "San Pedro River", "Fossil Lagoon"))
 
 
 #conver to factor using letter levels
@@ -75,7 +75,7 @@ output <- ancombc2(
   data = tse,
   assay_name = "counts",
   tax_level = "Phylum",
-  fix_formula = "Mangrove.system",
+  fix_formula = "Mangrove.system + Depths",
   rand_formula = NULL,
   p_adj_method = "holm",
   pseudo_sens = TRUE,

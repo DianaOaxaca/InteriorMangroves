@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves</title>
+<title>Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves - Differential Abundance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,7 +19,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -30,7 +30,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -66,24 +66,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-42e8decf3429976a47c1c54a1701cbb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-da771dd4e3759026f460526871f487d2.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,16 +86,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-<meta property="og:title" content="Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:title" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves - Differential Abundance">
 <meta property="og:image" content="04.4.DifferentialAbundance_files/figure-html/unnamed-chunk-11-1.png">
-<meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta name="twitter:title" content="Differential Abundance – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:site-name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:title" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves - Differential Abundance">
 <meta name="twitter:image" content="04.4.DifferentialAbundance_files/figure-html/unnamed-chunk-11-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
 <meta name="twitter:card" content="summary_large_image">
@@ -110,23 +103,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">A) Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./04.DepthComparison.html">2) How are coastal and inland mangroves similar, considering their depth?</a></li><li class="breadcrumb-item"><a href="./04.1.AlphaDiversity.html">Analysis</a></li><li class="breadcrumb-item"><a href="./04.4.DifferentialAbundance.html">Differential Abundance</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">A) Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./04.DepthComparison.html">2) How are coastal and inland mangroves similar, considering their depth?</a></li><li class="breadcrumb-item"><a href="./04.1.AlphaDiversity.html">Analysis</a></li><li class="breadcrumb-item"><a href="./04.4.DifferentialAbundance.html">Differential Abundance</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./images/landalab.jpg" alt="" class="sidebar-logo py-0 d-lg-inline d-none"></a>
       <div class="sidebar-tools-main">
-    <a href="https://github.com/DianaOaxaca/InteriorMangroves" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/DianaOaxaca/InteriorMangroves" rel="" title="GitHub organization" class="quarto-navigation-tool px-1" aria-label="GitHub organization"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div>
@@ -153,16 +146,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./A_InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">A) Interior and coastal mangroves compare</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">1) How similar are coastal and inland mangroves?</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -175,9 +168,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -209,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02.5.Fig2.InteriorCoastalCompare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Fig.2 Interior and Coastal mangroves compare</span></a>
+ <span class="menu-text">Figure Interior and Coastal mangroves compare</span></a>
   </div>
 </li>
       </ul>
@@ -218,9 +211,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">2) How are coastal and inland mangroves similar, considering their depth?</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -233,9 +226,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -276,9 +269,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
  <span class="menu-text">3) How are inland mangroves similar to a impaired coastal mangrove?</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -291,9 +284,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
  <span class="menu-text">Analysis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -335,16 +328,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./03.InteriorMangroves.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">B) Interior mangroves explore</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
  <span class="menu-text">What makes inland mangroves different and unique?</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -397,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
@@ -411,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A_InteriorCoastalCompare.html">A) Interior and coastal mangroves compare</a></li><li class="breadcrumb-item"><a href="./04.DepthComparison.html">2) How are coastal and inland mangroves similar, considering their depth?</a></li><li class="breadcrumb-item"><a href="./04.1.AlphaDiversity.html">Analysis</a></li><li class="breadcrumb-item"><a href="./04.4.DifferentialAbundance.html">Differential Abundance</a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Differential Abundance</h1>
 </div>
 
@@ -424,7 +417,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
   </div>
   
-
 
 </header><section id="load-libraries-and-data" class="level2"><h2 class="anchored" data-anchor-id="load-libraries-and-data">Load Libraries and Data</h2>
 <div class="cell">
@@ -477,7 +469,7 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#To manually change the reference level, not alphabetic order</span></span>
-<span><span class="va">tse</span><span class="op">$</span><span class="va">Mangrove.system</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">tse</span><span class="op">$</span><span class="va">Mangrove.system</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span>, <span class="st">"San Pedro River"</span>, <span class="st">"Términos Lagoon"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">tse</span><span class="op">$</span><span class="va">Mangrove.system</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">tse</span><span class="op">$</span><span class="va">Mangrove.system</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Términos Lagoon"</span>, <span class="st">"San Pedro River"</span>, <span class="st">"Fossil Lagoon"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span><span class="co">#conver to factor using letter levels</span></span>
@@ -518,7 +510,7 @@ Attaching package: 'dplyr'</code></pre>
 <span>  data <span class="op">=</span> <span class="va">tse</span>,</span>
 <span>  assay_name <span class="op">=</span> <span class="st">"counts"</span>,</span>
 <span>  tax_level <span class="op">=</span> <span class="st">"Phylum"</span>,</span>
-<span>  fix_formula <span class="op">=</span> <span class="st">"Mangrove.system"</span>,</span>
+<span>  fix_formula <span class="op">=</span> <span class="st">"Mangrove.system + Depths"</span>,</span>
 <span>  rand_formula <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  p_adj_method <span class="op">=</span> <span class="st">"holm"</span>,</span>
 <span>  pseudo_sens <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -559,7 +551,7 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code>Checking the sample metadata ...</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>The specified variables in the formula: Mangrove.system</code></pre>
+<pre><code>The specified variables in the formula: Mangrove.system, Depths</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>The available variables in the sample metadata: SampleID, Collection_date, depth, ID, Environmental_medium, Geographic.Location, Study_zone, Ecological_type, season, Mangrove.system, Depths</code></pre>
@@ -583,31 +575,40 @@ Attaching package: 'dplyr'</code></pre>
 <pre><code>Obtaining initial estimates ...</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 1, epsilon = 1.7</code></pre>
+<pre><code>ML iteration = 1, epsilon = 1.6</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 2, epsilon = 8.4</code></pre>
+<pre><code>ML iteration = 2, epsilon = 10</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 3, epsilon = 1.4</code></pre>
+<pre><code>ML iteration = 3, epsilon = 1.8</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 4, epsilon = 0.43</code></pre>
+<pre><code>ML iteration = 4, epsilon = 0.62</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 5, epsilon = 0.18</code></pre>
+<pre><code>ML iteration = 5, epsilon = 0.29</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 6, epsilon = 0.083</code></pre>
+<pre><code>ML iteration = 6, epsilon = 0.16</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 7, epsilon = 0.04</code></pre>
+<pre><code>ML iteration = 7, epsilon = 0.091</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 8, epsilon = 0.019</code></pre>
+<pre><code>ML iteration = 8, epsilon = 0.053</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ML iteration = 9, epsilon = 0.0097</code></pre>
+<pre><code>ML iteration = 9, epsilon = 0.031</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 10, epsilon = 0.019</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 11, epsilon = 0.011</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ML iteration = 12, epsilon = 0.0068</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Estimating sample-specific biases ...</code></pre>
@@ -633,67 +634,67 @@ please refer to the package vignette.</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#See results</span></span>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#See results</span></span>
 <span><span class="va">res_pair_Mangrove.system</span> <span class="op">&lt;-</span> <span class="va">output</span><span class="op">$</span><span class="va">res_pair</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">res_pair_Mangrove.system</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             taxon lfc_Mangrove.systemSPR lfc_Mangrove.systemTL
-1  Acidobacteriota             0.04382265             -3.072632
-2 Actinobacteriota             0.04214683             -3.237474
-3  Aenigmarchaeota            -0.37641949             -2.374357
-4  Asgardarchaeota             0.14446591             -3.368901
-5     Bacteroidota            -0.20242682             -3.551541
-6    Calditrichota            -0.08397559             -3.144190
+1  Acidobacteriota             0.04182120             -3.100633
+2 Actinobacteriota             0.02499262             -3.245846
+3  Aenigmarchaeota            -0.34188784             -2.597705
+4  Asgardarchaeota             0.11808707             -3.399690
+5     Bacteroidota            -0.22178370             -3.586978
+6    Calditrichota            -0.08111012             -3.196856
   lfc_Mangrove.systemTL_Mangrove.systemSPR se_Mangrove.systemSPR
-1                                -3.116454            0.08937156
-2                                -3.279620            0.11652596
-3                                -1.997938            0.25610416
-4                                -3.513367            0.14746967
-5                                -3.349114            0.09398852
-6                                -3.060214            0.15238958
+1                                -3.142454            0.09392808
+2                                -3.270839            0.12853930
+3                                -2.255817            0.24283342
+4                                -3.517777            0.12364329
+5                                -3.365195            0.10584704
+6                                -3.115746            0.13411900
   se_Mangrove.systemTL se_Mangrove.systemTL_Mangrove.systemSPR
-1            0.2591167                               0.2688436
-2            0.3495550                               0.3500405
-3            0.3099775                               0.2600615
-4            0.3282489                               0.3190527
-5            0.3348360                               0.3409019
-6            0.2512147                               0.2496843
+1            0.2581384                               0.2682057
+2            0.3518123                               0.3418782
+3            0.2936435                               0.2476075
+4            0.2944111                               0.2955980
+5            0.3350301                               0.3335305
+6            0.2298626                               0.2344748
   W_Mangrove.systemSPR W_Mangrove.systemTL
-1            0.4903423          -11.858098
-2            0.3616948           -9.261700
-3           -1.4697906           -7.659773
-4            0.9796313          -10.263252
-5           -2.1537397          -10.606807
-6           -0.5510586          -12.515946
+1            0.4452471          -12.011513
+2            0.1944356           -9.226074
+3           -1.4079110           -8.846459
+4            0.9550625          -11.547425
+5           -2.0953225          -10.706436
+6           -0.6047623          -13.907681
   W_Mangrove.systemTL_Mangrove.systemSPR p_Mangrove.systemSPR
-1                             -11.592072           0.62568013
-2                              -9.369260           0.71887230
-3                              -7.682559           0.14776093
-4                             -11.011872           0.33133681
-5                              -9.824275           0.03528809
-6                             -12.256336           0.58367436
+1                             -11.716582           0.65779859
+2                              -9.567262           0.84652614
+3                              -9.110455           0.16547037
+4                             -11.900544           0.34365083
+5                             -10.089615           0.04051844
+6                             -13.288190           0.54773694
   p_Mangrove.systemTL p_Mangrove.systemTL_Mangrove.systemSPR
-1        2.285328e-17                           5.934568e-17
-2        4.196413e-13                           2.785089e-13
-3        4.961138e-10                           4.568535e-10
-4        1.174550e-14                           7.729271e-16
-5        2.191519e-15                           4.164131e-14
-6        2.992482e-18                           7.350800e-18
+1        2.269148e-17                           6.343342e-17
+2        6.611957e-13                           1.854676e-13
+3        9.997341e-12                           4.038215e-12
+4        1.928586e-16                           5.769839e-17
+5        2.327429e-15                           2.227892e-14
+6        5.704614e-20                           4.194987e-19
   q_Mangrove.systemSPR q_Mangrove.systemTL
-1           0.62568013        6.855983e-17
-2           0.71887230        8.392826e-13
-3           0.14776093        1.370560e-09
-4           0.33133681        2.349100e-14
-5           0.03528809        6.574556e-15
-6           0.58367436        8.977446e-18
+1           0.65779859        6.807445e-17
+2           0.84652614        1.322391e-12
+3           0.16547037        1.999468e-11
+4           0.34365083        3.857171e-16
+5           0.04051844        6.982286e-15
+6           0.54773694        1.711384e-19
   q_Mangrove.systemTL_Mangrove.systemSPR diff_Mangrove.systemSPR
-1                           1.186914e-16                   FALSE
-2                           8.355266e-13                   FALSE
-3                           1.370560e-09                   FALSE
-4                           2.318781e-15                   FALSE
-5                           8.328262e-14                    TRUE
-6                           1.470160e-17                   FALSE
+1                           1.268668e-16                   FALSE
+2                           5.564028e-13                   FALSE
+3                           1.211465e-11                   FALSE
+4                           1.730952e-16                   FALSE
+5                           4.455783e-14                    TRUE
+6                           8.389975e-19                   FALSE
   diff_Mangrove.systemTL diff_Mangrove.systemTL_Mangrove.systemSPR
 1                   TRUE                                      TRUE
 2                   TRUE                                      TRUE
@@ -719,7 +720,7 @@ please refer to the package vignette.</code></pre>
 </div>
 </section><section id="get-differential-data" class="level2"><h2 class="anchored" data-anchor-id="get-differential-data">02. Get Differential data</h2>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create dataframe df_fig_pair1 to log-fold change (LFC) values</span></span>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create dataframe df_fig_pair1 to log-fold change (LFC) values</span></span>
 <span><span class="va">df_fig_pair1_Mangrove.system</span> <span class="op">&lt;-</span> <span class="va">res_pair_Mangrove.system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">`diff_Mangrove.systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
 <span>                  <span class="va">`diff_Mangrove.systemTL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
@@ -734,7 +735,7 @@ please refer to the package vignette.</code></pre>
 <span>                            values_to <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create dataframe df_fig_pair2 to significant values</span></span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create dataframe df_fig_pair2 to significant values</span></span>
 <span><span class="va">df_fig_pair2_Mangrove.system</span> <span class="op">&lt;-</span> <span class="va">res_pair_Mangrove.system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">`diff_Mangrove.systemSPR`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
 <span>                  <span class="va">`diff_Mangrove.systemTL`</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span></span>
@@ -749,7 +750,7 @@ please refer to the package vignette.</code></pre>
 <span>    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Combine dataframes df_fig_pair1 and df_fig_pair2</span></span>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Combine dataframes df_fig_pair1 and df_fig_pair2</span></span>
 <span><span class="va">df_fig_pair_Mangrove.system</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair1_Mangrove.system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">df_fig_pair2_Mangrove.system</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"taxon"</span>, <span class="st">"group"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -776,7 +777,7 @@ please refer to the package vignette.</code></pre>
 <span><span class="va">mid</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">lo</span> <span class="op">+</span> <span class="va">up</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># heatmap</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># heatmap</span></span>
 <span><span class="va">heatmap_fig_pair_Mangrove.system</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair_Mangrove.system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">group</span>, y <span class="op">=</span> <span class="va">taxon</span>, fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"gray50"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -800,15 +801,12 @@ ggplot2 3.3.4.
 ℹ Please use "none" instead.</code></pre>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="04.4.DifferentialAbundance_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="04.4.DifferentialAbundance_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="plot" class="level2"><h2 class="anchored" data-anchor-id="plot">03.Plot</h2>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># DA barplot</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># DA barplot</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/EmilHvitfeldt/paletteer">paletteer</a></span><span class="op">)</span></span>
 <span><span class="va">da_barplot</span> <span class="op">&lt;-</span> <span class="va">df_fig_pair_Mangrove.system</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">taxon</span>, y <span class="op">=</span> <span class="va">value</span>, fill <span class="op">=</span> <span class="va">group</span>, label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -839,15 +837,12 @@ ggplot2 3.3.4.
 (`geom_bar()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="04.4.DifferentialAbundance_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="04.4.DifferentialAbundance_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="save-rds-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-plot">Save rds plot</h2>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">heatmap_fig_pair_Mangrove.system</span>, <span class="st">"rds/Depth_comparison/DA_heatmap_surface.rds"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">heatmap_fig_pair_Mangrove.system</span>, <span class="st">"rds/Depth_comparison/DA_heatmap_surface.rds"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">da_barplot</span>, <span class="st">"rds/Depth_comparison/DA_barplot_surface.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
@@ -893,33 +888,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -988,15 +956,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1031,7 +997,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1063,48 +1040,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1114,136 +1054,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
   }
       let selectedAnnoteEl;
       const selectorForAnnotation = ( cell, annotation) => {
@@ -1286,7 +1099,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1312,32 +1124,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1397,27 +1183,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./04.3.Coremicrobiome.html" class="pagination-link" aria-label="Core Microbiome">
+      <a href="./04.3.Coremicrobiome.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Core Microbiome</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04.5.Fig4.InteriorCoastalDepthCompare.html" class="pagination-link" aria-label="Fig 4. Interior and Coastal with depth comparison">
+      <a href="./04.5.Fig4.InteriorCoastalDepthCompare.html" class="pagination-link">
         <span class="nav-page-text">Fig 4. Interior and Coastal with depth comparison</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Diana Hernández-Oaxaca and Yaxche Lona, © Copyright 2025</p>
-</div>   
-    <div class="nav-footer-center">
-<p>LandaLab</p>
-</div>
-    <div class="nav-footer-right">
-<p>This page is built with ❤ Science 🦠 🧬 and <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+    <div class="nav-footer-left">Diana Hernández-Oaxaca and Yaxche Lona, © Copyright 2025</div>   
+    <div class="nav-footer-center">LandaLab</div>
+    <div class="nav-footer-right">This page is built with ❤ Science 🦠 🧬 and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
 
