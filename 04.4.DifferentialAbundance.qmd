@@ -1,3 +1,235 @@
 ---
 title: "Differential Abundance"
 ---
+
+## Load Libraries and Data
+
+```{r}
+# load libraries
+library(phyloseq)
+library(dplyr)
+library(ANCOMBC)
+library(tidyverse)
+library(DT)
+options(DT.options = list(
+  initComplete = JS("function(settings, json) {",
+                    "$(this.api().table().header()).css({'background-color':
+  '#000', 'color': '#fff'});","}")))
+```
+
+```{r}
+#load data
+physeq_qiime3 <- readRDS("rds/Depth_comparison/physeq_qiime3.rds")
+```
+
+## 01. Differential abundance ANCOMBC
+
+```{r}
+# phyloseq to TreeSummarizedExperiment
+tse <- mia::convertFromPhyloseq(physeq_qiime3)
+```
+
+```{r}
+#To manually change the reference level, not alphabetic order
+tse$Mangrove.system = factor(tse$Mangrove.system, levels = c("Fossil Lagoon", "San Pedro River", "Términos Lagoon"))
+
+
+#conver to factor using letter levels
+tse$Mangrove.system <- factor(recode
+                              (as.character(tse$Mangrove.system),
+                                    `Fossil Lagoon` = "FL",
+                                    `San Pedro River` = "SPR",
+                                    `Términos Lagoon` = "TL",
+                                    .missing = "unknown"),
+                             levels = c("FL", "SPR", "TL"))
+
+```
+
+```{r}
+# contrast matrix
+contrast_matrices <- list(
+  matrix(c(1, -1, 0,
+           0, 1, -1,
+           0, 0, 1),
+         nrow = 3, byrow = TRUE),
+  matrix(c(1, 0, -1,
+           0, 1, -1,
+           0, 0, 1),
+         nrow = 3, byrow = TRUE),
+  matrix(c(1, 0, 0,
+           0, 1, -1,
+           0, 0, 1),
+         nrow = 3, byrow = TRUE),
+  matrix(c(1, -1, 0,
+           0, 1, 0,
+           0, 0, 1),
+         nrow = 3, byrow = TRUE))
+
+# nodes
+nodes <- list(1, 1, 1, 1)
+```
+
+```{r}
+# ANCOMBC2
+output <- ancombc2(
+  data = tse,
+  assay_name = "counts",
+  tax_level = "Phylum",
+  fix_formula = "Mangrove.system",
+  rand_formula = NULL,
+  p_adj_method = "holm",
+  pseudo_sens = TRUE,
+  prv_cut = 0.10,
+  lib_cut = 1000,
+  s0_perc = 0.05,
+  group = "Mangrove.system",
+  struc_zero = TRUE,
+  neg_lb = TRUE,
+  alpha = 0.05,
+  n_cl = 2,
+  verbose = TRUE,
+  global = TRUE,
+  pairwise = TRUE,
+  dunnet = TRUE,
+  #trend = TRUE,
+  iter_control = list(tol = 1e-2, max_iter = 20, verbose = TRUE),
+  em_control = list(tol = 1e-5, max_iter = 100),
+  lme_control = lme4::lmerControl(),
+  mdfdr_control = list(fwer_ctrl_method = "holm", B = 100),
+  trend_control = list(
+    contrast = contrast_matrices,
+    node = nodes,
+    solver = "ECOS",
+    B = 100
+  )
+)
+```
+
+```{r}
+#See results
+res_pair_Mangrove.system <- output$res_pair
+
+head(res_pair_Mangrove.system)
+```
+
+## 02. Get Differential data
+
+```{r}
+# Create dataframe df_fig_pair1 to log-fold change (LFC) values
+df_fig_pair1_Mangrove.system <- res_pair_Mangrove.system %>%
+  dplyr::filter(`diff_Mangrove.systemSPR` == 1 |
+                  `diff_Mangrove.systemTL` == 1 |
+                  `diff_Mangrove.systemTL_Mangrove.systemSPR` == 1 ) %>%
+  dplyr::mutate(lfc1 = ifelse(`diff_Mangrove.systemSPR` == 1, 
+                              round(`lfc_Mangrove.systemSPR`, 2), NA),
+                lfc2 = ifelse(`diff_Mangrove.systemTL` == 1, 
+                              round(`lfc_Mangrove.systemTL`, 2), NA),
+                lfc3 = ifelse(`diff_Mangrove.systemTL_Mangrove.systemSPR` == 1, 
+                              round(`lfc_Mangrove.systemTL_Mangrove.systemSPR`, 2), NA),
+  ) %>% tidyr::pivot_longer(cols = lfc1:lfc3, names_to = "group", 
+                            values_to = "value") %>% dplyr::arrange(taxon)
+```
+
+```{r}
+# Create dataframe df_fig_pair2 to significant values
+df_fig_pair2_Mangrove.system <- res_pair_Mangrove.system %>%
+  dplyr::filter(`diff_Mangrove.systemSPR` == 1 |
+                  `diff_Mangrove.systemTL` == 1 |
+                  `diff_Mangrove.systemTL_Mangrove.systemSPR` == 1 ) %>%
+  dplyr::mutate(lfc1 = ifelse(`passed_ss_Mangrove.systemSPR` == 1 & 
+                                `diff_Mangrove.systemSPR` == 1, "darkblue", "black"),
+                lfc2 = ifelse(`passed_ss_Mangrove.systemTL` == 1 & 
+                                `diff_Mangrove.systemTL` == 1, "darkblue", "black"),
+                lfc3 = ifelse(`passed_ss_Mangrove.systemTL_Mangrove.systemSPR` == 1 &
+                                `diff_Mangrove.systemTL_Mangrove.systemSPR` == 1, "darkblue", "black")) %>% 
+  tidyr::pivot_longer(cols = lfc1:lfc3, names_to = "group", values_to = "color") %>% 
+    dplyr::arrange(taxon)
+
+```
+
+```{r}
+# Combine dataframes df_fig_pair1 and df_fig_pair2
+df_fig_pair_Mangrove.system <- df_fig_pair1_Mangrove.system %>%
+  dplyr::left_join(df_fig_pair2_Mangrove.system, by = c("taxon", "group"))
+
+# Rename groups
+df_fig_pair_Mangrove.system$group <- recode(df_fig_pair_Mangrove.system$group,
+                                            `lfc1` = "SPR vs FL",
+                                            `lfc2` = "TL vs FL",
+                                            `lfc3` = "TL vs SPR")
+
+df_fig_pair_Mangrove.system$group <- factor(df_fig_pair_Mangrove.system$group,
+                                            levels = c("SPR vs FL",
+                                                       "TL vs FL",
+                                                       "TL vs SPR"))
+
+# Filter comparisons without significant values
+df_fig_pair_Mangrove.system <- df_fig_pair_Mangrove.system %>%
+  group_by(group) %>%
+  filter(any(!is.na(value))) %>%
+  ungroup()
+
+# Calculate limits
+lo <- floor(min(df_fig_pair_Mangrove.system$value, na.rm = TRUE))
+up <- ceiling(max(df_fig_pair_Mangrove.system$value, na.rm = TRUE))
+mid <- (lo + up) / 2
+```
+
+```{r}
+# heatmap
+heatmap_fig_pair_Mangrove.system <- df_fig_pair_Mangrove.system %>%
+  ggplot(aes(x = group, y = taxon, fill = value)) +
+  geom_tile(color = "gray50") +
+  scale_fill_gradient2(low = "#37485FFF", high = "#907c9BFf", mid = "#cad8DCFF", #a71a50
+                       na.value = "white", midpoint = mid, limit = c(lo, up),
+                       name = "LFC") +
+  geom_text(aes(label = round(value, 2), color = color), size = 3.5, na.rm = TRUE) +
+  scale_color_identity(guide = FALSE) +
+  labs(x = NULL, y = NULL, title = "Differential abundance between mangrove system") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5, size = 13),
+        axis.text.y = element_text(size = 12, color = "black"),
+        axis.text.x = element_text(size = 9, angle = 0, 
+                                   hjust = 0.5, color = "black"))
+
+# show
+print(heatmap_fig_pair_Mangrove.system)
+```
+
+## 03.Plot
+
+```{r}
+# DA barplot
+library(paletteer)
+da_barplot <- df_fig_pair_Mangrove.system %>%
+  ggplot(aes(x = taxon, y = value, fill = group, label = round(value, 2))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_paletteer_d("ggsci::blue_grey_material") + #"rcartocolor::Purp"
+  # scale_fill_manual(values = c("SPR vs FL" = "orange",
+  #                              "TL vs FL" = "#a71b40",
+  #                              "CL vs FL" = "yellow3",
+  #                              "TL vs SPR" = "gray50",
+  #                              "CL vs SPR" = "#af4b91",
+  #                              "CL vs TL" = "#466eb4")) +
+  labs(title = "Differential Abundance by Mangrove system",
+       x = "Phylum",
+       y = "Log-Fold Change",
+       fill = "Comparison") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 10),
+        axis.text.y = element_text(size = 8),
+        plot.title = element_text(size = 12),
+        axis.title.x = element_text(size = 9),              
+        axis.title.y = element_text(size = 9),            
+        legend.title = element_text(size = 9))
+
+#show
+da_barplot
+```
+
+## Save rds plot
+
+```{r}
+saveRDS(heatmap_fig_pair_Mangrove.system, "rds/Depth_comparison/DA_heatmap_surface.rds")
+saveRDS(da_barplot, "rds/Depth_comparison/DA_barplot_surface.rds")
+```
