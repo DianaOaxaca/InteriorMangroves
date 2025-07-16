@@ -35,7 +35,7 @@ sample_data(physeq)$Location <- as.factor(sample_data(physeq)$Location)
 #| label: calculate core
 #| echo: true
 # Prevalence threshold
-prevalence_threshold <- 0.8
+prevalence_threshold <- 0.5
 
 # Storage ASVs core list
 core_list <- list()
@@ -145,7 +145,7 @@ upset_plot <- upset(core_df,
                     line.size = 1.5,
                     query.legend = "bottom",
                     sets.bar.color = 
-                      c("#44C17B","#A3D9A8","#2E8B57"),
+                      c("#44C17B","#2E8B57","#A3D9A8"),
                     queries = queries_list)
 
 # show
@@ -364,22 +364,18 @@ write.csv(taxonomy_unique_df, file = "Tables/interior_mangroves/unique_asvs_taxo
 
 ```{r}
 shared_asvs <- Reduce(intersect, core_list)
-head(shared_asvs)
 ```
 
 ```{r}
 shared_taxonomy <- get_taxonomy(shared_asvs)
-head(shared_taxonomy)
 ```
 
 ```{r}
 shared_family <- unique(shared_taxonomy$Family[!is.na(shared_taxonomy$Family)])
-head(shared_family)
 ```
 
 ```{r}
 shared_phyla <- unique(shared_taxonomy$Phylum[!is.na(shared_taxonomy$Phylum)])
-head(shared_phyla)
 ```
 
 ## 07. Relative abundance of core asv
@@ -414,7 +410,7 @@ ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
             group_by = "Location",
             #facet_by = "Location",
             plot_values = TRUE,
-            tax_show = 23,
+            tax_show = 40,
             showRemainingTaxa = TRUE,
             tax_aggregate = "Phylum",
             plot_colorscale = "log10",

@@ -14,7 +14,6 @@ library(dplyr)
 library(UpSetR)
 library(ggplot2)
 library(ampvis2)
-library(ggalluvial)
 ```
 
 ```{r}
@@ -35,8 +34,8 @@ sample_data(physeq_qiime3)$Mangrove_system <- as.factor(sample_data(physeq_qiime
 ```{r}
 #| label: calculate core
 #| echo: true
-# Prevalence threshold
-prevalence_threshold <- 0.8
+# Prevalence threshol
+prevalence_threshold <- 0.5
 
 # Storage ASVs core list
 core_list <- list()
@@ -111,26 +110,22 @@ queries_list <- list()
 # Fossil Lagoon
 queries_list <- append(queries_list, list(
   list(query = intersects, params = list("Fossil Lagoon"), color = "#A7FCC1",
-       active = TRUE, query.name = "Fossil Lagoon")
-))
+       active = TRUE, query.name = "Fossil Lagoon")))
 
 # San Pedro River
 queries_list <- append(queries_list, list(
   list(query = intersects, params = list("San Pedro River"), color = "#26B170",
-       active = TRUE, query.name = "San Pedro River")
-))
+       active = TRUE, query.name = "San Pedro River")))
 
 # Terminos Lagoon
 queries_list <- append(queries_list, list(
   list(query = intersects, params = list("Términos Lagoon"), color = "#329D9C",
-       active = TRUE, query.name = "Términos Lagoon")
-))
+       active = TRUE, query.name = "Términos Lagoon")))
 
 # Celestún
 queries_list <- append(queries_list, list(
   list(query = intersects, params = list("Celestún Lagoon"), color = "#41E8D3",
-       active = TRUE, query.name = "Celestún Lagoon")
-))
+       active = TRUE, query.name = "Celestún Lagoon")))
 
 # Core
 queries_list <- append(queries_list, list(
@@ -143,10 +138,12 @@ queries_list <- append(queries_list, list(
 # Interior
 queries_list <- append(queries_list, list(
   list(query = intersects, params = list("Fossil Lagoon", "San Pedro River"),
-       color = "#356E48", active = TRUE, query.name = "Interior")
-))
+       color = "#356E48", active = TRUE, query.name = "Interior")))
 
-## Note: due to the fact that there were no unique asvs for coastal, it was not integrated in this selection.
+# Coastal
+queries_list <- append(queries_list, list(
+  list(query = intersects, params = list("Términos Lagoon", "Celestún Lagoon"),
+       color = "#68a8c8", active = TRUE, query.name = "Coastal")))
 ```
 
 ## 04. UpSet plot
@@ -327,9 +324,11 @@ taxonomy_unique_df <- do.call(rbind, lapply(names(taxonomy_unique), function(loc
 
 # Move columns
 taxonomy_unique_df <- taxonomy_unique_df[, c("ASV", "Location", setdiff(names(taxonomy_unique_df), c("ASV", "Location")))]
+```
 
-# show first rows of data.frame to verify
-print(head(taxonomy_unique_df))
+```{r}
+# print tail table to see unique ASV from Terminos Lagoon
+tail(taxonomy_unique_df)
 ```
 
 ```{r}
@@ -341,12 +340,10 @@ write.csv(taxonomy_unique_df, file = "Tables/SurfaceComparison/unique_asvs_taxon
 
 ```{r}
 shared_asvs <- Reduce(intersect, core_list)
-print(shared_asvs)
 ```
 
 ```{r}
 shared_taxonomy <- get_taxonomy(shared_asvs)
-print(shared_taxonomy)
 ```
 
 ```{r}
@@ -364,45 +361,6 @@ print(shared_phyla)
 ```{r}
 # Filter
 physeq_shared <- prune_taxa(shared_asvs, physeq_qiime3)
-
-# rel abundance
-physeq_rel <- transform_sample_counts(physeq_shared, function(x){x / sum(x)})
-```
-
-```{r}
-#| warning: false
-# Aggregate data by Mangrove_system
-physeq_agg <- merge_samples(physeq_rel, "Mangrove_system")
-
-# Convert to relative abundance
-physeq_agg_rel <- transform_sample_counts(physeq_agg, function(x) x / sum(x))
-
-# Map Mangrove_type back as a simple vector
-sample_data(physeq_agg_rel)$Mangrove_type <- unlist(sapply(sample_names(physeq_agg_rel), function(sys) {
-  unique(sample_data(physeq_rel)[sample_data(physeq_rel)$Mangrove_system == sys, "Mangrove_type"])[1]
-}))
-```
-
-```{r}
-# Create the bar plot with facet by Mangrove_type
-barplot_core <- phyloseq::plot_bar(physeq_agg_rel, fill = "Family") +
-    geom_bar(aes(color = Family, fill = Family), stat = "identity", position = "stack") +
-    labs(x = "", y = "Relative Abundance", element_text(size = 12)) +
-    facet_wrap(~ Mangrove_type, scales = "free_x", nrow = 1) +
-    scale_fill_manual(values = c("#2B0082", "#706AF5", "#77178F",  "#bfaDDC", "#724BB1", "#DADAEB")) +
-    scale_color_manual(values = c("#2B0082", "#706AF5", "#77178F",  "#bfaDDC", "#724BB1", "#DADAEB")) + # #716EC1
-  theme(axis.text = element_text(colour = "black", size = 12),
-        axis.title = element_text(colour = "black", size = 12),
-        legend.text = element_text(size = 12),
-        legend.title = element_text(size = 11),
-        axis.text.x = element_text(size = 9, angle = 0, 
-                        hjust = 0.5, color = "black"),
-      axis.text.y = element_text(size = 11, color = "black"),
-      strip.text = element_text(size = 14, 
-                                color = "black"), #face = "bold"
-      panel.background = element_blank())
-
-barplot_core
 ```
 
 ```{r}
@@ -416,9 +374,6 @@ otu_table_ampvis <- data.frame(OTU = rownames(phyloseq::otu_table(physeq_shared)
 meta_data_ampvis <- data.frame(phyloseq::sample_data(physeq_shared),
                                  check.names = FALSE)
 
-# change index by SampleID
-#meta_data_ampvis <- meta_data_ampvis %>% rownames_to_column(var = "SampleID")
-
 # ampvis object
 av2 <- amp_load(otu_table_ampvis, meta_data_ampvis)
 ```
@@ -428,7 +383,7 @@ ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
             group_by = "Mangrove_system",
             facet_by = "Mangrove_type",
             plot_values = TRUE,
-            tax_show = 23,
+            tax_show = 29,
             showRemainingTaxa = TRUE,
             tax_aggregate = c("Phylum","Family"),
             plot_colorscale = "log10",
@@ -445,22 +400,9 @@ ampv_heatmap_abundances_phylum_core
 ```
 
 ```{r}
-pdf("Figures/SurfaceComparison/rel_abun_core.pdf")
-barplot_core
-dev.off()
-
 ggsave("Figures/SurfaceComparison/rel_abun_coreheatmap.pdf",
        ampv_heatmap_abundances_phylum_core, bg='transparent', 
        width = 6, height = 4)
-
-```
-
-Extract relative abundance info
-
-```{r}
-otu_rel_df <- psmelt(physeq_agg_rel)
-otu_rel_df_agg <- aggregate(Abundance ~ Sample + Family, data = otu_rel_df, sum)
-print(otu_rel_df_agg)
 ```
 
 ## Save rds core plot

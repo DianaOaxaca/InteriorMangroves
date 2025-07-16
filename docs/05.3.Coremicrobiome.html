@@ -460,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section><section id="calculate-core" class="level2"><h2 class="anchored" data-anchor-id="calculate-core">01. Calculate core</h2>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Prevalence threshold</span></span>
-<span><span class="va">prevalence_threshold</span> <span class="op">&lt;-</span> <span class="fl">0.8</span></span>
+<span><span class="va">prevalence_threshold</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
 <span></span>
 <span><span class="co"># Storage ASVs core list</span></span>
 <span><span class="va">core_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -489,13 +489,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">core_list</span>, <span class="va">length</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$`Fossil Lagoon`
-[1] 697
+[1] 1481
 
 $`Impaired Términos Lagoon`
-[1] 24
+[1] 123
 
 $`San Pedro River`
-[1] 704</code></pre>
+[1] 1695</code></pre>
 </div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># checkpoint,if empty try threshold = 1</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">core_list</span>, <span class="va">length</span><span class="op">)</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
@@ -546,10 +546,11 @@ $`San Pedro River`
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>query <span class="op">=</span> <span class="va">intersects</span>, params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"San Pedro River"</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"#26B170"</span>,</span>
 <span>       active <span class="op">=</span> <span class="cn">TRUE</span>, query.name <span class="op">=</span> <span class="st">"San Pedro River"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Impaired Términos Lagoon</span></span>
-<span><span class="va">queries_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">queries_list</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>query <span class="op">=</span> <span class="va">intersects</span>, params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Impaired Términos Lagoon"</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"gray40"</span>,</span>
-<span>       active <span class="op">=</span> <span class="cn">TRUE</span>, query.name <span class="op">=</span> <span class="st">"Impaired Términos Lagoon"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Impaired Términos Lagoon did not present unique ASV, therefore the bar representing this mangrove is not draw</span></span>
+<span></span>
+<span><span class="co"># queries_list &lt;- append(queries_list, list(</span></span>
+<span><span class="co">#   list(query = intersects, params = list("Impaired Términos Lagoon"), color = "gray40",</span></span>
+<span><span class="co">#        active = TRUE, query.name = "Impaired Términos Lagoon")))</span></span>
 <span></span>
 <span></span>
 <span><span class="co"># Core</span></span>
@@ -557,7 +558,14 @@ $`San Pedro River`
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>query <span class="op">=</span> <span class="va">intersects</span>, params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span>, </span>
 <span>                                         <span class="st">"San Pedro River"</span>,</span>
 <span>                                         <span class="st">"Impaired Términos Lagoon"</span><span class="op">)</span>,</span>
-<span>       color <span class="op">=</span> <span class="st">"#8D3CA3"</span>, active <span class="op">=</span> <span class="cn">TRUE</span>, query.name <span class="op">=</span> <span class="st">"Core"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>       color <span class="op">=</span> <span class="st">"#8D3CA3"</span>, active <span class="op">=</span> <span class="cn">TRUE</span>, query.name <span class="op">=</span> <span class="st">"Core"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Interior</span></span>
+<span><span class="va">queries_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html">append</a></span><span class="op">(</span><span class="va">queries_list</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>query <span class="op">=</span> <span class="va">intersects</span>, params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span>, <span class="st">"San Pedro River"</span><span class="op">)</span>,</span>
+<span>       color <span class="op">=</span> <span class="st">"#356E48"</span>, active <span class="op">=</span> <span class="cn">TRUE</span>, query.name <span class="op">=</span> <span class="st">"Interior"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Note: due to the fact that there were no unique asvs for coastal, it was not integrated in this selection.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="upset-plot" class="level2"><h2 class="anchored" data-anchor-id="upset-plot">04. UpSet plot</h2>
 <div class="cell">
@@ -572,7 +580,7 @@ $`San Pedro River`
 <span>                    line.size <span class="op">=</span> <span class="fl">1.5</span>,</span>
 <span>                    query.legend <span class="op">=</span> <span class="st">"bottom"</span>,</span>
 <span>                    sets.bar.color <span class="op">=</span> </span>
-<span>                      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gray40"</span>,<span class="st">"#A3D9A8"</span>,<span class="st">"#2E8B57"</span><span class="op">)</span>,</span>
+<span>                      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#2E8B57"</span>,<span class="st">"#A7fcc1"</span>,<span class="st">"gray40"</span><span class="op">)</span>,</span>
 <span>                    queries <span class="op">=</span> <span class="va">queries_list</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># show</span></span>
@@ -603,14 +611,14 @@ $`San Pedro River`
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">loc</span>, <span class="st">": Unique ASVs:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">unique_asvs</span><span class="op">[[</span><span class="va">loc</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">unique_asvs</span><span class="op">[[</span><span class="va">loc</span><span class="op">]</span><span class="op">]</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Fossil Lagoon : Unique ASVs: 290 
-[1] "AB530174.1.1517" "FN398053.1.1489" "GU583984.1.1476" "KX768747.1.1475"
-[5] "EU385876.1.1464"
-Impaired Términos Lagoon : Unique ASVs: 2 
-[1] "AB948300.1.1000" "JF747686.1.1533"
-San Pedro River : Unique ASVs: 296 
-[1] "JN514502.1.1443" "HQ691951.1.1342" "GU056110.1.1453" "AF424530.1.990" 
-[5] "EU592483.1.1535"</code></pre>
+<pre><code>Fossil Lagoon : Unique ASVs: 449 
+[1] "FN398053.1.1489" "FR667789.1.1446" "EU491142.1.1523" "DQ351750.1.1510"
+[5] "KX768747.1.1475"
+Impaired Términos Lagoon : Unique ASVs: 0 
+character(0)
+San Pedro River : Unique ASVs: 643 
+[1] "KJ540794.1.1479" "DQ811907.1.1503" "JN514502.1.1443" "KJ817468.1.1463"
+[5] "FJ873203.1.907" </code></pre>
 </div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#unique_asvs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -647,76 +655,65 @@ San Pedro River : Unique ASVs: 296
 <div class="cell-output cell-output-stdout">
 <pre><code>
 First unique ASVs taxonomy Fossil Lagoon :
-                    Kingdom                       Phylum
-AB530174.1.1517 d__Bacteria                 Zixibacteria
-FN398053.1.1489 d__Bacteria               Proteobacteria
-GU583984.1.1476 d__Bacteria SAR324_clade(Marine_group_B)
-KX768747.1.1475 d__Bacteria               Proteobacteria
-EU385876.1.1464 d__Bacteria               Proteobacteria
-                                       Class                        Order
-AB530174.1.1517                 Zixibacteria                 Zixibacteria
-FN398053.1.1489          Gammaproteobacteria              Cellvibrionales
-GU583984.1.1476 SAR324_clade(Marine_group_B) SAR324_clade(Marine_group_B)
-KX768747.1.1475          Alphaproteobacteria             Sphingomonadales
-EU385876.1.1464          Gammaproteobacteria        UBA10353_marine_group
-                                      Family                        Genus
-AB530174.1.1517                 Zixibacteria                 Zixibacteria
-FN398053.1.1489                   Halieaceae                         &lt;NA&gt;
-GU583984.1.1476 SAR324_clade(Marine_group_B) SAR324_clade(Marine_group_B)
-KX768747.1.1475            Sphingomonadaceae                         &lt;NA&gt;
-EU385876.1.1464        UBA10353_marine_group        UBA10353_marine_group
-                             Species
-AB530174.1.1517 uncultured_bacterium
-FN398053.1.1489                 &lt;NA&gt;
-GU583984.1.1476                 &lt;NA&gt;
-KX768747.1.1475                 &lt;NA&gt;
-EU385876.1.1464 uncultured_bacterium
+                    Kingdom           Phylum               Class
+FN398053.1.1489 d__Bacteria   Proteobacteria Gammaproteobacteria
+FR667789.1.1446 d__Bacteria   Proteobacteria Alphaproteobacteria
+EU491142.1.1523 d__Bacteria Latescibacterota     Latescibacteria
+DQ351750.1.1510 d__Bacteria   Proteobacteria Gammaproteobacteria
+KX768747.1.1475 d__Bacteria   Proteobacteria Alphaproteobacteria
+                            Order              Family              Genus
+FN398053.1.1489   Cellvibrionales          Halieaceae               &lt;NA&gt;
+FR667789.1.1446     Micropepsales      Micropepsaceae     Micropepsaceae
+EU491142.1.1523 Latescibacterales  Latescibacteraceae Latescibacteraceae
+DQ351750.1.1510 Oceanospirillales Pseudohongiellaceae    Pseudohongiella
+KX768747.1.1475  Sphingomonadales   Sphingomonadaceae               &lt;NA&gt;
+                                   Species
+FN398053.1.1489                       &lt;NA&gt;
+FR667789.1.1446       uncultured_bacterium
+EU491142.1.1523 uncultured_actinobacterium
+DQ351750.1.1510                       &lt;NA&gt;
+KX768747.1.1475                       &lt;NA&gt;
 
 First unique ASVs taxonomy Impaired Términos Lagoon :
-                    Kingdom          Phylum        Class        Order
-AB948300.1.1000  d__Archaea Asgardarchaeota Lokiarchaeia Lokiarchaeia
-JF747686.1.1533 d__Bacteria         Sva0485      Sva0485      Sva0485
-                      Family        Genus             Species
-AB948300.1.1000 Lokiarchaeia Lokiarchaeia uncultured_archaeon
-JF747686.1.1533      Sva0485      Sva0485                &lt;NA&gt;
+There are no unique ASV to Impaired Términos Lagoon 
 
 First unique ASVs taxonomy San Pedro River :
-                    Kingdom           Phylum           Class
-JN514502.1.1443 d__Bacteria      Chloroflexi Dehalococcoidia
-HQ691951.1.1342 d__Bacteria      Chloroflexi Dehalococcoidia
-GU056110.1.1453 d__Bacteria      Chloroflexi    Anaerolineae
-AF424530.1.990   d__Archaea Thermoplasmatota  Thermoplasmata
-EU592483.1.1535 d__Bacteria Desulfobacterota Desulfobacteria
+                    Kingdom           Phylum               Class
+KJ540794.1.1479 d__Bacteria      Myxococcota           Polyangia
+DQ811907.1.1503 d__Bacteria     Bacteroidota         Bacteroidia
+JN514502.1.1443 d__Bacteria      Chloroflexi     Dehalococcoidia
+KJ817468.1.1463 d__Bacteria   Proteobacteria Alphaproteobacteria
+FJ873203.1.907   d__Archaea Thermoplasmatota      Thermoplasmata
                                              Order
+KJ540794.1.1479                       Polyangiales
+DQ811907.1.1503                      Bacteroidales
 JN514502.1.1443                               FW22
-HQ691951.1.1342                               FW22
-GU056110.1.1453                     Anaerolineales
-AF424530.1.990  Marine_Benthic_Group_D_and_DHVEG-1
-EU592483.1.1535                 Desulfatiglandales
+KJ817468.1.1463                      Kiloniellales
+FJ873203.1.907  Marine_Benthic_Group_D_and_DHVEG-1
                                             Family
+KJ540794.1.1479                            BIrii41
+DQ811907.1.1503                 Prolixibacteraceae
 JN514502.1.1443                               FW22
-HQ691951.1.1342                               FW22
-GU056110.1.1453                    Anaerolineaceae
-AF424530.1.990  Marine_Benthic_Group_D_and_DHVEG-1
-EU592483.1.1535                Desulfatiglandaceae
-                                             Genus              Species
-JN514502.1.1443                               FW22  uncultured_organism
-HQ691951.1.1342                               FW22 uncultured_bacterium
-GU056110.1.1453                         uncultured                 &lt;NA&gt;
-AF424530.1.990  Marine_Benthic_Group_D_and_DHVEG-1                 &lt;NA&gt;
-EU592483.1.1535                     Desulfatiglans uncultured_bacterium</code></pre>
+KJ817468.1.1463                     Kiloniellaceae
+FJ873203.1.907  Marine_Benthic_Group_D_and_DHVEG-1
+                                             Genus                Species
+KJ540794.1.1479                            BIrii41             metagenome
+DQ811907.1.1503                               &lt;NA&gt;                   &lt;NA&gt;
+JN514502.1.1443                               FW22    uncultured_organism
+KJ817468.1.1463                            Tistlia bacterium_YC-ZSS-LKJ88
+FJ873203.1.907  Marine_Benthic_Group_D_and_DHVEG-1                   &lt;NA&gt;</code></pre>
 </div>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Confirm the total number of unique ASVs</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">taxonomy_unique</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="kw">else</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$`Fossil Lagoon`
-[1] 290
+[1] 449
 
 $`Impaired Términos Lagoon`
-[1] 2
+[1] 0
 
 $`San Pedro River`
-[1] 296</code></pre>
+[1] 643</code></pre>
 </div>
 </div>
 <p>Get taxonomy</p>
@@ -759,18 +756,17 @@ $`San Pedro River`
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Exclusive phylum in Fossil Lagoon : 12 
- [1] "Bdellovibrionota"  "RCP2-54"           "PAUC34f"          
- [4] "FCPU426"           "Campilobacterota"  "WS2"              
- [7] "Hydrogenedentes"   "Dependentiae"      "Nitrospinota"     
-[10] "Entotheonellaeota" "Acetothermia"      "Euryarchaeota"    
+<pre><code>Exclusive phylum in Fossil Lagoon : 9 
+[1] "Patescibacteria"   "LCP-89"            "FCPU426"          
+[4] "NKB15"             "Hydrogenedentes"   "Fermentibacterota"
+[7] "RCP2-54"           "Nitrospinota"      "Elusimicrobiota"  
 Exclusive phylum in Impaired Términos Lagoon : 0 
 There are not exclusive phylum.
-Exclusive phylum in San Pedro River : 7 
-[1] "GN01"                          "Dadabacteria"                 
-[3] "CK-2C2-2"                      "Caldatribacteriota"           
-[5] "Marinimicrobia_(SAR406_clade)" "Fibrobacterota"               
-[7] "Elusimicrobiota"              </code></pre>
+Exclusive phylum in San Pedro River : 8 
+[1] "Deferrisomatota"              "Methylomirabilota"           
+[3] "Abditibacteriota"             "PAUC34f"                     
+[5] "Schekmanbacteria"             "SAR324_clade(Marine_group_B)"
+[7] "FW113"                        "WS1"                         </code></pre>
 </div>
 </div>
 <p>Class level</p>
@@ -812,28 +808,26 @@ Exclusive phylum in San Pedro River : 7
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Exclusive class in Fossil Lagoon : 22 
- [1] "Bdellovibrionia"    "Coriobacteriia"     "RCP2-54"           
- [4] "Desulfomonilia"     "PAUC34f"            "FCPU426"           
- [7] "Campylobacteria"    "WS2"                "Aenigmarchaeia"    
-[10] "Hydrogenedentia"    "KD4-96"             "Subgroup_18"       
-[13] "Dissulfuribacteria" "Subgroup_21"        "Blastocatellia"    
-[16] "Babeliae"           "Actinobacteria"     "P9X2b3D02"         
-[19] "Entotheonellia"     "Acetothermiia"      "Thermococci"       
-[22] "Myxococcia"        
+<pre><code>Exclusive class in Fossil Lagoon : 19 
+ [1] "Leptospirae"        "Chloroflexia"       "Gracilibacteria"   
+ [4] "Subgroup_26"        "Methanomicrobia"    "LCP-89"            
+ [7] "FCPU426"            "NKB15"              "Hydrogenedentia"   
+[10] "Chlorobia"          "Fermentibacteria"   "Ignavibacteria"    
+[13] "Dissulfuribacteria" "Blastocatellia"     "WWE3"              
+[16] "RCP2-54"            "P9X2b3D02"          "Elusimicrobia"     
+[19] "Zetaproteobacteria"
 Exclusive class in Impaired Términos Lagoon : 0 
 There are not exclusive class.
-Exclusive class in San Pedro River : 19 
- [1] "GN01"                                "Dadabacteriia"                      
- [3] "RBG-16-55-12"                        "Vicinamibacteria"                   
- [5] "CK-2C2-2"                            "Gemmatimonadetes"                   
- [7] "Syntrophobacteria"                   "MD2902-B12"                         
- [9] "Deep_Sea_Euryarchaeotic_Group(DSEG)" "Omnitrophia"                        
-[11] "bacteriap25"                         "Chlamydiae"                         
-[13] "JS1"                                 "Marinimicrobia_(SAR406_clade)"      
-[15] "Chitinivibrionia"                    "Fibrobacteria"                      
-[17] "Chloroflexia"                        "BD7-11"                             
-[19] "Lineage_IIb"                        </code></pre>
+Exclusive class in San Pedro River : 17 
+ [1] "Defferrisomatia"              "Methanosarcinia"             
+ [3] "Methylomirabilia"             "Abditibacteria"              
+ [5] "Oligoflexia"                  "PAUC34f"                     
+ [7] "SJA-28"                       "Lentisphaeria"               
+ [9] "Kapabacteria"                 "Heimdallarchaeia"            
+[11] "Schekmanbacteria"             "SAR324_clade(Marine_group_B)"
+[13] "Kiritimatiellae"              "FW113"                       
+[15] "WS1"                          "Negativicutes"               
+[17] "Leptospirillia"              </code></pre>
 </div>
 </div>
 <p>Family level</p>
@@ -875,59 +869,65 @@ Exclusive class in San Pedro River : 19
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Exclusive family in Fossil Lagoon : 54 
- [1] "UBA10353_marine_group"   "Bdellovibrionaceae"     
- [3] "OPB41"                   "Ignavibacteriaceae"     
- [5] "RCP2-54"                 "Pla1_lineage"           
- [7] "GIF3"                    "Rhodomicrobiaceae"      
- [9] "Desulfomonilaceae"       "PAUC34f"                
-[11] "Nitrincolaceae"          "Bacteroidetes_vadinHA17"
-[13] "PAUC26f"                 "Rhodospirillaceae"      
-[15] "SB-5"                    "GIF9"                   
-[17] "FCPU426"                 "Sandaracinaceae"        
-[19] "B2M28"                   "Sulfurimonadaceae"      
-[21] "VHS-B3-70"               "vadinBA26"              
-[23] "WS2"                     "Aenigmarchaeales"       
-[25] "Hydrogenedensaceae"      "Caulobacteraceae"       
-[27] "KD4-96"                  "Micavibrionales"        
-[29] "Subgroup_18"             "Prolixibacteraceae"     
-[31] "Dissulfuribacteraceae"   "Run-SP154"              
-[33] "Subgroup_21"             "SG8-5"                  
-[35] "Blastocatellaceae"       "Methylohalobiaceae"     
-[37] "Vermiphilaceae"          "Unknown_Family"         
-[39] "Babeliales"              "Mycobacteriaceae"       
-[41] "Kineosporiaceae"         "Geothermarchaeaceae"    
-[43] "P9X2b3D02"               "Entotheonellaceae"      
-[45] "Arenicellaceae"          "Acetothermiia"          
-[47] "mle1-8"                  "Flavobacteriaceae"      
-[49] "4572-13"                 "Rhodobacteraceae"       
-[51] "Myxococcaceae"           "Euzebyaceae"            
-[53] "PS1_clade"               "Puniceicoccaceae"       
+<pre><code>Exclusive family in Fossil Lagoon : 56 
+ [1] "Micropepsaceae"         "Bdellovibrionaceae"     "Leptospiraceae"        
+ [4] "AKYG1722"               "Gracilibacteria"        "Hungateiclostridiaceae"
+ [7] "HOC36"                  "Subgroup_26"            "Unknown_Family"        
+[10] "BD7-8"                  "VHS-B3-70"              "Methanomicrobiaceae"   
+[13] "LCP-89"                 "Omnitrophales"          "Marine_Benthic_Group_A"
+[16] "Bradymonadales"         "Solimonadaceae"         "FCPU426"               
+[19] "Chromatiaceae"          "Sh765B-AG-111"          "NKB15"                 
+[22] "Hydrogenedensaceae"     "Syntrophobacteraceae"   "Caulobacteraceae"      
+[25] "Micavibrionales"        "Desulfobacteraceae"     "TG3"                   
+[28] "Sumerlaeaceae"          "JdFR-43"                "Halomonadaceae"        
+[31] "Chlorobiaceae"          "Fermentibacteraceae"    "PHOS-HE36"             
+[34] "Desulfobulbaceae"       "Lachnospiraceae"        "Dissulfuribacteraceae" 
+[37] "Run-SP154"              "VHS-B4-70"              "WD2101_soil_group"     
+[40] "Blastocatellaceae"      "WWE3"                   "Methylohalobiaceae"    
+[43] "PS1_clade"              "IMCC26256"              "MSB-4B10"              
+[46] "RCP2-54"                "Geothermarchaeaceae"    "P9X2b3D02"             
+[49] "Stappiaceae"            "SG8-5"                  "67-14"                 
+[52] "Rubritaleaceae"         "Vermiphilaceae"         "PB19"                  
+[55] "MD2894-B20"             "Mariprofundaceae"      
 Exclusive family in Impaired Términos Lagoon : 0 
 There are not exclusive family.
-Exclusive family in San Pedro River : 44 
- [1] "FW22"                                "RBG-13-46-9"                        
- [3] "GN01"                                "Dadabacteriales"                    
- [5] "RBG-16-55-12"                        "Subgroup_9"                         
- [7] "CK-2C2-2"                            "Gemmatimonadaceae"                  
- [9] "Nitrosomonadaceae"                   "Parvularculaceae"                   
-[11] "Acidiferrobacteraceae"               "MSBL5"                              
-[13] "MD2902-B12"                          "Napoli-4B-65"                       
-[15] "JTB23"                               "Defluviicoccaceae"                  
-[17] "Deep_Sea_Euryarchaeotic_Group(DSEG)" "Subgroup_13"                        
-[19] "ER-E4-17"                            "Subgroup_17"                        
-[21] "37-13"                               "CCM11a"                             
-[23] "Omnitrophaceae"                      "Cellvibrionaceae"                   
-[25] "Cryomorphaceae"                      "Desulfococcaceae"                   
-[27] "bacteriap25"                         "Rhizobiales_Incertae_Sedis"         
-[29] "LD1-PA32"                            "661239"                             
-[31] "Sh765B-AG-111"                       "SPG12-461-471-B8"                   
-[33] "JS1"                                 "Geothermobacteraceae"               
-[35] "Vicinamibacteraceae"                 "Marinimicrobia_(SAR406_clade)"      
-[37] "SAR202_clade"                        "TG3"                                
-[39] "AKYG1722"                            "BD7-11"                             
-[41] "TRA3-20"                             "Pedosphaeraceae"                    
-[43] "Lineage_IIb"                         "Thiotrichaceae"                     </code></pre>
+Exclusive family in San Pedro River : 71 
+ [1] "Defferrisomataceae"           "Puniceicoccaceae"            
+ [3] "OM182_clade"                  "Nitrososphaeraceae"          
+ [5] "MBAE14"                       "Rs-M59_termite_group"        
+ [7] "Sulfurovaceae"                "Desulfocapsaceae"            
+ [9] "Methanosaetaceae"             "Methylomirabilaceae"         
+[11] "Syntrophotaleaceae"           "C86"                         
+[13] "A4b"                          "Abditibacteriaceae"          
+[15] "Desulfobacterales"            "Napoli-4B-65"                
+[17] "Acidiferrobacteraceae"        "0319-6G20"                   
+[19] "EPR3968-O8a-Bc78"             "PAUC34f"                     
+[21] "Rhizobiales_Incertae_Sedis"   "Planococcaceae"              
+[23] "SJA-28"                       "Nitrosomonadaceae"           
+[25] "Subgroup_2"                   "CCM11a"                      
+[27] "DG-20"                        "Subgroup_13"                 
+[29] "Sedimenticolaceae"            "37-13"                       
+[31] "P.palmC41"                    "KF-JG30-B3"                  
+[33] "B2M28"                        "Kapabacteriales"             
+[35] "Rubinisphaeraceae"            "Rhodomicrobiaceae"           
+[37] "4572-13"                      "Heimdallarchaeia"            
+[39] "Cryomorphaceae"               "Lenti-02"                    
+[41] "Nitrosopumilaceae"            "Microbulbiferaceae"          
+[43] "Desulfococcaceae"             "Schekmanbacteria"            
+[45] "Emcibacteraceae"              "Eel-36e1D6"                  
+[47] "KI89A_clade"                  "SAR324_clade(Marine_group_B)"
+[49] "Kiritimatiellaceae"           "FW113"                       
+[51] "WS1"                          "Pasteurellaceae"             
+[53] "Rhodothermaceae"              "Subgroup_17"                 
+[55] "R7C24"                        "DEV007"                      
+[57] "Ga0077536"                    "Desulfurivibrionaceae"       
+[59] "SPG12-343-353-B75"            "Vibrionaceae"                
+[61] "Ectothiorhodospiraceae"       "GIF3"                        
+[63] "SAR202_clade"                 "Staphylococcaceae"           
+[65] "Rhodocyclaceae"               "Selenomonadaceae"            
+[67] "WCHB1-41"                     "TRA3-20"                     
+[69] "Micromonosporaceae"           "Leptospirillaceae"           
+[71] "MAT-CR-H6-H10"               </code></pre>
 </div>
 </div>
 <p>Get core table</p>
@@ -950,41 +950,27 @@ Exclusive family in San Pedro River : 44
 <span><span class="co"># show first rows of data.frame to verify</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">taxonomy_unique_df</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                            ASV      Location     Kingdom
-AB530174.1.1517 AB530174.1.1517 Fossil Lagoon d__Bacteria
-FN398053.1.1489 FN398053.1.1489 Fossil Lagoon d__Bacteria
-GU583984.1.1476 GU583984.1.1476 Fossil Lagoon d__Bacteria
-KX768747.1.1475 KX768747.1.1475 Fossil Lagoon d__Bacteria
-EU385876.1.1464 EU385876.1.1464 Fossil Lagoon d__Bacteria
-JQ989640.1.1399 JQ989640.1.1399 Fossil Lagoon  d__Archaea
-                                      Phylum                        Class
-AB530174.1.1517                 Zixibacteria                 Zixibacteria
-FN398053.1.1489               Proteobacteria          Gammaproteobacteria
-GU583984.1.1476 SAR324_clade(Marine_group_B) SAR324_clade(Marine_group_B)
-KX768747.1.1475               Proteobacteria          Alphaproteobacteria
-EU385876.1.1464               Proteobacteria          Gammaproteobacteria
-JQ989640.1.1399             Thermoplasmatota               Thermoplasmata
-                                             Order
-AB530174.1.1517                       Zixibacteria
-FN398053.1.1489                    Cellvibrionales
-GU583984.1.1476       SAR324_clade(Marine_group_B)
-KX768747.1.1475                   Sphingomonadales
-EU385876.1.1464              UBA10353_marine_group
-JQ989640.1.1399 Marine_Benthic_Group_D_and_DHVEG-1
-                                            Family
-AB530174.1.1517                       Zixibacteria
-FN398053.1.1489                         Halieaceae
-GU583984.1.1476       SAR324_clade(Marine_group_B)
-KX768747.1.1475                  Sphingomonadaceae
-EU385876.1.1464              UBA10353_marine_group
-JQ989640.1.1399 Marine_Benthic_Group_D_and_DHVEG-1
-                                             Genus              Species
-AB530174.1.1517                       Zixibacteria uncultured_bacterium
-FN398053.1.1489                               &lt;NA&gt;                 &lt;NA&gt;
-GU583984.1.1476       SAR324_clade(Marine_group_B)                 &lt;NA&gt;
-KX768747.1.1475                               &lt;NA&gt;                 &lt;NA&gt;
-EU385876.1.1464              UBA10353_marine_group uncultured_bacterium
-JQ989640.1.1399 Marine_Benthic_Group_D_and_DHVEG-1  uncultured_archaeon</code></pre>
+<pre><code>                            ASV      Location     Kingdom           Phylum
+FN398053.1.1489 FN398053.1.1489 Fossil Lagoon d__Bacteria   Proteobacteria
+FR667789.1.1446 FR667789.1.1446 Fossil Lagoon d__Bacteria   Proteobacteria
+EU491142.1.1523 EU491142.1.1523 Fossil Lagoon d__Bacteria Latescibacterota
+DQ351750.1.1510 DQ351750.1.1510 Fossil Lagoon d__Bacteria   Proteobacteria
+KX768747.1.1475 KX768747.1.1475 Fossil Lagoon d__Bacteria   Proteobacteria
+GU118430.1.1484 GU118430.1.1484 Fossil Lagoon d__Bacteria     Dadabacteria
+                              Class             Order              Family
+FN398053.1.1489 Gammaproteobacteria   Cellvibrionales          Halieaceae
+FR667789.1.1446 Alphaproteobacteria     Micropepsales      Micropepsaceae
+EU491142.1.1523     Latescibacteria Latescibacterales  Latescibacteraceae
+DQ351750.1.1510 Gammaproteobacteria Oceanospirillales Pseudohongiellaceae
+KX768747.1.1475 Alphaproteobacteria  Sphingomonadales   Sphingomonadaceae
+GU118430.1.1484       Dadabacteriia   Dadabacteriales     Dadabacteriales
+                             Genus                    Species
+FN398053.1.1489               &lt;NA&gt;                       &lt;NA&gt;
+FR667789.1.1446     Micropepsaceae       uncultured_bacterium
+EU491142.1.1523 Latescibacteraceae uncultured_actinobacterium
+DQ351750.1.1510    Pseudohongiella                       &lt;NA&gt;
+KX768747.1.1475               &lt;NA&gt;                       &lt;NA&gt;
+GU118430.1.1484    Dadabacteriales                       &lt;NA&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -993,41 +979,25 @@ JQ989640.1.1399 Marine_Benthic_Group_D_and_DHVEG-1  uncultured_archaeon</code></
 </div>
 </section><section id="get-core-taxonomy" class="level2"><h2 class="anchored" data-anchor-id="get-core-taxonomy">06. Get core taxonomy</h2>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_asvs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Reduce</a></span><span class="op">(</span><span class="va">intersect</span>, <span class="va">core_list</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shared_asvs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "FJ545472.1.1559"          "CP013099.3645030.3646539"
-[3] "AB858577.1.1407"          "GU180188.1.1514"         
-[5] "FJ484793.1.1352"          "HE804013.1.1479"         </code></pre>
-</div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_asvs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Reduce</a></span><span class="op">(</span><span class="va">intersect</span>, <span class="va">core_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_taxonomy</span> <span class="op">&lt;-</span> <span class="fu">get_taxonomy</span><span class="op">(</span><span class="va">shared_asvs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_taxonomy</span> <span class="op">&lt;-</span> <span class="fu">get_taxonomy</span><span class="op">(</span><span class="va">shared_asvs</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_family</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shared_family</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "uncultured"          "Tenderiaceae"        "Desulfosarcinaceae" 
-[4] "Spirochaetaceae"     "Desulfatiglandaceae" "EPR3968-O8a-Bc78"   </code></pre>
-</div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_family</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_phyla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">shared_phyla</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Desulfobacterota" "Proteobacteria"   "Spirochaetota"    "Bacteroidota"    
-[5] "Calditrichota"    "Asgardarchaeota" </code></pre>
-</div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_phyla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="relative-abundance-of-core-asv" class="level2"><h2 class="anchored" data-anchor-id="relative-abundance-of-core-asv">07. Relative abundance of core asv</h2>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filter</span></span>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filter</span></span>
 <span><span class="va">physeq_shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/prune_taxa-methods.html">prune_taxa</a></span><span class="op">(</span><span class="va">shared_asvs</span>, <span class="va">physeq</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="ampvis-heatmap" class="level3"><h3 class="anchored" data-anchor-id="ampvis-heatmap">07.1 Ampvis heatmap</h3>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create and extract otu table</span></span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create and extract otu table</span></span>
 <span><span class="va">otu_table_ampvis</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>OTU <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span><span class="op">)</span>,</span>
 <span>                                 <span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span>,</span>
 <span>                                 <span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/tax_table-methods.html">tax_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span>,</span>
@@ -1041,11 +1011,11 @@ JQ989640.1.1399 Marine_Benthic_Group_D_and_DHVEG-1  uncultured_archaeon</code></
 <span><span class="va">av2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_load.html">amp_load</a></span><span class="op">(</span><span class="va">otu_table_ampvis</span>, <span class="va">meta_data_ampvis</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ampv_heatmap_abundances_phylum_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_heatmap.html">amp_heatmap</a></span><span class="op">(</span><span class="va">av2</span>,</span>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ampv_heatmap_abundances_phylum_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_heatmap.html">amp_heatmap</a></span><span class="op">(</span><span class="va">av2</span>,</span>
 <span>            group_by <span class="op">=</span> <span class="st">"Mangrove_system"</span>,</span>
 <span>            facet_by <span class="op">=</span> <span class="st">"Mangrove_type"</span>,</span>
 <span>            plot_values <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>            tax_show <span class="op">=</span> <span class="fl">16</span>,</span>
+<span>            tax_show <span class="op">=</span> <span class="fl">40</span>,</span>
 <span>            showRemainingTaxa <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>            tax_aggregate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Phylum"</span>, <span class="st">"Family"</span><span class="op">)</span>,</span>
 <span>            plot_colorscale <span class="op">=</span> <span class="st">"log10"</span>,</span>
@@ -1067,14 +1037,14 @@ JQ989640.1.1399 Marine_Benthic_Group_D_and_DHVEG-1  uncultured_archaeon</code></
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_impaired/Core_RelativeAbundance_heatmap.pdf"</span>,</span>
 <span>       <span class="va">ampv_heatmap_abundances_phylum_core</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, </span>
 <span>       width <span class="op">=</span> <span class="fl">4</span>, height <span class="op">=</span> <span class="fl">5.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="save-rds-core-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-core-plot">Save rds core plot</h2>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">upset_plot</span>, <span class="st">"rds/interior_impaired/upset_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">upset_plot</span>, <span class="st">"rds/interior_impaired/upset_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

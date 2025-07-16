@@ -35,7 +35,7 @@ sample_data(physeq)$Mangrove_system <- as.factor(sample_data(physeq)$Mangrove_sy
 #| label: calculate core
 #| echo: true
 # Prevalence threshold
-prevalence_threshold <- 0.8
+prevalence_threshold <- 0.5
 
 # Storage ASVs core list
 core_list <- list()
@@ -117,10 +117,11 @@ queries_list <- append(queries_list, list(
   list(query = intersects, params = list("San Pedro River"), color = "#26B170",
        active = TRUE, query.name = "San Pedro River")))
 
-# Impaired Términos Lagoon
-queries_list <- append(queries_list, list(
-  list(query = intersects, params = list("Impaired Términos Lagoon"), color = "gray40",
-       active = TRUE, query.name = "Impaired Términos Lagoon")))
+# Impaired Términos Lagoon did not present unique ASV, therefore the bar representing this mangrove is not draw
+
+# queries_list <- append(queries_list, list(
+#   list(query = intersects, params = list("Impaired Términos Lagoon"), color = "gray40",
+#        active = TRUE, query.name = "Impaired Términos Lagoon")))
 
 
 # Core
@@ -129,6 +130,13 @@ queries_list <- append(queries_list, list(
                                          "San Pedro River",
                                          "Impaired Términos Lagoon"),
        color = "#8D3CA3", active = TRUE, query.name = "Core")))
+
+# Interior
+queries_list <- append(queries_list, list(
+  list(query = intersects, params = list("Fossil Lagoon", "San Pedro River"),
+       color = "#356E48", active = TRUE, query.name = "Interior")))
+
+## Note: due to the fact that there were no unique asvs for coastal, it was not integrated in this selection.
 ```
 
 ## 04. UpSet plot
@@ -145,7 +153,7 @@ upset_plot <- upset(core_df,
                     line.size = 1.5,
                     query.legend = "bottom",
                     sets.bar.color = 
-                      c("gray40","#A3D9A8","#2E8B57"),
+                      c("#2E8B57","#A7fcc1","gray40"),
                     queries = queries_list)
 
 # show
@@ -364,7 +372,6 @@ write.csv(taxonomy_unique_df, file = "Tables/interior_impaired/unique_asvs_taxon
 
 ```{r}
 shared_asvs <- Reduce(intersect, core_list)
-head(shared_asvs)
 ```
 
 ```{r}
@@ -373,12 +380,10 @@ shared_taxonomy <- get_taxonomy(shared_asvs)
 
 ```{r}
 shared_family <- unique(shared_taxonomy$Family[!is.na(shared_taxonomy$Family)])
-head(shared_family)
 ```
 
 ```{r}
 shared_phyla <- unique(shared_taxonomy$Phylum[!is.na(shared_taxonomy$Phylum)])
-head(shared_phyla)
 ```
 
 ## 07. Relative abundance of core asv
@@ -410,7 +415,7 @@ ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
             group_by = "Mangrove_system",
             facet_by = "Mangrove_type",
             plot_values = TRUE,
-            tax_show = 16,
+            tax_show = 40,
             showRemainingTaxa = TRUE,
             tax_aggregate = c("Phylum", "Family"),
             plot_colorscale = "log10",
