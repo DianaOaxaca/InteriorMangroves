@@ -2,3 +2,5 @@
 *.svg
 /.quarto/
 .Rproj.user/
+*.DS_Store
+*.numbers
