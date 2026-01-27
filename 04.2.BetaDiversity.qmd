@@ -284,5 +284,5 @@ ggsave("Figures/Depth_comparison/NMDS.pdf", nmds, bg='transparent', width = 6, h
 ## Save rds for beta diversity plot
 
 ```{r}
-saveRDS(nmds_plot_bray_perm, "rds/Depth_comparison/beta-diversity-Depth-plot.rds")
+saveRDS(nmds, "rds/Depth_comparison/beta-diversity-Depth-plot.rds")
 ```

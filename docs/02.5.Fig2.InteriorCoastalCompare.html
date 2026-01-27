@@ -99,12 +99,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta property="og:title" content="Fig.2 Interior and Coastal mangroves compare – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta property="og:image" content="02.5.Fig2.InteriorCoastalCompare_files/figure-html/unnamed-chunk-3-1.png">
+<meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Fig.2 Interior and Coastal mangroves compare – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta name="twitter:image" content="02.5.Fig2.InteriorCoastalCompare_files/figure-html/unnamed-chunk-3-1.png">
+<meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
 <meta name="twitter:creator" content="@HOaxacaDiana">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 <body class="nav-sidebar docked">
 
@@ -429,37 +429,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="load-figures" class="level2"><h2 class="anchored" data-anchor-id="load-figures">Load figures</h2>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/alpha_diversity_surface_plot.rds"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Coastal depth </span></span>
+<span><span class="va">alpha_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/Depth_comparison/alpha_diversity_MS_plot.rds"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">beta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/beta-diversity-surface-plot.rds"</span><span class="op">)</span></span>
+<span><span class="va">beta_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/Depth_comparison/beta-diversity-Depth-plot.rds"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/upset_surface_plot.rds"</span><span class="op">)</span></span>
+<span><span class="va">core_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/Depth_comparison/upset_surface_plot.rds"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">dabar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/DA_barplot_surface.rds"</span><span class="op">)</span></span>
+<span><span class="va">dahm_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/Depth_comparison/DA_heatmap_surface.rds"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">dahm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/DA_heatmap_surface.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">coreab_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/Depth_comparison/coreabundance_surface_plot.rds"</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co">## Coastal surface</span></span>
+<span><span class="va">alpha_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/alpha_diversity_surface_plot.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">beta_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/beta-diversity-surface-plot.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">core_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/upset_surface_plot.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dahm_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/DA_heatmap_surface.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">coreab_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/compare_mangroves/coreabundance_surface_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="combine-plots" class="level2"><h2 class="anchored" data-anchor-id="combine-plots">Combine plots</h2>
+<p>Coastal depth comparison</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beta_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">beta</span>, <span class="va">core</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"B"</span>, <span class="st">"D)"</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># alpha and core</span></span>
+<span><span class="va">alpha_da_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">alpha_d</span>, <span class="va">dahm_d</span>,</span>
+<span>                        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">" "</span>, <span class="st">"C)"</span><span class="op">)</span>,</span>
 <span>                        label_fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>                        ncol <span class="op">=</span> <span class="fl">1</span>, rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">beta_core_da</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">beta_core</span>, <span class="va">dahm</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"C)"</span><span class="op">)</span>,</span>
+<span>                        ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0.7</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># core and differential abundance</span></span>
+<span><span class="va">core_coreab_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">core_d</span>, <span class="va">coreab_d</span>, </span>
+<span>                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"D)"</span>, <span class="st">"E)"</span><span class="op">)</span>,</span>
+<span>                     label_fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>                     ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.6</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># merge all</span></span>
+<span><span class="va">all_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">beta_d</span>, <span class="va">alpha_da_d</span>, <span class="va">core_coreab_d</span>,</span>
+<span>                   labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"D)"</span>, <span class="st">"E)"</span><span class="op">)</span>,</span>
+<span>                   label_fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>                   ncol <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>                   rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Coastal surface comparison</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># alpha and beta</span></span>
+<span><span class="va">alpha_beta_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">alpha_s</span>,<span class="va">beta_s</span>,</span>
+<span>                        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A)"</span>, <span class="st">"B)"</span><span class="op">)</span>,</span>
 <span>                        label_fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>                        ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.9</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">alpha_beta_core_da_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">alpha</span>, <span class="va">beta_core_da</span>,</span>
-<span>                        ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.35</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">alpha_beta_core_da_2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="02.5.Fig2.InteriorCoastalCompare_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<span>                        ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="fl">0.6</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># core and differential abundance</span></span>
+<span><span class="va">core_da_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">core_s</span>, <span class="va">dahm_s</span>, </span>
+<span>                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"C)"</span>, <span class="st">"D)"</span><span class="op">)</span>,</span>
+<span>                     label_fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>                     ncol <span class="op">=</span> <span class="fl">1</span>, rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># merge all</span></span>
+<span><span class="va">all_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">alpha_beta_s</span>, <span class="va">dahm_s</span>, <span class="va">core_s</span>,</span>
+<span>                 labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">" "</span>,<span class="st">"C)"</span>, <span class="st">"D)"</span><span class="op">)</span>,</span>
+<span>                 label_fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>                 ncol <span class="op">=</span> <span class="fl">1</span>, </span>
+<span>                 rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+<p>combine</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># merge depth and surface</span></span>
+<span><span class="va">all_d_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">all_d</span>, <span class="va">all_s</span>,</span>
+<span>                        ncol <span class="op">=</span> <span class="fl">2</span>, </span>
+<span>                        rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/Fig2.SurfaceComparison_2.pdf"</span>,</span>
-<span>       <span class="va">alpha_beta_core_da_2</span>, width <span class="op">=</span> <span class="fl">19</span>, height <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/Fig2.SurfaceComparison_2.pdf"</span>,</span>
+<span>       <span class="va">all_d_s</span>, width <span class="op">=</span> <span class="fl">19</span>, height <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">

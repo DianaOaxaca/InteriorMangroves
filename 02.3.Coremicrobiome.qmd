@@ -400,13 +400,45 @@ ampv_heatmap_abundances_phylum_core
 ```
 
 ```{r}
+#| message: false
+#| warning: false
+ampv_heatmap_abundances_fam_core <- amp_heatmap(av2,
+            group_by = "Mangrove_system",
+            facet_by = "Mangrove_type",
+            plot_values = TRUE,
+            tax_show = 29,
+            showRemainingTaxa = TRUE,
+            tax_aggregate = c("Family"),
+            plot_colorscale = "log10",
+            plot_values_size = 3,
+            min_abundance = 0.001,
+            round = 2,
+            color_vector = c("#703AF5","#DADAEB" ,"#75157a")) + #"#DADAEB"
+  theme(axis.text.x = element_text(angle = 0, size=11, 
+                                   vjust = 1, hjust = 0.5),
+        axis.text.y = element_text(size=12),
+        legend.position="right")
+
+ampv_heatmap_abundances_fam_core
+```
+
+```{r}
 ggsave("Figures/SurfaceComparison/rel_abun_coreheatmap.pdf",
        ampv_heatmap_abundances_phylum_core, bg='transparent', 
-       width = 6, height = 4)
+       width = 9, height = 6)
+
+ggsave("Figures/SurfaceComparison/rel_abun_coreheatmap_fam.pdf",
+       ampv_heatmap_abundances_fam_core, bg='transparent', 
+       width = 6, height = 6)
 ```
 
 ## Save rds core plot
 
 ```{r}
 saveRDS(upset_plot, "rds/compare_mangroves/upset_surface_plot.rds")
+
+saveRDS(ampv_heatmap_abundances_fam_core, "rds/compare_mangroves/coreabundance_surface_plot.rds")
+
+saveRDS(physeq_shared, "rds/compare_mangroves/physeq_shared.rds")
+
 ```

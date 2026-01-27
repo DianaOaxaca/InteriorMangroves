@@ -411,7 +411,7 @@ av2 <- amp_load(otu_table_ampvis, meta_data_ampvis)
 ```
 
 ```{r}
-ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
+ampv_heatmap_abundances_fam_core <- amp_heatmap(av2,
             group_by = "Mangrove_system",
             facet_by = "Mangrove_type",
             plot_values = TRUE,
@@ -419,7 +419,36 @@ ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
             showRemainingTaxa = TRUE,
             tax_aggregate = c("Phylum", "Family"),
             plot_colorscale = "log10",
-            plot_values_size = 3,
+            plot_values_size = 3.5,
+            min_abundance = 0.001,
+            round = 2,
+            color_vector = c("#703AF5","#DADAEB" ,"#75157a")) + #"#DADAEB"
+  theme(axis.text.x = element_text(angle = 0, size=11, 
+                                   vjust = 1, hjust = 0.5),
+        axis.text.y = element_text(size=12),
+        legend.position="right")
+
+ampv_heatmap_abundances_fam_core
+```
+
+```{r}
+# save
+ggsave("Figures/interior_impaired/Core_RelativeAbundance_heatmap_fam.pdf",
+       ampv_heatmap_abundances_fam_core, bg='transparent', 
+       width = 12, height = 8)
+```
+
+```{r}
+ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
+            group_by = "Mangrove_system",
+            facet_by = "Mangrove_type",
+            plot_values = TRUE,
+            tax_show = 40,
+            showRemainingTaxa = TRUE,
+            #tax_aggregate = c("Phylum", "Class"),
+            tax_aggregate = c("Phylum"),
+            plot_colorscale = "log10",
+            plot_values_size = 4,
             min_abundance = 0.001,
             round = 2,
             color_vector = c("#703AF5","#DADAEB" ,"#75157a")) + #"#DADAEB"
@@ -433,9 +462,9 @@ ampv_heatmap_abundances_phylum_core
 
 ```{r}
 # save
-ggsave("Figures/interior_impaired/Core_RelativeAbundance_heatmap.pdf",
+ggsave("Figures/interior_impaired/Core_RelativeAbundance_heatmap_phylum.pdf",
        ampv_heatmap_abundances_phylum_core, bg='transparent', 
-       width = 4, height = 5.5)
+       width = 5, height = 6)
 ```
 
 ## Save rds core plot

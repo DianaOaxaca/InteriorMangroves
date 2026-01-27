@@ -1015,13 +1015,47 @@ EU487913.1.1482                         uncultured                      &lt;NA&g
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/rel_abun_coreheatmap.pdf"</span>,</span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ampv_heatmap_abundances_fam_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_heatmap.html">amp_heatmap</a></span><span class="op">(</span><span class="va">av2</span>,</span>
+<span>            group_by <span class="op">=</span> <span class="st">"Mangrove_system"</span>,</span>
+<span>            facet_by <span class="op">=</span> <span class="st">"Mangrove_type"</span>,</span>
+<span>            plot_values <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>            tax_show <span class="op">=</span> <span class="fl">29</span>,</span>
+<span>            showRemainingTaxa <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>            tax_aggregate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Family"</span><span class="op">)</span>,</span>
+<span>            plot_colorscale <span class="op">=</span> <span class="st">"log10"</span>,</span>
+<span>            plot_values_size <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>            min_abundance <span class="op">=</span> <span class="fl">0.001</span>,</span>
+<span>            round <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>            color_vector <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#703AF5"</span>,<span class="st">"#DADAEB"</span> ,<span class="st">"#75157a"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co">#"#DADAEB"</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">0</span>, size<span class="op">=</span><span class="fl">11</span>, </span>
+<span>                                   vjust <span class="op">=</span> <span class="fl">1</span>, hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>        axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">12</span><span class="op">)</span>,</span>
+<span>        legend.position<span class="op">=</span><span class="st">"right"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ampv_heatmap_abundances_fam_core</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="02.3.Coremicrobiome_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/rel_abun_coreheatmap.pdf"</span>,</span>
 <span>       <span class="va">ampv_heatmap_abundances_phylum_core</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, </span>
-<span>       width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>       width <span class="op">=</span> <span class="fl">9</span>, height <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/rel_abun_coreheatmap_fam.pdf"</span>,</span>
+<span>       <span class="va">ampv_heatmap_abundances_fam_core</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, </span>
+<span>       width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="save-rds-core-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-core-plot">Save rds core plot</h2>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">upset_plot</span>, <span class="st">"rds/compare_mangroves/upset_surface_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">upset_plot</span>, <span class="st">"rds/compare_mangroves/upset_surface_plot.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ampv_heatmap_abundances_fam_core</span>, <span class="st">"rds/compare_mangroves/coreabundance_surface_plot.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">physeq_shared</span>, <span class="st">"rds/compare_mangroves/physeq_shared.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

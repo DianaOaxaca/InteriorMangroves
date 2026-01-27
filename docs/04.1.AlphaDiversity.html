@@ -99,9 +99,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta property="og:title" content="Alpha Diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
 <meta property="og:image" content="04.1.AlphaDiversity_files/figure-html/unnamed-chunk-7-1.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Alpha Diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
+<meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
 <meta name="twitter:image" content="04.1.AlphaDiversity_files/figure-html/unnamed-chunk-7-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
 <meta name="twitter:card" content="summary_large_image">
@@ -435,6 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#save-rds-for-depths-alpha-diversity-plot" id="toc-save-rds-for-depths-alpha-diversity-plot" class="nav-link" data-scroll-target="#save-rds-for-depths-alpha-diversity-plot">Save rds for Depths alpha diversity plot</a></li>
   </ul>
 </li>
+  <li><a href="#get-depth-differences-by-system" id="toc-get-depth-differences-by-system" class="nav-link" data-scroll-target="#get-depth-differences-by-system">07. Get depth differences by system</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -477,21 +480,12 @@ Note
   confint.boot car 
   hist.boot    car </code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'hilldiv'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:phyloseq':
-
-    merge_samples</code></pre>
-</div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
 ✔ purrr     1.0.4     </code></pre>
 </div>
@@ -501,7 +495,7 @@ Attaching package: 'hilldiv'</code></pre>
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rpkgs.datanovia.com/ggpubr/">ggpubr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/cowplot/">cowplot</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -516,17 +510,19 @@ The following object is masked from 'package:lubridate':
 
     stamp</code></pre>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vegandevs/vegan">vegan</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vegandevs/vegan">vegan</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: permute</code></pre>
+<pre><code>Loading required package: permute
+Loading required package: lattice
+This is vegan 2.6-8</code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvlenth.github.io/emmeans/">emmeans</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvlenth.github.io/emmeans/">emmeans</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Welcome to emmeans.
 Caution: You lose important information if you filter this package's results.
 See '? untidy'</code></pre>
 </div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: mvtnorm
 Loading required package: survival
@@ -546,7 +542,7 @@ The following object is masked from 'package:MASS':
 
     geyser</code></pre>
 </div>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lme4/lme4/">lme4</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lme4/lme4/">lme4</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: Matrix
 
@@ -556,7 +552,7 @@ The following objects are masked from 'package:tidyr':
 
     expand, pack, unpack</code></pre>
 </div>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/runehaubo/lmerTestR">lmerTest</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/runehaubo/lmerTestR">lmerTest</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'lmerTest'
@@ -571,27 +567,27 @@ The following object is masked from 'package:stats':
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load data</span></span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load data</span></span>
 <span><span class="va">physeq_qiime3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"rds/Depth_comparison/physeq_qiime3.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">loc_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span><span class="op">=</span> <span class="st">"#A7fcc1"</span>,</span>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">loc_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span><span class="op">=</span> <span class="st">"#A7fcc1"</span>,</span>
 <span>                <span class="st">"San Pedro River"</span> <span class="op">=</span> <span class="st">"#26B170"</span>,</span>
 <span>                <span class="st">"Términos Lagoon"</span> <span class="op">=</span> <span class="st">"#329D9C"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">depth_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Surface"</span> <span class="op">=</span> <span class="st">"#f5e5c4"</span>,</span>
-<span>                 <span class="st">"mid"</span> <span class="op">=</span> <span class="st">"#baa179"</span>,</span>
+<span>                 <span class="st">"Mid"</span> <span class="op">=</span> <span class="st">"#baa179"</span>,</span>
 <span>                 <span class="st">"Deep"</span> <span class="op">=</span> <span class="st">"#80673b"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract metadata and otu table from phyloseq object</span></span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract metadata and otu table from phyloseq object</span></span>
 <span></span>
 <span><span class="va">otu_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_qiime3</span>, taxa_are_rows <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/methods/as.html">as</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span>, <span class="st">"data.frame"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="get-hill-numbers" class="level2"><h2 class="anchored" data-anchor-id="get-hill-numbers">01.Get Hill numbers</h2>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate hill numbers</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate hill numbers</span></span>
 <span></span>
 <span><span class="va">q0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/hilldiv/man/hill_div.html">hill_div</a></span><span class="op">(</span><span class="va">otu_data</span>, qvalue <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
 <span><span class="va">q1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/hilldiv/man/hill_div.html">hill_div</a></span><span class="op">(</span><span class="va">otu_data</span>, qvalue <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
@@ -604,40 +600,41 @@ The following object is masked from 'package:stats':
 <span></span>
 <span><span class="co"># join</span></span>
 <span><span class="va">metadata_with_hill</span> <span class="op">&lt;-</span> <span class="va">q012</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">metadata</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SampleID"</span><span class="op">=</span><span class="st">"SampleID"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">metadata</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"SampleID"</span><span class="op">=</span><span class="st">"SampleID"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Depths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Depths</span> <span class="op">==</span> <span class="st">"mid"</span>, <span class="st">"Mid"</span>, <span class="va">Depths</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># show</span></span>
 <span><span class="va">metadata_with_hill</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  SampleID   q0       q1        q2 Collection_date depth  ID
-1   S1A015 1266 330.1845 105.96617      2023-09-28  0-15 S1A
-2  S1A1530 1527 433.7356 165.11560      2023-09-28 16-30 S1A
-3  S1A3050 1558 428.0241 161.83786      2023-09-28 31-45 S1A
-4  S1A5075 1632 362.5208 110.59152      2023-09-28 50-70 S1A
-5    S1B07 1502 164.0689  35.98342      2023-09-28  0-15 S1B
-6  S1B2230 1821 461.1541 149.57942      2023-09-28 16-30 S1B
-  Environmental_medium Geographic.Location    Study_zone Ecological_type season
-1             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
-2             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
-3             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
-4             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
-5             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
-6             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
-  Mangrove.system  Depths
-1 San Pedro River Surface
-2 San Pedro River     mid
-3 San Pedro River    Deep
-4 San Pedro River    Deep
-5 San Pedro River Surface
-6 San Pedro River     mid</code></pre>
+<pre><code>  SampleID   q0  q1  q2 Collection_date depth  ID Environmental_medium
+1   S1A015 1266 330 106      2023-09-28  0-15 S1A             sediment
+2  S1A1530 1527 434 165      2023-09-28 16-30 S1A             sediment
+3  S1A3050 1558 428 162      2023-09-28 31-45 S1A             sediment
+4  S1A5075 1632 363 111      2023-09-28 50-70 S1A             sediment
+5    S1B07 1502 164  36      2023-09-28  0-15 S1B             sediment
+6  S1B2230 1821 461 150      2023-09-28 16-30 S1B             sediment
+  Geographic.Location    Study_zone Ecological_type season Mangrove.system
+1      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+2      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+3      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+4      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+5      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+6      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
+   Depths
+1 Surface
+2     Mid
+3    Deep
+4    Deep
+5 Surface
+6     Mid</code></pre>
 </div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save table</span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="st">"Tables/Depth_comparison/Metadata_with_hill.tsv"</span>,</span>
 <span>            quote <span class="op">=</span> <span class="cn">FALSE</span>, sep <span class="op">=</span> <span class="st">"\t"</span>, row.names <span class="op">=</span> <span class="cn">TRUE</span>, col.names<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="get-hill-means" class="level2"><h2 class="anchored" data-anchor-id="get-hill-means">02.Get Hill means</h2>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder q values</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder q values</span></span>
 <span><span class="va">meta_qs</span> <span class="op">&lt;-</span> <span class="va">metadata_with_hill</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="va">q0</span><span class="op">:</span><span class="va">q2</span>, names_to <span class="op">=</span> <span class="st">"q"</span>, values_to <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">q</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"q0"</span>, <span class="st">"q1"</span>, <span class="st">"q2"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -657,21 +654,21 @@ The following object is masked from 'package:stats':
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">means</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 27 × 5
-   Depths  Mangrove.system qs              means     sd
-   &lt;chr&gt;   &lt;chr&gt;           &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
- 1 Deep    Fossil Lagoon   q0=Observed    1449.  141.  
- 2 Deep    Fossil Lagoon   q1=Exp Shannon  310.   68.7 
- 3 Deep    Fossil Lagoon   q2=Inv Simpson   93.8  36.5 
- 4 Deep    San Pedro River q0=Observed    1611.  341.  
- 5 Deep    San Pedro River q1=Exp Shannon  342.  117.  
- 6 Deep    San Pedro River q2=Inv Simpson  106.   49.9 
- 7 Deep    Términos Lagoon q0=Observed     152.   54.6 
- 8 Deep    Términos Lagoon q1=Exp Shannon   41.4  25.8 
- 9 Deep    Términos Lagoon q2=Inv Simpson   13.9   9.73
-10 Surface Fossil Lagoon   q0=Observed    1230   134.  
+   Depths Mangrove.system qs              means     sd
+   &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Deep   Fossil Lagoon   q0=Observed    1449.  141.  
+ 2 Deep   Fossil Lagoon   q1=Exp Shannon  310.   68.7 
+ 3 Deep   Fossil Lagoon   q2=Inv Simpson   93.8  36.5 
+ 4 Deep   San Pedro River q0=Observed    1611.  341.  
+ 5 Deep   San Pedro River q1=Exp Shannon  342.  117.  
+ 6 Deep   San Pedro River q2=Inv Simpson  106.   49.9 
+ 7 Deep   Términos Lagoon q0=Observed     152.   54.6 
+ 8 Deep   Términos Lagoon q1=Exp Shannon   41.4  25.8 
+ 9 Deep   Términos Lagoon q2=Inv Simpson   13.9   9.73
+10 Mid    Fossil Lagoon   q0=Observed    1394.  156.  
 # ℹ 17 more rows</code></pre>
 </div>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save table</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">means</span>, <span class="st">"Tables/Depth_comparison/Hill_means_sd.tsv"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>            sep <span class="op">=</span> <span class="st">"\t"</span>, row.names <span class="op">=</span> <span class="cn">TRUE</span>, col.names<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -689,21 +686,21 @@ The following object is masked from 'package:stats':
  1 Fossil Lagoon   Deep    q0=Observed    1449.  141. 
  2 Fossil Lagoon   Deep    q1=Exp Shannon  310.   68.7
  3 Fossil Lagoon   Deep    q2=Inv Simpson   93.8  36.5
- 4 Fossil Lagoon   Surface q0=Observed    1230   134. 
- 5 Fossil Lagoon   Surface q1=Exp Shannon  300.   75.1
- 6 Fossil Lagoon   Surface q2=Inv Simpson   86.5  26.9
- 7 Fossil Lagoon   mid     q0=Observed    1394.  156. 
- 8 Fossil Lagoon   mid     q1=Exp Shannon  386.   84.4
- 9 Fossil Lagoon   mid     q2=Inv Simpson  136.   38.8
+ 4 Fossil Lagoon   Mid     q0=Observed    1394.  156. 
+ 5 Fossil Lagoon   Mid     q1=Exp Shannon  386.   84.4
+ 6 Fossil Lagoon   Mid     q2=Inv Simpson  136.   38.8
+ 7 Fossil Lagoon   Surface q0=Observed    1230   134. 
+ 8 Fossil Lagoon   Surface q1=Exp Shannon  300.   75.1
+ 9 Fossil Lagoon   Surface q2=Inv Simpson   86.5  26.9
 10 San Pedro River Deep    q0=Observed    1611.  341. 
 # ℹ 17 more rows</code></pre>
 </div>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">means</span>, <span class="st">"Tables/Depth_comparison/Hill_means_sd_mangrove_systemDepths.tsv"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">means</span>, <span class="st">"Tables/Depth_comparison/Hill_means_sd_mangrove_systemDepths.tsv"</span>, quote <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>            sep <span class="op">=</span> <span class="st">"\t"</span>, row.names <span class="op">=</span> <span class="cn">TRUE</span>, col.names<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="get-sequencing-effort" class="level2"><h2 class="anchored" data-anchor-id="get-sequencing-effort">03.Get sequencing effort</h2>
 <div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">### Sample effort</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">### Sample effort</span></span>
 <span></span>
 <span><span class="va">mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/methods/as.html">as</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">)</span>, <span class="st">"matrix"</span><span class="op">)</span></span>
 <span><span class="va">raremax</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums-methods.html">rowSums</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span><span class="op">)</span></span>
@@ -723,9 +720,9 @@ observed count data have counts 1, but smallest count is 2</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
- 12.129   0.016  12.143 </code></pre>
+ 18.419   0.902  19.750 </code></pre>
 </div>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/sample_effort.pdf"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/rarefy.html">rarecurve</a></span><span class="op">(</span><span class="va">mat</span>, step <span class="op">=</span> <span class="fl">100</span>, sample <span class="op">=</span> <span class="va">raremax</span>, col <span class="op">=</span> <span class="st">"green4"</span>, </span>
 <span>                      label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -735,23 +732,23 @@ observed count data have counts 1, but smallest count is 2</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
- 12.003   0.000  12.003 </code></pre>
+ 17.492   0.664  18.262 </code></pre>
 </div>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>png 
-  2 </code></pre>
+<pre><code>quartz_off_screen 
+                2 </code></pre>
 </div>
 </div>
 </section><section id="check-alpha-diversity-correlation-with-sequencing-depth" class="level2"><h2 class="anchored" data-anchor-id="check-alpha-diversity-correlation-with-sequencing-depth">04. Check Alpha diversity correlation with sequencing depth</h2>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Get effective reads</span></span>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Get effective reads</span></span>
 <span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums-methods.html">colSums</a></span><span class="op">(</span><span class="va">otu_data</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="va">Effective_reads</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="alpha-diversity-depth-correlation-to-q0-order" class="level3"><h3 class="anchored" data-anchor-id="alpha-diversity-depth-correlation-to-q0-order">Alpha diversity depth correlation to q0 order</h3>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q0_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>,</span>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q0_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>,</span>
 <span>                x <span class="op">=</span> <span class="st">"Effective_reads"</span>, y <span class="op">=</span> <span class="st">"q0"</span>, </span>
 <span>                xlab<span class="op">=</span> <span class="st">"Sequencing depth (number of reads)"</span>,</span>
 <span>                ylab <span class="op">=</span> <span class="st">"q=0"</span>, add <span class="op">=</span> <span class="st">"reg.line"</span>,</span>
@@ -764,7 +761,7 @@ observed count data have counts 1, but smallest count is 2</code></pre>
 </div>
 </section><section id="alpha-diversity-depth-correlation-to-q1-order" class="level3"><h3 class="anchored" data-anchor-id="alpha-diversity-depth-correlation-to-q1-order">Alpha diversity depth correlation to q1 order</h3>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q1_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, </span>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q1_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, </span>
 <span>                x <span class="op">=</span> <span class="st">"Effective_reads"</span>, y <span class="op">=</span> <span class="st">"q1"</span>, </span>
 <span>                xlab<span class="op">=</span> <span class="st">"Sequencing depth (number of reads)"</span>,</span>
 <span>                ylab <span class="op">=</span> <span class="st">"q=1"</span>, add <span class="op">=</span> <span class="st">"reg.line"</span>,</span>
@@ -777,7 +774,7 @@ observed count data have counts 1, but smallest count is 2</code></pre>
 </div>
 </section><section id="alpha-diversity-depth-correlation-to-q2-order" class="level3"><h3 class="anchored" data-anchor-id="alpha-diversity-depth-correlation-to-q2-order">Alpha diversity depth correlation to q2 order</h3>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q2_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, </span>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q2_vs_depth</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rpkgs.datanovia.com/ggpubr/reference/ggscatter.html">ggscatter</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, </span>
 <span>                x <span class="op">=</span> <span class="st">"Effective_reads"</span>, y <span class="op">=</span> <span class="st">"q2"</span>, </span>
 <span>                xlab<span class="op">=</span> <span class="st">"Sequencing depth (number of reads)"</span>,</span>
 <span>                ylab <span class="op">=</span> <span class="st">"q=2"</span>, add <span class="op">=</span> <span class="st">"reg.line"</span>,</span>
@@ -789,7 +786,7 @@ observed count data have counts 1, but smallest count is 2</code></pre>
 <span>        legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine plot</span></span>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine plot</span></span>
 <span><span class="va">title_corr_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html">ggdraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_label.html">draw_label</a></span><span class="op">(</span><span class="st">"Alpha diversity depth correlation"</span><span class="op">)</span></span>
 <span></span>
@@ -807,7 +804,7 @@ observed count data have counts 1, but smallest count is 2</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># #save plot</span></span>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># #save plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/alpha_depth_correlation.pdf"</span>, <span class="va">correlation_plot_q012</span>, width <span class="op">=</span> <span class="fl">8</span>, height <span class="op">=</span> <span class="fl">8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="get-significant-differences-for-mangrove-system" class="level2"><h2 class="anchored" data-anchor-id="get-significant-differences-for-mangrove-system">05.Get significant differences for mangrove system</h2>
@@ -825,18 +822,18 @@ Important
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#factor to reorder plot</span></span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#factor to reorder plot</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Depths</span>  <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Depths</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Change fossil lagoon reference</span></span>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Change fossil lagoon reference</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/relevel.html">relevel</a></span><span class="op">(</span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span>, ref <span class="op">=</span> <span class="st">"Fossil Lagoon"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="q0-observed-richness" class="level3"><h3 class="anchored" data-anchor-id="q0-observed-richness">q0 Observed richness</h3>
 <div class="cell">
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lm</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lm</span></span>
 <span><span class="va">q0lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q0</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove.system</span> <span class="op">+</span> <span class="va">Depths</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">q0lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -847,38 +844,38 @@ lm(formula = q0 ~ log(Effective_reads) + Mangrove.system + Depths,
     data = metadata_with_hill)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--769.93  -95.43   21.09  103.95  488.93 
+   Min     1Q Median     3Q    Max 
+-769.9  -95.4   21.1  103.9  488.9 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                    -1714.12     896.01  -1.913 0.060769 .  
-log(Effective_reads)             268.68      76.40   3.517 0.000865 ***
-Mangrove.systemSan Pedro River   158.05      66.43   2.379 0.020731 *  
-Mangrove.systemTérminos Lagoon  -480.59     227.07  -2.116 0.038686 *  
-Depthsmid                        -40.59      63.47  -0.640 0.525004    
-DepthsSurface                   -127.02      66.11  -1.921 0.059704 .  
+(Intercept)                     -1714.1      896.0   -1.91  0.06077 .  
+log(Effective_reads)              268.7       76.4    3.52  0.00087 ***
+Mangrove.systemSan Pedro River    158.0       66.4    2.38  0.02073 *  
+Mangrove.systemTérminos Lagoon   -480.6      227.1   -2.12  0.03869 *  
+DepthsMid                         -40.6       63.5   -0.64  0.52500    
+DepthsSurface                    -127.0       66.1   -1.92  0.05970 .  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 210 on 57 degrees of freedom
-Multiple R-squared:  0.8886,    Adjusted R-squared:  0.8788 
-F-statistic: 90.93 on 5 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
+Multiple R-squared:  0.889, Adjusted R-squared:  0.879 
+F-statistic: 90.9 on 5 and 57 DF,  p-value: &lt;2e-16</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># check model reliability</span></span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q0lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
 
 data:  residuals(q0lm)
-W = 0.95839, p-value = 0.03222</code></pre>
+W = 1, p-value = 0.03</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#get differences with emmeans</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#get differences with emmeans</span></span>
 <span><span class="va">q0_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q0lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># get significance letters</span></span>
@@ -889,10 +886,10 @@ W = 0.95839, p-value = 0.03222</code></pre>
 <span><span class="va">q0_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q0_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove.system    emmean        SE df  lower.CL upper.CL .group
- Términos Lagoon  854.3136 212.88596 57  428.0168 1280.610  a    
- Fossil Lagoon   1334.9026  56.83941 57 1221.0836 1448.722  ab   
- San Pedro River 1492.9503  38.16946 57 1416.5173 1569.383   b   
+<pre><code> Mangrove.system emmean    SE df lower.CL upper.CL .group
+ Términos Lagoon    854 212.9 57      428     1281  a    
+ Fossil Lagoon     1335  56.8 57     1221     1449  ab   
+ San Pedro River   1493  38.2 57     1417     1569   b   
 
 Results are averaged over the levels of: Depths 
 Confidence level used: 0.95 
@@ -902,14 +899,14 @@ NOTE: If two or more means share the same grouping symbol,
       then we cannot show them to be different.
       But we also did not show them to be the same. </code></pre>
 </div>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder samples</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder samples</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span></span>
 <span>  <span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span>,</span>
 <span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span>, <span class="st">"San Pedro River"</span>, </span>
 <span>             <span class="st">"Términos Lagoon"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot with significance</span></span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot with significance</span></span>
 <span><span class="va">q0plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span>, y <span class="op">=</span> <span class="va">q0</span>, fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
@@ -930,7 +927,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </section><section id="q1-diversity-exp-shannon" class="level3"><h3 class="anchored" data-anchor-id="q1-diversity-exp-shannon">q1 Diversity Exp Shannon</h3>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># linear model</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># linear model</span></span>
 <span><span class="va">q1lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q1</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove.system</span> <span class="op">+</span> <span class="va">Depths</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># summary</span></span>
@@ -942,34 +939,34 @@ lm(formula = q1 ~ log(Effective_reads) + Mangrove.system + Depths,
     data = metadata_with_hill)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--191.788  -55.668    9.816   62.786  246.319 
+    Min      1Q  Median      3Q     Max 
+-191.79  -55.67    9.82   62.79  246.32 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)                     491.594    413.100   1.190  0.23898   
-log(Effective_reads)            -13.913     35.224  -0.395  0.69433   
-Mangrove.systemSan Pedro River    4.644     30.629   0.152  0.88001   
-Mangrove.systemTérminos Lagoon -316.121    104.691  -3.020  0.00378 **
-Depthsmid                        25.590     29.262   0.874  0.38552   
-DepthsSurface                   -27.338     30.480  -0.897  0.37353   
+(Intercept)                      491.59     413.10    1.19   0.2390   
+log(Effective_reads)             -13.91      35.22   -0.39   0.6943   
+Mangrove.systemSan Pedro River     4.64      30.63    0.15   0.8800   
+Mangrove.systemTérminos Lagoon  -316.12     104.69   -3.02   0.0038 **
+DepthsMid                         25.59      29.26    0.87   0.3855   
+DepthsSurface                    -27.34      30.48   -0.90   0.3735   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 96.81 on 57 degrees of freedom
-Multiple R-squared:  0.6029,    Adjusted R-squared:  0.5681 
-F-statistic: 17.31 on 5 and 57 DF,  p-value: 2.187e-10</code></pre>
+Residual standard error: 96.8 on 57 degrees of freedom
+Multiple R-squared:  0.603, Adjusted R-squared:  0.568 
+F-statistic: 17.3 on 5 and 57 DF,  p-value: 2.19e-10</code></pre>
 </div>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q1lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
 
 data:  residuals(q1lm)
-W = 0.98228, p-value = 0.4984</code></pre>
+W = 1, p-value = 0.5</code></pre>
 </div>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># significance</span></span>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># significance</span></span>
 <span><span class="va">q1_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q1lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span><span class="va">cld_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q1_lm_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
 <span></span>
@@ -977,10 +974,10 @@ W = 0.98228, p-value = 0.4984</code></pre>
 <span><span class="va">q1_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q1_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove.system   emmean       SE df  lower.CL upper.CL .group
- Términos Lagoon  14.1096 98.14959 57 -182.4315 210.6508  a    
- Fossil Lagoon   330.2308 26.20541 57  277.7554 382.7063   b   
- San Pedro River 334.8752 17.59776 57  299.6363 370.1141   b   
+<pre><code> Mangrove.system emmean   SE df lower.CL upper.CL .group
+ Términos Lagoon     14 98.1 57     -182      211  a    
+ Fossil Lagoon      330 26.2 57      278      383   b   
+ San Pedro River    335 17.6 57      300      370   b   
 
 Results are averaged over the levels of: Depths 
 Confidence level used: 0.95 
@@ -992,7 +989,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
 <span><span class="va">q1plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span> , y <span class="op">=</span> <span class="va">q1</span>, fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
@@ -1014,7 +1011,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </section><section id="q2-dominance-inv-simpson" class="level3"><h3 class="anchored" data-anchor-id="q2-dominance-inv-simpson">q2 Dominance Inv Simpson</h3>
 <div class="cell">
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Model</span></span>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Model</span></span>
 <span><span class="va">q2lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q2</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove.system</span> <span class="op">+</span> <span class="va">Depths</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># summary</span></span>
@@ -1026,34 +1023,34 @@ lm(formula = q2 ~ log(Effective_reads) + Mangrove.system + Depths,
     data = metadata_with_hill)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--81.446 -28.672  -4.852  29.468 120.755 
+   Min     1Q Median     3Q    Max 
+-81.45 -28.67  -4.85  29.47 120.75 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)                     310.119    177.541   1.747  0.08607 . 
-log(Effective_reads)            -17.900     15.139  -1.182  0.24195   
-Mangrove.systemSan Pedro River    1.824     13.164   0.139  0.89027   
-Mangrove.systemTérminos Lagoon -127.495     44.994  -2.834  0.00635 **
-Depthsmid                        17.288     12.576   1.375  0.17462   
-DepthsSurface                    -9.194     13.099  -0.702  0.48563   
+(Intercept)                      310.12     177.54    1.75   0.0861 . 
+log(Effective_reads)             -17.90      15.14   -1.18   0.2420   
+Mangrove.systemSan Pedro River     1.82      13.16    0.14   0.8903   
+Mangrove.systemTérminos Lagoon  -127.49      44.99   -2.83   0.0064 **
+DepthsMid                         17.29      12.58    1.37   0.1746   
+DepthsSurface                     -9.19      13.10   -0.70   0.4856   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 41.61 on 57 degrees of freedom
-Multiple R-squared:  0.4061,    Adjusted R-squared:  0.3539 
-F-statistic: 7.794 on 5 and 57 DF,  p-value: 1.211e-05</code></pre>
+Residual standard error: 41.6 on 57 degrees of freedom
+Multiple R-squared:  0.406, Adjusted R-squared:  0.354 
+F-statistic: 7.79 on 5 and 57 DF,  p-value: 1.21e-05</code></pre>
 </div>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q2lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
 
 data:  residuals(q2lm)
-W = 0.98137, p-value = 0.4556</code></pre>
+W = 1, p-value = 0.5</code></pre>
 </div>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get significance</span></span>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get significance</span></span>
 <span><span class="va">q2_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q2lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span><span class="va">cld_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q2_lm_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
 <span></span>
@@ -1061,10 +1058,10 @@ W = 0.98137, p-value = 0.4556</code></pre>
 <span><span class="va">q2_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q2_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove.system   emmean       SE df   lower.CL  upper.CL .group
- Términos Lagoon -21.5349 42.18239 57 -106.00368  62.93388  a    
- Fossil Lagoon   105.9598 11.26247 57   83.40713 128.51256   b   
- San Pedro River 107.7840  7.56311 57   92.63918 122.92889   b   
+<pre><code> Mangrove.system emmean   SE df lower.CL upper.CL .group
+ Términos Lagoon  -21.5 42.2 57   -106.0     62.9  a    
+ Fossil Lagoon    106.0 11.3 57     83.4    128.5   b   
+ San Pedro River  107.8  7.6 57     92.6    122.9   b   
 
 Results are averaged over the levels of: Depths 
 Confidence level used: 0.95 
@@ -1076,7 +1073,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
 <span><span class="va">q2plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span>, y <span class="op">=</span> <span class="va">q2</span>, fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
@@ -1100,7 +1097,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </section><section id="combine-plot" class="level3"><h3 class="anchored" data-anchor-id="combine-plot">Combine plot</h3>
 <div class="cell">
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine alpha diversity plots</span></span>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine alpha diversity plots</span></span>
 <span></span>
 <span><span class="va">ytitle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html">ggdraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_label.html">draw_label</a></span><span class="op">(</span><span class="st">"Effective number of ASVs"</span>,</span>
 <span>                                angle <span class="op">=</span> <span class="fl">90</span>, size <span class="op">=</span> <span class="fl">14</span> <span class="op">)</span></span>
@@ -1116,17 +1113,17 @@ NOTE: If two or more means share the same grouping symbol,
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/alphadiv_per_MS.pdf"</span>,</span>
 <span>       <span class="va">q012y_plot</span>, width <span class="op">=</span> <span class="fl">6.3</span>, height <span class="op">=</span> <span class="fl">9.9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="save-rds-for-alpha-diversity-plot" class="level3"><h3 class="anchored" data-anchor-id="save-rds-for-alpha-diversity-plot">Save rds for alpha diversity plot</h3>
 <div class="cell">
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">q012y_plot</span>, <span class="st">"rds/Depth_comparison/alpha_diversity_MS_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">q012y_plot</span>, <span class="st">"rds/Depth_comparison/alpha_diversity_MS_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="get-significant-differences-for-depths" class="level2"><h2 class="anchored" data-anchor-id="get-significant-differences-for-depths">06.Get significant differences for Depths</h2>
 <div class="cell">
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#factor to reorder plot</span></span>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#factor to reorder plot</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Mangrove.system</span><span class="op">)</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Depths</span>  <span class="op">&lt;-</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Depths</span><span class="op">)</span></span>
@@ -1136,7 +1133,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 <section id="q0-observed-richness-1" class="level3"><h3 class="anchored" data-anchor-id="q0-observed-richness-1">q0 Observed richness</h3>
 <div class="cell">
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lm</span></span>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lm</span></span>
 <span><span class="va">q0lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q0</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">+</span> <span class="va">Mangrove.system</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">q0lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1147,38 +1144,38 @@ lm(formula = q0 ~ log(Effective_reads) + Depths + Mangrove.system,
     data = metadata_with_hill)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--769.93  -95.43   21.09  103.95  488.93 
+   Min     1Q Median     3Q    Max 
+-769.9  -95.4   21.1  103.9  488.9 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                    -1841.13     887.45  -2.075 0.042548 *  
-log(Effective_reads)             268.68      76.40   3.517 0.000865 ***
-DepthsDeep                       127.02      66.11   1.921 0.059704 .  
-Depthsmid                         86.42      72.84   1.186 0.240391    
-Mangrove.systemSan Pedro River   158.05      66.43   2.379 0.020731 *  
-Mangrove.systemTérminos Lagoon  -480.59     227.07  -2.116 0.038686 *  
+(Intercept)                     -1841.1      887.5   -2.07  0.04255 *  
+log(Effective_reads)              268.7       76.4    3.52  0.00087 ***
+DepthsDeep                        127.0       66.1    1.92  0.05970 .  
+DepthsMid                          86.4       72.8    1.19  0.24039    
+Mangrove.systemSan Pedro River    158.0       66.4    2.38  0.02073 *  
+Mangrove.systemTérminos Lagoon   -480.6      227.1   -2.12  0.03869 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 210 on 57 degrees of freedom
-Multiple R-squared:  0.8886,    Adjusted R-squared:  0.8788 
-F-statistic: 90.93 on 5 and 57 DF,  p-value: &lt; 2.2e-16</code></pre>
+Multiple R-squared:  0.889, Adjusted R-squared:  0.879 
+F-statistic: 90.9 on 5 and 57 DF,  p-value: &lt;2e-16</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># check model reliability</span></span>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q0lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
 
 data:  residuals(q0lm)
-W = 0.95839, p-value = 0.03222</code></pre>
+W = 1, p-value = 0.03</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#get differences with emmeans</span></span>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#get differences with emmeans</span></span>
 <span><span class="va">q0_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q0lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Depths</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># get significance letters</span></span>
@@ -1189,10 +1186,10 @@ W = 0.95839, p-value = 0.03222</code></pre>
 <span><span class="va">q0_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q0_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depths    emmean       SE df  lower.CL upper.CL .group
- Surface 1156.244 86.33115 57  983.3683 1329.119  a    
- mid     1242.664 77.77139 57 1086.9296 1398.399  a    
- Deep    1283.259 71.79012 57 1139.5016 1427.016  a    
+<pre><code> Depths  emmean   SE df lower.CL upper.CL .group
+ Surface   1156 86.3 57      983     1329  a    
+ Mid       1243 77.8 57     1087     1398  a    
+ Deep      1283 71.8 57     1140     1427  a    
 
 Results are averaged over the levels of: Mangrove.system 
 Confidence level used: 0.95 
@@ -1202,14 +1199,14 @@ NOTE: If two or more means share the same grouping symbol,
       then we cannot show them to be different.
       But we also did not show them to be the same. </code></pre>
 </div>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder samples</span></span>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder samples</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Depths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span></span>
 <span>  <span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Depths</span>,</span>
-<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Surface"</span>, <span class="st">"mid"</span>, </span>
+<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Surface"</span>, <span class="st">"Mid"</span>, </span>
 <span>             <span class="st">"Deep"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot with significance</span></span>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot with significance</span></span>
 <span><span class="va">q0plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Depths</span>, y <span class="op">=</span> <span class="va">q0</span>, fill <span class="op">=</span> <span class="va">Depths</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
@@ -1230,7 +1227,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </section><section id="q1-diversity-exp-shannon-1" class="level3"><h3 class="anchored" data-anchor-id="q1-diversity-exp-shannon-1">q1 Diversity Exp Shannon</h3>
 <div class="cell">
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># linear model</span></span>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># linear model</span></span>
 <span><span class="va">q1lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q1</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">+</span> <span class="va">Mangrove.system</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># summary</span></span>
@@ -1242,34 +1239,34 @@ lm(formula = q1 ~ log(Effective_reads) + Depths + Mangrove.system,
     data = metadata_with_hill)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--191.788  -55.668    9.816   62.786  246.319 
+    Min      1Q  Median      3Q     Max 
+-191.79  -55.67    9.82   62.79  246.32 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)                     464.256    409.155   1.135  0.26126   
-log(Effective_reads)            -13.913     35.224  -0.395  0.69433   
-Depthsmid                        52.928     33.584   1.576  0.12056   
-DepthsDeep                       27.338     30.480   0.897  0.37353   
-Mangrove.systemSan Pedro River    4.644     30.629   0.152  0.88001   
-Mangrove.systemTérminos Lagoon -316.121    104.691  -3.020  0.00378 **
+(Intercept)                      464.26     409.15    1.13   0.2613   
+log(Effective_reads)             -13.91      35.22   -0.39   0.6943   
+DepthsMid                         52.93      33.58    1.58   0.1206   
+DepthsDeep                        27.34      30.48    0.90   0.3735   
+Mangrove.systemSan Pedro River     4.64      30.63    0.15   0.8800   
+Mangrove.systemTérminos Lagoon  -316.12     104.69   -3.02   0.0038 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 96.81 on 57 degrees of freedom
-Multiple R-squared:  0.6029,    Adjusted R-squared:  0.5681 
-F-statistic: 17.31 on 5 and 57 DF,  p-value: 2.187e-10</code></pre>
+Residual standard error: 96.8 on 57 degrees of freedom
+Multiple R-squared:  0.603, Adjusted R-squared:  0.568 
+F-statistic: 17.3 on 5 and 57 DF,  p-value: 2.19e-10</code></pre>
 </div>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q1lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
 
 data:  residuals(q1lm)
-W = 0.98228, p-value = 0.4984</code></pre>
+W = 1, p-value = 0.5</code></pre>
 </div>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># significance</span></span>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># significance</span></span>
 <span><span class="va">q1_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q1lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Depths</span><span class="op">)</span></span>
 <span><span class="va">cld_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q1_lm_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
 <span></span>
@@ -1277,10 +1274,10 @@ W = 0.98228, p-value = 0.4984</code></pre>
 <span><span class="va">q1_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q1_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depths    emmean       SE df lower.CL upper.CL .group
- Surface 199.6499 39.80237 57 119.9470 279.3528  a    
- Deep    226.9879 33.09833 57 160.7096 293.2662  a    
- mid     252.5779 35.85596 57 180.7775 324.3782  a    
+<pre><code> Depths  emmean   SE df lower.CL upper.CL .group
+ Surface    200 39.8 57      120      279  a    
+ Deep       227 33.1 57      161      293  a    
+ Mid        253 35.9 57      181      324  a    
 
 Results are averaged over the levels of: Mangrove.system 
 Confidence level used: 0.95 
@@ -1292,7 +1289,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
 <span><span class="va">q1plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Depths</span> , y <span class="op">=</span> <span class="va">q1</span>, fill <span class="op">=</span> <span class="va">Depths</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
@@ -1314,7 +1311,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </section><section id="q2-dominance-inv-simpson-1" class="level3"><h3 class="anchored" data-anchor-id="q2-dominance-inv-simpson-1">q2 Dominance Inv Simpson</h3>
 <div class="cell">
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Model</span></span>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Model</span></span>
 <span><span class="va">q2lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q2</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">+</span> <span class="va">Mangrove.system</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># summary</span></span>
@@ -1326,34 +1323,34 @@ lm(formula = q2 ~ log(Effective_reads) + Depths + Mangrove.system,
     data = metadata_with_hill)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--81.446 -28.672  -4.852  29.468 120.755 
+   Min     1Q Median     3Q    Max 
+-81.45 -28.67  -4.85  29.47 120.75 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)                     300.925    175.845   1.711  0.09246 . 
-log(Effective_reads)            -17.900     15.139  -1.182  0.24195   
-Depthsmid                        26.482     14.434   1.835  0.07177 . 
-DepthsDeep                        9.194     13.099   0.702  0.48563   
-Mangrove.systemSan Pedro River    1.824     13.164   0.139  0.89027   
-Mangrove.systemTérminos Lagoon -127.495     44.994  -2.834  0.00635 **
+(Intercept)                      300.92     175.85    1.71   0.0925 . 
+log(Effective_reads)             -17.90      15.14   -1.18   0.2420   
+DepthsMid                         26.48      14.43    1.83   0.0718 . 
+DepthsDeep                         9.19      13.10    0.70   0.4856   
+Mangrove.systemSan Pedro River     1.82      13.16    0.14   0.8903   
+Mangrove.systemTérminos Lagoon  -127.49      44.99   -2.83   0.0064 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 41.61 on 57 degrees of freedom
-Multiple R-squared:  0.4061,    Adjusted R-squared:  0.3539 
-F-statistic: 7.794 on 5 and 57 DF,  p-value: 1.211e-05</code></pre>
+Residual standard error: 41.6 on 57 degrees of freedom
+Multiple R-squared:  0.406, Adjusted R-squared:  0.354 
+F-statistic: 7.79 on 5 and 57 DF,  p-value: 1.21e-05</code></pre>
 </div>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q2lm</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
 
 data:  residuals(q2lm)
-W = 0.98137, p-value = 0.4556</code></pre>
+W = 1, p-value = 0.5</code></pre>
 </div>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get significance</span></span>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get significance</span></span>
 <span><span class="va">q2_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q2lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Depths</span><span class="op">)</span></span>
 <span><span class="va">cld_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q2_lm_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
 <span></span>
@@ -1361,10 +1358,10 @@ W = 0.98137, p-value = 0.4556</code></pre>
 <span><span class="va">q2_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q2_emmeans_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depths    emmean       SE df lower.CL  upper.CL .group
- Surface 52.17780 17.10613 57 17.92338  86.43223  a    
- Deep    61.37158 14.22489 57 32.88673  89.85642  a    
- mid     78.65959 15.41005 57 47.80150 109.51769  a    
+<pre><code> Depths  emmean   SE df lower.CL upper.CL .group
+ Surface   52.2 17.1 57     17.9     86.4  a    
+ Deep      61.4 14.2 57     32.9     89.9  a    
+ Mid       78.7 15.4 57     47.8    109.5  a    
 
 Results are averaged over the levels of: Mangrove.system 
 Confidence level used: 0.95 
@@ -1376,7 +1373,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
 <span><span class="va">q2plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Depths</span>, y <span class="op">=</span> <span class="va">q2</span>, fill <span class="op">=</span> <span class="va">Depths</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
@@ -1400,7 +1397,7 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </section><section id="combine-plot-1" class="level3"><h3 class="anchored" data-anchor-id="combine-plot-1">Combine plot</h3>
 <div class="cell">
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine alpha diversity plots</span></span>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine alpha diversity plots</span></span>
 <span></span>
 <span><span class="va">ytitle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html">ggdraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_label.html">draw_label</a></span><span class="op">(</span><span class="st">"Effective number of ASVs"</span>,</span>
 <span>                                angle <span class="op">=</span> <span class="fl">90</span>, size <span class="op">=</span> <span class="fl">14</span> <span class="op">)</span></span>
@@ -1416,17 +1413,200 @@ NOTE: If two or more means share the same grouping symbol,
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/alphadiv_per_Depths.pdf"</span>,</span>
 <span>       <span class="va">q012y_plot</span>, width <span class="op">=</span> <span class="fl">6.3</span>, height <span class="op">=</span> <span class="fl">9.9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="save-rds-for-depths-alpha-diversity-plot" class="level3"><h3 class="anchored" data-anchor-id="save-rds-for-depths-alpha-diversity-plot">Save rds for Depths alpha diversity plot</h3>
 <div class="cell">
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">q012y_plot</span>, <span class="st">"rds/Depth_comparison/alpha_diversity_Depths_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">q012y_plot</span>, <span class="st">"rds/Depth_comparison/alpha_diversity_Depths_plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="get-depth-differences-by-system" class="level2"><h2 class="anchored" data-anchor-id="get-depth-differences-by-system">07. Get depth differences by system</h2>
+<p>q0</p>
+<div class="cell">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># factor</span></span>
+<span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Depths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Depths</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Surface"</span>, <span class="st">"Mid"</span>, <span class="st">"Deep"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#plot q0</span></span>
+<span><span class="va">q0_depth_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Depths</span>, y <span class="op">=</span> <span class="va">q0</span>, fill <span class="op">=</span> <span class="va">Depths</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co"># CAMBIO: fill por Depths</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, alpha <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">Mangrove.system</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, color <span class="op">=</span> <span class="st">"black"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="co"># Ahora sí coinciden: variable Depths con paleta depth_colors</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">depth_colors</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>       x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="st">"Observed Richness (q0)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>q1</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#plot</span></span>
+<span><span class="va">q1_depth_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Depths</span>, y <span class="op">=</span> <span class="va">q1</span>, fill <span class="op">=</span> <span class="va">Depths</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co"># CAMBIO: fill por Depths</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, alpha <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">Mangrove.system</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, color <span class="op">=</span> <span class="st">"black"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="co"># Ahora sí coinciden: variable Depths con paleta depth_colors</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">depth_colors</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>       x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="st">"Exp Shannon Diversity (q1)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>q2</strong></p>
+<div class="cell">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">q2_depth_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Depths</span>, y <span class="op">=</span> <span class="va">q2</span>, fill <span class="op">=</span> <span class="va">Depths</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="co"># CAMBIO: fill por Depths</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, alpha <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">Mangrove.system</span>, scales <span class="op">=</span> <span class="st">"free_y"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>, color <span class="op">=</span> <span class="st">"black"</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="co"># Ahora sí coinciden: variable Depths con paleta depth_colors</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">depth_colors</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Sediment Depth"</span>, y <span class="op">=</span> <span class="st">"Inv Simpson Dominance (q2)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine alpha diversity plots</span></span>
+<span></span>
+<span><span class="va">q012_depth_system_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">q0_depth_system</span>,</span>
+<span>                                    <span class="va">q1_depth_system</span>,</span>
+<span>                                    <span class="va">q2_depth_system</span>, </span>
+<span>                                    ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># show</span></span>
+<span><span class="va">q012_depth_system_plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="04.1.AlphaDiversity_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/alphadiv_per_Depths_and_system.pdf"</span>,</span>
+<span>       <span class="va">q012_depth_system_plot</span>, width <span class="op">=</span> <span class="fl">6.3</span>, height <span class="op">=</span> <span class="fl">9.9</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">multcompView</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># q0</span></span>
+<span><span class="va">q0_model_int</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q0</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove.system</span> <span class="op">*</span> <span class="va">Depths</span>, </span>
+<span>                   data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">q0_nested_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q0_model_int</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Depths</span> <span class="op">|</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">q0_cld_depth_by_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q0_nested_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q0_cld_depth_by_system</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mangrove.system = Fossil Lagoon:
+ Depths  emmean    SE df lower.CL upper.CL .group
+ Surface   1187 107.1 53      972     1402  a    
+ Mid       1347 107.2 53     1132     1562  a    
+ Deep      1440  86.9 53     1265     1614  a    
+
+Mangrove.system = San Pedro River:
+ Depths  emmean    SE df lower.CL upper.CL .group
+ Surface   1409  71.2 53     1267     1552  a    
+ Mid       1516  72.0 53     1371     1660  a    
+ Deep      1545  53.4 53     1438     1652  a    
+
+Mangrove.system = Términos Lagoon:
+ Depths  emmean    SE df lower.CL upper.CL .group
+ Deep       898 225.2 53      447     1350  a    
+ Mid        900 226.2 53      446     1354  a    
+ Surface    969 257.8 53      452     1486  a    
+
+Confidence level used: 0.95 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># q1</span></span>
+<span><span class="va">q1_model_int</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q1</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove.system</span> <span class="op">*</span> <span class="va">Depths</span>, </span>
+<span>                   data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">q1_nested_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q1_model_int</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Depths</span> <span class="op">|</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">q1_cld_depth_by_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q1_nested_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q1_cld_depth_by_system</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mangrove.system = Fossil Lagoon:
+ Depths  emmean    SE df lower.CL upper.CL .group
+ Surface    302  49.5 53      203      401  a    
+ Deep       311  40.2 53      230      391  a    
+ Mid        388  49.6 53      288      487  a    
+
+Mangrove.system = San Pedro River:
+ Depths  emmean    SE df lower.CL upper.CL .group
+ Surface    292  32.9 53      226      358  a    
+ Deep       345  24.7 53      295      394  a    
+ Mid        359  33.3 53      292      426  a    
+
+Mangrove.system = Términos Lagoon:
+ Depths  emmean    SE df lower.CL upper.CL .group
+ Deep         6 104.1 53     -203      215  a    
+ Mid         20 104.6 53     -190      230  a    
+ Surface     40 119.2 53     -200      279  a    
+
+Confidence level used: 0.95 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># q2</span></span>
+<span><span class="va">q2_model_int</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">q2</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove.system</span> <span class="op">*</span> <span class="va">Depths</span>, </span>
+<span>                   data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">q2_nested_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q2_model_int</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Depths</span> <span class="op">|</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">q2_cld_depth_by_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/cld.html">cld</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">q2_nested_means</span><span class="op">$</span><span class="va">emmeans</span>, Letters <span class="op">=</span> <span class="va">letters</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q2_cld_depth_by_system</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mangrove.system = Fossil Lagoon:
+ Depths  emmean   SE df lower.CL upper.CL .group
+ Surface   89.1 20.9 53     47.2    130.9  a    
+ Deep      94.4 17.0 53     60.4    128.4  a    
+ Mid      138.5 20.9 53     96.6    180.5  a    
+
+Mangrove.system = San Pedro River:
+ Depths  emmean   SE df lower.CL upper.CL .group
+ Surface   87.0 13.9 53     59.2    114.8  a    
+ Deep     110.1 10.4 53     89.3    131.0  a    
+ Mid      120.5 14.0 53     92.4    148.7  a    
+
+Mangrove.system = Términos Lagoon:
+ Depths  emmean   SE df lower.CL upper.CL .group
+ Deep     -30.1 43.9 53   -118.2     57.9  a    
+ Mid      -15.9 44.1 53   -104.4     72.6  a    
+ Surface    2.3 50.3 53    -98.6    103.1  a    
+
+Confidence level used: 0.95 
+P value adjustment: tukey method for comparing a family of 3 estimates 
+significance level used: alpha = 0.05 
+NOTE: If two or more means share the same grouping symbol,
+      then we cannot show them to be different.
+      But we also did not show them to be the same. </code></pre>
+</div>
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

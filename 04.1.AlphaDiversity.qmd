@@ -35,7 +35,7 @@ loc_colors <- c("Fossil Lagoon"= "#A7fcc1",
                 "Términos Lagoon" = "#329D9C")
 
 depth_colors <- c("Surface" = "#f5e5c4",
-                 "mid" = "#baa179",
+                 "Mid" = "#baa179",
                  "Deep" = "#80673b")
 ```
 
@@ -62,7 +62,8 @@ q012 <- cbind(q0, q1, q2) %>% as.data.frame() %>%
 
 # join
 metadata_with_hill <- q012 %>%
-  inner_join(metadata, by = c("SampleID"="SampleID"))
+  inner_join(metadata, by = c("SampleID"="SampleID")) %>%
+  mutate(Depths = ifelse(Depths == "mid", "Mid", Depths))
 
 # show
 metadata_with_hill %>% head()
@@ -410,7 +411,7 @@ q0_emmeans_df
 # Reorder samples
 metadata_with_hill$Depths <- factor(
   metadata_with_hill$Depths,
-  levels = c("Surface", "mid", 
+  levels = c("Surface", "Mid", 
              "Deep"))
 ```
 
@@ -530,4 +531,117 @@ ggsave("Figures/Depth_comparison/alphadiv_per_Depths.pdf",
 
 ```{r}
 saveRDS(q012y_plot, "rds/Depth_comparison/alpha_diversity_Depths_plot.rds")
+```
+
+## 07. Get  depth differences by system
+
+q0
+
+```{r}
+# factor
+metadata_with_hill$Depths <- factor(metadata_with_hill$Depths, levels = c("Surface", "Mid", "Deep"))
+
+#plot q0
+q0_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q0, fill = Depths)) + # CAMBIO: fill por Depths
+  geom_boxplot(outlier.shape = NA, alpha = 0.9) +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  facet_wrap(~Mangrove.system, scales = "free_y") + 
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  theme_classic() + 
+  # Ahora sí coinciden: variable Depths con paleta depth_colors
+  scale_fill_manual(values = depth_colors) + 
+  labs(title = NULL,
+       x = NULL, y = "Observed Richness (q0)") +
+  theme(legend.position = "none")
+```
+
+**q1**
+
+```{r}
+#plot
+q1_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q1, fill = Depths)) + # CAMBIO: fill por Depths
+  geom_boxplot(outlier.shape = NA, alpha = 0.9) +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  facet_wrap(~Mangrove.system, scales = "free_y") + 
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  theme_classic() + 
+  # Ahora sí coinciden: variable Depths con paleta depth_colors
+  scale_fill_manual(values = depth_colors) + 
+  labs(title = NULL,
+       x = NULL, y = "Exp Shannon Diversity (q1)") +
+  theme(legend.position = "none")
+```
+
+**q2**
+
+```{r}
+q2_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q2, fill = Depths)) + # CAMBIO: fill por Depths
+  geom_boxplot(outlier.shape = NA, alpha = 0.9) +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  facet_wrap(~Mangrove.system, scales = "free_y") + 
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  theme_classic() + 
+  # Ahora sí coinciden: variable Depths con paleta depth_colors
+  scale_fill_manual(values = depth_colors) + 
+  labs(title = NULL,
+       x = "Sediment Depth", y = "Inv Simpson Dominance (q2)") +
+  theme(legend.position = "none")
+```
+
+```{r}
+#| message: false
+#| warning: false
+#Combine alpha diversity plots
+
+q012_depth_system_plot <- plot_grid(q0_depth_system,
+                                    q1_depth_system,
+                                    q2_depth_system, 
+                                    ncol = 1)
+
+
+# show
+q012_depth_system_plot
+
+# save
+ggsave("Figures/Depth_comparison/alphadiv_per_Depths_and_system.pdf",
+       q012_depth_system_plot, width = 6.3, height = 9.9)
+```
+
+```{r}
+library(multcomp)
+library(multcompView)
+
+# q0
+q0_model_int <- lm(q0 ~ log(Effective_reads) + Mangrove.system * Depths, 
+                   data = metadata_with_hill)
+
+q0_nested_means <- emmeans(q0_model_int, pairwise ~ Depths | Mangrove.system)
+
+q0_cld_depth_by_system <- cld(object = q0_nested_means$emmeans, Letters = letters)
+
+as.data.frame(q0_cld_depth_by_system)
+```
+
+```{r}
+# q1
+q1_model_int <- lm(q1 ~ log(Effective_reads) + Mangrove.system * Depths, 
+                   data = metadata_with_hill)
+
+q1_nested_means <- emmeans(q1_model_int, pairwise ~ Depths | Mangrove.system)
+
+q1_cld_depth_by_system <- cld(object = q1_nested_means$emmeans, Letters = letters)
+
+as.data.frame(q1_cld_depth_by_system)
+```
+
+```{r}
+# q2
+q2_model_int <- lm(q2 ~ log(Effective_reads) + Mangrove.system * Depths, 
+                   data = metadata_with_hill)
+
+q2_nested_means <- emmeans(q2_model_int, pairwise ~ Depths | Mangrove.system)
+
+q2_cld_depth_by_system <- cld(object = q2_nested_means$emmeans, Letters = letters)
+
+as.data.frame(q2_cld_depth_by_system)
 ```

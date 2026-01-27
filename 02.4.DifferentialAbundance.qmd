@@ -23,6 +23,7 @@ options(DT.options = list(
 ```{r}
 #load data
 physeq_qiime3 <- readRDS("rds/compare_mangroves/physeq_qiime3.rds")
+#physeq_qiime3 <- readRDS("rds/compare_mangroves/physeq_shared.rds")
 ```
 
 ```{r}

@@ -385,11 +385,13 @@ ampv_heatmap_abundances_phylum_core
 ```{r}
 ggsave("Figures/Depth_comparison/rel_abun_coreheatmap.pdf",
        ampv_heatmap_abundances_phylum_core, bg='transparent', 
-       width = 6, height = 4)
+       width = 7.5, height = 5)
 ```
 
 ## Save rds core plot
 
 ```{r}
 saveRDS(upset_plot, "rds/Depth_comparison/upset_surface_plot.rds")
+
+saveRDS(ampv_heatmap_abundances_phylum_core, "rds/Depth_comparison/coreabundance_surface_plot.rds")
 ```

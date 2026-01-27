@@ -1,3 +1,34 @@
 ---
 title: "Fig 4. Interior and Coastal with depth comparison"
 ---
+
+# Load libraries
+
+```{r}
+#| message: false
+#| warning: false
+library(ggplot2)
+library(cowplot)
+```
+
+# Load figures
+
+```{r}
+#| message: false
+#| warning: false
+
+alpha <- readRDS("rds/Depth_comparison/alpha_diversity_MS_plot.rds")
+
+beta <- readRDS("rds/Depth_comparison/beta-diversity-Depth-plot.rds")
+
+core_abund <- readRDS("rds/Depth_comparison/upset_surface_plot.rds")
+
+da_tax <- readRDS("rds/Depth_comparison/DA_heatmap_surface.rds")
+
+```
+
+::: callout-caution
+## Edit figure in Inkscape
+
+The details were done in Inkscape. The final figure is shown below:
+:::

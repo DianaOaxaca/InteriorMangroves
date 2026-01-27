@@ -1,64 +1,64 @@
 SampleID	q0	q1	q2	Collection_date	depth	ID	Environmental_medium	Geographic.Location	Study_zone	Ecological_type	season	Mangrove.system	Depths
-1	S1A015	1266	330.184515176212	105.966167344478	2023-09-28	0-15	S1A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-2	S1A1530	1527	433.735620292648	165.115601820865	2023-09-28	16-30	S1A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-3	S1A3050	1558	428.024148654827	161.837857269624	2023-09-28	31-45	S1A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-4	S1A5075	1632	362.520782666861	110.591517399051	2023-09-28	50-70	S1A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-5	S1B07	1502	164.068937838649	35.9834211484149	2023-09-28	0-15	S1B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-6	S1B2230	1821	461.154142683189	149.579418116327	2023-09-28	16-30	S1B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-7	S1B3040	1375	281.581290929518	88.7650662249851	2023-09-28	31-45	S1B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-8	S1B6575	1719	476.114405886646	173.83691219948	2023-09-28	50-70	S1B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-9	S2A1727	1709	450.822340074414	174.624065772119	2023-09-28	16-30	S2A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-10	S2A3545	1834	349.283652625467	76.8523101728492	2023-09-28	31-45	S2A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-11	S2A5060	1864	368.188408690462	92.6953653931093	2023-09-28	50-70	S2A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-12	S2A515	1708	463.034426489352	161.320599859643	2023-09-28	0-15	S2A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-13	S2B07	1378	351.407257547177	106.812293594456	2023-09-28	0-15	S2B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-14	S2B1522	1657	396.986868439882	132.021856790636	2023-09-28	16-30	S2B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-15	S2B3040	1683	205.191352013542	40.3945468999606	2023-09-28	31-45	S2B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-16	S2B5565	1430	309.940532047322	89.6319353729364	2023-09-28	50-70	S2B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-17	S3A07	1190	154.370812124901	37.5947147770444	2023-09-28	0-15	S3A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-18	S3A1522	1070	187.616647551431	63.6392355150927	2023-09-28	16-30	S3A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-19	S3A3040	1328	314.068117463222	109.24429133523	2023-09-28	31-45	S3A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-20	S3A6070	679	161.394847831287	69.8235980503819	2023-09-28	50-70	S3A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-21	S3B2030	1594	339.000773084658	106.674014248893	2023-09-28	16-30	S3B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-22	S3B3545	1518	293.516775247812	83.3393833825655	2023-09-28	31-45	S3B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-23	S3B515	1588	371.925332356855	108.32991034927	2023-09-28	0-15	S3B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-24	S3B6070	1779	140.094392491926	16.078788100134	2023-09-28	50-70	S3B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-25	S4B07	1563	387.597217808905	120.376528440086	2023-09-29	0-15	S4B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-26	S4B1522	1558	396.397767896001	130.81391929568	2023-09-29	16-30	S4B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-27	S4B3040	1808	447.653444800943	134.008920308063	2023-09-29	31-45	S4B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-28	S4B5565	1974	497.118996650495	145.136802683211	2023-09-29	50-70	S4B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-29	S5A07	1160	131.373637954898	32.1498238853201	2023-09-29	0-15	S5A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-30	S5A1522	1284	169.359611981091	41.0556982793163	2023-09-29	16-30	S5A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-31	S5A3040	1651	256.269433453085	58.1652546122488	2023-09-29	31-45	S5A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-32	S5A5565	1177	264.358715033557	91.684178093305	2023-09-29	50-70	S5A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-33	S5B07	1520	261.743797744272	63.1864280720949	2023-09-29	0-15	S5B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
-34	S5B1522	1824	376.28832403078	97.3826126225403	2023-09-29	16-30	S5B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	mid
-35	S5B3040	2229	571.873390183782	213.099004841684	2023-09-29	31-45	S5B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-36	S5B5060	1765	419.860597906407	156.67319769315	2023-09-29	50-70	S5B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
-37	S6A07	1271	323.438416216391	100.695008036304	2023-09-30	0-15	S6A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Surface
-38	S6A1522	1349	405.238941184979	157.324878726456	2023-09-30	16-30	S6A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	mid
-39	S6A3040	1323	235.613264111573	62.5681093836543	2023-09-30	31-45	S6A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
-40	S6B07	1081	197.207388910653	51.2459463710783	2023-09-30	0-15	S6B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Surface
-41	S6B1522	1223	263.157870260799	78.4890947342745	2023-09-30	16-30	S6B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	mid
-42	S6B3040	1492	337.443006344485	92.7660231947454	2023-09-30	31-45	S6B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
-43	S7A07	1394	376.092089314027	112.977968991558	2023-09-30	0-15	S7A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Surface
-44	S7A1522	1405	418.316267844052	161.636407809051	2023-09-30	16-30	S7A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	mid
-45	S7A3040	1545	409.617199262866	142.516697883964	2023-09-30	31-45	S7A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
-46	S7A5060	1233	358.944945142853	134.684792925403	2023-09-30	50-70	S7A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
-47	S7B07	1174	303.07985340415	81.176978368188	2023-09-30	0-15	S7B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Surface
-48	S7B1522	1597	455.608030296623	145.672607697402	2023-09-30	16-30	S7B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	mid
-49	S7B3040	1502	258.034751501171	67.9162928011067	2023-09-30	31-45	S7B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
-50	S7B5060	1601	262.429032281183	62.4130124525365	2023-09-30	50-70	S7B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
-51	zr2502_11_R1.fastq.gz	121	71.5155702671582	37.8043315563436	17/01/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	mid
-52	zr2502_12_R1.fastq.gz	159	64.0651026492697	15.7837055950626	17/01/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
-53	zr2502_13_R1.fastq.gz	148	70.9331552665347	27.9348533487222	17/01/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
+1	S1A015	1266	330.184514948947	105.966167344478	2023-09-28	0-15	S1A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+2	S1A1530	1527	433.735620331169	165.115601820864	2023-09-28	16-30	S1A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+3	S1A3050	1558	428.02414860731	161.837857269625	2023-09-28	31-45	S1A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+4	S1A5075	1632	362.520782554174	110.591517399051	2023-09-28	50-70	S1A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+5	S1B07	1502	164.068937864149	35.9834211484148	2023-09-28	0-15	S1B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+6	S1B2230	1821	461.154142570559	149.579418116327	2023-09-28	16-30	S1B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+7	S1B3040	1375	281.581290804478	88.7650662249851	2023-09-28	31-45	S1B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+8	S1B6575	1719	476.11440591836	173.83691219948	2023-09-28	50-70	S1B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+9	S2A1727	1709	450.82233990425	174.624065772119	2023-09-28	16-30	S2A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+10	S2A3545	1834	349.283652516894	76.8523101728491	2023-09-28	31-45	S2A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+11	S2A5060	1864	368.188408714987	92.6953653931097	2023-09-28	50-70	S2A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+12	S2A515	1708	463.034426222052	161.320599859643	2023-09-28	0-15	S2A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+13	S2B07	1378	351.407257508166	106.812293594456	2023-09-28	0-15	S2B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+14	S2B1522	1657	396.986868369367	132.021856790636	2023-09-28	16-30	S2B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+15	S2B3040	1683	205.191352077325	40.3945468999601	2023-09-28	31-45	S2B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+16	S2B5565	1430	309.940531902807	89.6319353729362	2023-09-28	50-70	S2B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+17	S3A07	1190	154.370812193452	37.5947147770445	2023-09-28	0-15	S3A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+18	S3A1522	1070	187.616647555596	63.6392355150928	2023-09-28	16-30	S3A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+19	S3A3040	1328	314.068117428356	109.24429133523	2023-09-28	31-45	S3A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+20	S3A6070	679	161.394847820536	69.8235980503821	2023-09-28	50-70	S3A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+21	S3B2030	1594	339.000773054551	106.674014248893	2023-09-28	16-30	S3B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+22	S3B3545	1518	293.516775280397	83.3393833825659	2023-09-28	31-45	S3B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+23	S3B515	1588	371.925332365113	108.32991034927	2023-09-28	0-15	S3B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+24	S3B6070	1779	140.094392501258	16.0787881001339	2023-09-28	50-70	S3B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+25	S4B07	1563	387.597217869146	120.376528440086	2023-09-29	0-15	S4B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+26	S4B1522	1558	396.3977678872	130.81391929568	2023-09-29	16-30	S4B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+27	S4B3040	1808	447.653444880457	134.008920308063	2023-09-29	31-45	S4B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+28	S4B5565	1974	497.118996617382	145.136802683211	2023-09-29	50-70	S4B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+29	S5A07	1160	131.373637914061	32.14982388532	2023-09-29	0-15	S5A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+30	S5A1522	1284	169.359611996132	41.0556982793164	2023-09-29	16-30	S5A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+31	S5A3040	1651	256.269433436014	58.1652546122488	2023-09-29	31-45	S5A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+32	S5A5565	1177	264.358715109862	91.684178093305	2023-09-29	50-70	S5A	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+33	S5B07	1520	261.743797732649	63.186428072095	2023-09-29	0-15	S5B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Surface
+34	S5B1522	1824	376.288324114328	97.3826126225408	2023-09-29	16-30	S5B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Mid
+35	S5B3040	2229	571.873390298058	213.099004841683	2023-09-29	31-45	S5B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+36	S5B5060	1765	419.860597887763	156.67319769315	2023-09-29	50-70	S5B	sediment	Mexico:Tabasco	Rio San Pedro	Fringe	flood	San Pedro River	Deep
+37	S6A07	1271	323.438416309749	100.695008036304	2023-09-30	0-15	S6A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Surface
+38	S6A1522	1349	405.23894099603	157.324878726456	2023-09-30	16-30	S6A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Mid
+39	S6A3040	1323	235.613264116804	62.5681093836545	2023-09-30	31-45	S6A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
+40	S6B07	1081	197.20738891941	51.2459463710783	2023-09-30	0-15	S6B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Surface
+41	S6B1522	1223	263.157870319228	78.4890947342744	2023-09-30	16-30	S6B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Mid
+42	S6B3040	1492	337.443006381947	92.7660231947453	2023-09-30	31-45	S6B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
+43	S7A07	1394	376.092089489386	112.977968991559	2023-09-30	0-15	S7A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Surface
+44	S7A1522	1405	418.316267890492	161.636407809051	2023-09-30	16-30	S7A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Mid
+45	S7A3040	1545	409.617199190108	142.516697883964	2023-09-30	31-45	S7A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
+46	S7A5060	1233	358.944945214581	134.684792925403	2023-09-30	50-70	S7A	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
+47	S7B07	1174	303.079853330128	81.1769783681879	2023-09-30	0-15	S7B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Surface
+48	S7B1522	1597	455.60803037755	145.672607697402	2023-09-30	16-30	S7B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Mid
+49	S7B3040	1502	258.034751466795	67.9162928011068	2023-09-30	31-45	S7B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
+50	S7B5060	1601	262.429032281183	62.4130124525367	2023-09-30	50-70	S7B	sediment	Mexico:Tabasco	Laguna Cacahuate	Fringe	flood	Fossil Lagoon	Deep
+51	zr2502_11_R1.fastq.gz	121	71.5155702687461	37.8043315563436	17/01/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Mid
+52	zr2502_12_R1.fastq.gz	159	64.0651026506922	15.7837055950627	17/01/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
+53	zr2502_13_R1.fastq.gz	148	70.9331552633848	27.9348533487222	17/01/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
 54	zr2502_14_R1.fastq.gz	205	116.517221457368	69.5174167691771	17/01/2018	5		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Surface
-55	zr2502_1_R1.fastq.gz	133	96.2526109735782	70.5533266944327	17/01/2018	5		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Surface
-56	zr2502_33_R1.fastq.gz	116	20.0897583203938	9.12116079726375	30/05/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	mid
-57	zr2502_34_R1.fastq.gz	208	31.1828122392343	6.88696165034543	30/05/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
-58	zr2502_35_R1.fastq.gz	137	17.0953233008123	7.07793248917527	30/05/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	mid
+55	zr2502_1_R1.fastq.gz	133	96.2526109778525	70.5533266944327	17/01/2018	5		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Surface
+56	zr2502_33_R1.fastq.gz	116	20.0897583199477	9.12116079726374	30/05/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Mid
+57	zr2502_34_R1.fastq.gz	208	31.1828122371572	6.88696165034543	30/05/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
+58	zr2502_35_R1.fastq.gz	137	17.0953233011919	7.07793248917527	30/05/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Mid
 59	zr2502_36_R1.fastq.gz	64	8.09390732270812	2.73970533081537	30/05/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
-60	zr2502_37_R1.fastq.gz	82	23.5798612853375	13.4330900049455	30/05/2018	5		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Surface
-61	zr2502_38_R1.fastq.gz	188	54.0544756353923	20.6460754460987	30/05/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	mid
-62	zr2502_39_R1.fastq.gz	183	32.9644050277644	16.003832772263	30/05/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
-63	zr2502_3_R1.fastq.gz	188	113.019707168112	67.0109642506616	17/01/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	mid
+60	zr2502_37_R1.fastq.gz	82	23.5798612842904	13.4330900049455	30/05/2018	5		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Surface
+61	zr2502_38_R1.fastq.gz	188	54.0544756377927	20.6460754460987	30/05/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Mid
+62	zr2502_39_R1.fastq.gz	183	32.9644050255686	16.003832772263	30/05/2018	40		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Deep
+63	zr2502_3_R1.fastq.gz	188	113.01970717564	67.0109642506615	17/01/2018	20		sediment	Mexico:Campeche	Estero_pargo	Fringe	flood	Términos Lagoon	Mid

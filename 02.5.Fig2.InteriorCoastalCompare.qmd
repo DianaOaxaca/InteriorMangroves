@@ -12,36 +12,101 @@ library(cowplot)
 ## Load figures
 
 ```{r}
-alpha <- readRDS("rds/compare_mangroves/alpha_diversity_surface_plot.rds")
+#| message: false
+#| warning: false
+## Coastal depth 
+alpha_d <- readRDS("rds/Depth_comparison/alpha_diversity_MS_plot.rds")
 
-beta <- readRDS("rds/compare_mangroves/beta-diversity-surface-plot.rds")
+beta_d <- readRDS("rds/Depth_comparison/beta-diversity-Depth-plot.rds")
 
-core <- readRDS("rds/compare_mangroves/upset_surface_plot.rds")
+core_d <- readRDS("rds/Depth_comparison/upset_surface_plot.rds")
 
-dabar <- readRDS("rds/compare_mangroves/DA_barplot_surface.rds")
+dahm_d <- readRDS("rds/Depth_comparison/DA_heatmap_surface.rds")
 
-dahm <- readRDS("rds/compare_mangroves/DA_heatmap_surface.rds")
+coreab_d <- readRDS("rds/Depth_comparison/coreabundance_surface_plot.rds")
+
+
+## Coastal surface
+alpha_s <- readRDS("rds/compare_mangroves/alpha_diversity_surface_plot.rds")
+
+beta_s <- readRDS("rds/compare_mangroves/beta-diversity-surface-plot.rds")
+
+core_s <- readRDS("rds/compare_mangroves/upset_surface_plot.rds")
+
+dahm_s <- readRDS("rds/compare_mangroves/DA_heatmap_surface.rds")
+
+coreab_s <- readRDS("rds/compare_mangroves/coreabundance_surface_plot.rds")
 ```
 
 ## Combine plots
 
+Coastal depth comparison
+
 ```{r}
 #| message: false
 #| warning: false
-beta_core <- plot_grid(beta, core, labels = c("B", "D)"),
+
+# alpha and core
+alpha_da_d <- plot_grid(alpha_d, dahm_d,
+                        labels = c(" ", "C)"),
                         label_fontface = "bold",
-                        ncol = 1, rel_heights = c(0.8, 1))
-beta_core_da <- plot_grid(beta_core, dahm, labels = c("", "C)"),
+                        ncol = 2, rel_widths = c(0.3, 0.7))
+
+# core and differential abundance
+core_coreab_d <- plot_grid(core_d, coreab_d, 
+                     labels = c("D)", "E)"),
+                     label_fontface = "bold",
+                     ncol = 2, rel_widths = c(0.6, 0.4))
+
+# merge all
+all_d <- plot_grid(beta_d, alpha_da_d, core_coreab_d,
+                   labels = c("D)", "E)"),
+                   label_fontface = "bold",
+                   ncol = 1,
+                   rel_heights = c(0.3, 0.5, 0.4))
+```
+
+Coastal surface comparison
+
+```{r}
+#| message: false
+#| warning: false
+
+# alpha and beta
+alpha_beta_s <- plot_grid(alpha_s,beta_s,
+                        labels = c("A)", "B)"),
                         label_fontface = "bold",
-                        ncol = 2, rel_widths = c(1, 0.9))
-alpha_beta_core_da_2 <- plot_grid(alpha, beta_core_da,
-                        ncol = 2, rel_widths = c(0.35, 1))
-alpha_beta_core_da_2
+                        ncol = 2, rel_widths = c(0.4, 0.6))
+
+# core and differential abundance
+core_da_s <- plot_grid(core_s, dahm_s, 
+                     labels = c("C)", "D)"),
+                     label_fontface = "bold",
+                     ncol = 1, rel_heights = c(1, 1))
+
+# merge all
+all_s <- plot_grid(alpha_beta_s, dahm_s, core_s,
+                 labels = c(" ","C)", "D)"),
+                 label_fontface = "bold",
+                 ncol = 1, 
+                 rel_heights = c(0.3, 0.4, 0.4))
+```
+
+combine
+
+```{r}
+#| message: false
+#| warning: false
+
+# merge depth and surface
+all_d_s <- plot_grid(all_d, all_s,
+                        ncol = 2, 
+                        rel_widths = c(1, 1))
 ```
 
 ```{r}
 ggsave("Figures/SurfaceComparison/Fig2.SurfaceComparison_2.pdf",
-       alpha_beta_core_da_2, width = 19, height = 12)
+       all_d_s, width = 19, height = 12)
 ```
 
 ::: callout-caution
