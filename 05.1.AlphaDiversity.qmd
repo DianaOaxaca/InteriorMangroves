@@ -356,11 +356,6 @@ anova(q0lmer)
 ```
 
 ```{r}
-# check model reliability
-report(q0lmer)
-```
-
-```{r}
 #| message: false
 #| warning: false
 # get differences with emmeans
@@ -412,11 +407,6 @@ anova(q1lmer)
 ```
 
 ```{r}
-#check_model(q1lmer)
-report(q1lmer)
-```
-
-```{r}
 # Sig dif emmeans
 q1_lmer_means <- emmeans(q1lmer, pairwise ~ Depth)
 
@@ -459,11 +449,6 @@ perm_testq2
 
 # Efects
 anova(q2lmer)
-```
-
-```{r}
-#check_model(q2lmer)
-report(q2lmer)
 ```
 
 ```{r}
@@ -512,11 +497,6 @@ anova(q0lmerloc)
 ```
 
 ```{r}
-# check model reliability
-report(q0lmerloc)
-```
-
-```{r}
 # emmeans
 q0_lmer_means_loc <- emmeans(q0lmerloc, pairwise ~ Mangrove_system)
 
@@ -558,11 +538,6 @@ perm_testlocq1
 
 #effects
 anova(q1lmerloc)
-```
-
-```{r}
-# check model reliability
-report(q1lmerloc)
 ```
 
 ```{r}
@@ -672,4 +647,117 @@ A comparison of alpha diversity indices revealed no significant differences amon
 saveRDS(alphaplots_depth, "rds/interior_impaired/alpha_diversity_depth_plot.rds")
 
 saveRDS(alphaplots_loc, "rds/interior_impaired/alpha_diversity_loc_plot.rds")
+```
+
+## Supplementary
+
+### Get depth differences by system
+
+q0
+
+```{r}
+# factor
+metadata_with_hill$Depths <- factor(metadata_with_hill$Depths, levels = c("Surface", "Mid", "Deep"))
+
+#plot q0
+q0_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q0, fill = Depths)) + 
+  geom_boxplot(outlier.shape = NA, alpha = 0.9) +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  facet_wrap(~Mangrove_system, scales = "free_y") + 
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  theme_classic() + 
+  scale_fill_manual(values = depth_colors) + 
+  labs(title = NULL,
+       x = NULL, y = "Observed Richness (q0)") +
+  theme(legend.position = "none")
+```
+
+**q1**
+
+```{r}
+#plot
+q1_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q1, fill = Depths)) + 
+  geom_boxplot(outlier.shape = NA, alpha = 0.9) +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  facet_wrap(~Mangrove_system, scales = "free_y") + 
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  theme_classic() + 
+  scale_fill_manual(values = depth_colors) + 
+  labs(title = NULL,
+       x = NULL, y = "Exp Shannon Diversity (q1)") +
+  theme(legend.position = "none")
+```
+
+**q2**
+
+```{r}
+q2_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q2, fill = Depths)) + 
+  geom_boxplot(outlier.shape = NA, alpha = 0.9) +
+  geom_jitter(width = 0.2, alpha = 0.5) +
+  facet_wrap(~Mangrove_system, scales = "free_y") + 
+  geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  theme_classic() + 
+  scale_fill_manual(values = depth_colors) + 
+  labs(title = NULL,
+       x = "Sediment Depth", y = "Inv Simpson Dominance (q2)") +
+  theme(legend.position = "none")
+```
+
+```{r}
+#| message: false
+#| warning: false
+#Combine alpha diversity plots
+
+q012_depth_system_plot <- plot_grid(q0_depth_system,
+                                    q1_depth_system,
+                                    q2_depth_system, 
+                                    ncol = 1)
+
+
+# show
+q012_depth_system_plot
+
+# svae rds
+saveRDS(q012_depth_system_plot, "rds/interior_impaired/alpha_diversity_Depths_by_system_plot.rds")
+
+# save
+ggsave("Figures/interior_impaired/Supplementary_alphadiv_per_Depths_and_system.pdf",
+       q012_depth_system_plot, width = 6.3, height = 9.9)
+```
+
+### Tables
+
+```{r}
+library(dplyr)
+library(broom.mixed)
+library(emmeans)
+
+# Linear Mixed Models
+tableS7_imp_models <- bind_rows(
+  tidy(q0lmerloc) %>% mutate(Metric = "q0"),
+  tidy(q1lmerloc) %>% mutate(Metric = "q1"),
+  tidy(q2lmerloc) %>% mutate(Metric = "q2"),
+) %>%
+  filter(effect == "fixed") %>%
+  dplyr::select(Metric, Term = term, Estimate = estimate, Std.Error = std.error, Statistic = statistic, p_value = p.value) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+#Posthoc
+# join CLD dataframe
+tableS7_imp_posthoc <- bind_rows(
+  as.data.frame(q0cld_results_loc) %>% mutate(Metric = "q0"),
+  as.data.frame(q1cld_results_loc) %>% mutate(Metric = "q1"),
+  as.data.frame(cld_results) %>% mutate(Metric = "q0")) %>%
+  dplyr::select(Metric, Mangrove_system, Depth, emmean, SE, lower.CL, upper.CL, Significance = .group) %>%
+  mutate(across(where(is.numeric), ~ round(., 3)))
+
+# clean
+rownames(tableS7_imp_posthoc) <- NULL
+
+#show
+tableS7_imp_posthoc
+
+# save
+write.csv(tableS7_imp_models, "Tables/interior_impaired/Supplementary_Table_S7_Impairment_LMM.csv", row.names = FALSE)
+write.csv(tableS7_imp_posthoc, "Tables/interior_impaired/Supplementary_Table_S7_Impairment_PostHoc.csv", row.names = FALSE)
 ```

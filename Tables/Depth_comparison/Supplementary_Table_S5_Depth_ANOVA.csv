@@ -1,0 +1,10 @@
+"Metric","Factor","F value","p_value"
+"q0","log(Effective_reads)",439.9756000042,0
+"q0","Depths",1.4622252063,0.2402800349
+"q0","Mangrove.system",5.8818846836,0.0047608297
+"q1","log(Effective_reads)",75.6339779353,0
+"q1","Depths",0.7294568477,0.486616994
+"q1","Mangrove.system",4.7250230423,0.01262751
+"q2","log(Effective_reads)",28.0727671248,1.9606e-06
+"q2","Depths",1.2885266576,0.2835837493
+"q2","Mangrove.system",4.1589584964,0.0206068724

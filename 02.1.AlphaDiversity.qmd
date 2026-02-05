@@ -25,6 +25,8 @@ library(vegan)
 library(easystats)
 library(emmeans)
 library(multcomp)
+library(broom)
+library(dplyr)
 ```
 
 ```{r}
@@ -242,10 +244,6 @@ anova(q0lm)
 ```
 
 ```{r}
-report(q0lm)
-```
-
-```{r}
 # get differences with emmeans
 #library(emmeans)
 q0_lm_means <- emmeans(q0lm, pairwise ~ Mangrove.system)
@@ -384,4 +382,51 @@ ggsave("Figures/SurfaceComparison/alphadiv_per_loc.pdf",
 
 ```{r}
 saveRDS(q12y_plot, "rds/compare_mangroves/alpha_diversity_surface_plot.rds")
+```
+
+## Supplementary tables of alpha diversity
+
+### Supplementary Table S3
+
+```{r}
+library(broom)
+library(dplyr)
+
+s1_q0 <- glance(q0lm) %>% mutate(metric = "q0")
+s1_q1 <- glance(q1lm) %>% mutate(metric = "q1")
+s1_q2 <- glance(q2lm) %>% mutate(metric = "q2")
+
+# join all S1
+table_s1 <- bind_rows(s1_q0, s1_q1, s1_q2) %>%
+  mutate(across(c(r.squared, adj.r.squared, statistic), ~ round(., 4)),
+         p.value = round(p.value, 10)) %>% 
+  dplyr::select(metric, r.squared, adj.r.squared, statistic, p.value, df, df.residual)
+
+#show
+table_s1
+
+# Save
+write.csv(table_s1, "Tables/SurfaceComparison/SupplementaryTableS3AlphaDiversityModels.csv", row.names = FALSE)
+```
+
+### Supplementary Table S4
+
+```{r}
+# Extract compare of each models
+s2_q0 <- as.data.frame(pairs(q0_lm_means)) %>% mutate(metric = "q0")
+s2_q1 <- as.data.frame(pairs(q1_lm_means)) %>% mutate(metric = "q1")
+s2_q2 <- as.data.frame(pairs(q2_lm_means)) %>% mutate(metric = "q2")
+
+# join all S2
+
+table_s2 <- bind_rows(s2_q0, s2_q1, s2_q2) %>%
+  mutate(across(c(estimate, SE, t.ratio), ~ round(., 2)),
+         p.value = round(p.value, 8)) %>%
+  dplyr::select(metric, contrast, estimate, SE, df, t.ratio, p.value)
+
+#show
+table_s2
+
+# Save
+write.csv(table_s2, "Tables/SurfaceComparison/SupplementaryTableS4PostHocAlphaDiversity.csv", row.names = FALSE)
 ```

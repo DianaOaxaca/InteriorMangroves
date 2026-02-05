@@ -22,6 +22,8 @@ library(ggplot2)
 library(tidyverse)
 library(pairwiseAdonis)
 library(reshape2)
+library(broom)
+library(purrr)
 ```
 
 ```{r}
@@ -281,4 +283,51 @@ boxplot(disp_mangrove_type, main = "Dist to centroid Mangrove_type")
 
 ```{r}
 saveRDS(nmds_plot_bray_perm, "rds/compare_mangroves/beta-diversity-surface-plot.rds")
+```
+
+## Supplementary tables
+
+```{r}
+# Extract
+perm_table <- as.data.frame(adonis_result) %>%
+  dplyr::select(R2, p_val = `Pr(>F)`) %>%
+  slice(1:2) %>%
+  mutate(Factor = c("Mangrove Type", "Mangrove system"))
+
+# Extract  BETADISPER 
+disper_results <- data.frame(
+  Factor = c("Mangrove Type", "Mangrove system"),
+  Disper_F = c(perm_mangrove_type$tab$F[1], perm_location$tab$F[1]),
+  Disper_p = c(perm_mangrove_type$tab$`Pr(>F)`[1], perm_location$tab$`Pr(>F)`[1])
+)
+
+# join
+table_s5_global <- left_join(perm_table, disper_results, by = "Factor") %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+# save
+write.csv(table_s5_global, "Tables/SurfaceComparison/SupplementaryTableS5BetaGlobal.csv", row.names = FALSE)
+```
+
+```{r}
+
+# Extract comparisons
+tableS5_pairwise <- imap_dfr(pairwise_adonis, function(result, name) {
+  if (name == "parent_call") return(NULL)
+  data.frame(
+    Comparison = name,
+    R2 = result["Model", "R2"],
+    F.Model = result["Model", "F"],
+    p.value = result["Model", "Pr(>F)"]
+  )})
+
+# p.adjusted 
+tableS5_pairwise <- tableS5_pairwise %>%
+  mutate(p.adjusted = p.adjust(p.value, method = "BH")) %>% 
+  mutate(across(c(R2, F.Model), ~ round(., 3)),
+         p.value = round(p.value, 4),
+         p.adjusted = round(p.adjusted, 4))
+
+# save
+write.csv(tableS5_pairwise, "Tables/SurfaceComparison/SupplementaryTableS5_PairwiseBeta.csv", row.names = FALSE)
 ```

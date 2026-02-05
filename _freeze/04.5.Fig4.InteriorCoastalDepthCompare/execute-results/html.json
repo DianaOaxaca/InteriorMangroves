@@ -1,9 +1,11 @@
 {
-  "hash": "7d060220ddce5cafd167aaafd6444646",
+  "hash": "8183fa615f4bc4cf0c9341adcb75f27b",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Fig 4. Interior and Coastal with depth comparison\"\n---\n\n\n\n\n\n# Load libraries\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\nlibrary(cowplot)\n```\n:::\n\n\n\n\n\n# Load figures\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nalpha <- readRDS(\"rds/Depth_comparison/alpha_diversity_MS_plot.rds\")\n\nbeta <- readRDS(\"rds/Depth_comparison/beta-diversity-Depth-plot.rds\")\n\ncore_abund <- readRDS(\"rds/Depth_comparison/upset_surface_plot.rds\")\n\nda_tax <- readRDS(\"rds/Depth_comparison/DA_heatmap_surface.rds\")\n```\n:::\n\n\n\n\n\n::: callout-caution\n## Edit figure in Inkscape\n\nThe details were done in Inkscape. The final figure is shown below:\n:::\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Fig 4. Interior and Coastal with depth comparison\"\n---\n\n\n\n\n# Load libraries\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\nlibrary(cowplot)\n```\n:::\n\n\n\n\n# Load figures\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nalpha <- readRDS(\"rds/Depth_comparison/alpha_diversity_MS_plot.rds\")\n\nbeta <- readRDS(\"rds/Depth_comparison/beta-diversity-Depth-plot.rds\")\n\ncore_abund <- readRDS(\"rds/Depth_comparison/upset_surface_plot.rds\")\n\nda_tax <- readRDS(\"rds/Depth_comparison/DA_heatmap_surface.rds\")\n\nalpha_all_depths <- readRDS(\"rds/Depth_comparison/alpha_diversity_Depths_by_system_plot.rds\")\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n#Combine  plots\n\n# alphas <- plot_grid(alpha_all_depths, alpha,\n#                       labels = c(\"A)\", \"B)\"), ncol = 2, \n#                       rel_heights = 0.75, 0.25)\n\nbeta_core <- plot_grid(beta, core_abund,\n                      labels = c(\"C)\", \"D)\"), ncol = 1,\n                      rel_heights = c(0.4, 0.6))\n\nall <- plot_grid(alpha_all_depths, alpha, beta_core, da_tax,\n                 labels = c(\"A)\", \"B)\", \"\", \"E)\"), ncol = 4, \n                 rel_widths = c(0.25,0.17, 0.34, 0.30))\n\n# show\nall\n```\n\n::: {.cell-output-display}\n![](04.5.Fig4.InteriorCoastalDepthCompare_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n\n```{.r .cell-code}\n# save\nggsave(\"Figures/Depth_comparison/Fig3.DepthComparissons.pdf\",\n        all, width = 22, height = 11)\n```\n:::\n\n\n\n\n::: callout-caution\n## Edit figure in Inkscape\n\nThe details were done in Inkscape. The final figure is shown below:\n:::\n",
+    "supporting": [
+      "04.5.Fig4.InteriorCoastalDepthCompare_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],

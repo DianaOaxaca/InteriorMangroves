@@ -368,7 +368,7 @@ ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
             plot_values = TRUE,
             tax_show = 20,
             showRemainingTaxa = TRUE,
-            tax_aggregate = c("Phylum","Family"),
+            tax_aggregate = "Family",
             plot_colorscale = "log10",
             plot_values_size = 3,
             min_abundance = 0.001,
@@ -385,7 +385,7 @@ ampv_heatmap_abundances_phylum_core
 ```{r}
 ggsave("Figures/Depth_comparison/rel_abun_coreheatmap.pdf",
        ampv_heatmap_abundances_phylum_core, bg='transparent', 
-       width = 7.5, height = 5)
+       width = 6, height = 5)
 ```
 
 ## Save rds core plot

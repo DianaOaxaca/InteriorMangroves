@@ -433,6 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li><a href="#save-rds-beta-diversity-plot" id="toc-save-rds-beta-diversity-plot" class="nav-link" data-scroll-target="#save-rds-beta-diversity-plot">Save rds beta diversity plot</a></li>
+  <li><a href="#supplementary-tables" id="toc-supplementary-tables" class="nav-link" data-scroll-target="#supplementary-tables">Supplementary tables</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -474,7 +475,9 @@ Tip
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">pairwiseAdonis</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/reshape">reshape2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/">purrr</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#load data</span></span>
@@ -518,42 +521,45 @@ Note
 <span><span class="va">bray</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">vegdist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">otu_data</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"bray"</span><span class="op">)</span></span>
 <span><span class="va">nmds_source_bray</span> <span class="op">=</span> <span class="fu">vegan</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">bray</span>, trymax <span class="op">=</span> <span class="fl">20</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Run 0 stress 0.11 
-Run 1 stress 0.078 
+<pre><code>Run 0 stress 0.14 
+Run 1 stress 0.16 
+Run 2 stress 0.111 
 ... New best solution
-... Procrustes: rmse 0.111  max resid 0.476 
-Run 2 stress 0.161 
-Run 3 stress 0.078 
-... Procrustes: rmse 4.1e-05  max resid 0.00012 
-... Similar to previous best
-Run 4 stress 0.11 
-Run 5 stress 0.133 
-Run 6 stress 0.11 
-Run 7 stress 0.078 
-... Procrustes: rmse 1.87e-05  max resid 6.06e-05 
-... Similar to previous best
-Run 8 stress 0.161 
-Run 9 stress 0.0782 
-... Procrustes: rmse 0.015  max resid 0.057 
-Run 10 stress 0.133 
-Run 11 stress 0.11 
-Run 12 stress 0.166 
-Run 13 stress 0.145 
-Run 14 stress 0.078 
-... Procrustes: rmse 4.39e-05  max resid 0.000144 
-... Similar to previous best
-Run 15 stress 0.0782 
-... Procrustes: rmse 0.015  max resid 0.0572 
-Run 16 stress 0.0782 
-... Procrustes: rmse 0.015  max resid 0.0571 
-Run 17 stress 0.155 
-Run 18 stress 0.0782 
-... Procrustes: rmse 0.015  max resid 0.0572 
-Run 19 stress 0.0782 
-... Procrustes: rmse 0.015  max resid 0.0571 
-Run 20 stress 0.078 
+... Procrustes: rmse 0.14  max resid 0.393 
+Run 3 stress 0.111 
 ... New best solution
-... Procrustes: rmse 4.37e-05  max resid 0.000133 
+... Procrustes: rmse 0.000475  max resid 0.00172 
+... Similar to previous best
+Run 4 stress 0.135 
+Run 5 stress 0.111 
+... Procrustes: rmse 0.0166  max resid 0.0488 
+Run 6 stress 0.111 
+... Procrustes: rmse 0.00135  max resid 0.00492 
+... Similar to previous best
+Run 7 stress 0.0785 
+... New best solution
+... Procrustes: rmse 0.104  max resid 0.472 
+Run 8 stress 0.123 
+Run 9 stress 0.0785 
+... Procrustes: rmse 0.0147  max resid 0.055 
+Run 10 stress 0.0785 
+... Procrustes: rmse 0.0146  max resid 0.055 
+Run 11 stress 0.0785 
+... Procrustes: rmse 0.0147  max resid 0.055 
+Run 12 stress 0.0785 
+... New best solution
+... Procrustes: rmse 0.000183  max resid 0.000657 
+... Similar to previous best
+Run 13 stress 0.148 
+Run 14 stress 0.111 
+Run 15 stress 0.169 
+Run 16 stress 0.123 
+Run 17 stress 0.154 
+Run 18 stress 0.111 
+Run 19 stress 0.123 
+Run 20 stress 0.0785 
+... New best solution
+... Procrustes: rmse 0.000106  max resid 0.00037 
 ... Similar to previous best
 *** Best solution repeated 1 times</code></pre>
 </div>
@@ -637,10 +643,10 @@ Number of permutations: 999
 
 adonis2(formula = otu_mat ~ Mangrove_type * Mangrove.system, data = sample_data, permutations = 999, method = "bray", by = "terms")
                 Df SumOfSqs    R2     F Pr(&gt;F)    
-Mangrove_type    1     1.77 0.283 11.60  0.001 ***
-Mangrove.system  2     1.29 0.206  4.23  0.001 ***
-Residual        21     3.20 0.511                 
-Total           24     6.25 1.000                 
+Mangrove_type    1     1.69 0.256 10.83  0.001 ***
+Mangrove.system  2     1.32 0.200  4.22  0.001 ***
+Residual        23     3.59 0.544                 
+Total           26     6.61 1.000                 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -697,39 +703,39 @@ Note
 
 $`San Pedro River_vs_Fossil Lagoon`
          Df SumOfSqs    R2    F Pr(&gt;F)   
-Model     1    0.274 0.256 3.09  0.003 **
-Residual  9    0.798 0.744               
-Total    10    1.071 1.000               
+Model     1    0.307 0.204 2.82  0.007 **
+Residual 11    1.197 0.796               
+Total    12    1.504 1.000               
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`San Pedro River_vs_Celestún Lagoon`
          Df SumOfSqs    R2    F Pr(&gt;F)    
-Model     1     1.39 0.378 9.73  0.001 ***
-Residual 16     2.28 0.622                
-Total    17     3.67 1.000                
+Model     1     1.33 0.332 8.96  0.001 ***
+Residual 18     2.68 0.668                
+Total    19     4.01 1.000                
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`San Pedro River_vs_Términos Lagoon`
-         Df SumOfSqs    R2    F Pr(&gt;F)  
-Model     1     1.15 0.476 7.26  0.014 *
-Residual  8     1.26 0.524              
-Total     9     2.41 1.000              
+         Df SumOfSqs    R2    F Pr(&gt;F)   
+Model     1     1.15 0.409 6.91  0.005 **
+Residual 10     1.66 0.591               
+Total    11     2.81 1.000               
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`Fossil Lagoon_vs_Celestún Lagoon`
-         Df SumOfSqs    R2    F Pr(&gt;F)   
-Model     1     1.04 0.351 7.03  0.004 **
-Residual 13     1.93 0.649               
-Total    14     2.98 1.000               
+         Df SumOfSqs    R2    F Pr(&gt;F)    
+Model     1     1.04 0.351 7.03  0.001 ***
+Residual 13     1.93 0.649                
+Total    14     2.98 1.000                
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`Fossil Lagoon_vs_Términos Lagoon`
          Df SumOfSqs    R2    F Pr(&gt;F)  
-Model     1    1.005 0.523 5.48  0.035 *
+Model     1    1.005 0.523 5.48  0.029 *
 Residual  5    0.916 0.477              
 Total     6    1.921 1.000              
 ---
@@ -737,7 +743,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`Celestún Lagoon_vs_Términos Lagoon`
          Df SumOfSqs    R2    F Pr(&gt;F)   
-Model     1     1.01 0.297 5.07  0.003 **
+Model     1     1.01 0.297 5.07  0.002 **
 Residual 12     2.40 0.703               
 Total    13     3.41 1.000               
 ---
@@ -833,11 +839,11 @@ Note
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">disp_location</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                Length Class  Mode   
-eig              24    -none- numeric
-vectors         600    -none- numeric
-distances        25    -none- numeric
-group            25    factor numeric
-centroids        96    -none- numeric
+eig              26    -none- numeric
+vectors         702    -none- numeric
+distances        27    -none- numeric
+group            27    factor numeric
+centroids       104    -none- numeric
 group.distances   4    -none- numeric
 call              3    -none- call   </code></pre>
 </div>
@@ -855,8 +861,8 @@ Number of permutations: 999
 
 Response: Distances
           Df Sum Sq Mean Sq    F N.Perm Pr(&gt;F)  
-Groups     3  0.143  0.0476 4.55    999  0.022 *
-Residuals 21  0.220  0.0105                     
+Groups     3  0.117   0.039 3.88    999  0.017 *
+Residuals 23  0.231   0.010                     
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -885,11 +891,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">disp_mangrove_type</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                Length Class  Mode   
-eig              24    -none- numeric
-vectors         600    -none- numeric
-distances        25    -none- numeric
-group            25    factor numeric
-centroids        48    -none- numeric
+eig              26    -none- numeric
+vectors         702    -none- numeric
+distances        27    -none- numeric
+group            27    factor numeric
+centroids        52    -none- numeric
 group.distances   2    -none- numeric
 call              3    -none- call   </code></pre>
 </div>
@@ -903,9 +909,9 @@ Permutation: free
 Number of permutations: 999
 
 Response: Distances
-          Df Sum Sq Mean Sq   F N.Perm Pr(&gt;F)  
-Groups     1  0.154  0.1537 7.2    999  0.014 *
-Residuals 23  0.491  0.0213                    
+          Df Sum Sq Mean Sq    F N.Perm Pr(&gt;F)  
+Groups     1  0.116  0.1164 5.64    999  0.021 *
+Residuals 25  0.516  0.0206                     
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -930,6 +936,49 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </section></section><section id="save-rds-beta-diversity-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-beta-diversity-plot">Save rds beta diversity plot</h2>
 <div class="cell">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">nmds_plot_bray_perm</span>, <span class="st">"rds/compare_mangroves/beta-diversity-surface-plot.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="supplementary-tables" class="level2"><h2 class="anchored" data-anchor-id="supplementary-tables">Supplementary tables</h2>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract</span></span>
+<span><span class="va">perm_table</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">adonis_result</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">R2</span>, p_val <span class="op">=</span> <span class="va">`Pr(&gt;F)`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Mangrove Type"</span>, <span class="st">"Mangrove system"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract  BETADISPER </span></span>
+<span><span class="va">disper_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  Factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Mangrove Type"</span>, <span class="st">"Mangrove system"</span><span class="op">)</span>,</span>
+<span>  Disper_F <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">perm_mangrove_type</span><span class="op">$</span><span class="va">tab</span><span class="op">$</span><span class="cn">F</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">perm_location</span><span class="op">$</span><span class="va">tab</span><span class="op">$</span><span class="cn">F</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>  Disper_p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">perm_mangrove_type</span><span class="op">$</span><span class="va">tab</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">perm_location</span><span class="op">$</span><span class="va">tab</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># join</span></span>
+<span><span class="va">table_s5_global</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">perm_table</span>, <span class="va">disper_results</span>, by <span class="op">=</span> <span class="st">"Factor"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># save</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">table_s5_global</span>, <span class="st">"Tables/SurfaceComparison/SupplementaryTableS5BetaGlobal.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract comparisons</span></span>
+<span><span class="va">tableS5_pairwise</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html">imap_dfr</a></span><span class="op">(</span><span class="va">pairwise_adonis</span>, <span class="kw">function</span><span class="op">(</span><span class="va">result</span>, <span class="va">name</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">name</span> <span class="op">==</span> <span class="st">"parent_call"</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>    Comparison <span class="op">=</span> <span class="va">name</span>,</span>
+<span>    R2 <span class="op">=</span> <span class="va">result</span><span class="op">[</span><span class="st">"Model"</span>, <span class="st">"R2"</span><span class="op">]</span>,</span>
+<span>    F.Model <span class="op">=</span> <span class="va">result</span><span class="op">[</span><span class="st">"Model"</span>, <span class="st">"F"</span><span class="op">]</span>,</span>
+<span>    p.value <span class="op">=</span> <span class="va">result</span><span class="op">[</span><span class="st">"Model"</span>, <span class="st">"Pr(&gt;F)"</span><span class="op">]</span></span>
+<span>  <span class="op">)</span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># p.adjusted </span></span>
+<span><span class="va">tableS5_pairwise</span> <span class="op">&lt;-</span> <span class="va">tableS5_pairwise</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>p.adjusted <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust</a></span><span class="op">(</span><span class="va">p.value</span>, method <span class="op">=</span> <span class="st">"BH"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">R2</span>, <span class="va">F.Model</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>         p.value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">p.value</span>, <span class="fl">4</span><span class="op">)</span>,</span>
+<span>         p.adjusted <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">p.adjusted</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># save</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS5_pairwise</span>, <span class="st">"Tables/SurfaceComparison/SupplementaryTableS5_PairwiseBeta.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

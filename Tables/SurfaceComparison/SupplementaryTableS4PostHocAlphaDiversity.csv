@@ -1,0 +1,19 @@
+"metric","contrast","estimate","SE","df","t.ratio","p.value"
+"q0","Fossil Lagoon - Celestún Lagoon",-173.67,142.4,22,-1.22,0.62140279
+"q0","Fossil Lagoon - San Pedro River",-217.81,104.59,22,-2.08,0.18988739
+"q0","Fossil Lagoon - Términos Lagoon",399.13,367.62,22,1.09,0.70165823
+"q0","Celestún Lagoon - San Pedro River",-44.14,120.24,22,-0.37,0.9826509
+"q0","Celestún Lagoon - Términos Lagoon",572.8,267.82,22,2.14,0.17217624
+"q0","San Pedro River - Términos Lagoon",616.94,353.79,22,1.74,0.32612091
+"q1","Fossil Lagoon - San Pedro River",9.32,57.45,23,0.16,0.99843415
+"q1","Fossil Lagoon - Términos Lagoon",221.17,73.01,23,3.03,0.02836426
+"q1","Fossil Lagoon - Celestún Lagoon",-196.16,55.82,23,-3.51,0.00937039
+"q1","San Pedro River - Términos Lagoon",211.85,63.73,23,3.32,0.01457235
+"q1","San Pedro River - Celestún Lagoon",-205.48,42.97,23,-4.78,0.00043635
+"q1","Términos Lagoon - Celestún Lagoon",-417.33,62.27,23,-6.7,4.41e-06
+"q2","Fossil Lagoon - San Pedro River",0.78,24.14,23,0.03,0.99998763
+"q2","Fossil Lagoon - Términos Lagoon",35.36,30.68,23,1.15,0.6618799
+"q2","Fossil Lagoon - Celestún Lagoon",-147.01,23.46,23,-6.27,1.213e-05
+"q2","San Pedro River - Términos Lagoon",34.58,26.78,23,1.29,0.57761882
+"q2","San Pedro River - Celestún Lagoon",-147.79,18.06,23,-8.18,1.7e-07
+"q2","Términos Lagoon - Celestún Lagoon",-182.37,26.17,23,-6.97,2.39e-06

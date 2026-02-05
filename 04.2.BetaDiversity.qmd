@@ -286,3 +286,29 @@ ggsave("Figures/Depth_comparison/NMDS.pdf", nmds, bg='transparent', width = 6, h
 ```{r}
 saveRDS(nmds, "rds/Depth_comparison/beta-diversity-Depth-plot.rds")
 ```
+
+##  Supplementary
+
+```{r}
+library(dplyr)
+
+# Extract PERMANOVA 
+tab_perm <- as.data.frame(adonis_result) %>%
+  mutate(Factor = rownames(.)) %>%
+  filter(!Factor %in% c("Total", "Residual")) %>%
+  dplyr::select(Factor, Df, R2, F.Model = F, p_value = `Pr(>F)`)
+
+# Extract BETADISPER 
+tab_disper <- data.frame(
+  Factor = c("Mangrove.system", "Depths"),
+  Dispersion_p = c(anova(disp_location)$`Pr(>F)`[1], 
+                   anova(disp_Depths)$`Pr(>F)`[1])
+)
+
+# join
+tableS6 <- left_join(tab_perm, tab_disper, by = "Factor") %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+# Guardar
+write.csv(tableS6, "Tables/Depth_comparison/Supplementary_Table_S6_Beta_Depth_Combined.csv", row.names = FALSE)
+```

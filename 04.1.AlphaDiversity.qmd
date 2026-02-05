@@ -9,6 +9,8 @@ Alpha diversity indices were calculated with Hill numbers (q0 = observed richnes
 ## Load libraries and prepare data
 
 ```{r}
+#| message: false
+#| warning: false
 #Load libraries
 library(phyloseq)
 library(hilldiv)
@@ -24,6 +26,8 @@ library(lmerTest)
 ```
 
 ```{r}
+#| message: false
+#| warning: false
 
 #load data
 physeq_qiime3 <- readRDS("rds/Depth_comparison/physeq_qiime3.rds")
@@ -223,28 +227,28 @@ metadata_with_hill$Mangrove.system <- relevel(metadata_with_hill$Mangrove.system
 
 ```{r}
 # lm
-q0lm <- lm(q0 ~ log(Effective_reads) + Mangrove.system + Depths, data = metadata_with_hill)
+q0lm_ms <- lm(q0 ~ log(Effective_reads) + Mangrove.system + Depths, data = metadata_with_hill)
 
-summary(q0lm)
+summary(q0lm_ms)
 
 ```
 
 ```{r}
 # check model reliability
-shapiro.test(residuals(q0lm))
+shapiro.test(residuals(q0lm_ms))
 ```
 
 ```{r}
 #get differences with emmeans
-q0_lm_means <- emmeans(q0lm, pairwise ~ Mangrove.system)
+q0_lm_means_ms <- emmeans(q0lm_ms, pairwise ~ Mangrove.system)
 
 # get significance letters
 #library(multcomp)
-cld_results <- cld(object = q0_lm_means$emmeans, Letters = letters)
+cld_results_ms <- cld(object = q0_lm_means_ms$emmeans, Letters = letters)
 
 # Convert to data frame
-q0_emmeans_df <- as.data.frame(cld_results)
-q0_emmeans_df
+q0_emmeans_df_ms <- as.data.frame(cld_results_ms)
+q0_emmeans_df_ms
 
 # Reorder samples
 metadata_with_hill$Mangrove.system <- factor(
@@ -255,47 +259,47 @@ metadata_with_hill$Mangrove.system <- factor(
 
 ```{r}
 # boxplot with significance
-q0plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q0, fill = Mangrove.system)) +
+q0plot_ms <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q0, fill = Mangrove.system)) +
   geom_boxplot() +
-  #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
-  geom_text(data = q0_emmeans_df, aes(y = emmean, label = .group), vjust = -3,
+  geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
+  geom_text(data = q0_emmeans_df_ms, aes(y = emmean, label = .group), vjust = -3,
           color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "q0 = Observed", y = NULL, x = NULL) + #,
   #caption = "letters by lm emmeans") +
   theme_classic() + scale_fill_manual(values = loc_colors) +
   theme(legend.position = "none", axis.text.x = element_blank())
 
-q0plot
+q0plot_ms
 ```
 
 ### q1 Diversity Exp Shannon
 
 ```{r}
 # linear model
-q1lm <- lm(q1 ~ log(Effective_reads) + Mangrove.system + Depths, data = metadata_with_hill)
+q1lm_ms <- lm(q1 ~ log(Effective_reads) + Mangrove.system + Depths, data = metadata_with_hill)
 
 # summary
-summary(q1lm)
+summary(q1lm_ms)
 
 #check model reliability
-shapiro.test(residuals(q1lm))
+shapiro.test(residuals(q1lm_ms))
 
 # significance
-q1_lm_means <- emmeans(q1lm, pairwise ~ Mangrove.system)
-cld_results <- cld(object = q1_lm_means$emmeans, Letters = letters)
+q1_lm_means_ms <- emmeans(q1lm_ms, pairwise ~ Mangrove.system)
+q1cld_results_ms <- cld(object = q1_lm_means_ms$emmeans, Letters = letters)
 
 # Convert to data frame
-q1_emmeans_df <- as.data.frame(cld_results)
-q1_emmeans_df
+q1_emmeans_df_ms <- as.data.frame(q1cld_results_ms)
+q1_emmeans_df_ms
 
 ```
 
 ```{r}
 # boxplot
-q1plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system , y = q1, fill = Mangrove.system)) +
+q1plot_ms <- ggplot(metadata_with_hill, aes(x = Mangrove.system , y = q1, fill = Mangrove.system)) +
   geom_boxplot() +
-  #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
-  geom_text(data = q1_emmeans_df, aes(y = emmean, label = .group), vjust = -5,
+  geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
+  geom_text(data = q1_emmeans_df_ms, aes(y = emmean, label = .group), vjust = -5,
           color = "black", fontface = "bold", position = position_dodge(0.9)) +   labs(title = "q1 = Exp Shannon", y = NULL, x = NULL) + #,
   #caption = "letters by lm emmeans") +
   theme_classic() + scale_fill_manual(values = loc_colors) +
@@ -303,36 +307,36 @@ q1plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system , y = q1, fill = Ma
           axis.text.y = element_text(size = 9),
           axis.text.x = element_blank())
 
-q1plot
+q1plot_ms
 ```
 
 ### q2 Dominance Inv Simpson
 
 ```{r}
 # Model
-q2lm <- lm(q2 ~ log(Effective_reads) + Mangrove.system + Depths, data = metadata_with_hill)
+q2lm_ms <- lm(q2 ~ log(Effective_reads) + Mangrove.system + Depths, data = metadata_with_hill)
 
 # summary
-summary(q2lm)
+summary(q2lm_ms)
 
 #check model reliability
-shapiro.test(residuals(q2lm))
+shapiro.test(residuals(q2lm_ms))
 
 # get significance
-q2_lm_means <- emmeans(q2lm, pairwise ~ Mangrove.system)
-cld_results <- cld(object = q2_lm_means$emmeans, Letters = letters)
+q2_lm_means_ms <- emmeans(q2lm_ms, pairwise ~ Mangrove.system)
+q2cld_results_ms <- cld(object = q2_lm_means_ms$emmeans, Letters = letters)
 
 # Convert to data frame
-q2_emmeans_df <- as.data.frame(cld_results)
-q2_emmeans_df
+q2_emmeans_df_ms <- as.data.frame(q2cld_results_ms)
+q2_emmeans_df_ms
 ```
 
 ```{r}
 # boxplot
-q2plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q2, fill = Mangrove.system)) +
+q2plot_ms <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q2, fill = Mangrove.system)) +
   geom_boxplot() +
-  #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
-  geom_text(data = q2_emmeans_df, aes(y = emmean, label = .group), vjust = -5,
+  geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
+  geom_text(data = q2_emmeans_df_ms, aes(y = emmean, label = .group), vjust = -5,
             color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "q2 = Inv Simpson", y = NULL, x = NULL,
   caption = "lm (Depth sequencing, Mangrove system and Depths") +
@@ -342,7 +346,7 @@ q2plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q2, fill = Man
           axis.text.x = element_text(size = 9),
     plot.caption = element_text(size = 7, face = "italic"))
 
-q2plot
+q2plot_ms
 ```
 
 ### Combine plot
@@ -350,24 +354,23 @@ q2plot
 ```{r}
 #Combine alpha diversity plots
 
-ytitle <- ggdraw() + draw_label("Effective number of ASVs",
+ytitle_ms <- ggdraw() + draw_label("Effective number of ASVs",
                                 angle = 90, size = 14 )
-q012plot <- plot_grid(q0plot, q1plot, q2plot,
-                      labels = c("A)", "", ""), ncol = 1)
-q012y_plot <- plot_grid(ytitle, q012plot, ncol = 2, rel_widths = c(0.05, 1))
+q012plot_ms <- plot_grid(q0plot_ms, q1plot_ms, q2plot_ms, ncol = 1)
+q012y_plot_ms <- plot_grid(ytitle_ms, q012plot_ms, ncol = 2, rel_widths = c(0.05, 1))
 
 # show
-q012y_plot
+q012y_plot_ms
 
 # save
 ggsave("Figures/Depth_comparison/alphadiv_per_MS.pdf",
-       q012y_plot, width = 6.3, height = 9.9)
+       q012y_plot_ms, width = 6.3, height = 9.9)
 ```
 
 ### Save rds for alpha diversity plot
 
 ```{r}
-saveRDS(q012y_plot, "rds/Depth_comparison/alpha_diversity_MS_plot.rds")
+saveRDS(q012y_plot_ms, "rds/Depth_comparison/alpha_diversity_MS_plot.rds")
 ```
 
 ## 06.Get significant differences for Depths
@@ -386,27 +389,27 @@ metadata_with_hill$Depths <- relevel(metadata_with_hill$Depths, ref = "Surface")
 
 ```{r}
 # lm
-q0lm <- lm(q0 ~ log(Effective_reads) + Depths + Mangrove.system, data = metadata_with_hill)
+q0lm_depth <- lm(q0 ~ log(Effective_reads) + Depths + Mangrove.system, data = metadata_with_hill)
 
-summary(q0lm)
+summary(q0lm_depth)
 ```
 
 ```{r}
 # check model reliability
-shapiro.test(residuals(q0lm))
+shapiro.test(residuals(q0lm_depth))
 ```
 
 ```{r}
 #get differences with emmeans
-q0_lm_means <- emmeans(q0lm, pairwise ~ Depths)
+q0_lm_means_depth <- emmeans(q0lm_depth, pairwise ~ Depths)
 
 # get significance letters
 
-cld_results <- cld(object = q0_lm_means$emmeans, Letters = letters)
+q0cld_results_depth <- cld(object = q0_lm_means_depth$emmeans, Letters = letters)
 
 # Convert to data frame
-q0_emmeans_df <- as.data.frame(cld_results)
-q0_emmeans_df
+q0_emmeans_df_depth <- as.data.frame(q0cld_results_depth)
+q0_emmeans_df_depth
 
 # Reorder samples
 metadata_with_hill$Depths <- factor(
@@ -417,47 +420,47 @@ metadata_with_hill$Depths <- factor(
 
 ```{r}
 # boxplot with significance
-q0plot <- ggplot(metadata_with_hill, aes(x = Depths, y = q0, fill = Depths)) +
+q0plot_depth <- ggplot(metadata_with_hill, aes(x = Depths, y = q0, fill = Depths)) +
   geom_boxplot() +
   #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
-  geom_text(data = q0_emmeans_df, aes(y = emmean, label = .group), vjust = -3,
+  geom_text(data = q0_emmeans_df_depth, aes(y = emmean, label = .group), vjust = -3,
           color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "q0 = Observed", y = NULL, x = NULL) + #,
   #caption = "letters by lm emmeans") +
   theme_classic() + scale_fill_manual(values = depth_colors) +
   theme(legend.position = "none", axis.text.x = element_blank())
 
-q0plot
+q0plot_depth
 ```
 
 ### q1 Diversity Exp Shannon
 
 ```{r}
 # linear model
-q1lm <- lm(q1 ~ log(Effective_reads) + Depths + Mangrove.system, data = metadata_with_hill)
+q1lm_depth <- lm(q1 ~ log(Effective_reads) + Depths + Mangrove.system, data = metadata_with_hill)
 
 # summary
-summary(q1lm)
+summary(q1lm_depth)
 
 #check model reliability
-shapiro.test(residuals(q1lm))
+shapiro.test(residuals(q1lm_depth))
 
 # significance
-q1_lm_means <- emmeans(q1lm, pairwise ~ Depths)
-cld_results <- cld(object = q1_lm_means$emmeans, Letters = letters)
+q1_lm_means_depth <- emmeans(q1lm_depth, pairwise ~ Depths)
+q1cld_results_depth <- cld(object = q1_lm_means_depth$emmeans, Letters = letters)
 
 # Convert to data frame
-q1_emmeans_df <- as.data.frame(cld_results)
-q1_emmeans_df
+q1_emmeans_df_depth <- as.data.frame(q1cld_results_depth)
+q1_emmeans_df_depth
 
 ```
 
 ```{r}
 # boxplot
-q1plot <- ggplot(metadata_with_hill, aes(x = Depths , y = q1, fill = Depths)) +
+q1plot_depth <- ggplot(metadata_with_hill, aes(x = Depths , y = q1, fill = Depths)) +
   geom_boxplot() +
   #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
-  geom_text(data = q1_emmeans_df, aes(y = emmean, label = .group), vjust = -5,
+  geom_text(data = q1_emmeans_df_depth, aes(y = emmean, label = .group), vjust = -5,
           color = "black", fontface = "bold", position = position_dodge(0.9)) +   labs(title = "q1 = Exp Shannon", y = NULL, x = NULL) + #,
   #caption = "letters by lm emmeans") +
   theme_classic() + scale_fill_manual(values = depth_colors) +
@@ -465,37 +468,37 @@ q1plot <- ggplot(metadata_with_hill, aes(x = Depths , y = q1, fill = Depths)) +
           axis.text.y = element_text(size = 9),
           axis.text.x = element_blank())
 
-q1plot
+q1plot_depth
 ```
 
 ### q2 Dominance Inv Simpson
 
 ```{r}
 # Model
-q2lm <- lm(q2 ~ log(Effective_reads) + Depths + Mangrove.system, data = metadata_with_hill)
+q2lm_depth <- lm(q2 ~ log(Effective_reads) + Depths + Mangrove.system, data = metadata_with_hill)
 
 # summary
-summary(q2lm)
+summary(q2lm_depth)
 
 #check model reliability
-shapiro.test(residuals(q2lm))
+shapiro.test(residuals(q2lm_depth))
 
 # get significance
-q2_lm_means <- emmeans(q2lm, pairwise ~ Depths)
-cld_results <- cld(object = q2_lm_means$emmeans, Letters = letters)
+q2_lm_means_depth <- emmeans(q2lm_depth, pairwise ~ Depths)
+q2cld_results_depth <- cld(object = q2_lm_means_depth$emmeans, Letters = letters)
 
 # Convert to data frame
-q2_emmeans_df <- as.data.frame(cld_results)
-q2_emmeans_df
+q2_emmeans_df_depth <- as.data.frame(q2cld_results_depth)
+q2_emmeans_df_depth
 ```
 
 ```{r}
 
 # boxplot
-q2plot <- ggplot(metadata_with_hill, aes(x = Depths, y = q2, fill = Depths)) +
+q2plot_depth <- ggplot(metadata_with_hill, aes(x = Depths, y = q2, fill = Depths)) +
   geom_boxplot() +
   #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
-  geom_text(data = q2_emmeans_df, aes(y = emmean, label = .group), vjust = -5,
+  geom_text(data = q2_emmeans_df_depth, aes(y = emmean, label = .group), vjust = -5,
             color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "q2 = Inv Simpson", y = NULL, x = NULL,
   caption = "lm (Depth sequencing, Dephts and Mangrove system") +
@@ -505,7 +508,7 @@ q2plot <- ggplot(metadata_with_hill, aes(x = Depths, y = q2, fill = Depths)) +
           axis.text.x = element_text(size = 9),
     plot.caption = element_text(size = 7, face = "italic"))
 
-q2plot
+q2plot_depth
 ```
 
 ### Combine plot
@@ -513,27 +516,27 @@ q2plot
 ```{r}
 #Combine alpha diversity plots
 
-ytitle <- ggdraw() + draw_label("Effective number of ASVs",
+ytitle_depth <- ggdraw() + draw_label("Effective number of ASVs",
                                 angle = 90, size = 14 )
-q012plot <- plot_grid(q0plot, q1plot, q2plot,
+q012plot_depth <- plot_grid(q0plot_depth, q1plot_depth, q2plot_depth,
                       labels = c("A)", "", ""), ncol = 1)
-q012y_plot <- plot_grid(ytitle, q012plot, ncol = 2, rel_widths = c(0.05, 1))
+q012y_plot_depth <- plot_grid(ytitle_depth, q012plot_depth, ncol = 2, rel_widths = c(0.05, 1))
 
 # show
-q012y_plot
+q012y_plot_depth
 
 # save
 ggsave("Figures/Depth_comparison/alphadiv_per_Depths.pdf",
-       q012y_plot, width = 6.3, height = 9.9)
+       q012y_plot_depth, width = 6.3, height = 9.9)
 ```
 
 ### Save rds for Depths alpha diversity plot
 
 ```{r}
-saveRDS(q012y_plot, "rds/Depth_comparison/alpha_diversity_Depths_plot.rds")
+saveRDS(q012y_plot_depth, "rds/Depth_comparison/alpha_diversity_Depths_plot.rds")
 ```
 
-## 07. Get  depth differences by system
+## 07. Get depth differences by system
 
 q0
 
@@ -542,13 +545,12 @@ q0
 metadata_with_hill$Depths <- factor(metadata_with_hill$Depths, levels = c("Surface", "Mid", "Deep"))
 
 #plot q0
-q0_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q0, fill = Depths)) + # CAMBIO: fill por Depths
+q0_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q0, fill = Depths)) + 
   geom_boxplot(outlier.shape = NA, alpha = 0.9) +
   geom_jitter(width = 0.2, alpha = 0.5) +
   facet_wrap(~Mangrove.system, scales = "free_y") + 
   geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
   theme_classic() + 
-  # Ahora sí coinciden: variable Depths con paleta depth_colors
   scale_fill_manual(values = depth_colors) + 
   labs(title = NULL,
        x = NULL, y = "Observed Richness (q0)") +
@@ -559,13 +561,12 @@ q0_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q0, fill = Dep
 
 ```{r}
 #plot
-q1_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q1, fill = Depths)) + # CAMBIO: fill por Depths
+q1_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q1, fill = Depths)) + 
   geom_boxplot(outlier.shape = NA, alpha = 0.9) +
   geom_jitter(width = 0.2, alpha = 0.5) +
   facet_wrap(~Mangrove.system, scales = "free_y") + 
   geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
   theme_classic() + 
-  # Ahora sí coinciden: variable Depths con paleta depth_colors
   scale_fill_manual(values = depth_colors) + 
   labs(title = NULL,
        x = NULL, y = "Exp Shannon Diversity (q1)") +
@@ -575,13 +576,12 @@ q1_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q1, fill = Dep
 **q2**
 
 ```{r}
-q2_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q2, fill = Depths)) + # CAMBIO: fill por Depths
+q2_depth_system <- ggplot(metadata_with_hill, aes(x = Depths, y = q2, fill = Depths)) + 
   geom_boxplot(outlier.shape = NA, alpha = 0.9) +
   geom_jitter(width = 0.2, alpha = 0.5) +
   facet_wrap(~Mangrove.system, scales = "free_y") + 
   geom_smooth(aes(group = 1), method = "lm", se = FALSE, color = "black", linetype = "dashed") +
   theme_classic() + 
-  # Ahora sí coinciden: variable Depths con paleta depth_colors
   scale_fill_manual(values = depth_colors) + 
   labs(title = NULL,
        x = "Sediment Depth", y = "Inv Simpson Dominance (q2)") +
@@ -602,6 +602,9 @@ q012_depth_system_plot <- plot_grid(q0_depth_system,
 # show
 q012_depth_system_plot
 
+# svae rds
+saveRDS(q012_depth_system_plot, "rds/Depth_comparison/alpha_diversity_Depths_by_system_plot.rds")
+
 # save
 ggsave("Figures/Depth_comparison/alphadiv_per_Depths_and_system.pdf",
        q012_depth_system_plot, width = 6.3, height = 9.9)
@@ -612,10 +615,10 @@ library(multcomp)
 library(multcompView)
 
 # q0
-q0_model_int <- lm(q0 ~ log(Effective_reads) + Mangrove.system * Depths, 
+q0_model_int <- lm(q0 ~ log(Effective_reads) + Depths * Mangrove.system, 
                    data = metadata_with_hill)
 
-q0_nested_means <- emmeans(q0_model_int, pairwise ~ Depths | Mangrove.system)
+q0_nested_means <- emmeans(q0_model_int, pairwise ~ Mangrove.system | Depths)
 
 q0_cld_depth_by_system <- cld(object = q0_nested_means$emmeans, Letters = letters)
 
@@ -627,7 +630,7 @@ as.data.frame(q0_cld_depth_by_system)
 q1_model_int <- lm(q1 ~ log(Effective_reads) + Mangrove.system * Depths, 
                    data = metadata_with_hill)
 
-q1_nested_means <- emmeans(q1_model_int, pairwise ~ Depths | Mangrove.system)
+q1_nested_means <- emmeans(q1_model_int, pairwise ~ Mangrove.system | Depths)
 
 q1_cld_depth_by_system <- cld(object = q1_nested_means$emmeans, Letters = letters)
 
@@ -639,9 +642,56 @@ as.data.frame(q1_cld_depth_by_system)
 q2_model_int <- lm(q2 ~ log(Effective_reads) + Mangrove.system * Depths, 
                    data = metadata_with_hill)
 
-q2_nested_means <- emmeans(q2_model_int, pairwise ~ Depths | Mangrove.system)
+q2_nested_means <- emmeans(q2_model_int, pairwise ~ Mangrove.system | Depths)
 
 q2_cld_depth_by_system <- cld(object = q2_nested_means$emmeans, Letters = letters)
 
 as.data.frame(q2_cld_depth_by_system)
+```
+
+## Supplementary
+
+```{r}
+library(dplyr)
+library(broom)
+
+# Extract anova by depth
+tableS5_global <- bind_rows(
+  as.data.frame(anova(q0lm_depth)) %>% mutate(Metric = "q0", Factor = rownames(.)),
+  as.data.frame(anova(q1lm_depth)) %>% mutate(Metric = "q1", Factor = rownames(.)),
+  as.data.frame(anova(q2lm_depth)) %>% mutate(Metric = "q2", Factor = rownames(.))
+) %>%
+  filter(!Factor %in% c("Residuals", "Total")) %>%
+  dplyr::select(Metric, Factor, `F value`, p_value = `Pr(>F)`) %>%
+  mutate(across(where(is.numeric), ~ round(., 10)))
+
+tableS5_global <- tableS5_global %>%
+  `rownames<-`(NULL)
+
+# show
+tableS5_global
+
+# save
+write.csv(tableS5_global, "Tables/Depth_comparison/Supplementary_Table_S5_Depth_ANOVA.csv", row.names = FALSE)
+```
+
+```{r}
+library(dplyr)
+
+# join CLD dataframe
+tableS7_final <- bind_rows(
+  as.data.frame(q0_cld_depth_by_system) %>% mutate(Metric = "q0"),
+  as.data.frame(q1_cld_depth_by_system) %>% mutate(Metric = "q1"),
+  as.data.frame(q2_cld_depth_by_system) %>% mutate(Metric = "q2")) %>%
+  dplyr::select(Metric, Mangrove.system, Depths, emmean, SE, lower.CL, upper.CL, Significance = .group) %>%
+  mutate(across(where(is.numeric), ~ round(., 3)))
+
+# clean
+rownames(tableS7_final) <- NULL
+
+#show
+tableS7_final
+
+# save
+write.csv(tableS7_final, "Tables/Depth_comparison/Supplementary_Table_S5_Alpha_Depth_CLD.csv", row.names = FALSE)
 ```

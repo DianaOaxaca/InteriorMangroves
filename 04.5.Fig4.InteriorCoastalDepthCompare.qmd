@@ -25,6 +25,32 @@ core_abund <- readRDS("rds/Depth_comparison/upset_surface_plot.rds")
 
 da_tax <- readRDS("rds/Depth_comparison/DA_heatmap_surface.rds")
 
+alpha_all_depths <- readRDS("rds/Depth_comparison/alpha_diversity_Depths_by_system_plot.rds")
+```
+
+```{r}
+#| message: false
+#| warning: false
+#Combine  plots
+
+# alphas <- plot_grid(alpha_all_depths, alpha,
+#                       labels = c("A)", "B)"), ncol = 2, 
+#                       rel_heights = 0.75, 0.25)
+
+beta_core <- plot_grid(beta, core_abund,
+                      labels = c("C)", "D)"), ncol = 1,
+                      rel_heights = c(0.4, 0.6))
+
+all <- plot_grid(alpha_all_depths, alpha, beta_core, da_tax,
+                 labels = c("A)", "B)", "", "E)"), ncol = 4, 
+                 rel_widths = c(0.25,0.17, 0.34, 0.30))
+
+# show
+all
+
+# save
+ggsave("Figures/Depth_comparison/Fig3.DepthComparissons.pdf",
+        all, width = 22, height = 11)
 ```
 
 ::: callout-caution

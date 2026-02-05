@@ -1,0 +1,4 @@
+"Factor","Df","R2","F.Model","p_value","Dispersion_p"
+"Mangrove.system",2,0.3337,16.6709,0.001,0
+"Depths",2,0.0427,2.1318,0.012,0.7232
+"Mangrove.system:Depths",4,0.083,2.0741,0.004,NA
