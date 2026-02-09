@@ -195,7 +195,7 @@ if (!is.null(tax_table(physeq))) {
   for (loc in names(taxonomy_unique)) {
     cat("\nFirst unique ASVs taxonomy", loc, ":\n")
     if (!is.null(taxonomy_unique[[loc]])) {
-      print(head(taxonomy_unique[[loc]], 5))
+      print(head(taxonomy_unique[[loc]], 10))
     } else {
       cat("There are no unique ASV to", loc, "\n")
     }
@@ -410,7 +410,7 @@ ampv_heatmap_abundances_phylum_core <- amp_heatmap(av2,
             group_by = "Location",
             #facet_by = "Location",
             plot_values = TRUE,
-            tax_show = 40,
+            tax_show = 25,
             showRemainingTaxa = TRUE,
             tax_aggregate = "Phylum",
             plot_colorscale = "log10",

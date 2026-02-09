@@ -429,6 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
   <li><a href="#plot-with-permanova-pairwise-permanova-and-betadisper" id="toc-plot-with-permanova-pairwise-permanova-and-betadisper" class="nav-link" data-scroll-target="#plot-with-permanova-pairwise-permanova-and-betadisper">05. <strong>Plot with PERMANOVA, pairwise PERMANOVA and Betadisper</strong></a></li>
   <li><a href="#save-rds-beta-diversity-plot" id="toc-save-rds-beta-diversity-plot" class="nav-link" data-scroll-target="#save-rds-beta-diversity-plot">Save rds beta diversity plot</a></li>
+  <li><a href="#supplementary" id="toc-supplementary" class="nav-link" data-scroll-target="#supplementary">Supplementary</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -628,7 +629,7 @@ Note
 <span><span class="co"># PERMANOVA with adonis2</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">adonis_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/adonis.html">adonis2</a></span><span class="op">(</span></span>
-<span>  <span class="va">otu_mat</span> <span class="op">~</span> <span class="va">Mangrove_system</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">+</span> <span class="va">Mangrove_type</span>,</span>
+<span>  <span class="va">otu_mat</span> <span class="op">~</span> <span class="va">Mangrove_system</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">*</span> <span class="va">Mangrove_type</span>,</span>
 <span>  data <span class="op">=</span> <span class="va">sample_data</span>,</span>
 <span>  method <span class="op">=</span> <span class="st">"bray"</span>,</span>
 <span>  permutations <span class="op">=</span> <span class="fl">999</span>,</span>
@@ -644,12 +645,13 @@ Blocks:  strata
 Permutation: free
 Number of permutations: 999
 
-adonis2(formula = otu_mat ~ Mangrove_system + Depths + Mangrove_type, data = sample_data, permutations = 999, method = "bray", by = "terms", strata = metadata$ID)
-                Df SumOfSqs    R2     F Pr(&gt;F)    
-Mangrove_system  2     4.63 0.379 17.94  0.001 ***
-Depths           2     0.61 0.050  2.36  0.001 ***
-Residual        54     6.97 0.571                 
-Total           58    12.22 1.000                 
+adonis2(formula = otu_mat ~ Mangrove_system + Depths * Mangrove_type, data = sample_data, permutations = 999, method = "bray", by = "terms", strata = metadata$ID)
+                     Df SumOfSqs    R2     F Pr(&gt;F)    
+Mangrove_system       2     4.63 0.379 19.95  0.001 ***
+Depths                2     0.61 0.050  2.63  0.001 ***
+Depths:Mangrove_type  2     0.94 0.077  4.03  0.001 ***
+Residual             52     6.04 0.494                 
+Total                58    12.22 1.000                 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -971,6 +973,40 @@ data's fill values.</code></pre>
 </section><section id="save-rds-beta-diversity-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-beta-diversity-plot">Save rds beta diversity plot</h2>
 <div class="cell">
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">nmds</span>, <span class="st">"rds/interior_impaired/beta-diversity.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="supplementary" class="level2"><h2 class="anchored" data-anchor-id="supplementary">Supplementary</h2>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#extract permanova</span></span>
+<span><span class="va">tableS8_permanova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">adonis_result</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Factor</span>, <span class="va">Df</span>, <span class="va">SumOfSqs</span>, <span class="va">R2</span>, F.Model <span class="op">=</span> <span class="cn">F</span>, p_value <span class="op">=</span> <span class="va">`Pr(&gt;F)`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">Factor</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Total"</span>, <span class="st">"Residual"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract PERMDISP</span></span>
+<span><span class="va">p_dispersion</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">disp_location</span><span class="op">)</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># join</span></span>
+<span><span class="va">tableS8_final</span> <span class="op">&lt;-</span> <span class="va">tableS8_permanova</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Dispersion_p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Factor</span> <span class="op">==</span> <span class="st">"Mangrove_system"</span>, <span class="va">p_dispersion</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#show</span></span>
+<span><span class="va">tableS8_final</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                   Factor Df SumOfSqs     R2 F.Model p_value
+Mangrove_system           Mangrove_system  2    4.634 0.3792   19.95   0.001
+Depths                             Depths  2    0.610 0.0499    2.63   0.001
+Depths:Mangrove_type Depths:Mangrove_type  2    0.935 0.0766    4.03   0.001
+                     Dispersion_p
+Mangrove_system            0.0019
+Depths                         NA
+Depths:Mangrove_type           NA</code></pre>
+</div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS8_final</span>, <span class="st">"Tables/interior_impaired/Supplementary_Table_S8_Interior_Impaired_BetaDisper.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

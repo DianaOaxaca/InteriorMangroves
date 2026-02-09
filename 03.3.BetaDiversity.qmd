@@ -261,6 +261,11 @@ beta_disp_fltr <- betadisper(wunifrac_distances_fltr, metadata_fltr$Depths_fltr)
 anova_beta_disp_fltr <- anova(beta_disp_fltr)
 anova_beta_disp_fltr
 
+# betadisp wu by loc
+beta_disp_fltr_loc <- betadisper(wunifrac_distances_fltr, metadata_fltr$Location)
+anova_beta_disp_fltr <- anova(beta_disp_fltr_loc)
+anova_beta_disp_fltr
+
 # Show dispersion by group
 beta_disp_fltr$group.distances
 
@@ -491,6 +496,10 @@ Given the pairwise PERMANOVA showed a highly significant results, it is prudent 
 beta_disp_u <- betadisper(unifrac_distances, metadata$Location)
 anova_beta_disp_u <- anova(beta_disp_u)
 
+#bet disp depth
+beta_disp_u_d <- betadisper(unifrac_distances, metadata$Depths)
+anova_beta_disp_u_d <- anova(beta_disp_u_d)
+
 # Show dispersion by group
 beta_disp_u$group.distances
 
@@ -611,11 +620,16 @@ anova_terms <- anova(dbrda_result, by = "terms",
                      permutations = 999)
 
 anova_terms
+
 ```
 
 ```{r}
 # variance by each axis
 summary(dbrda_result)$cont$importance
+```
+
+```{r}
+anova(dbrda_result, permutations = 999)
 ```
 
 ## 03.5 PERMANOVA
@@ -735,4 +749,71 @@ nmds_wu_fltr
 saveRDS(nmds_u, "rds/interior_mangroves/nmds_u.rds")
 saveRDS(nmds_wu_fltr, "rds/interior_mangroves/nmds_wu.rds")
 saveRDS(capphychem_plot, "rds/interior_mangroves/dbRDA.rds")
+```
+
+# Supplementary
+
+```{r}
+library(dplyr)
+
+#extract permanova
+tableS10_permanova_u <- as.data.frame(adonis2_unifrac) %>%
+  mutate(Factor = rownames(.)) %>%
+  dplyr::select(Factor, Df, SumOfSqs, R2, F.Model = F, p_value = `Pr(>F)`) %>%
+  filter(!Factor %in% c("Total", "Residual")) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+tableS10_permanova_wu <- as.data.frame(adonis2_wunifrac_fltr) %>%
+  mutate(Factor = rownames(.)) %>%
+  dplyr::select(Factor, Df, SumOfSqs, R2, F.Model = F, p_value = `Pr(>F)`) %>%
+  filter(!Factor %in% c("Total", "Residual")) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+# Extract PERMDISP
+p_dispersion_u <- anova(beta_disp_u)$`Pr(>F)`[1]
+p_dispersion_wu <- anova(beta_disp_fltr)$`Pr(>F)`[1]
+
+# join
+tableS10_final <- tableS10_permanova_u %>%
+  mutate(Dispersion_p = ifelse(Factor == "Location", p_dispersion_u, NA)) %>%
+  mutate(Dispersion_p = ifelse(Factor == "Depths", p_dispersion_wu, NA)) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+#show
+tableS10_final
+#save
+write.csv(tableS10_final, "Tables/interior_mangroves/Supplementary_Table_S10_Interior_BetaDisper.csv", row.names = FALSE)
+```
+
+```{r}
+library(dplyr)
+
+# extract unweighted UniFrac 
+tab_u <- as.data.frame(adonis2_unifrac) %>%
+  mutate(Factor = rownames(.), Metric = "Unweighted UniFrac") %>%
+  dplyr::select(Metric, Factor, Df, R2, F.Model = F, p_value = `Pr(>F)`) %>%
+  filter(!Factor %in% c("Total", "Residual")) %>%
+  mutate(Dispersion_p = case_when(
+    Factor == "Location" ~ anova(beta_disp_u)$`Pr(>F)`[1],
+    Factor == "Depths" ~ anova(beta_disp_u_d)$`Pr(>F)`[1],
+    TRUE ~ NA_real_
+  ))
+
+# extract weighted UniFrac 
+tab_wu <- as.data.frame(adonis2_wunifrac_fltr) %>%
+  mutate(Factor = rownames(.), Metric = "Weighted UniFrac") %>%
+  dplyr::select(Metric, Factor, Df, R2, F.Model = F, p_value = `Pr(>F)`) %>%
+  filter(!Factor %in% c("Total", "Residual")) %>%
+  mutate(Dispersion_p = case_when(
+    Factor == "Depths_fltr" ~ anova(beta_disp_fltr)$`Pr(>F)`[1],
+    Factor == "Location" ~ anova(beta_disp_fltr_loc)$`Pr(>F)`[1],
+    TRUE ~ NA_real_
+  ))
+
+# join
+tableS10_final <- bind_rows(tab_u, tab_wu) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+# Guardar
+write.csv(tableS10_final, "Tables/interior_mangroves/Supplementary_Table_S10_Interior_Mangroves_Beta.csv", row.names = FALSE)
 ```

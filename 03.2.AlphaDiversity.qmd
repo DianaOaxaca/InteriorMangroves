@@ -650,6 +650,7 @@ q0plotloc <- ggplot(metadata_with_hill, aes(x = Location, y = q0, fill = Locatio
     theme_classic() + scale_fill_manual(values = loc_colors) +
     theme(legend.position = "none", axis.text.x = element_blank())
 ```
+
 ### q1 Exp Shannon diversity
 
 ```{r}
@@ -798,4 +799,43 @@ A comparison of alpha diversity indices revealed no significant differences amon
 
 ```{r}
 saveRDS(alphaplots_y, "rds/interior_mangroves/alpha_diversity_interior_depth_plot.rds")
+```
+
+# Supplementary Tables
+
+```{r}
+library(broom.mixed)
+# Linear Mixed Models
+tableS9_int_models <- bind_rows(
+  tidy(q0lmer) %>% mutate(Metric = "q0"),
+  tidy(q1lmer) %>% mutate(Metric = "q1"),
+  tidy(q2lmer) %>% mutate(Metric = "q2"),
+  tidy(qflmer) %>% mutate(Metric = "qf"),
+) %>%
+  filter(effect == "fixed") %>%
+  dplyr::select(Metric, Term = term, Estimate = estimate, Std.Error = std.error, Statistic = statistic, p_value = p.value) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+#show
+tableS9_int_models
+
+#Posthoc
+# join CLD dataframe
+tableS9_int_posthoc <- bind_rows(
+  as.data.frame(cld_results) %>% mutate(Metric = "q0"),
+  as.data.frame(cld_resultsq1) %>% mutate(Metric = "q1"),
+  as.data.frame(cld_resultsq2) %>% mutate(Metric = "q2"),
+  as.data.frame(cld_resultsqf) %>% mutate(Metric = "qf")) %>%
+  dplyr::select(Metric, Depths, emmean, SE, lower.CL, upper.CL, Significance = .group) %>%
+  mutate(across(where(is.numeric), ~ round(., 3)))
+
+# clean
+rownames(tableS9_int_posthoc) <- NULL
+
+#show
+tableS9_int_posthoc
+
+# save
+write.csv(tableS9_int_models, "Tables/interior_mangroves/Supplementary_Table_S9_Interior_LMM.csv", row.names = FALSE)
+write.csv(tableS9_int_posthoc, "Tables/interior_mangroves/Supplementary_Table_S9_Interior_PostHoc.csv", row.names = FALSE)
 ```

@@ -35,38 +35,32 @@ da_ko <- readRDS("rds/interior_mangroves/DA_picrust.rds")
 ```{r}
 #| message: false
 #| warning: false
-betas_u_core <- plot_grid(beta_u, dbrda, core, labels = c("A","B", "C"),
-                        label_fontface = "bold",
-                        ncol = 1, rel_heights = c(0.3, 0.3, 0.5))
+alpha_betas <- plot_grid(alpha,beta_wu, beta_u, dbrda, 
+                   labels = c("A)","C)","D)","E)"),
+                   label_fontface = "bold",
+                   ncol = 4, rel_widths = c(0.15,0.25, 0.3, 0.3))
 ```
 
 ```{r}
 #| message: false
 #| warning: false
-dataxbeta_wu <- plot_grid(beta_wu,da_tax, labels = c("D","F"),
-                        label_fontface = "bold",
-                        ncol = 1, rel_widths = c(0.3,0.7))
-```
-
-```{r}
-#| message: false 
-#| warning: false
-alpha_kos <- plot_grid(alpha, da_ko,labels = c("E","G"),
-                        label_fontface = "bold",
-                       ncol = 1, rel_widths = c(0.3,7))
+dataxko <- plot_grid(da_tax, da_ko, core,
+                     labels = c("B)","F)", "G)"),
+                     label_fontface = "bold",
+                     ncol = 3, rel_widths = c(0.4,0.3, 0.3))
 ```
 
 ```{r}
 #| message: false
 #| warning: false
-all <- plot_grid(betas_u_core, dataxbeta_wu, alpha_kos, 
-                 ncol = 3, 
-                 rel_widths = c(0.4,0.35,0.30))
+all <- plot_grid(alpha_betas, dataxko, 
+                 ncol = 1, 
+                 rel_heights = c(0.35,0.65))
 ```
 
 ```{r}
 ggsave("Figures/interior_mangroves/Fig3.InteriorMangroves.pdf",
-       all, width = 19, height = 13)
+       all, width = 20, height = 13)
 ```
 
 Core and KO differential abundance are not shown because they are not a direct format of ggplot, so we will insert them in Inkscape

@@ -458,6 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li><a href="#save-rds-plots" id="toc-save-rds-plots" class="nav-link" data-scroll-target="#save-rds-plots">Save rds plots</a></li>
+  <li><a href="#supplementary" id="toc-supplementary" class="nav-link" data-scroll-target="#supplementary">Supplementary</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -853,13 +854,25 @@ Response: Distances
 Groups     1 0.0013 0.00129    0.35   0.56
 Residuals 22 0.0807 0.00367               </code></pre>
 </div>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Show dispersion by group</span></span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># betadisp wu by loc</span></span>
+<span><span class="va">beta_disp_fltr_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">wunifrac_distances_fltr</span>, <span class="va">metadata_fltr</span><span class="op">$</span><span class="va">Location</span><span class="op">)</span></span>
+<span><span class="va">anova_beta_disp_fltr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_fltr_loc</span><span class="op">)</span></span>
+<span><span class="va">anova_beta_disp_fltr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Distances
+          Df Sum Sq Mean Sq F value Pr(&gt;F)
+Groups     2 0.0081 0.00405     0.8   0.46
+Residuals 21 0.1064 0.00507               </code></pre>
+</div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Show dispersion by group</span></span>
 <span><span class="va">beta_disp_fltr</span><span class="op">$</span><span class="va">group.distances</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 0-15 50-75 
 0.132 0.117 </code></pre>
 </div>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot betadisper</span></span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot betadisper</span></span>
 <span><span class="va">beta_data_fltr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  Group <span class="op">=</span> <span class="va">metadata_fltr</span><span class="op">$</span><span class="va">Depths_fltr</span>,</span>
 <span>  Distance_to_centroid <span class="op">=</span> <span class="va">beta_disp_fltr</span><span class="op">$</span><span class="va">distances</span></span>
@@ -881,15 +894,15 @@ Residuals 22 0.0807 0.00367               </code></pre>
 </div>
 <p>Save boxplot</p>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/Betadisper_depth.pdf"</span>, <span class="va">beta_plot_fltr</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">4</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/Betadisper_depth.pdf"</span>, <span class="va">beta_plot_fltr</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">4</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="plot-with-permanova-pairwise-permanova-and-betadisper" class="level3"><h3 class="anchored" data-anchor-id="plot-with-permanova-pairwise-permanova-and-betadisper">01.2.8 Plot with PERMANOVA, pairwise PERMANOVA and Betadisper</h3>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add betadisper p-value text</span></span>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add betadisper p-value text</span></span>
 <span><span class="va">beta_text_fltr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Betadisper p-value:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">anova_beta_disp_fltr</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Añadir texto de PERMANOVA y dispersión beta</span></span>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Añadir texto de PERMANOVA y dispersión beta</span></span>
 <span><span class="va">nmds_wu_fltr</span> <span class="op">&lt;-</span> <span class="va">nmds_wu_fltr</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span></span>
 <span>    <span class="st">"text"</span>, x <span class="op">=</span> <span class="cn">Inf</span>, y <span class="op">=</span> <span class="cn">Inf</span>, </span>
@@ -905,7 +918,7 @@ Residuals 22 0.0807 0.00367               </code></pre>
 </div>
 <p>save</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/NMDS_wu_depth.pdf"</span>, <span class="va">nmds_wu_fltr</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/NMDS_wu_depth.pdf"</span>, <span class="va">nmds_wu_fltr</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
 data's fill values.</code></pre>
@@ -914,7 +927,7 @@ data's fill values.</code></pre>
 </section></section></section><section id="unweighted-unifrac" class="level1"><h1>02. Unweighted UniFrac</h1>
 <section id="get-distances-and-stress-2" class="level2"><h2 class="anchored" data-anchor-id="get-distances-and-stress-2">02.1 Get distances and stress</h2>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Unweighted UniFrac</span></span>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Unweighted UniFrac</span></span>
 <span><span class="va">nmds_unifrac</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/ordinate.html">ordinate</a></span><span class="op">(</span><span class="va">ps</span>, method <span class="op">=</span> <span class="st">"NMDS"</span>, distance <span class="op">=</span> <span class="st">"unifrac"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Run 0 stress 0.0783 
@@ -949,7 +962,7 @@ Run 19 stress 0.0857
 Run 20 stress 0.1 
 *** Best solution repeated 4 times</code></pre>
 </div>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># stress variable</span></span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># stress variable</span></span>
 <span><span class="va">var_stress_nmds_u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">nmds_unifrac</span><span class="op">$</span><span class="va">stress</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">var_stress_nmds_u</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -958,7 +971,7 @@ Run 20 stress 0.1
 </div>
 </section><section id="nmds" class="level2"><h2 class="anchored" data-anchor-id="nmds">02.2 NMDS</h2>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder 'Location'</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reorder 'Location'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">ps</span><span class="op">)</span><span class="op">$</span><span class="va">Location</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">ps</span><span class="op">)</span><span class="op">$</span><span class="va">Location</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Fossil Lagoon"</span>, <span class="st">"Reforma Waterfalls"</span>, <span class="st">"Miguelito Dike"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># NMDS</span></span>
@@ -974,7 +987,7 @@ Run 20 stress 0.1
 </div>
 </section><section id="permanova-2" class="level2"><h2 class="anchored" data-anchor-id="permanova-2">02.3 PERMANOVA</h2>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># UniFrac distances</span></span>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># UniFrac distances</span></span>
 <span><span class="va">unifrac_distances</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/UniFrac-methods.html">UniFrac</a></span><span class="op">(</span><span class="va">ps</span>, weighted <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Convert 'dist' class</span></span>
@@ -1002,7 +1015,7 @@ Run 20 stress 0.1
 2   Depths 0.136   0.001
 3 Residual 0.563      NA</code></pre>
 </div>
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PERMANOVA text</span></span>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PERMANOVA text</span></span>
 <span><span class="va">perm_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
 <span>  <span class="st">"PERMANOVA:"</span>,</span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Location: R² ="</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">perm_results</span><span class="op">$</span><span class="va">R2</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">", p ="</span>, <span class="va">perm_results</span><span class="op">$</span><span class="va">p_value</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
@@ -1024,7 +1037,7 @@ Important
 </div>
 </section><section id="pairwise-adonis-1" class="level2"><h2 class="anchored" data-anchor-id="pairwise-adonis-1">02.5 Pairwise adonis</h2>
 <div class="cell">
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Post-hoc Location</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Post-hoc Location</span></span>
 <span><span class="co"># Pairwise PERMANOVA  Weighted UniFrac</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">pairwise_adonis_u</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pairwiseAdonis/man/pairwise.adonis2.html">pairwise.adonis2</a></span><span class="op">(</span></span>
@@ -1068,7 +1081,7 @@ attr(,"class")
 </div>
 </section><section id="extract-p-values" class="level2"><h2 class="anchored" data-anchor-id="extract-p-values">02.6 Extract p-values</h2>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Define abbrevs</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Define abbrevs</span></span>
 <span><span class="va">location_abbrevs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"Miguelito Dike"</span> <span class="op">=</span> <span class="st">"MD"</span>,</span>
 <span>  <span class="st">"Reforma Waterfalls"</span> <span class="op">=</span> <span class="st">"RW"</span>,</span>
@@ -1107,7 +1120,7 @@ attr(,"class")
 </div>
 </section><section id="heatmap" class="level2"><h2 class="anchored" data-anchor-id="heatmap">02.7 Heatmap</h2>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Heatmap of p-values</span></span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Heatmap of p-values</span></span>
 <span><span class="va">heatmap_plot_p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">p_melt</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Location1</span>, y <span class="op">=</span> <span class="va">Location2</span>, fill <span class="op">=</span> <span class="va">p_value</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"gray40"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"white"</span>, mid <span class="op">=</span> <span class="st">"white"</span>, high <span class="op">=</span> <span class="st">"gray40"</span>,</span>
@@ -1150,7 +1163,7 @@ attr(,"class")
 </div>
 <p>save</p>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/pairwiseheatmap.pdf"</span>, <span class="va">combined_heatmap</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">4</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/pairwiseheatmap.pdf"</span>, <span class="va">combined_heatmap</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">4</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="beta-disper-1" class="level2"><h2 class="anchored" data-anchor-id="beta-disper-1">02.8 Beta disper</h2>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -1167,9 +1180,13 @@ Important
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Beta disp</span></span>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Beta disp</span></span>
 <span><span class="va">beta_disp_u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">unifrac_distances</span>, <span class="va">metadata</span><span class="op">$</span><span class="va">Location</span><span class="op">)</span></span>
 <span><span class="va">anova_beta_disp_u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_u</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#bet disp depth</span></span>
+<span><span class="va">beta_disp_u_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">unifrac_distances</span>, <span class="va">metadata</span><span class="op">$</span><span class="va">Depths</span><span class="op">)</span></span>
+<span><span class="va">anova_beta_disp_u_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_u_d</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Show dispersion by group</span></span>
 <span><span class="va">beta_disp_u</span><span class="op">$</span><span class="va">group.distances</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1177,7 +1194,7 @@ Important
 <pre><code>     Fossil Lagoon     Miguelito Dike Reforma Waterfalls 
              0.216              0.270              0.231 </code></pre>
 </div>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot betadisper</span></span>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot betadisper</span></span>
 <span><span class="va">beta_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  Group <span class="op">=</span> <span class="va">metadata</span><span class="op">$</span><span class="va">Location</span>,</span>
 <span>  Distance_to_centroid <span class="op">=</span> <span class="va">beta_disp_u</span><span class="op">$</span><span class="va">distances</span></span>
@@ -1198,15 +1215,15 @@ Important
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/Betadisper_location.pdf"</span>, <span class="va">beta_plot</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">5.5</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/Betadisper_location.pdf"</span>, <span class="va">beta_plot</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">5.5</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="plot-with-permanova-pairwise-permanova-and-betadisper-1" class="level2"><h2 class="anchored" data-anchor-id="plot-with-permanova-pairwise-permanova-and-betadisper-1">02.9 Plot with PERMANOVA, pairwise PERMANOVA and Betadisper</h2>
 <div class="cell">
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beta_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Betadisper, p-value:"</span>, </span>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beta_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Betadisper, p-value:"</span>, </span>
 <span>                   <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">anova_beta_disp_u</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Add texts to NMDS</span></span>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Add texts to NMDS</span></span>
 <span><span class="va">nmds_u</span> <span class="op">&lt;-</span> <span class="va">nmds_u</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span></span>
 <span>    <span class="st">"text"</span>, x <span class="op">=</span> <span class="cn">Inf</span>, y <span class="op">=</span> <span class="cn">Inf</span>, </span>
@@ -1216,7 +1233,7 @@ Important
 </div>
 <p>Save</p>
 <div class="cell">
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/NMDS_u_location.pdf"</span>, <span class="va">nmds_u</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/NMDS_u_location.pdf"</span>, <span class="va">nmds_u</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
 data's fill values.</code></pre>
@@ -1225,7 +1242,7 @@ data's fill values.</code></pre>
 </section></section><section id="dbrda" class="level1"><h1>03. dbRDA</h1>
 <section id="load-an-prepare-data" class="level2"><h2 class="anchored" data-anchor-id="load-an-prepare-data">03.1 Load an prepare data</h2>
 <div class="cell">
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read data</span></span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># read data</span></span>
 <span><span class="va">phychem</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/physicochemists.csv"</span>, stringsAsFactors <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Rename specific levels</span></span>
@@ -1260,12 +1277,12 @@ data's fill values.</code></pre>
 </div>
 </section><section id="get-distances" class="level2"><h2 class="anchored" data-anchor-id="get-distances">03.2 Get distances</h2>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calcular las distancias Unifrac no ponderadas</span></span>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calcular las distancias Unifrac no ponderadas</span></span>
 <span><span class="va">unifrac_distances_phychem30cm</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/distance.html">distance</a></span><span class="op">(</span><span class="va">ps_phychem30cm</span>, method <span class="op">=</span> <span class="st">"unifrac"</span>, weighted <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="calculate-dbrda" class="level2"><h2 class="anchored" data-anchor-id="calculate-dbrda">03.3 Calculate dbRDA</h2>
 <div class="cell">
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Convert distance matrix to vegdist object</span></span>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Convert distance matrix to vegdist object</span></span>
 <span><span class="va">unifrac_vegdist_phychem30cm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html">as.dist</a></span><span class="op">(</span><span class="va">unifrac_distances_phychem30cm</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># db-RDA</span></span>
@@ -1308,7 +1325,7 @@ Cumulative Proportion 0.531 0.723 0.8567 0.9228 0.9660 1.0000</code></pre>
 </div>
 </section><section id="get-significance" class="level2"><h2 class="anchored" data-anchor-id="get-significance">03.4 Get significance</h2>
 <div class="cell">
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Significance</span></span>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Significance</span></span>
 <span><span class="va">anova_axes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">dbrda_result</span>, by <span class="op">=</span> <span class="st">"axis"</span>, </span>
 <span>                    permutations <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></span>
 <span><span class="va">anova_axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1328,7 +1345,7 @@ CAP5      1    0.026 0.41   0.97
 CAP6      1    0.021 0.32   0.97
 Residual  6    0.385            </code></pre>
 </div>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Significance by variable</span></span>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Significance by variable</span></span>
 <span><span class="va">anova_terms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">dbrda_result</span>, by <span class="op">=</span> <span class="st">"terms"</span>, </span>
 <span>                     permutations <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></span>
 <span></span>
@@ -1353,7 +1370,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># variance by each axis</span></span>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># variance by each axis</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">dbrda_result</span><span class="op">)</span><span class="op">$</span><span class="va">cont</span><span class="op">$</span><span class="va">importance</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
@@ -1367,9 +1384,24 @@ Proportion Explained  0.0262 0.0244 0.0181 0.0134
 Cumulative Proportion 0.9442 0.9685 0.9866 1.0000</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">dbrda_result</span>, permutations <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for capscale under reduced model
+Permutation: free
+Number of permutations: 999
+
+Model: capscale(formula = unifrac_vegdist_phychem30cm ~ Temperature...C. + Salinity..ppm. + pH + Redox.mV..Eh. + S.2..mg.l. + SO....mg.l., data = phychem)
+         Df SumOfSqs    F Pr(&gt;F)  
+Model     6    0.609 1.58  0.095 .
+Residual  6    0.385              
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
 </section><section id="permanova-3" class="level2"><h2 class="anchored" data-anchor-id="permanova-3">03.5 PERMANOVA</h2>
 <div class="cell">
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PERMANOVA</span></span>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PERMANOVA</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">permanova_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/adonis.html">adonis2</a></span><span class="op">(</span><span class="va">unifrac_distances_phychem30cm</span> <span class="op">~</span> <span class="va">Temperature...C.</span> <span class="op">+</span> <span class="va">Salinity..ppm.</span> <span class="op">+</span> <span class="va">pH</span> <span class="op">+</span></span>
 <span><span class="va">Redox.mV..Eh.</span> <span class="op">+</span> <span class="va">S.2..mg.l.</span> <span class="op">+</span> <span class="va">SO....mg.l.</span>, </span>
@@ -1399,7 +1431,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </section><section id="permanova-plot" class="level2"><h2 class="anchored" data-anchor-id="permanova-plot">03.6 PERMANOVA Plot</h2>
 <div class="cell">
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract PERMANOVA results</span></span>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract PERMANOVA results</span></span>
 <span><span class="va">permanova_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  Variable <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">permanova_result</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">permanova_result</span><span class="op">)</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>,</span>
 <span>  R2 <span class="op">=</span> <span class="va">permanova_result</span><span class="op">$</span><span class="va">R2</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">permanova_result</span><span class="op">)</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>,</span>
@@ -1417,7 +1449,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">permanova_df</span><span class="op">$</span><span class="va">Variable</span> <span class="op">&lt;-</span> <span class="va">var_abbrevs</span><span class="op">[</span><span class="va">permanova_df</span><span class="op">$</span><span class="va">Variable</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># plot</span></span>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># plot</span></span>
 <span><span class="va">permanova_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">permanova_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Variable</span>, </span>
 <span>                        y <span class="op">=</span> <span class="va">R2</span>, fill <span class="op">=</span> <span class="va">p_value</span> <span class="op">&lt;</span> <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1438,13 +1470,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">permanova_plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/Physicochemyc_Significance.pdf"</span>, <span class="va">permanova_plot</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">5.7</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/Physicochemyc_Significance.pdf"</span>, <span class="va">permanova_plot</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">5.7</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
 for 'p ≥ 0.05' in 'mbcsToSbcs': &gt;= substituted for ≥ (U+2265)</code></pre>
@@ -1452,7 +1484,7 @@ for 'p ≥ 0.05' in 'mbcsToSbcs': &gt;= substituted for ≥ (U+2265)</code></pre
 </div>
 </section><section id="dbrda-plot" class="level2"><h2 class="anchored" data-anchor-id="dbrda-plot">03.7 dbRDA Plot</h2>
 <div class="cell">
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract site scores</span></span>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract site scores</span></span>
 <span><span class="va">scores_samples</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/scores.html">scores</a></span><span class="op">(</span><span class="va">dbrda_result</span>, display <span class="op">=</span> <span class="st">"sites"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Convert to data.frame</span></span>
@@ -1489,35 +1521,104 @@ for 'p ≥ 0.05' in 'mbcsToSbcs': &gt;= substituted for ≥ (U+2265)</code></pre
 <span><span class="va">capphychem_plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save</span></span>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/dbRDA.pdf"</span>, <span class="va">capphychem_plot</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="save-rds-plots" class="level1"><h1>Save rds plots</h1>
 <div class="cell">
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save plots</span></span>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save plots</span></span>
 <span><span class="va">nmds_u</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nmds_wu_fltr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nmds_wu_fltr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-43-2.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-44-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">nmds_u</span>, <span class="st">"rds/interior_mangroves/nmds_u.rds"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">nmds_u</span>, <span class="st">"rds/interior_mangroves/nmds_u.rds"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">nmds_wu_fltr</span>, <span class="st">"rds/interior_mangroves/nmds_wu.rds"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">capphychem_plot</span>, <span class="st">"rds/interior_mangroves/dbRDA.rds"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="supplementary" class="level1"><h1>Supplementary</h1>
+<div class="cell">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#extract permanova</span></span>
+<span><span class="va">tableS10_permanova_u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">adonis2_unifrac</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Factor</span>, <span class="va">Df</span>, <span class="va">SumOfSqs</span>, <span class="va">R2</span>, F.Model <span class="op">=</span> <span class="cn">F</span>, p_value <span class="op">=</span> <span class="va">`Pr(&gt;F)`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">Factor</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Total"</span>, <span class="st">"Residual"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tableS10_permanova_wu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">adonis2_wunifrac_fltr</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Factor</span>, <span class="va">Df</span>, <span class="va">SumOfSqs</span>, <span class="va">R2</span>, F.Model <span class="op">=</span> <span class="cn">F</span>, p_value <span class="op">=</span> <span class="va">`Pr(&gt;F)`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">Factor</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Total"</span>, <span class="st">"Residual"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract PERMDISP</span></span>
+<span><span class="va">p_dispersion_u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_u</span><span class="op">)</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="va">p_dispersion_wu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_fltr</span><span class="op">)</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span></span>
+<span><span class="co"># join</span></span>
+<span><span class="va">tableS10_final</span> <span class="op">&lt;-</span> <span class="va">tableS10_permanova_u</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Dispersion_p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Factor</span> <span class="op">==</span> <span class="st">"Location"</span>, <span class="va">p_dispersion_u</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Dispersion_p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Factor</span> <span class="op">==</span> <span class="st">"Depths"</span>, <span class="va">p_dispersion_wu</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#show</span></span>
+<span><span class="va">tableS10_final</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Factor Df SumOfSqs    R2 F.Model p_value Dispersion_p
+Location Location  2    1.486 0.301   11.76   0.001           NA
+Depths     Depths  3    0.669 0.136    3.53   0.001        0.559</code></pre>
+</div>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS10_final</span>, <span class="st">"Tables/interior_mangroves/Supplementary_Table_S10_Interior_BetaDisper.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># extract unweighted UniFrac </span></span>
+<span><span class="va">tab_u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">adonis2_unifrac</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, Metric <span class="op">=</span> <span class="st">"Unweighted UniFrac"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, <span class="va">Factor</span>, <span class="va">Df</span>, <span class="va">R2</span>, F.Model <span class="op">=</span> <span class="cn">F</span>, p_value <span class="op">=</span> <span class="va">`Pr(&gt;F)`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">Factor</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Total"</span>, <span class="st">"Residual"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Dispersion_p <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">Factor</span> <span class="op">==</span> <span class="st">"Location"</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_u</span><span class="op">)</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>    <span class="va">Factor</span> <span class="op">==</span> <span class="st">"Depths"</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_u_d</span><span class="op">)</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>    <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA_real_</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># extract weighted UniFrac </span></span>
+<span><span class="va">tab_wu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">adonis2_wunifrac_fltr</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, Metric <span class="op">=</span> <span class="st">"Weighted UniFrac"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, <span class="va">Factor</span>, <span class="va">Df</span>, <span class="va">R2</span>, F.Model <span class="op">=</span> <span class="cn">F</span>, p_value <span class="op">=</span> <span class="va">`Pr(&gt;F)`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">Factor</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Total"</span>, <span class="st">"Residual"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Dispersion_p <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">Factor</span> <span class="op">==</span> <span class="st">"Depths_fltr"</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_fltr</span><span class="op">)</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>    <span class="va">Factor</span> <span class="op">==</span> <span class="st">"Location"</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">beta_disp_fltr_loc</span><span class="op">)</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>    <span class="cn">TRUE</span> <span class="op">~</span> <span class="cn">NA_real_</span></span>
+<span>  <span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># join</span></span>
+<span><span class="va">tableS10_final</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">tab_u</span>, <span class="va">tab_wu</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Guardar</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS10_final</span>, <span class="st">"Tables/interior_mangroves/Supplementary_Table_S10_Interior_Mangroves_Beta.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

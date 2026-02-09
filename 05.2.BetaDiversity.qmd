@@ -125,7 +125,7 @@ otu_mat <- t(otu_table(ps))
 # PERMANOVA with adonis2
 set.seed(123)
 adonis_result <- adonis2(
-  otu_mat ~ Mangrove_system + Depths + Mangrove_type,
+  otu_mat ~ Mangrove_system + Depths * Mangrove_type,
   data = sample_data,
   method = "bray",
   permutations = 999,
@@ -367,4 +367,30 @@ ggsave("Figures/interior_impaired/NMDS.pdf", nmds, bg='transparent', width = 6, 
 
 ```{r}
 saveRDS(nmds, "rds/interior_impaired/beta-diversity.rds")
+```
+
+## Supplementary
+
+```{r}
+library(dplyr)
+
+#extract permanova
+tableS8_permanova <- as.data.frame(adonis_result) %>%
+  mutate(Factor = rownames(.)) %>%
+  dplyr::select(Factor, Df, SumOfSqs, R2, F.Model = F, p_value = `Pr(>F)`) %>%
+  filter(!Factor %in% c("Total", "Residual")) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+# Extract PERMDISP
+p_dispersion <- anova(disp_location)$`Pr(>F)`[1]
+
+# join
+tableS8_final <- tableS8_permanova %>%
+  mutate(Dispersion_p = ifelse(Factor == "Mangrove_system", p_dispersion, NA)) %>%
+  mutate(across(where(is.numeric), ~ round(., 4)))
+
+#show
+tableS8_final
+#save
+write.csv(tableS8_final, "Tables/interior_impaired/Supplementary_Table_S8_Interior_Impaired_BetaDisper.csv", row.names = FALSE)
 ```

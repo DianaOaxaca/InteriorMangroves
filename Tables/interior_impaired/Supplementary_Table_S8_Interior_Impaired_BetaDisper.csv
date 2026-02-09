@@ -1,0 +1,4 @@
+"Factor","Df","SumOfSqs","R2","F.Model","p_value","Dispersion_p"
+"Mangrove_system",2,4.6337,0.3792,19.9485,0.001,0.0019
+"Depths",2,0.6098,0.0499,2.6251,0.001,NA
+"Depths:Mangrove_type",2,0.9355,0.0766,4.0275,0.001,NA

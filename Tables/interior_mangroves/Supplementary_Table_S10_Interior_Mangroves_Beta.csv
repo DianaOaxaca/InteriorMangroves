@@ -1,0 +1,5 @@
+"Metric","Factor","Df","R2","F.Model","p_value","Dispersion_p"
+"Unweighted UniFrac","Location",2,0.3011,11.7586,0.001,0.2762
+"Unweighted UniFrac","Depths",3,0.1356,3.53,0.001,0.8206
+"Weighted UniFrac","Depths_fltr",1,0.3465,12.3654,0.002,0.5587
+"Weighted UniFrac","Location",2,0.0932,1.6623,0.157,0.4628
