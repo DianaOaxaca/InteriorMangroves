@@ -1,14 +1,14 @@
 ---
-title: "**Unraveling microbial diversity from a fossil lagoon with an inland mangrove forest**"
+title: "**Long-term environmental stability promotes reproducible, depth-structured sediment microbiomes**"
 ---
 
-Website of microbial diversity analysis of the paper ...
+Website of microbial diversity analysis of the paper
 
 ------------------------------------------------------------------------
 
-------------------------------------------------------------------------
+![](images/Copia de DJI_20250114152144_0006_V.JPG)
 
-![](https://i0.wp.com/nubedemonte.com/wp-content/uploads/2022/04/DSF4719.jpg?resize=1900%2C1267&ssl=1)
+------------------------------------------------------------------------
 
 Mangroves play a crucial role in ecological services like hurricane protection, carbon storage, and biodiversity support by harboring essential microbial communities for nutrient recycling and biogeochemical cycling. The microbial diversity of inland mangroves, particularly the relict mangroves of the San Pedro River from the last interglacial period, remains understudied. The study of these surviving mangrove systems offers insights into microbial dynamics and the identification of [resilient microbiota]{.underline} with potential applications in mangrove restoration efforts. By exploring similarities and differences between **coastal and inland mangroves**, as well as **degraded coastal mangroves**, we aim to **understand the unique qualities that make inland mangroves distinct while also identifying common elements shared by all mangrove ecosystems.**
 
@@ -16,6 +16,6 @@ In this work we studied the microbial diversity associated with *Rhizophora mang
 
 ------------------------------------------------------------------------
 
-![](images/StudyZone.png)
+![](images/Fig.1.ExperimentalDesign.jpg)
 
 ------------------------------------------------------------------------

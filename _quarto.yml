@@ -26,7 +26,7 @@ website:
 
   sidebar:
     background: "#DEEBF7"
-    logo: "images/landalab.jpg"
+    logo: "images/landalab.jpeg"
     pinned: true
     align: center
     tools:
