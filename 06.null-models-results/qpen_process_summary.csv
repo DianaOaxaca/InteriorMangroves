@@ -1,0 +1,20 @@
+grupo,process,n,porcentaje
+All interiors (pooled),Dispersal.Limitation,290,23.7
+All interiors (pooled),Heterogeneous.Selection,618,50.4
+All interiors (pooled),Homogeneous.Selection,123,10
+All interiors (pooled),Homogenizing.Dispersal,41,3.3
+All interiors (pooled),Undominated,153,12.5
+Fossil Lagoon,Dispersal.Limitation,41,45.1
+Fossil Lagoon,Heterogeneous.Selection,28,30.8
+Fossil Lagoon,Homogeneous.Selection,8,8.8
+Fossil Lagoon,Homogenizing.Dispersal,2,2.2
+Fossil Lagoon,Undominated,12,13.2
+Miguelito Dike,Dispersal.Limitation,75,27.2
+Miguelito Dike,Heterogeneous.Selection,137,49.6
+Miguelito Dike,Homogeneous.Selection,15,5.4
+Miguelito Dike,Homogenizing.Dispersal,12,4.3
+Miguelito Dike,Undominated,37,13.4
+Reforma Waterfalls,Dispersal.Limitation,21,31.8
+Reforma Waterfalls,Heterogeneous.Selection,36,54.5
+Reforma Waterfalls,Homogenizing.Dispersal,4,6.1
+Reforma Waterfalls,Undominated,5,7.6

@@ -1,0 +1,76 @@
+WARNING: ignoring environment value of R_HOME
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Muestras: 50  ASVs: 7097 
+>>> qpen: Fossil Lagoon (14 muestras)
+All match very well.
+Now calculating observed betaMNTD. Begin at Thu Jun 18 14:42:00 2026. Please wait...
+Now randomizing by parallel computing. Begin at Thu Jun 18 14:42:02 2026. Please wait...
+Now parallel computing. begin at Thu Jun 18 14:48:15 2026. Please wait...
+----now calculating sig.index of Bray at Thu Jun 18 14:50:10 2026----
+All match very well.
+>>> qpen: Reforma Waterfalls (12 muestras)
+All match very well.
+Now calculating observed betaMNTD. Begin at Thu Jun 18 14:50:10 2026. Please wait...
+Now randomizing by parallel computing. Begin at Thu Jun 18 14:50:12 2026. Please wait...
+Now parallel computing. begin at Thu Jun 18 14:57:34 2026. Please wait...
+----now calculating sig.index of Bray at Thu Jun 18 14:59:28 2026----
+All match very well.
+>>> qpen: Miguelito Dike (24 muestras)
+All match very well.
+Now calculating observed betaMNTD. Begin at Thu Jun 18 14:59:29 2026. Please wait...
+Now randomizing by parallel computing. Begin at Thu Jun 18 14:59:33 2026. Please wait...
+Now parallel computing. begin at Thu Jun 18 15:15:20 2026. Please wait...
+----now calculating sig.index of Bray at Thu Jun 18 15:19:09 2026----
+All match very well.
+Warning messages:
+1: 'memory.size()' is Windows-specific 
+2: 'memory.size()' is Windows-specific 
+3: 'memory.size()' is Windows-specific 
+4: 'memory.size()' is Windows-specific 
+5: 'memory.size()' is Windows-specific 
+6: 'memory.size()' is Windows-specific 
+>>> qpen: All interiors (pooled) (50 muestras)
+All match very well.
+Now calculating observed betaMNTD. Begin at Thu Jun 18 15:19:10 2026. Please wait...
+Now randomizing by parallel computing. Begin at Thu Jun 18 15:19:18 2026. Please wait...
+Now parallel computing. begin at Thu Jun 18 15:55:05 2026. Please wait...
+----now calculating sig.index of Bray at Thu Jun 18 16:03:08 2026----
+All match very well.
+Warning messages:
+1: 'memory.size()' is Windows-specific 
+2: 'memory.size()' is Windows-specific 
+# A tibble: 19 × 4
+   grupo                  process                     n porcentaje
+   <chr>                  <chr>                   <int>      <dbl>
+ 1 All interiors (pooled) Dispersal.Limitation      290       23.7
+ 2 All interiors (pooled) Heterogeneous.Selection   618       50.4
+ 3 All interiors (pooled) Homogeneous.Selection     123       10  
+ 4 All interiors (pooled) Homogenizing.Dispersal     41        3.3
+ 5 All interiors (pooled) Undominated               153       12.5
+ 6 Fossil Lagoon          Dispersal.Limitation       41       45.1
+ 7 Fossil Lagoon          Heterogeneous.Selection    28       30.8
+ 8 Fossil Lagoon          Homogeneous.Selection       8        8.8
+ 9 Fossil Lagoon          Homogenizing.Dispersal      2        2.2
+10 Fossil Lagoon          Undominated                12       13.2
+11 Miguelito Dike         Dispersal.Limitation       75       27.2
+12 Miguelito Dike         Heterogeneous.Selection   137       49.6
+13 Miguelito Dike         Homogeneous.Selection      15        5.4
+14 Miguelito Dike         Homogenizing.Dispersal     12        4.3
+15 Miguelito Dike         Undominated                37       13.4
+16 Reforma Waterfalls     Dispersal.Limitation       21       31.8
+17 Reforma Waterfalls     Heterogeneous.Selection    36       54.5
+18 Reforma Waterfalls     Homogenizing.Dispersal      4        6.1
+19 Reforma Waterfalls     Undominated                 5        7.6
+Warning message:
+In grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'βNTI < -2 = homogeneous selection (expected under long-term stability)' in 'mbcsToSbcs': for β (U+03B2)
+LISTO. Revisa qpen_process_summary.csv y las figuras.
