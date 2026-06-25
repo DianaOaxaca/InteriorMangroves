@@ -1,0 +1,30 @@
+---
+title: "C) Community assembly and co-occurrence networks"
+---
+
+# Convergent evidence for deterministic, depth-structured assembly
+
+Are inland relict communities shaped by deterministic or stochastic processes, and is that organization mirrored in their co-occurrence networks?❓
+
+This section brings together two **independent** analyses that converge on the same conclusion:
+
+1.  **Community assembly processes** — phylogenetic null models (βNTI / RCbray) that partition community turnover into selection, dispersal, and drift.
+2.  **Microbial association networks** — co-occurrence networks whose topology and depth-related structure are examined across systems.
+
+Rather than sharing a single prepared dataset, each subsection prepares the data appropriate to its method, so data loading is documented within each analysis page.
+
+## Scope and rationale
+
+The two analyses differ in how they handle the multi-dataset nature of this study, and this is intentional:
+
+-   **Assembly processes (βNTI)** are restricted to the **inland relict sites**. Phylogenetic turnover metrics require a single, primer-consistent reference tree; mixing amplicon regions across datasets would bias the phylogenetic signal. Within the inland sites, a single consistent dataset and a robust tree make this analysis well supported.
+
+-   **Association networks** include both **inland and coastal** comparisons. Topological and Bray–Curtis-based network metrics are more robust to primer-region differences than phylogenetic metrics, so cross-system network comparisons remain informative (interpreted with appropriate caution).
+
+This scope decision is documented here for transparency: although the manuscript emphasizes the inland relict signal, both analyses were explored more broadly, and the restriction of βNTI to interior sites is a deliberate methodological choice rather than an omission.
+
+## Contents
+
+-   **1) Community assembly processes (βNTI / RCbray)** → `06.1.AssemblyProcesses`
+-   **2) Microbial association networks** → `06.2.Networks`
+-   **Fig 6. Convergent evidence** → `06.3.Fig6.ConvergentEvidence`

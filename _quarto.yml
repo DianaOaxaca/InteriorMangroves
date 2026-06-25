@@ -88,6 +88,16 @@ website:
               - 03.5.DifferentialAbundance.qmd
               - 03.6.MetabolicInference.qmd
               - 03.7.Fig3.InteriorMangroves.qmd
+      - section: "C) Community assembly and co-occurrence networks"
+        href: 06.ConvergentEvidence.qmd
+        contents:
+          - section: "1) Which processes assemble inland communities?"
+            contents:
+              - 06.1.AssemblyProcesses.qmd
+          - section: "2) Are these patterns reflected in co-occurrence networks?"
+            contents:
+              - 06.2.Networks.qmd
+          - 06.3.Fig6.ConvergentEvidence.qmd
 
 
 

@@ -2070,5 +2070,233 @@
       "What makes inland mangroves different and unique?",
       "Differential Abundance"
     ]
+  },
+  {
+    "objectID": "06.ConvergentEvidence.html",
+    "href": "06.ConvergentEvidence.html",
+    "title": "C) Community assembly and co-occurrence networks",
+    "section": "",
+    "text": "Are inland relict communities shaped by deterministic or stochastic processes, and is that organization mirrored in their co-occurrence networks?❓\nThis section brings together two independent analyses that converge on the same conclusion:\n\nCommunity assembly processes — phylogenetic null models (βNTI / RCbray) that partition community turnover into selection, dispersal, and drift.\nMicrobial association networks — co-occurrence networks whose topology and depth-related structure are examined across systems.\n\nRather than sharing a single prepared dataset, each subsection prepares the data appropriate to its method, so data loading is documented within each analysis page.\n\n\nThe two analyses differ in how they handle the multi-dataset nature of this study, and this is intentional:\n\nAssembly processes (βNTI) are restricted to the inland relict sites. Phylogenetic turnover metrics require a single, primer-consistent reference tree; mixing amplicon regions across datasets would bias the phylogenetic signal. Within the inland sites, a single consistent dataset and a robust tree make this analysis well supported.\nAssociation networks include both inland and coastal comparisons. Topological and Bray–Curtis-based network metrics are more robust to primer-region differences than phylogenetic metrics, so cross-system network comparisons remain informative (interpreted with appropriate caution).\n\nThis scope decision is documented here for transparency: although the manuscript emphasizes the inland relict signal, both analyses were explored more broadly, and the restriction of βNTI to interior sites is a deliberate methodological choice rather than an omission.\n\n\n\n\n1) Community assembly processes (βNTI / RCbray) → 06.1.AssemblyProcesses\n2) Microbial association networks → 06.2.Networks\nFig 6. Convergent evidence → 06.3.Fig6.ConvergentEvidence",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks"
+    ]
+  },
+  {
+    "objectID": "06.ConvergentEvidence.html#scope-and-rationale",
+    "href": "06.ConvergentEvidence.html#scope-and-rationale",
+    "title": "C) Community assembly and co-occurrence networks",
+    "section": "",
+    "text": "The two analyses differ in how they handle the multi-dataset nature of this study, and this is intentional:\n\nAssembly processes (βNTI) are restricted to the inland relict sites. Phylogenetic turnover metrics require a single, primer-consistent reference tree; mixing amplicon regions across datasets would bias the phylogenetic signal. Within the inland sites, a single consistent dataset and a robust tree make this analysis well supported.\nAssociation networks include both inland and coastal comparisons. Topological and Bray–Curtis-based network metrics are more robust to primer-region differences than phylogenetic metrics, so cross-system network comparisons remain informative (interpreted with appropriate caution).\n\nThis scope decision is documented here for transparency: although the manuscript emphasizes the inland relict signal, both analyses were explored more broadly, and the restriction of βNTI to interior sites is a deliberate methodological choice rather than an omission.",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks"
+    ]
+  },
+  {
+    "objectID": "06.ConvergentEvidence.html#contents",
+    "href": "06.ConvergentEvidence.html#contents",
+    "title": "C) Community assembly and co-occurrence networks",
+    "section": "",
+    "text": "1) Community assembly processes (βNTI / RCbray) → 06.1.AssemblyProcesses\n2) Microbial association networks → 06.2.Networks\nFig 6. Convergent evidence → 06.3.Fig6.ConvergentEvidence",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks"
+    ]
+  },
+  {
+    "objectID": "06.2.Networks.html",
+    "href": "06.2.Networks.html",
+    "title": "Microbial association networks",
+    "section": "",
+    "text": "Is the deterministic, depth-structured organization of inland relict communities also reflected in the architecture of microbial co-occurrence?❓\n\nPlaceholder. This section will document the co-occurrence network analysis (ridge-regularized partial correlations on CLR-transformed top-200 taxa, balanced bootstrap resampling, fixed edge density 0.02, metrics computed with igraph, Louvain modularity, and depth-trend Spearman correlations). Content pending from collaborator. Code and rationale to be added here.\n\n\n\n# library(SpiecEasi)   # or the inference package used by the collaborator\n# library(igraph)\n# library(tidyverse)\n\n\n\n# TODO: collaborator code — ridge partial correlations, density 0.02,\n#       balanced bootstrap (500 reps), top-200 taxa, CLR transform.\n\n\n\n# TODO: largest connected component, modularity (Louvain), transitivity,\n#       natural connectivity, robustness (random & targeted node removal).\n\n\n\n# TODO: Spearman correlations of metrics vs ordinal depth + Kruskal-Wallis.\n\n\nKey results (to confirm with final figures): connectivity, modularity and robustness decline with depth (ρ = −0.36, −0.38, −0.31, −0.41; all P &lt; 0.001); network structure is reproducible across the three inland sites (all bootstrap P &gt; 0.2); inland networks show higher transitivity than natural coastal networks (Δ = 0.27, P = 0.024).\n\n\n\n# TODO: bootstrap contrasts interior vs coastal (natural and impaired).\n#       Only transitivity significant; report others as non-significant.",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "2) Are these patterns reflected in co-occurrence networks?",
+      "Microbial association networks"
+    ]
+  },
+  {
+    "objectID": "06.2.Networks.html#load-libraries",
+    "href": "06.2.Networks.html#load-libraries",
+    "title": "Microbial association networks",
+    "section": "",
+    "text": "# library(SpiecEasi)   # or the inference package used by the collaborator\n# library(igraph)\n# library(tidyverse)",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "2) Are these patterns reflected in co-occurrence networks?",
+      "Microbial association networks"
+    ]
+  },
+  {
+    "objectID": "06.2.Networks.html#network-inference",
+    "href": "06.2.Networks.html#network-inference",
+    "title": "Microbial association networks",
+    "section": "",
+    "text": "# TODO: collaborator code — ridge partial correlations, density 0.02,\n#       balanced bootstrap (500 reps), top-200 taxa, CLR transform.",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "2) Are these patterns reflected in co-occurrence networks?",
+      "Microbial association networks"
+    ]
+  },
+  {
+    "objectID": "06.2.Networks.html#network-metrics",
+    "href": "06.2.Networks.html#network-metrics",
+    "title": "Microbial association networks",
+    "section": "",
+    "text": "# TODO: largest connected component, modularity (Louvain), transitivity,\n#       natural connectivity, robustness (random & targeted node removal).",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "2) Are these patterns reflected in co-occurrence networks?",
+      "Microbial association networks"
+    ]
+  },
+  {
+    "objectID": "06.2.Networks.html#depth-trend-within-inland-sites",
+    "href": "06.2.Networks.html#depth-trend-within-inland-sites",
+    "title": "Microbial association networks",
+    "section": "",
+    "text": "# TODO: Spearman correlations of metrics vs ordinal depth + Kruskal-Wallis.\n\n\nKey results (to confirm with final figures): connectivity, modularity and robustness decline with depth (ρ = −0.36, −0.38, −0.31, −0.41; all P &lt; 0.001); network structure is reproducible across the three inland sites (all bootstrap P &gt; 0.2); inland networks show higher transitivity than natural coastal networks (Δ = 0.27, P = 0.024).",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "2) Are these patterns reflected in co-occurrence networks?",
+      "Microbial association networks"
+    ]
+  },
+  {
+    "objectID": "06.2.Networks.html#interior-vs-coastal-comparisons",
+    "href": "06.2.Networks.html#interior-vs-coastal-comparisons",
+    "title": "Microbial association networks",
+    "section": "",
+    "text": "# TODO: bootstrap contrasts interior vs coastal (natural and impaired).\n#       Only transitivity significant; report others as non-significant.",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "2) Are these patterns reflected in co-occurrence networks?",
+      "Microbial association networks"
+    ]
+  },
+  {
+    "objectID": "06.1.AssemblyProcesses.html",
+    "href": "06.1.AssemblyProcesses.html",
+    "title": "1) Community assembly processes (βNTI / RCbray)",
+    "section": "",
+    "text": "Which ecological processes — selection, dispersal, or drift — govern the assembly of inland relict sediment communities?❓\nWe use the phylogenetic null-model framework of Stegen et al., implemented in iCAMP::qpen, to partition pairwise community turnover into deterministic (selection) and stochastic (dispersal, drift) processes. No ASVs were removed prior to the analysis. βNTI is restricted to the inland relict sites, where a single primer-consistent dataset and a robust phylogenetic tree make the analysis well supported.\n\n\nlibrary(tidyverse)\n\n\n\n\nlibrary(iCAMP); library(phyloseq); library(qiime2R)\nset.seed(123)\nnperm  &lt;- 999      # randomizations\nncores &lt;- 4        # bajado por OOM (fork overcommit con muchos workers)\n\n# Import (same pipeline as the rest of the site)\nps &lt;- qza_to_phyloseq(\n  features = \"data/ASV_table_filter_freq218_emc.qza\",\n  tree     = \"data/rooted-tree-iqtree.qza\",\n  taxonomy = \"data/taxonomy.qza\",\n  metadata = \"data/metadata2.tsv\"\n)\n\n# Rename systems as in 03.1.RelativeAbundances\nmetadata &lt;- as(sample_data(ps), \"data.frame\") %&gt;%\n  mutate(Location = case_when(\n    Location == \"El Cacahuate\"    ~ \"Fossil Lagoon\",\n    Location == \"La Piedad\"       ~ \"Reforma Waterfalls\",\n    Location == \"Dique Miguelito\" ~ \"Miguelito Dike\",\n    TRUE ~ Location))\nsample_data(ps) &lt;- sample_data(metadata)\n\n# Community matrix (samples in rows) and phylogenetic distance — NO ASV filtering\ncomm &lt;- as(otu_table(ps), \"matrix\")\nif (taxa_are_rows(ps)) comm &lt;- t(comm)\ntree &lt;- phy_tree(ps)\ncomunes &lt;- intersect(colnames(comm), tree$tip.label)\ncomm &lt;- comm[, comunes, drop = FALSE]\ntree &lt;- ape::drop.tip(tree, setdiff(tree$tip.label, comunes))\npd &lt;- cophenetic(tree)[colnames(comm), colnames(comm)]\n\n\n\nmeta_df &lt;- data.frame(sample_data(ps))\ninteriores &lt;- c(\"Fossil Lagoon\", \"Reforma Waterfalls\", \"Miguelito Dike\")\n\nrun_qpen &lt;- function(samples, etiqueta) {\n  cm  &lt;- comm[rownames(comm) %in% samples, , drop = FALSE]\n  cm  &lt;- cm[, colSums(cm) &gt; 0, drop = FALSE]\n  pdi &lt;- pd[colnames(cm), colnames(cm)]\n  res &lt;- qpen(comm = cm, pd = pdi, rand = nperm,\n              nworker = ncores, sig.bNTI = 2, sig.rc = 0.95)\n  res$result$grupo &lt;- etiqueta\n  res$result\n}\n\nresultados &lt;- lapply(interiores, function(s)\n  run_qpen(rownames(meta_df)[meta_df$Location == s], s))\nresultados[[\"pooled\"]] &lt;- run_qpen(\n  rownames(meta_df)[meta_df$Location %in% interiores], \"All interiors (pooled)\")\n\ntodos &lt;- bind_rows(resultados)\ndir.create(\"06.null-models-results\", showWarnings = FALSE)\nwrite_csv(todos, \"06.null-models-results/qpen_pairwise_all.csv\")\n\nresumen &lt;- todos %&gt;%\n  count(grupo, process) %&gt;%\n  group_by(grupo) %&gt;%\n  mutate(porcentaje = round(100 * n / sum(n), 1)) %&gt;% ungroup()\nwrite_csv(resumen, \"06.null-models-results/qpen_process_summary.csv\")\n\n\n\n# βNTI values are non-independent pairwise comparisons, so differences in\n# process composition between sites are tested with Fisher's exact test\n# (Benjamini-Hochberg correction), NOT linear mixed models.\nsitios &lt;- c(\"Fossil Lagoon\", \"Reforma Waterfalls\", \"Miguelito Dike\")\ndat &lt;- todos %&gt;% filter(grupo %in% sitios)\n\ntabla &lt;- dat %&gt;%\n  count(grupo, process) %&gt;%\n  pivot_wider(names_from = process, values_from = n, values_fill = 0) %&gt;%\n  column_to_rownames(\"grupo\") %&gt;% as.matrix()\n\npares &lt;- combn(sitios, 2, simplify = FALSE)\nposthoc &lt;- purrr::map_dfr(pares, function(pr) {\n  sub &lt;- tabla[pr, ]; sub &lt;- sub[, colSums(sub) &gt; 0, drop = FALSE]\n  p &lt;- fisher.test(sub, simulate.p.value = TRUE, B = 1e5)$p.value\n  tibble(sitio_1 = pr[1], sitio_2 = pr[2], p_raw = p)\n})\nposthoc$p_adj &lt;- p.adjust(posthoc$p_raw, method = \"BH\")\nwrite_csv(posthoc, \"06.null-models-results/posthoc_process_differences.csv\")\n\nresumen_bnti &lt;- dat %&gt;%\n  group_by(grupo) %&gt;%\n  summarise(n_pares = n(),\n            bNTI_medio = round(mean(bNTI), 2),\n            bNTI_sd    = round(sd(bNTI), 2),\n            pct_seleccion = round(100*mean(abs(bNTI) &gt; 2), 1), .groups = \"drop\")\nwrite_csv(resumen_bnti, \"06.null-models-results/bNTI_summary_by_site.csv\")\n\n\n\n\n# Localities — consistent with the rest of the site (loc_colors)\nloc_colors &lt;- c(\"Fossil Lagoon\"          = \"#A7fcc1\",\n                \"Reforma Waterfalls\"     = \"#44C17B\",\n                \"Miguelito Dike\"         = \"#2E8B57\",\n                \"All interiors (pooled)\" = \"#b2ffa1\")\n\n# Assembly processes — greens/teals coherent with the site\nprocess_colors &lt;- c(\"Heterogeneous.Selection\" = \"#ffeeff\",\n                    \"Homogeneous.Selection\"   = \"#dcd3ff\",\n                    \"Dispersal.Limitation\"    = \"#FFFFDD\",\n                    \"Homogenizing.Dispersal\"  = \"#c4faf8\",\n                    \"Undominated\"             = \"gray70\")\n\nprocess_order &lt;- c(\"Heterogeneous.Selection\",\"Homogeneous.Selection\",\n                   \"Dispersal.Limitation\",\"Homogenizing.Dispersal\",\"Undominated\")\ngroup_order   &lt;- c(\"Fossil Lagoon\",\"Reforma Waterfalls\",\n                   \"Miguelito Dike\",\"All interiors (pooled)\")\n\n\n\ntodos   &lt;- read_csv(\"06.null-models-results/qpen_pairwise_all.csv\",\n                    show_col_types = FALSE)\nresumen &lt;- read_csv(\"06.null-models-results/qpen_process_summary.csv\",\n                    show_col_types = FALSE)\n\ntodos$grupo     &lt;- factor(todos$grupo, levels = group_order)\nresumen$grupo   &lt;- factor(resumen$grupo, levels = group_order)\nresumen$process &lt;- factor(resumen$process, levels = process_order)\n\n\n\nggplot(todos, aes(grupo, bNTI, fill = grupo)) +\n  geom_hline(yintercept = c(-2, 2), linetype = \"dashed\", colour = \"grey40\") +\n  geom_boxplot(width = 0.6, outlier.alpha = 0.3) +\n  geom_jitter(width = 0.15, alpha = 0.25, size = 0.6) +\n  scale_fill_manual(values = loc_colors) +\n  labs(x = NULL, y = expression(beta*\"NTI\")) +\n  theme_classic(base_size = 12) +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 20, hjust = 1))\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n|βNTI| &gt; 2 indicates selection; βNTI &lt; −2 homogeneous selection, βNTI &gt; 2 heterogeneous selection. The dashed lines mark the ±2 thresholds.\n\n\n\nggplot(resumen, aes(grupo, porcentaje, fill = process)) +\n  geom_col(width = 0.7) +\n  scale_fill_manual(values = process_colors, name = \"Assembly process\") +\n  labs(x = NULL, y = \"% of pairwise comparisons\") +\n  theme_classic(base_size = 12) +\n  theme(axis.text.x = element_text(angle = 20, hjust = 1))\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\nposthoc &lt;- read_csv(\"06.null-models-results/posthoc_process_differences.csv\",\n                    show_col_types = FALSE)\nbnti_site &lt;- read_csv(\"06.null-models-results/bNTI_summary_by_site.csv\",\n                      show_col_types = FALSE)\n\nknitr::kable(bnti_site, caption = \"Mean βNTI per inland site.\")\n\n\nMean βNTI per inland site.\n\ngrupo\nn_pares\nbNTI_medio\nbNTI_sd\npct_seleccion\n\n\n\nFossil Lagoon\n91\n0.85\n2.51\n39.6\n\n\nMiguelito Dike\n276\n3.12\n4.62\n55.1\n\n\nReforma Waterfalls\n66\n3.49\n3.49\n54.5\n\n\n\n\nknitr::kable(posthoc,  caption = \"Fisher's exact test between sites (BH-adjusted).\")\n\n\nFisher’s exact test between sites (BH-adjusted).\n\nsitio_1\nsitio_2\np_raw\np_adj\n\n\n\nFossil Lagoon\nReforma Waterfalls\n0.0021400\n0.0064199\n\n\nFossil Lagoon\nMiguelito Dike\n0.0060899\n0.0091349\n\n\nReforma Waterfalls\nMiguelito Dike\n0.1619684\n0.1619684\n\n\n\n\n\n\nKey result. Across all inland samples, deterministic selection dominated assembly (60.4% of comparisons; heterogeneous selection 50.4%), reproducibly across the three sites. Fossil Lagoon, the most isolated site, showed the largest contribution of dispersal limitation (mean βNTI 0.85), whereas the river sites were selection-dominated (mean βNTI 3.12 and 3.49). Fossil Lagoon differed from both river sites (Fisher, BH-adjusted p = 0.006 and 0.009), while the two river sites did not differ (p = 0.16).",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "1) Which processes assemble inland communities?",
+      "1) Community assembly processes (βNTI / RCbray)"
+    ]
+  },
+  {
+    "objectID": "06.1.AssemblyProcesses.html#load-libraries",
+    "href": "06.1.AssemblyProcesses.html#load-libraries",
+    "title": "1) Community assembly processes (βNTI / RCbray)",
+    "section": "",
+    "text": "library(tidyverse)",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "1) Which processes assemble inland communities?",
+      "1) Community assembly processes (βNTI / RCbray)"
+    ]
+  },
+  {
+    "objectID": "06.1.AssemblyProcesses.html#the-analysis-βnti-rcbray-with-icampqpen",
+    "href": "06.1.AssemblyProcesses.html#the-analysis-βnti-rcbray-with-icampqpen",
+    "title": "1) Community assembly processes (βNTI / RCbray)",
+    "section": "",
+    "text": "library(iCAMP); library(phyloseq); library(qiime2R)\nset.seed(123)\nnperm  &lt;- 999      # randomizations\nncores &lt;- 4        # bajado por OOM (fork overcommit con muchos workers)\n\n# Import (same pipeline as the rest of the site)\nps &lt;- qza_to_phyloseq(\n  features = \"data/ASV_table_filter_freq218_emc.qza\",\n  tree     = \"data/rooted-tree-iqtree.qza\",\n  taxonomy = \"data/taxonomy.qza\",\n  metadata = \"data/metadata2.tsv\"\n)\n\n# Rename systems as in 03.1.RelativeAbundances\nmetadata &lt;- as(sample_data(ps), \"data.frame\") %&gt;%\n  mutate(Location = case_when(\n    Location == \"El Cacahuate\"    ~ \"Fossil Lagoon\",\n    Location == \"La Piedad\"       ~ \"Reforma Waterfalls\",\n    Location == \"Dique Miguelito\" ~ \"Miguelito Dike\",\n    TRUE ~ Location))\nsample_data(ps) &lt;- sample_data(metadata)\n\n# Community matrix (samples in rows) and phylogenetic distance — NO ASV filtering\ncomm &lt;- as(otu_table(ps), \"matrix\")\nif (taxa_are_rows(ps)) comm &lt;- t(comm)\ntree &lt;- phy_tree(ps)\ncomunes &lt;- intersect(colnames(comm), tree$tip.label)\ncomm &lt;- comm[, comunes, drop = FALSE]\ntree &lt;- ape::drop.tip(tree, setdiff(tree$tip.label, comunes))\npd &lt;- cophenetic(tree)[colnames(comm), colnames(comm)]\n\n\n\nmeta_df &lt;- data.frame(sample_data(ps))\ninteriores &lt;- c(\"Fossil Lagoon\", \"Reforma Waterfalls\", \"Miguelito Dike\")\n\nrun_qpen &lt;- function(samples, etiqueta) {\n  cm  &lt;- comm[rownames(comm) %in% samples, , drop = FALSE]\n  cm  &lt;- cm[, colSums(cm) &gt; 0, drop = FALSE]\n  pdi &lt;- pd[colnames(cm), colnames(cm)]\n  res &lt;- qpen(comm = cm, pd = pdi, rand = nperm,\n              nworker = ncores, sig.bNTI = 2, sig.rc = 0.95)\n  res$result$grupo &lt;- etiqueta\n  res$result\n}\n\nresultados &lt;- lapply(interiores, function(s)\n  run_qpen(rownames(meta_df)[meta_df$Location == s], s))\nresultados[[\"pooled\"]] &lt;- run_qpen(\n  rownames(meta_df)[meta_df$Location %in% interiores], \"All interiors (pooled)\")\n\ntodos &lt;- bind_rows(resultados)\ndir.create(\"06.null-models-results\", showWarnings = FALSE)\nwrite_csv(todos, \"06.null-models-results/qpen_pairwise_all.csv\")\n\nresumen &lt;- todos %&gt;%\n  count(grupo, process) %&gt;%\n  group_by(grupo) %&gt;%\n  mutate(porcentaje = round(100 * n / sum(n), 1)) %&gt;% ungroup()\nwrite_csv(resumen, \"06.null-models-results/qpen_process_summary.csv\")\n\n\n\n# βNTI values are non-independent pairwise comparisons, so differences in\n# process composition between sites are tested with Fisher's exact test\n# (Benjamini-Hochberg correction), NOT linear mixed models.\nsitios &lt;- c(\"Fossil Lagoon\", \"Reforma Waterfalls\", \"Miguelito Dike\")\ndat &lt;- todos %&gt;% filter(grupo %in% sitios)\n\ntabla &lt;- dat %&gt;%\n  count(grupo, process) %&gt;%\n  pivot_wider(names_from = process, values_from = n, values_fill = 0) %&gt;%\n  column_to_rownames(\"grupo\") %&gt;% as.matrix()\n\npares &lt;- combn(sitios, 2, simplify = FALSE)\nposthoc &lt;- purrr::map_dfr(pares, function(pr) {\n  sub &lt;- tabla[pr, ]; sub &lt;- sub[, colSums(sub) &gt; 0, drop = FALSE]\n  p &lt;- fisher.test(sub, simulate.p.value = TRUE, B = 1e5)$p.value\n  tibble(sitio_1 = pr[1], sitio_2 = pr[2], p_raw = p)\n})\nposthoc$p_adj &lt;- p.adjust(posthoc$p_raw, method = \"BH\")\nwrite_csv(posthoc, \"06.null-models-results/posthoc_process_differences.csv\")\n\nresumen_bnti &lt;- dat %&gt;%\n  group_by(grupo) %&gt;%\n  summarise(n_pares = n(),\n            bNTI_medio = round(mean(bNTI), 2),\n            bNTI_sd    = round(sd(bNTI), 2),\n            pct_seleccion = round(100*mean(abs(bNTI) &gt; 2), 1), .groups = \"drop\")\nwrite_csv(resumen_bnti, \"06.null-models-results/bNTI_summary_by_site.csv\")",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "1) Which processes assemble inland communities?",
+      "1) Community assembly processes (βNTI / RCbray)"
+    ]
+  },
+  {
+    "objectID": "06.1.AssemblyProcesses.html#results-and-figures-rendered-live",
+    "href": "06.1.AssemblyProcesses.html#results-and-figures-rendered-live",
+    "title": "1) Community assembly processes (βNTI / RCbray)",
+    "section": "",
+    "text": "The chunks below are executed when the site is rendered. They read the saved results and build the figures, using the project colour palette.\n\n\n\n# Localities — consistent with the rest of the site (loc_colors)\nloc_colors &lt;- c(\"Fossil Lagoon\"          = \"#A7fcc1\",\n                \"Reforma Waterfalls\"     = \"#44C17B\",\n                \"Miguelito Dike\"         = \"#2E8B57\",\n                \"All interiors (pooled)\" = \"#b2ffa1\")\n\n# Assembly processes — greens/teals coherent with the site\nprocess_colors &lt;- c(\"Heterogeneous.Selection\" = \"#ffd1ff\",\n                    \"Homogeneous.Selection\"   = \"#c8c7ee\",\n                    \"Dispersal.Limitation\"    = \"#FFFFCC\",\n                    \"Homogenizing.Dispersal\"  = \"#cee9dc\",\n                    \"Undominated\"             = \"gray70\")\n\nprocess_order &lt;- c(\"Heterogeneous.Selection\",\"Homogeneous.Selection\",\n                   \"Dispersal.Limitation\",\"Homogenizing.Dispersal\",\"Undominated\")\ngroup_order   &lt;- c(\"Fossil Lagoon\",\"Reforma Waterfalls\",\n                   \"Miguelito Dike\",\"All interiors (pooled)\")\n\n\n\ntodos   &lt;- read_csv(\"06.null-models-results/qpen_pairwise_all.csv\",\n                    show_col_types = FALSE)\nresumen &lt;- read_csv(\"06.null-models-results/qpen_process_summary.csv\",\n                    show_col_types = FALSE)\n\ntodos$grupo     &lt;- factor(todos$grupo, levels = group_order)\nresumen$grupo   &lt;- factor(resumen$grupo, levels = group_order)\nresumen$process &lt;- factor(resumen$process, levels = process_order)\n\n\n\nggplot(todos, aes(grupo, bNTI, fill = grupo)) +\n  geom_hline(yintercept = c(-2, 2), linetype = \"dashed\", colour = \"grey40\") +\n  geom_boxplot(width = 0.6, outlier.alpha = 0.3) +\n  geom_jitter(width = 0.15, alpha = 0.25, size = 0.6) +\n  scale_fill_manual(values = loc_colors) +\n  labs(x = NULL, y = expression(beta*\"NTI\")) +\n  theme_classic(base_size = 12) +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 20, hjust = 1))\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n|βNTI| &gt; 2 indicates selection; βNTI &lt; −2 homogeneous selection, βNTI &gt; 2 heterogeneous selection. The dashed lines mark the ±2 thresholds.\n\n\n\nggplot(resumen, aes(grupo, porcentaje, fill = process)) +\n  geom_col(width = 0.7) +\n  scale_fill_manual(values = process_colors, name = \"Assembly process\") +\n  labs(x = NULL, y = \"% of pairwise comparisons\") +\n  theme_classic(base_size = 12) +\n  theme(axis.text.x = element_text(angle = 20, hjust = 1))\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\nposthoc &lt;- read_csv(\"06.null-models-results/posthoc_process_differences.csv\",\n                    show_col_types = FALSE)\nbnti_site &lt;- read_csv(\"06.null-models-results/bNTI_summary_by_site.csv\",\n                      show_col_types = FALSE)\n\nknitr::kable(bnti_site, caption = \"Mean βNTI per inland site.\")\n\n\nMean βNTI per inland site.\n\ngrupo\nn_pares\nbNTI_medio\nbNTI_sd\npct_seleccion\n\n\n\nFossil Lagoon\n91\n0.85\n2.51\n39.6\n\n\nMiguelito Dike\n276\n3.12\n4.62\n55.1\n\n\nReforma Waterfalls\n66\n3.49\n3.49\n54.5\n\n\n\n\nknitr::kable(posthoc,  caption = \"Fisher's exact test between sites (BH-adjusted).\")\n\n\nFisher’s exact test between sites (BH-adjusted).\n\nsitio_1\nsitio_2\np_raw\np_adj\n\n\n\nFossil Lagoon\nReforma Waterfalls\n0.0021400\n0.0064199\n\n\nFossil Lagoon\nMiguelito Dike\n0.0060899\n0.0091349\n\n\nReforma Waterfalls\nMiguelito Dike\n0.1619684\n0.1619684\n\n\n\n\n\n\nKey result. Across all inland samples, deterministic selection dominated assembly (60.4% of comparisons; heterogeneous selection 50.4%), reproducibly across the three sites. Fossil Lagoon, the most isolated site, showed the largest contribution of dispersal limitation (mean βNTI 0.85), whereas the river sites were selection-dominated (mean βNTI 3.12 and 3.49). Fossil Lagoon differed from both river sites (Fisher, BH-adjusted p = 0.006 and 0.009), while the two river sites did not differ (p = 0.16).",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "1) Which processes assemble inland communities?",
+      "1) Community assembly processes (βNTI / RCbray)"
+    ]
+  },
+  {
+    "objectID": "06.3.Fig6.ConvergentEvidence.html",
+    "href": "06.3.Fig6.ConvergentEvidence.html",
+    "title": "Fig 6. Convergent evidence for deterministic, depth-structured assembly",
+    "section": "",
+    "text": "This figure integrates the two independent lines of evidence: community assembly processes (βNTI / RCbray) and microbial co-occurrence networks.\n\n\nlibrary(tidyverse); library(patchwork)\ntodos   &lt;- read_csv(\"06.null-models-results/qpen_pairwise_all.csv\")\nresumen &lt;- read_csv(\"06.null-models-results/qpen_process_summary.csv\")\n\n\n\npA &lt;- ggplot(todos, aes(grupo, bNTI, fill = grupo)) +\n  geom_hline(yintercept = c(-2,2), linetype = \"dashed\", color = \"grey40\") +\n  geom_boxplot(width = 0.6, outlier.alpha = 0.3) +\n  geom_jitter(width = 0.15, alpha = 0.25, size = 0.6) +\n  labs(x = NULL, y = expression(beta*\"NTI\"), tag = \"A\") +\n  theme_classic() + theme(legend.position = \"none\",\n                          axis.text.x = element_text(angle = 25, hjust = 1))\n\n\n\nprocess_colors &lt;- c(\"Heterogeneous.Selection\" = \"#1B7A4E\",\n                    \"Homogeneous.Selection\"   = \"#A7fcc1\",\n                    \"Dispersal.Limitation\"    = \"#329D9C\",\n                    \"Homogenizing.Dispersal\"  = \"#7Fd3d2\",\n                    \"Undominated\"             = \"gray70\")\npB &lt;- ggplot(resumen, aes(grupo, porcentaje, fill = process)) +\n  geom_col() + scale_fill_manual(values = process_colors) +\n  labs(x = NULL, y = \"% of comparisons\", fill = \"Process\", tag = \"B\") +\n  theme_classic() + theme(axis.text.x = element_text(angle = 25, hjust = 1))\n\n\n\n# TODO: depth-trend panel from collaborator's network results.\n#       e.g. metrics vs depth horizon with trend line.\npC &lt;- NULL  # placeholder\n\n\n\n# (pA | pB) / pC + plot_layout(heights = c(1, 1))\n# ggsave(\"figures/Fig6_ConvergentEvidence.pdf\", width = 10, height = 8)\npA | pB",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "Fig 6. Convergent evidence for deterministic, depth-structured assembly"
+    ]
+  },
+  {
+    "objectID": "06.3.Fig6.ConvergentEvidence.html#load-results",
+    "href": "06.3.Fig6.ConvergentEvidence.html#load-results",
+    "title": "Fig 6. Convergent evidence for deterministic, depth-structured assembly",
+    "section": "",
+    "text": "library(tidyverse); library(patchwork)\ntodos   &lt;- read_csv(\"06.null-models-results/qpen_pairwise_all.csv\")\nresumen &lt;- read_csv(\"06.null-models-results/qpen_process_summary.csv\")",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "Fig 6. Convergent evidence for deterministic, depth-structured assembly"
+    ]
+  },
+  {
+    "objectID": "06.3.Fig6.ConvergentEvidence.html#panel-a-βnti-by-group",
+    "href": "06.3.Fig6.ConvergentEvidence.html#panel-a-βnti-by-group",
+    "title": "Fig 6. Convergent evidence for deterministic, depth-structured assembly",
+    "section": "",
+    "text": "pA &lt;- ggplot(todos, aes(grupo, bNTI, fill = grupo)) +\n  geom_hline(yintercept = c(-2,2), linetype = \"dashed\", color = \"grey40\") +\n  geom_boxplot(width = 0.6, outlier.alpha = 0.3) +\n  geom_jitter(width = 0.15, alpha = 0.25, size = 0.6) +\n  labs(x = NULL, y = expression(beta*\"NTI\"), tag = \"A\") +\n  theme_classic() + theme(legend.position = \"none\",\n                          axis.text.x = element_text(angle = 25, hjust = 1))",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "Fig 6. Convergent evidence for deterministic, depth-structured assembly"
+    ]
+  },
+  {
+    "objectID": "06.3.Fig6.ConvergentEvidence.html#panel-b-assembly-process-composition",
+    "href": "06.3.Fig6.ConvergentEvidence.html#panel-b-assembly-process-composition",
+    "title": "Fig 6. Convergent evidence for deterministic, depth-structured assembly",
+    "section": "",
+    "text": "process_colors &lt;- c(\"Heterogeneous.Selection\" = \"#1B7A4E\",\n                    \"Homogeneous.Selection\"   = \"#A7fcc1\",\n                    \"Dispersal.Limitation\"    = \"#329D9C\",\n                    \"Homogenizing.Dispersal\"  = \"#7Fd3d2\",\n                    \"Undominated\"             = \"gray70\")\npB &lt;- ggplot(resumen, aes(grupo, porcentaje, fill = process)) +\n  geom_col() + scale_fill_manual(values = process_colors) +\n  labs(x = NULL, y = \"% of comparisons\", fill = \"Process\", tag = \"B\") +\n  theme_classic() + theme(axis.text.x = element_text(angle = 25, hjust = 1))",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "Fig 6. Convergent evidence for deterministic, depth-structured assembly"
+    ]
+  },
+  {
+    "objectID": "06.3.Fig6.ConvergentEvidence.html#panel-c-network-metrics-vs-depth-from-collaborator",
+    "href": "06.3.Fig6.ConvergentEvidence.html#panel-c-network-metrics-vs-depth-from-collaborator",
+    "title": "Fig 6. Convergent evidence for deterministic, depth-structured assembly",
+    "section": "",
+    "text": "# TODO: depth-trend panel from collaborator's network results.\n#       e.g. metrics vs depth horizon with trend line.\npC &lt;- NULL  # placeholder",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "Fig 6. Convergent evidence for deterministic, depth-structured assembly"
+    ]
+  },
+  {
+    "objectID": "06.3.Fig6.ConvergentEvidence.html#assemble-figure",
+    "href": "06.3.Fig6.ConvergentEvidence.html#assemble-figure",
+    "title": "Fig 6. Convergent evidence for deterministic, depth-structured assembly",
+    "section": "",
+    "text": "# (pA | pB) / pC + plot_layout(heights = c(1, 1))\n# ggsave(\"figures/Fig6_ConvergentEvidence.pdf\", width = 10, height = 8)\npA | pB",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "Fig 6. Convergent evidence for deterministic, depth-structured assembly"
+    ]
+  },
+  {
+    "objectID": "06.1.AssemblyProcesses.html#results-and-figures",
+    "href": "06.1.AssemblyProcesses.html#results-and-figures",
+    "title": "1) Community assembly processes (βNTI / RCbray)",
+    "section": "",
+    "text": "# Localities — consistent with the rest of the site (loc_colors)\nloc_colors &lt;- c(\"Fossil Lagoon\"          = \"#A7fcc1\",\n                \"Reforma Waterfalls\"     = \"#44C17B\",\n                \"Miguelito Dike\"         = \"#2E8B57\",\n                \"All interiors (pooled)\" = \"#b2ffa1\")\n\n# Assembly processes — greens/teals coherent with the site\nprocess_colors &lt;- c(\"Heterogeneous.Selection\" = \"#ffeeff\",\n                    \"Homogeneous.Selection\"   = \"#dcd3ff\",\n                    \"Dispersal.Limitation\"    = \"#FFFFDD\",\n                    \"Homogenizing.Dispersal\"  = \"#c4faf8\",\n                    \"Undominated\"             = \"gray70\")\n\nprocess_order &lt;- c(\"Heterogeneous.Selection\",\"Homogeneous.Selection\",\n                   \"Dispersal.Limitation\",\"Homogenizing.Dispersal\",\"Undominated\")\ngroup_order   &lt;- c(\"Fossil Lagoon\",\"Reforma Waterfalls\",\n                   \"Miguelito Dike\",\"All interiors (pooled)\")\n\n\n\ntodos   &lt;- read_csv(\"06.null-models-results/qpen_pairwise_all.csv\",\n                    show_col_types = FALSE)\nresumen &lt;- read_csv(\"06.null-models-results/qpen_process_summary.csv\",\n                    show_col_types = FALSE)\n\ntodos$grupo     &lt;- factor(todos$grupo, levels = group_order)\nresumen$grupo   &lt;- factor(resumen$grupo, levels = group_order)\nresumen$process &lt;- factor(resumen$process, levels = process_order)\n\n\n\nggplot(todos, aes(grupo, bNTI, fill = grupo)) +\n  geom_hline(yintercept = c(-2, 2), linetype = \"dashed\", colour = \"grey40\") +\n  geom_boxplot(width = 0.6, outlier.alpha = 0.3) +\n  geom_jitter(width = 0.15, alpha = 0.25, size = 0.6) +\n  scale_fill_manual(values = loc_colors) +\n  labs(x = NULL, y = expression(beta*\"NTI\")) +\n  theme_classic(base_size = 12) +\n  theme(legend.position = \"none\",\n        axis.text.x = element_text(angle = 20, hjust = 1))\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n|βNTI| &gt; 2 indicates selection; βNTI &lt; −2 homogeneous selection, βNTI &gt; 2 heterogeneous selection. The dashed lines mark the ±2 thresholds.\n\n\n\nggplot(resumen, aes(grupo, porcentaje, fill = process)) +\n  geom_col(width = 0.7) +\n  scale_fill_manual(values = process_colors, name = \"Assembly process\") +\n  labs(x = NULL, y = \"% of pairwise comparisons\") +\n  theme_classic(base_size = 12) +\n  theme(axis.text.x = element_text(angle = 20, hjust = 1))\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n\nposthoc &lt;- read_csv(\"06.null-models-results/posthoc_process_differences.csv\",\n                    show_col_types = FALSE)\nbnti_site &lt;- read_csv(\"06.null-models-results/bNTI_summary_by_site.csv\",\n                      show_col_types = FALSE)\n\nknitr::kable(bnti_site, caption = \"Mean βNTI per inland site.\")\n\n\nMean βNTI per inland site.\n\ngrupo\nn_pares\nbNTI_medio\nbNTI_sd\npct_seleccion\n\n\n\nFossil Lagoon\n91\n0.85\n2.51\n39.6\n\n\nMiguelito Dike\n276\n3.12\n4.62\n55.1\n\n\nReforma Waterfalls\n66\n3.49\n3.49\n54.5\n\n\n\n\nknitr::kable(posthoc,  caption = \"Fisher's exact test between sites (BH-adjusted).\")\n\n\nFisher’s exact test between sites (BH-adjusted).\n\nsitio_1\nsitio_2\np_raw\np_adj\n\n\n\nFossil Lagoon\nReforma Waterfalls\n0.0021400\n0.0064199\n\n\nFossil Lagoon\nMiguelito Dike\n0.0060899\n0.0091349\n\n\nReforma Waterfalls\nMiguelito Dike\n0.1619684\n0.1619684\n\n\n\n\n\n\nKey result. Across all inland samples, deterministic selection dominated assembly (60.4% of comparisons; heterogeneous selection 50.4%), reproducibly across the three sites. Fossil Lagoon, the most isolated site, showed the largest contribution of dispersal limitation (mean βNTI 0.85), whereas the river sites were selection-dominated (mean βNTI 3.12 and 3.49). Fossil Lagoon differed from both river sites (Fisher, BH-adjusted p = 0.006 and 0.009), while the two river sites did not differ (p = 0.16).",
+    "crumbs": [
+      "C) Community assembly and co-occurrence networks",
+      "1) Which processes assemble inland communities?",
+      "1) Community assembly processes (βNTI / RCbray)"
+    ]
   }
 ]

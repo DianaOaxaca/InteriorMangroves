@@ -1,0 +1,15 @@
+{
+  "hash": "8d772d1a742bf63c354b3f5ac3c11514",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Microbial association networks\"\n---\n\n# Microbial association networks\n\nIs the deterministic, depth-structured organization of inland relict communities also reflected in the architecture of microbial co-occurrence?❓\n\n> **Placeholder.** This section will document the co-occurrence network analysis\n> (ridge-regularized partial correlations on CLR-transformed top-200 taxa,\n> balanced bootstrap resampling, fixed edge density 0.02, metrics computed with\n> igraph, Louvain modularity, and depth-trend Spearman correlations).\n> Content pending from collaborator. Code and rationale to be added here.\n\n## Load libraries\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# library(SpiecEasi)   # or the inference package used by the collaborator\n# library(igraph)\n# library(tidyverse)\n```\n:::\n\n\n## 01. Network inference\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# TODO: collaborator code — ridge partial correlations, density 0.02,\n#       balanced bootstrap (500 reps), top-200 taxa, CLR transform.\n```\n:::\n\n\n## 02. Network metrics\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# TODO: largest connected component, modularity (Louvain), transitivity,\n#       natural connectivity, robustness (random & targeted node removal).\n```\n:::\n\n\n## 03. Depth trend within inland sites\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# TODO: Spearman correlations of metrics vs ordinal depth + Kruskal-Wallis.\n```\n:::\n\n\n> **Key results (to confirm with final figures):**\n> connectivity, modularity and robustness decline with depth\n> (ρ = −0.36, −0.38, −0.31, −0.41; all P < 0.001); network structure is\n> reproducible across the three inland sites (all bootstrap P > 0.2); inland\n> networks show higher transitivity than natural coastal networks\n> (Δ = 0.27, P = 0.024).\n\n## 04. Interior vs coastal comparisons\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# TODO: bootstrap contrasts interior vs coastal (natural and impaired).\n#       Only transitivity significant; report others as non-significant.\n```\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
