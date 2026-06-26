@@ -1,0 +1,19 @@
+dataset	comparison	metric	metric_label	contrast	median_delta_coastal_minus_interior	q025_delta	q975_delta	p_boot_two_sided	direction	interpretation
+depth_natural	Interior vs coastal natural	largest_component_prop	Largest component	Coastal_natural minus Interior_relict	-0.17142857142857143	-0.3857142857142858	0.00749999999999964	0.096	Interior higher	Interior higher; weak-to-moderate support
+depth_natural	Interior vs coastal natural	modularity_louvain	Modularity	Coastal_natural minus Interior_relict	0.12631389365591217	-0.03935810444039472	0.27278940793272344	0.124	Coastal higher	Coastal higher; direction only
+depth_natural	Interior vs coastal natural	natural_connectivity	Natural connectivity	Coastal_natural minus Interior_relict	0.11285725608632946	-0.17019893543027015	0.6787345437063255	0.508	Coastal higher	Coastal higher; direction only
+depth_natural	Interior vs coastal natural	transitivity	Transitivity	Coastal_natural minus Interior_relict	0.2703977986586682	0.01536996679119966	0.6331704140967431	0.024	Coastal higher	Coastal higher; weak-to-moderate support
+depth_natural	Interior vs coastal natural	prop_positive	Positive edges	Coastal_natural minus Interior_relict	0.125	-0.04166666666666674	0.3651041666666662	0.216	Coastal higher	Coastal higher; direction only
+depth_natural	Interior vs coastal natural	robustness_auc_random	Robustness AUC
+random removal	Coastal_natural minus Interior_relict	-0.05571428571428574	-0.1343214285714286	0.02394642857142855	0.2	Interior higher	Interior higher; direction only
+depth_natural	Interior vs coastal natural	robustness_auc_targeted	Robustness AUC
+targeted removal	Coastal_natural minus Interior_relict	-0.01	-0.0275	0.00947321428571427	0.308	Interior higher	Interior higher; direction only
+interior_impaired	Interior vs coastal impaired	largest_component_prop	Largest component	Coastal_impaired minus Interior_relict	-0.109375	-0.3125	0.0625	0.252	Interior higher	Interior higher; direction only
+interior_impaired	Interior vs coastal impaired	modularity_louvain	Modularity	Coastal_impaired minus Interior_relict	-0.00998773301792993	-0.30502939435434806	0.20399317998457484	0.896	Interior higher	Interior higher; direction only
+interior_impaired	Interior vs coastal impaired	natural_connectivity	Natural connectivity	Coastal_impaired minus Interior_relict	0.2896190140233228	-0.14838244235402706	1.7058165888685926	0.228	Coastal higher	Coastal higher; direction only
+interior_impaired	Interior vs coastal impaired	transitivity	Transitivity	Coastal_impaired minus Interior_relict	0.2512349060263658	-0.01487152444870563	0.5798642359966977	0.064	Coastal higher	Coastal higher; weak-to-moderate support
+interior_impaired	Interior vs coastal impaired	prop_positive	Positive edges	Coastal_impaired minus Interior_relict	-0.02500000000000002	-0.22500000000000003	0.17500000000000004	0.84	Interior higher	Interior higher; direction only
+interior_impaired	Interior vs coastal impaired	robustness_auc_random	Robustness AUC
+random removal	Coastal_impaired minus Interior_relict	-0.03378906250000001	-0.11837890625	0.05918945312499999	0.504	Interior higher	Interior higher; direction only
+interior_impaired	Interior vs coastal impaired	robustness_auc_targeted	Robustness AUC
+targeted removal	Coastal_impaired minus Interior_relict	-0.005859375	-0.0234375	0.010546875	0.528	Interior higher	Interior higher; direction only

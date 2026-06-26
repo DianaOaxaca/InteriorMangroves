@@ -1,0 +1,15 @@
+table_name	candidate_column	site_code_from_id	candidate_value	n_samples
+interior_mangroves_nmds_u_ggplot_data	Location	Site_1	Miguelito Dike	8
+interior_mangroves_phyloseq_sample_data	Location	Site_1	Miguelito Dike	8
+interior_mangroves_nmds_u_ggplot_data	Location	Site_2	Miguelito Dike	8
+interior_mangroves_phyloseq_sample_data	Location	Site_2	Miguelito Dike	8
+interior_mangroves_nmds_u_ggplot_data	Location	Site_3	Miguelito Dike	8
+interior_mangroves_phyloseq_sample_data	Location	Site_3	Miguelito Dike	8
+interior_mangroves_nmds_u_ggplot_data	Location	Site_4	Reforma Waterfalls	4
+interior_mangroves_phyloseq_sample_data	Location	Site_4	Reforma Waterfalls	4
+interior_mangroves_nmds_u_ggplot_data	Location	Site_5	Reforma Waterfalls	8
+interior_mangroves_phyloseq_sample_data	Location	Site_5	Reforma Waterfalls	8
+interior_mangroves_nmds_u_ggplot_data	Location	Site_6	Fossil Lagoon	6
+interior_mangroves_phyloseq_sample_data	Location	Site_6	Fossil Lagoon	6
+interior_mangroves_nmds_u_ggplot_data	Location	Site_7	Fossil Lagoon	8
+interior_mangroves_phyloseq_sample_data	Location	Site_7	Fossil Lagoon	8

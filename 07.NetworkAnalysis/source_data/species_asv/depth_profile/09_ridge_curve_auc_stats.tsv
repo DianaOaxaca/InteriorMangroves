@@ -1,0 +1,17 @@
+dataset	metric	comparison	delta	ci_low	ci_high	pboot	n_boot	attack_mode	dataset_label	attack_label	stat_label
+depth_natural	robustness_auc_random	Interior_relict_minus_Coastal_natural	0.06293750000000001	-0.016403125000000025	0.16501875000000005	0.16	200	random	Natural coastal
+reference	Random removal	ΔAUC = 0.06
+95% CI [-0.02, 0.17]
+Pboot = 0.160
+depth_natural	robustness_auc_targeted	Interior_relict_minus_Coastal_natural	0.009875000000000005	-0.032162500000000004	0.05415937500000001	0.62	200	targeted	Natural coastal
+reference	Targeted removal	ΔAUC = 0.01
+95% CI [-0.03, 0.05]
+Pboot = 0.620
+interior_impaired	robustness_auc_random	Interior_relict_minus_Coastal_impaired	0.06518750000000001	-0.019093750000000017	0.15671250000000003	0.17	200	random	Hydrologically impaired
+coastal	Random removal	ΔAUC = 0.07
+95% CI [-0.02, 0.16]
+Pboot = 0.170
+interior_impaired	robustness_auc_targeted	Interior_relict_minus_Coastal_impaired	0.019375000000000003	-0.022431249999999993	0.06528750000000001	0.36	200	targeted	Hydrologically impaired
+coastal	Targeted removal	ΔAUC = 0.02
+95% CI [-0.02, 0.07]
+Pboot = 0.360

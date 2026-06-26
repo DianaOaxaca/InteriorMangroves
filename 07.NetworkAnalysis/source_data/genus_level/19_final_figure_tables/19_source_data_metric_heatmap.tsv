@@ -1,0 +1,19 @@
+dataset	group_a	group_b	contrast	metric	median_delta	mean_delta	q025_delta	q975_delta	p_boot_two_sided	n_boot	dataset_label	metric_label	direction_label	sig_label	tile_label
+depth_natural	Coastal_natural	Interior_relict	Coastal_natural minus Interior_relict	largest_component_prop	-0.17142857142857143	-0.17454285714285714	-0.3857142857142858	0.00749999999999964	0.096	500	Interior vs coastal natural	Largest component	Interior higher	†	-0.17†
+depth_natural	Coastal_natural	Interior_relict	Coastal_natural minus Interior_relict	modularity_louvain	0.12631389365591217	0.122671978986454	-0.03935810444039472	0.27278940793272344	0.124	500	Interior vs coastal natural	Modularity	Coastal higher		0.13
+depth_natural	Coastal_natural	Interior_relict	Coastal_natural minus Interior_relict	natural_connectivity	0.11285725608632946	0.14562023680931888	-0.17019893543027015	0.6787345437063255	0.508	500	Interior vs coastal natural	Natural connectivity	Coastal higher		0.11
+depth_natural	Coastal_natural	Interior_relict	Coastal_natural minus Interior_relict	transitivity	0.2703977986586682	0.28484455355613997	0.01536996679119966	0.6331704140967431	0.024	500	Interior vs coastal natural	Transitivity	Coastal higher	*	0.27*
+depth_natural	Coastal_natural	Interior_relict	Coastal_natural minus Interior_relict	prop_positive	0.125	0.13533333333333333	-0.04166666666666674	0.3651041666666662	0.216	500	Interior vs coastal natural	Positive edges	Coastal higher		0.12
+depth_natural	Coastal_natural	Interior_relict	Coastal_natural minus Interior_relict	robustness_auc_random	-0.05571428571428574	-0.055675	-0.1343214285714286	0.02394642857142855	0.2	500	Interior vs coastal natural	Robustness AUC
+random removal	Interior higher		-0.06
+depth_natural	Coastal_natural	Interior_relict	Coastal_natural minus Interior_relict	robustness_auc_targeted	-0.01	-0.009745	-0.0275	0.00947321428571427	0.308	500	Interior vs coastal natural	Robustness AUC
+targeted removal	Interior higher		-0.01
+interior_impaired	Coastal_impaired	Interior_relict	Coastal_impaired minus Interior_relict	largest_component_prop	-0.109375	-0.11675	-0.3125	0.0625	0.252	500	Interior vs coastal impaired	Largest component	Interior higher		-0.11
+interior_impaired	Coastal_impaired	Interior_relict	Coastal_impaired minus Interior_relict	modularity_louvain	-0.00998773301792993	-0.01883910621570992	-0.30502939435434806	0.20399317998457484	0.896	500	Interior vs coastal impaired	Modularity	Interior higher		-0.01
+interior_impaired	Coastal_impaired	Interior_relict	Coastal_impaired minus Interior_relict	natural_connectivity	0.2896190140233228	0.4017321210831831	-0.14838244235402706	1.7058165888685926	0.228	500	Interior vs coastal impaired	Natural connectivity	Coastal higher		0.29
+interior_impaired	Coastal_impaired	Interior_relict	Coastal_impaired minus Interior_relict	transitivity	0.2512349060263658	0.25307152915073183	-0.01487152444870563	0.5798642359966977	0.064	500	Interior vs coastal impaired	Transitivity	Coastal higher	†	0.25†
+interior_impaired	Coastal_impaired	Interior_relict	Coastal_impaired minus Interior_relict	prop_positive	-0.02500000000000002	-0.02795	-0.22500000000000003	0.17500000000000004	0.84	500	Interior vs coastal impaired	Positive edges	Interior higher		-0.03
+interior_impaired	Coastal_impaired	Interior_relict	Coastal_impaired minus Interior_relict	robustness_auc_random	-0.03378906250000001	-0.03294375	-0.11837890625	0.05918945312499999	0.504	500	Interior vs coastal impaired	Robustness AUC
+random removal	Interior higher		-0.03
+interior_impaired	Coastal_impaired	Interior_relict	Coastal_impaired minus Interior_relict	robustness_auc_targeted	-0.005859375	-0.0056640625	-0.0234375	0.010546875	0.528	500	Interior vs coastal impaired	Robustness AUC
+targeted removal	Interior higher		-0.01

@@ -1,0 +1,7 @@
+dataset	group	from	to	detection_frequency	median_weight	mean_weight	median_abs_weight	prop_positive
+depth_natural	Coastal_natural	Pseudolabrys	PHOS-HE36	0.86	0.13336446015311215	0.1356593886029002	0.13336446015311215	1
+depth_natural	Coastal_natural	JTB23	RCP2-54	0.668	0.12417437643293858	0.1269026374224696	0.12417437643293858	1
+depth_natural	Coastal_natural	Marine_Group_III	SB-5	0.528	0.14519635876034426	0.15199972997998595	0.14519635876034426	1
+depth_natural	Coastal_natural	Desulfatiglans	Zixibacteria	0.516	-0.11050740634009108	-0.11178671111492845	0.11050740634009108	0
+depth_natural	Coastal_natural	B2M28	Marine_Group_III	0.5	0.13472698003072936	0.136659230457997	0.13472698003072936	1
+interior_impaired	Coastal_impaired	Thiohalobacter	Urania-1B-19_marine_sediment_group	0.524	0.11702893819184235	0.1199964005542915	0.11702893819184235	1

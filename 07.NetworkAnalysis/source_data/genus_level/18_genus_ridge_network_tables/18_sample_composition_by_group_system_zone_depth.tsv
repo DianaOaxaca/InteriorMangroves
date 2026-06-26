@@ -1,0 +1,23 @@
+dataset	network_group	network_system	network_zone	depth_class	depth_raw	n_samples
+depth_natural	Coastal_natural	Términos Lagoon	Estero_pargo	Deep	40	5
+depth_natural	Coastal_natural	Términos Lagoon	Estero_pargo	Mid	20	5
+depth_natural	Coastal_natural	Términos Lagoon	Estero_pargo	Surface	5	3
+depth_natural	Interior_relict	Fossil Lagoon	Laguna Cacahuate	Deep	31-45	4
+depth_natural	Interior_relict	Fossil Lagoon	Laguna Cacahuate	Deep	50-70	2
+depth_natural	Interior_relict	Fossil Lagoon	Laguna Cacahuate	Mid	16-30	4
+depth_natural	Interior_relict	Fossil Lagoon	Laguna Cacahuate	Surface	0-15	4
+depth_natural	Interior_relict	San Pedro River	Rio San Pedro	Deep	31-45	9
+depth_natural	Interior_relict	San Pedro River	Rio San Pedro	Deep	50-70	9
+depth_natural	Interior_relict	San Pedro River	Rio San Pedro	Mid	16-30	9
+depth_natural	Interior_relict	San Pedro River	Rio San Pedro	Surface	0-15	9
+interior_impaired	Coastal_impaired	Impaired Términos Lagoon	Estero_pargo	Deep	40	3
+interior_impaired	Coastal_impaired	Impaired Términos Lagoon	Estero_pargo	Mid	20	3
+interior_impaired	Coastal_impaired	Impaired Términos Lagoon	Estero_pargo	Surface	5	3
+interior_impaired	Interior_relict	Fossil Lagoon	Laguna Cacahuate	Deep	31-45	4
+interior_impaired	Interior_relict	Fossil Lagoon	Laguna Cacahuate	Deep	50-70	2
+interior_impaired	Interior_relict	Fossil Lagoon	Laguna Cacahuate	Mid	16-30	4
+interior_impaired	Interior_relict	Fossil Lagoon	Laguna Cacahuate	Surface	0-15	4
+interior_impaired	Interior_relict	San Pedro River	Rio San Pedro	Deep	31-45	9
+interior_impaired	Interior_relict	San Pedro River	Rio San Pedro	Deep	50-70	9
+interior_impaired	Interior_relict	San Pedro River	Rio San Pedro	Mid	16-30	9
+interior_impaired	Interior_relict	San Pedro River	Rio San Pedro	Surface	0-15	9

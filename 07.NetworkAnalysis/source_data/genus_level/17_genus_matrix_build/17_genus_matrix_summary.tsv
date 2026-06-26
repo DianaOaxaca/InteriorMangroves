@@ -1,0 +1,3 @@
+dataset	comparison_label	n_samples	n_taxa_input_top200	n_taxa_with_genus	prop_taxa_with_genus	n_taxa_without_genus	n_unique_genera	group_col	groups
+depth_natural	Interior_relict vs Coastal_natural	63	200	149	0.745	51	70	network_group	Coastal_natural;Interior_relict
+interior_impaired	Interior_relict vs Coastal_impaired	59	200	147	0.735	53	64	network_group	Coastal_impaired;Interior_relict

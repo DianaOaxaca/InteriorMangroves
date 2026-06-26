@@ -1,0 +1,16 @@
+dataset	metric	rho	p_rho	p_kw	n_boot_total	metric_label	stat_label
+interior_depth	largest_component_prop	-0.3603382291860049	6.163813688925618e-26	9.067630007560782e-32	800	Largest
+component	ρ = -0.36
+Ptrend = <0.001
+PKW = <0.001
+interior_depth	robustness_auc_random	-0.3142502488867952	8.537939116427651e-20	3.184139297749081e-23	800	Robustness AUC
+random removal	ρ = -0.31
+Ptrend = <0.001
+PKW = <0.001
+interior_depth	robustness_auc_targeted	-0.41060414715033183	6.915485554602621e-34	7.227385415180478e-40	800	Robustness AUC
+targeted removal	ρ = -0.41
+Ptrend = <0.001
+PKW = <0.001
+interior_depth	modularity_louvain	-0.3769553540118845	2.058100026967376e-28	1.2401919738609507e-41	800	Modularity	ρ = -0.38
+Ptrend = <0.001
+PKW = <0.001

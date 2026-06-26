@@ -1,0 +1,15 @@
+dataset	dataset_label	metric	metric_label	delta_label
+depth_natural	Interior vs coastal natural	largest_component_prop	Largest component	Δ = -0.171; 95% CI [-0.386, 0.007]; Pboot = 0.096
+depth_natural	Interior vs coastal natural	natural_connectivity	Natural connectivity	Δ = 0.113; 95% CI [-0.170, 0.679]; Pboot = 0.508
+depth_natural	Interior vs coastal natural	transitivity	Transitivity	Δ = 0.270; 95% CI [0.015, 0.633]; Pboot = 0.024
+depth_natural	Interior vs coastal natural	robustness_auc_random	Robustness AUC
+random removal	Δ = -0.056; 95% CI [-0.134, 0.024]; Pboot = 0.200
+depth_natural	Interior vs coastal natural	robustness_auc_targeted	Robustness AUC
+targeted removal	Δ = -0.010; 95% CI [-0.028, 0.009]; Pboot = 0.308
+interior_impaired	Interior vs coastal impaired	largest_component_prop	Largest component	Δ = -0.109; 95% CI [-0.312, 0.062]; Pboot = 0.252
+interior_impaired	Interior vs coastal impaired	natural_connectivity	Natural connectivity	Δ = 0.290; 95% CI [-0.148, 1.706]; Pboot = 0.228
+interior_impaired	Interior vs coastal impaired	transitivity	Transitivity	Δ = 0.251; 95% CI [-0.015, 0.580]; Pboot = 0.064
+interior_impaired	Interior vs coastal impaired	robustness_auc_random	Robustness AUC
+random removal	Δ = -0.034; 95% CI [-0.118, 0.059]; Pboot = 0.504
+interior_impaired	Interior vs coastal impaired	robustness_auc_targeted	Robustness AUC
+targeted removal	Δ = -0.006; 95% CI [-0.023, 0.011]; Pboot = 0.528

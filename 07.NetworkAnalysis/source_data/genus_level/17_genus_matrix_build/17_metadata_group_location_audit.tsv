@@ -1,0 +1,3 @@
+dataset	metadata_file	sample_id_col	group_col	expected_group_a	expected_group_b	exact_group_names_ok	n_samples	n_group_a	n_group_b	location_columns_preserved	n_metadata_columns_preserved
+depth_natural	/home/fjbalvino/Compare_mangroves/results/01_prepare_network_matrices_20260619_180455/tables/depth_natural_metadata_clean.tsv	SampleID	network_group	Interior_relict	Coastal_natural	TRUE	63	50	13	depth	25
+interior_impaired	/home/fjbalvino/Compare_mangroves/results/01_prepare_network_matrices_20260619_180455/tables/interior_impaired_metadata_clean.tsv	SampleID	network_group	Interior_relict	Coastal_impaired	TRUE	59	50	9	depth	26
