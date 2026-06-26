@@ -303,7 +303,7 @@ q1_emmeans_df
 # boxplot
 q1plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system , y = q1, fill = Mangrove.system)) +
   geom_boxplot() +
-  #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
+  geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
   geom_text(data = q1_emmeans_df, aes(y = emmean, label = .group), vjust = -4,
           color = "black", fontface = "bold", position = position_dodge(0.9)) +   labs(title = "q1 = Exp Shannon", y = NULL, x = NULL) +#,
   #caption = "lm (Depth sequencing and Mangrove system") +
@@ -338,7 +338,7 @@ q2_emmeans_df
 # boxplot
 q2plot <- ggplot(metadata_with_hill, aes(x = Mangrove.system, y = q2, fill = Mangrove.system)) +
   geom_boxplot() +
-  #geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
+  geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +
   geom_text(data = q2_emmeans_df, aes(y = emmean, label = .group), vjust = -4,
             color = "black", fontface = "bold", position = position_dodge(0.9)) +
   labs(title = "q2 = Inv Simpson", y = NULL, x = NULL,

@@ -10,40 +10,29 @@ This figure integrates the two independent lines of evidence: community assembly
 
 ```{r}
 #| eval: false
-library(tidyverse); library(patchwork)
-todos   <- read_csv("06.null-models-results/qpen_pairwise_all.csv")
-resumen <- read_csv("06.null-models-results/qpen_process_summary.csv")
+#| message: false
+#| warning: false
+library(ggplot2)
+library(cowplot)
 ```
 
 ## Panel A — βNTI by group
 
 ```{r}
 #| eval: false
-pA <- ggplot(todos, aes(grupo, bNTI, fill = grupo)) +
-  geom_hline(yintercept = c(-2,2), linetype = "dashed", color = "grey40") +
-  geom_boxplot(width = 0.6, outlier.alpha = 0.3) +
-  geom_jitter(width = 0.15, alpha = 0.25, size = 0.6) +
-  labs(x = NULL, y = expression(beta*"NTI"), tag = "A") +
-  theme_classic() + theme(legend.position = "none",
-                          axis.text.x = element_text(angle = 25, hjust = 1))
+pA <- readRDS("rds/assembly_process/bntiplot.rds")
+pA
 ```
 
 ## Panel B — Assembly process composition
 
 ```{r}
 #| eval: false
-process_colors <- c("Heterogeneous.Selection" = "#1B7A4E",
-                    "Homogeneous.Selection"   = "#A7fcc1",
-                    "Dispersal.Limitation"    = "#329D9C",
-                    "Homogenizing.Dispersal"  = "#7Fd3d2",
-                    "Undominated"             = "gray70")
-pB <- ggplot(resumen, aes(grupo, porcentaje, fill = process)) +
-  geom_col() + scale_fill_manual(values = process_colors) +
-  labs(x = NULL, y = "% of comparisons", fill = "Process", tag = "B") +
-  theme_classic() + theme(axis.text.x = element_text(angle = 25, hjust = 1))
+pB <- readRDS("rds/assembly_process/rcplot.rds")
+pB
 ```
 
-## Panel C — Network metrics vs depth (from collaborator)
+## Panel C — Network metrics vs depth (from fjbalvino)
 
 ```{r}
 #| eval: false
@@ -56,7 +45,9 @@ pC <- NULL  # placeholder
 
 ```{r}
 #| eval: false
-# (pA | pB) / pC + plot_layout(heights = c(1, 1))
-# ggsave("figures/Fig6_ConvergentEvidence.pdf", width = 10, height = 8)
-pA | pB
+fig6 <- plot_grid(pB, pA,
+                  labels = c("a)","b)"),
+                  label_fontface = "bold",
+                  ncol = 2)
+fig6
 ```

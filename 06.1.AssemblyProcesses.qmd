@@ -128,7 +128,7 @@ write_csv(resumen_bnti, "06.null-models-results/bNTI_summary_by_site.csv")
 
 ------------------------------------------------------------------------
 
-## Results and figures 
+## Results and figures
 
 ### Project colour palette
 
@@ -141,11 +141,11 @@ loc_colors <- c("Fossil Lagoon"          = "#A7fcc1",
                 "All interiors (pooled)" = "#b2ffa1")
 
 # Assembly processes — greens/teals coherent with the site
-process_colors <- c("Heterogeneous.Selection" = "#ffeeff",
-                    "Homogeneous.Selection"   = "#dcd3ff",
-                    "Dispersal.Limitation"    = "#FFFFDD",
-                    "Homogenizing.Dispersal"  = "#c4faf8",
-                    "Undominated"             = "gray70")
+process_colors <- c("Heterogeneous.Selection" = "#EFC7E6FF",#ffeeff
+                    "Homogeneous.Selection"   = "#A790DBFF",#dcd3ff
+                    "Dispersal.Limitation"    = "#D8D643FF",#FFFFDD
+                    "Homogenizing.Dispersal"  = "#1BB6AFFF",#c4faf8
+                    "Undominated"             = "gray80") #gray70
 
 process_order <- c("Heterogeneous.Selection","Homogeneous.Selection",
                    "Dispersal.Limitation","Homogenizing.Dispersal","Undominated")
@@ -175,7 +175,7 @@ resumen$process <- factor(resumen$process, levels = process_order)
 #| fig-width: 7.5
 #| fig-height: 5
 #| warning: false
-ggplot(todos, aes(grupo, bNTI, fill = grupo)) +
+bnti_plot <- ggplot(todos, aes(grupo, bNTI, fill = grupo)) +
   geom_hline(yintercept = c(-2, 2), linetype = "dashed", colour = "grey40") +
   geom_boxplot(width = 0.6, outlier.alpha = 0.3) +
   geom_jitter(width = 0.15, alpha = 0.25, size = 0.6) +
@@ -184,9 +184,15 @@ ggplot(todos, aes(grupo, bNTI, fill = grupo)) +
   theme_classic(base_size = 12) +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 20, hjust = 1))
+
+bnti_plot
 ```
 
 > \|βNTI\| \> 2 indicates selection; βNTI \< −2 homogeneous selection, βNTI \> 2 heterogeneous selection. The dashed lines mark the ±2 thresholds.
+
+```{r}
+saveRDS(bnti_plot, "rds/assembly_process/bntiplot.rds")
+```
 
 ### Fig 6B — Assembly process composition
 
@@ -194,12 +200,18 @@ ggplot(todos, aes(grupo, bNTI, fill = grupo)) +
 #| label: fig-stacked
 #| fig-width: 8
 #| fig-height: 5
-ggplot(resumen, aes(grupo, porcentaje, fill = process)) +
+raupplot <- ggplot(resumen, aes(grupo, porcentaje, fill = process)) +
   geom_col(width = 0.7) +
   scale_fill_manual(values = process_colors, name = "Assembly process") +
   labs(x = NULL, y = "% of pairwise comparisons") +
   theme_classic(base_size = 12) +
   theme(axis.text.x = element_text(angle = 20, hjust = 1))
+
+raupplot
+```
+
+```{r}
+saveRDS(raupplot, "rds/assembly_process/rcplot.rds")
 ```
 
 ### Summary tables
