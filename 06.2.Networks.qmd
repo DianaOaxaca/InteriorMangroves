@@ -4,48 +4,17 @@ title: "Microbial association networks"
 
 # Microbial association networks
 
-Is the deterministic, depth-structured organization of inland relict communities also reflected in the architecture of microbial co-occurrence?❓
+> Is the deterministic, depth-structured organization of inland relict communities also reflected in the architecture of microbial co-occurrence? ❓
 
-> **Placeholder.** This section will document the co-occurrence network analysis (ridge-regularized partial correlations on CLR-transformed top-200 taxa, balanced bootstrap resampling, fixed edge density 0.02, metrics computed with igraph, Louvain modularity, and depth-trend Spearman correlations). Content pending from collaborator. Code and rationale to be added here.
+The co-occurrence network analysis was designed and implemented by **Francisco Javier Balvino-Olvera** ([\@fjbalvino](https://github.com/fjbalvino)).
 
-## Load libraries
+The full workflow — including ridge-regularized partial correlation inference on CLR-transformed abundances of the 200 most common taxa, balanced bootstrap resampling (500 replicates) at a fixed edge density of 0.02, topology metrics computed with `igraph`, Louvain community detection, robustness simulations, and depth-trend Spearman correlations — is documented in a dedicated directory of this repository:
 
-```{r}
-#| eval: false
-# library(SpiecEasi)   # or the inference package used by the collaborator
-# library(igraph)
-# library(tidyverse)
-```
+👉 [**07.NetworkAnalysis**](https://github.com/DianaOaxaca/InteriorMangroves/tree/main/07.NetworkAnalysis)
 
-## 01. Network inference
+There you will find the scripts, intermediate objects, and output figures corresponding to the network comparisons reported in the manuscript:
 
-```{r}
-#| eval: false
-# TODO: collaborator code — ridge partial correlations, density 0.02,
-#       balanced bootstrap (500 reps), top-200 taxa, CLR transform.
-```
-
-## 02. Network metrics
-
-```{r}
-#| eval: false
-# TODO: largest connected component, modularity (Louvain), transitivity,
-#       natural connectivity, robustness (random & targeted node removal).
-```
-
-## 03. Depth trend within inland sites
-
-```{r}
-#| eval: false
-# TODO: Spearman correlations of metrics vs ordinal depth + Kruskal-Wallis.
-```
-
-> **Key results (to confirm with final figures):** connectivity, modularity and robustness decline with depth (ρ = −0.36, −0.38, −0.31, −0.41; all P \< 0.001); network structure is reproducible across the three inland sites (all bootstrap P \> 0.2); inland networks show higher transitivity than natural coastal networks (Δ = 0.27, P = 0.024).
-
-## 04. Interior vs coastal comparisons
-
-```{r}
-#| eval: false
-# TODO: bootstrap contrasts interior vs coastal (natural and impaired).
-#       Only transitivity significant; report others as non-significant.
-```
+-   Inland relict vs. natural coastal sediments\
+-   Inland relict vs. hydrologically impaired coastal zone\
+-   Among the three inland relict localities (reproducibility across sites)\
+-   Per sediment horizon within inland sites (0–15, 16–30, 31–45, 50–75 cm)

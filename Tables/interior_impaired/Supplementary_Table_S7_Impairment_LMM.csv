@@ -1,15 +1,16 @@
 "Metric","Term","Estimate","Std.Error","Statistic","p_value"
-"q0","(Intercept)",-2363.6085,635.2143,-3.721,5e-04
-"q0","log(Effective_reads)",278.2362,70.0378,3.9727,3e-04
-"q0","Mangrove_systemFossil Lagoon",392.384,229.7741,1.7077,0.094
-"q0","Mangrove_systemSan Pedro River",559.2774,223.7878,2.4991,0.0157
-"q0","DepthMid",105.0877,52.0215,2.0201,0.0501
-"q0","DepthDeep",135.9108,47.1492,2.8826,0.0063
-"q1","(Intercept)",75.8139,47.3367,1.6016,0.1258
-"q1","Mangrove_systemFossil Lagoon",221.6254,58.6179,3.7808,0.0019
-"q1","Mangrove_systemSan Pedro River",228.2338,51.2,4.4577,5e-04
-"q1","DepthMid",55.2217,27.7839,1.9875,0.0535
-"q1","DepthDeep",29.5227,24.9588,1.1829,0.2436
+"q0","(Intercept)",-2363.4158,635.193,-3.7208,5e-04
+"q0","log(Effective_reads)",278.2154,70.0356,3.9725,3e-04
+"q0","Mangrove_systemFossil Lagoon",392.4282,229.7734,1.7079,0.094
+"q0","Mangrove_systemSan Pedro River",559.3108,223.789,2.4993,0.0156
+"q0","DepthMid",105.0792,52.0218,2.0199,0.0501
+"q0","DepthDeep",135.9,47.1498,2.8823,0.0063
+"q1","(Intercept)",222.8858,338.2818,0.6589,0.5131
+"q1","log(Effective_reads)",-13.0128,37.076,-0.351,0.7272
+"q1","Mangrove_systemFossil Lagoon",256.4894,115.7966,2.215,0.0312
+"q1","Mangrove_systemSan Pedro River",263.8425,113.9553,2.3153,0.0245
+"q1","DepthsMid",24.7311,25.2733,0.9785,0.3336
+"q1","DepthsSurface",-30.6623,25.3319,-1.2104,0.2331
 "q2","(Intercept)",40.6831,19.4856,2.0879,0.049
 "q2","Mangrove_systemFossil Lagoon",50.9191,23.5111,2.1657,0.0467
 "q2","Mangrove_systemSan Pedro River",52.3817,20.5466,2.5494,0.022

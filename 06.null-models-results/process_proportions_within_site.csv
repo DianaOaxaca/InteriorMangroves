@@ -1,0 +1,15 @@
+site,process,n,pct
+Fossil Lagoon,Dispersal.Limitation,52,28.6
+Fossil Lagoon,Heterogeneous.Selection,54,29.7
+Fossil Lagoon,Homogeneous.Selection,16,8.8
+Fossil Lagoon,Homogenizing.Dispersal,19,10.4
+Fossil Lagoon,Undominated,41,22.5
+Miguelito Dike,Dispersal.Limitation,122,22.1
+Miguelito Dike,Heterogeneous.Selection,274,49.6
+Miguelito Dike,Homogeneous.Selection,29,5.3
+Miguelito Dike,Homogenizing.Dispersal,29,5.3
+Miguelito Dike,Undominated,98,17.8
+Reforma Waterfalls,Dispersal.Limitation,36,27.3
+Reforma Waterfalls,Heterogeneous.Selection,72,54.5
+Reforma Waterfalls,Homogenizing.Dispersal,9,6.8
+Reforma Waterfalls,Undominated,15,11.4

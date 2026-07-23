@@ -412,19 +412,21 @@ write.csv(table_s1, "Tables/SurfaceComparison/SupplementaryTableS3AlphaDiversity
 ### Supplementary Table S4
 
 ```{r}
-# Extract compare of each models
-s2_q0 <- as.data.frame(pairs(q0_lm_means)) %>% mutate(metric = "q0")
-s2_q1 <- as.data.frame(pairs(q1_lm_means)) %>% mutate(metric = "q1")
-s2_q2 <- as.data.frame(pairs(q2_lm_means)) %>% mutate(metric = "q2")
+#| label: tables2
 
-# join all S2
+get_pairs <- function(em, metric) {
+  as.data.frame(emmeans::contrast(em, "pairwise", adjust = "tukey")) %>%
+    mutate(metric = metric)
+}
 
-table_s2 <- bind_rows(s2_q0, s2_q1, s2_q2) %>%
-  mutate(across(c(estimate, SE, t.ratio), ~ round(., 2)),
-         p.value = round(p.value, 8)) %>%
+table_s2 <- bind_rows(
+  get_pairs(q0_lm_means, "q0"),
+  get_pairs(q1_lm_means, "q1"),
+  get_pairs(q2_lm_means, "q2")
+) %>%
+  mutate(across(c(estimate, SE, t.ratio), ~ round(., 2))) %>%
   dplyr::select(metric, contrast, estimate, SE, df, t.ratio, p.value)
 
-#show
 table_s2
 
 # Save

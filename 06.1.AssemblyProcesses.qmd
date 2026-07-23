@@ -128,6 +128,161 @@ write_csv(resumen_bnti, "06.null-models-results/bNTI_summary_by_site.csv")
 
 ------------------------------------------------------------------------
 
+```{r}
+###############################################################################
+#  SIGNIFICANCIA DE DIFERENCIAS EN PROCESOS DE ENSAMBLAJE ENTRE SITIOS
+#  Test de PERMUTACIÓN A NIVEL DE MUESTRA (no Fisher)
+#
+#  Por qué: los valores de βNTI son comparaciones PAREADAS no independientes
+#  (cada muestra participa en muchos pares). Fisher/chi2/LMM inflan la
+#  significancia por pseudoreplicación. La permutación a nivel de muestra
+#  respeta que la unidad independiente es la MUESTRA, no el par.
+#
+#  Lógica (estilo Stegen): se permutan las etiquetas de sitio sobre las
+#  muestras; en cada permutación se reconstruye qué pares quedan "dentro" de
+#  cada sitio y se recalcula el estadístico. La estructura pareada del βNTI
+#  NO se toca; solo se baraja la pertenencia de cada muestra a su sitio.
+###############################################################################
+
+library(tidyverse)
+set.seed(123)
+nperm <- 9999   # permutaciones (9999 da p-values estables)
+
+## ---------------------------------------------------------------------------
+## 1. CARGAR los resultados pareados de qpen
+## ---------------------------------------------------------------------------
+# Necesitamos el archivo con TODOS los pares y su clasificación de proceso,
+# que incluya a qué muestra (sample1, sample2) corresponde cada par.
+# qpen$result trae columnas sample1, sample2, bNTI, RCbray, process.
+pares <- read_csv("06.null-models-results/qpen_pairwise_all.csv",
+                  show_col_types = FALSE)
+
+# Nos quedamos SOLO con pares interiores (los 3 sitios), no el pooled
+# (el pooled es un superset, no entra en la comparación entre sitios).
+# Si 'grupo' marca el subconjunto, filtramos los tres sitios:
+sitios <- c("Fossil Lagoon", "Reforma Waterfalls", "Miguelito Dike")
+
+## ---------------------------------------------------------------------------
+## 2. MAPA muestra -> sitio
+## ---------------------------------------------------------------------------
+# Necesitamos saber a qué sitio pertenece cada muestra. Lo tomamos del metadata.
+# (ajustá la ruta/objeto si hace falta)
+# meta debe tener: SampleID, Location
+meta <- read_tsv("data/metadata2.tsv", show_col_types = FALSE)
+# renombrar como en el resto del proyecto
+meta <- meta %>%
+  mutate(Location = case_when(
+    Location == "El Cacahuate"    ~ "Fossil Lagoon",
+    Location == "La Piedad"       ~ "Reforma Waterfalls",
+    Location == "Dique Miguelito" ~ "Miguelito Dike",
+    TRUE ~ Location)) %>%
+  filter(Location %in% sitios)
+
+# vector nombrado: nombre = SampleID, valor = sitio
+col_id <- colnames(meta)[1]   # ajustá si el ID no es la 1a columna
+sample2site <- setNames(meta$Location, meta[[col_id]])
+
+## ---------------------------------------------------------------------------
+## 3. PARES INTRA-SITIO observados
+## ---------------------------------------------------------------------------
+# Para comparar la composición de procesos ENTRE sitios, usamos los pares
+# en los que AMBAS muestras pertenecen al mismo sitio (within-site pairs).
+# Detectar columnas de muestra en el data frame de pares:
+# qpen suele nombrarlas "name1"/"name2" o "sample1"/"sample2".
+nm <- names(pares)
+c1 <- nm[which(nm %in% c("sample1","name1","samp1","s1"))[1]]
+c2 <- nm[which(nm %in% c("sample2","name2","samp2","s2"))[1]]
+stopifnot(!is.na(c1), !is.na(c2))   # si falla, revisá los nombres reales
+
+pares <- pares %>%
+  mutate(site1 = sample2site[.data[[c1]]],
+         site2 = sample2site[.data[[c2]]]) %>%
+  filter(!is.na(site1), !is.na(site2))
+
+intra <- pares %>% filter(site1 == site2) %>%
+  mutate(site = site1)
+
+## ---------------------------------------------------------------------------
+## 4. ESTADÍSTICO OBSERVADO
+## ---------------------------------------------------------------------------
+# Resumimos cada sitio por su % de proceso determinístico (selección) o,
+# más simple y robusto: el % de selección heterogénea (el proceso dominante).
+# Definimos un estadístico de diferencia entre dos sitios = diferencia
+# absoluta en la proporción de "Heterogeneous.Selection".
+
+prop_proceso <- function(df, proc = "Heterogeneous.Selection") {
+  df %>% group_by(site) %>%
+    summarise(p = mean(process == proc), .groups = "drop")
+}
+
+obs <- prop_proceso(intra)
+
+stat_pair <- function(tab, a, b) {
+  abs(tab$p[tab$site == a] - tab$p[tab$site == b])
+}
+
+pares_sitios <- combn(sitios, 2, simplify = FALSE)
+obs_stats <- map_dbl(pares_sitios, ~ stat_pair(obs, .x[1], .x[2]))
+names(obs_stats) <- map_chr(pares_sitios, ~ paste(.x, collapse = " vs "))
+
+## ---------------------------------------------------------------------------
+## 5. PERMUTACIÓN A NIVEL DE MUESTRA
+## ---------------------------------------------------------------------------
+# Barajamos la etiqueta de sitio sobre las MUESTRAS, reconstruimos los pares
+# intra-sitio bajo esa etiqueta permutada, y recalculamos el estadístico.
+muestras   <- names(sample2site)
+sitios_obs <- unname(sample2site)
+
+perm_stats <- matrix(NA, nrow = nperm, ncol = length(obs_stats),
+                     dimnames = list(NULL, names(obs_stats)))
+
+for (i in seq_len(nperm)) {
+  # barajar etiquetas de sitio entre muestras
+  perm_site <- setNames(sample(sitios_obs), muestras)
+  # reasignar sitio a cada muestra del par
+  s1 <- perm_site[ intra[[c1]] ]
+  s2 <- perm_site[ intra[[c2]] ]
+  keep <- s1 == s2                      # pares que quedan intra-sitio
+  tmp <- tibble(site = s1[keep], process = intra$process[keep])
+  tabp <- tmp %>% group_by(site) %>%
+    summarise(p = mean(process == "Heterogeneous.Selection"), .groups="drop")
+  for (k in seq_along(pares_sitios)) {
+    a <- pares_sitios[[k]][1]; b <- pares_sitios[[k]][2]
+    pa <- tabp$p[tabp$site == a]; pb <- tabp$p[tabp$site == b]
+    perm_stats[i, k] <- if (length(pa) && length(pb)) abs(pa - pb) else NA
+  }
+}
+
+## ---------------------------------------------------------------------------
+## 6. P-VALORES (proporción de permutaciones >= observado) + BH
+## ---------------------------------------------------------------------------
+p_raw <- map_dbl(seq_along(obs_stats), function(k) {
+  nulldist <- perm_stats[, k]; nulldist <- nulldist[!is.na(nulldist)]
+  (sum(nulldist >= obs_stats[k]) + 1) / (length(nulldist) + 1)  # +1 anti-cero
+})
+p_adj <- p.adjust(p_raw, method = "BH")
+
+resultado <- tibble(
+  comparison = names(obs_stats),
+  obs_diff_hetSel = round(obs_stats, 3),
+  p_perm = round(p_raw, 4),
+  p_adj  = round(p_adj, 4)
+)
+
+print(resultado)
+write_csv(resultado, "06.null-models-results/permutation_site_differences.csv")
+
+## También guardamos las proporciones por sitio (para reportar descriptivo)
+proporciones <- intra %>%
+  count(site, process) %>%
+  group_by(site) %>%
+  mutate(pct = round(100 * n / sum(n), 1)) %>% ungroup()
+write_csv(proporciones, "06.null-models-results/process_proportions_within_site.csv")
+
+message("LISTO. permutation_site_differences.csv tiene los p-values honestos.")
+###############################################################################
+```
+
 ## Results and figures
 
 ### Project colour palette
@@ -183,7 +338,7 @@ bnti_plot <- ggplot(todos, aes(grupo, bNTI, fill = grupo)) +
   labs(x = NULL, y = expression(beta*"NTI")) +
   theme_classic(base_size = 12) +
   theme(legend.position = "none",
-        axis.text.x = element_text(angle = 20, hjust = 1))
+        axis.text.x = element_text(angle = 0, hjust = 0.5))
 
 bnti_plot
 ```
@@ -205,7 +360,11 @@ raupplot <- ggplot(resumen, aes(grupo, porcentaje, fill = process)) +
   scale_fill_manual(values = process_colors, name = "Assembly process") +
   labs(x = NULL, y = "% of pairwise comparisons") +
   theme_classic(base_size = 12) +
-  theme(axis.text.x = element_text(angle = 20, hjust = 1))
+  theme(axis.text.x = element_text(angle = 0, hjust = 0.5)) +
+  theme(legend.position = "bottom",
+        legend.title = element_text(size = 9),
+        legend.text = element_text(size = 8)) +
+  guides(fill = guide_legend(nrow = 2)) 
 
 raupplot
 ```

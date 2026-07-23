@@ -233,7 +233,7 @@ At this juncture, the available data permits only the observation of the distrib
 
 ```{r}
 #Get effective reads
-Effective_reads <- colSums(otu_table[-1, ])
+Effective_reads <- sample_sums(otu_table)
 metadata_with_hill$Effective_reads <- Effective_reads
 ```
 
@@ -525,8 +525,9 @@ q0plotloc
 ### q1 Exp Shannon diversity
 
 ```{r}
+#| label: q1lmerloc
 # lmm
-q1lmerloc <- lmer(q1 ~ Mangrove_system + Depth + (1 | ID), data = metadata_with_hill)
+q1lmerloc <- lmer(q1 ~ log(Effective_reads) + Mangrove_system + Depths + (1 | ID), data = metadata_with_hill)
 # summary
 summary(q1lmerloc)
 ```

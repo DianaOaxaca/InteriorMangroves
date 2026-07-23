@@ -105,11 +105,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <meta property="og:title" content="Alpha Diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
-<meta property="og:image" content="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-10-1.png">
+<meta property="og:image" content="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-9-1.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Alpha Diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
-<meta name="twitter:image" content="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-10-1.png">
+<meta name="twitter:image" content="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-9-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -746,27 +746,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co"># show</span></span>
 <span><span class="va">metadata_with_hill</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  SampleID   q0  q1  q2 Collection_date depth  ID Environmental_medium
-1   S1A015 1266 330 106      2023-09-28  0-15 S1A             sediment
-2  S1A1530 1527 434 165      2023-09-28 16-30 S1A             sediment
-3  S1A3050 1558 428 162      2023-09-28 31-45 S1A             sediment
-4  S1A5075 1632 363 111      2023-09-28 50-70 S1A             sediment
-5    S1B07 1502 164  36      2023-09-28  0-15 S1B             sediment
-6  S1B2230 1821 461 150      2023-09-28 16-30 S1B             sediment
-  Geographic.Location    Study_zone Ecological_type season Mangrove_system
-1      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-2      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-3      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-4      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-5      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-6      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-  Mangrove_type  Depths
-1      Interior Surface
-2      Interior     Mid
-3      Interior    Deep
-4      Interior    Deep
-5      Interior Surface
-6      Interior     Mid</code></pre>
+<pre><code>  SampleID   q0       q1        q2 Collection_date depth  ID
+1   S1A015 1266 330.1845 105.96617      2023-09-28  0-15 S1A
+2  S1A1530 1527 433.7356 165.11560      2023-09-28 16-30 S1A
+3  S1A3050 1558 428.0241 161.83786      2023-09-28 31-45 S1A
+4  S1A5075 1632 362.5208 110.59152      2023-09-28 50-70 S1A
+5    S1B07 1502 164.0689  35.98342      2023-09-28  0-15 S1B
+6  S1B2230 1821 461.1541 149.57942      2023-09-28 16-30 S1B
+  Environmental_medium Geographic.Location    Study_zone Ecological_type season
+1             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+2             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+3             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+4             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+5             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+6             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+  Mangrove_system Mangrove_type  Depths
+1 San Pedro River      Interior Surface
+2 San Pedro River      Interior     Mid
+3 San Pedro River      Interior    Deep
+4 San Pedro River      Interior    Deep
+5 San Pedro River      Interior Surface
+6 San Pedro River      Interior     Mid</code></pre>
 </div>
 </div>
 </section><section id="get-hill-means" class="level1"><h1>02. Get Hill means</h1>
@@ -886,13 +886,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                      col <span class="op">=</span> <span class="va">sample_colors</span>, label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
- 18.695   0.701  20.456 </code></pre>
+  6.552   0.404   6.956 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/interior_impaired/Sample_effort.pdf"</span><span class="op">)</span></span>
@@ -900,7 +900,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                      col <span class="op">=</span> <span class="va">sample_colors</span>, label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
- 18.212   0.461  18.930 </code></pre>
+  6.435   0.404   6.839 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -981,7 +981,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">hill_barplot_explore</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1003,7 +1003,7 @@ Tip
 </section><section id="check-alpha-diversity-correlation-with-sequencing-depth" class="level1"><h1>05. Check alpha diversity correlation with sequencing depth</h1>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Get effective reads</span></span>
-<span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums-methods.html">colSums</a></span><span class="op">(</span><span class="va">otu_table</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_sums.html">sample_sums</a></span><span class="op">(</span><span class="va">otu_table</span><span class="op">)</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="va">Effective_reads</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Alpha diversity depth correlation to order q=0</strong></p>
@@ -1065,7 +1065,7 @@ Tip
 <span><span class="va">correlation_plot_q012</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1135,23 +1135,30 @@ Formula: q0 ~ log(Effective_reads) + Depth + Mangrove_system + (1 | ID)
 REML criterion at convergence: 715
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--3.0082 -0.5189 -0.0006  0.5709  1.9775 
+     Min       1Q   Median       3Q      Max 
+-3.00803 -0.51886 -0.00062  0.57085  1.97760 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 23199    152     
- Residual             21643    147     
+ ID       (Intercept) 23201    152.3   
+ Residual             21643    147.1   
 Number of obs: 59, groups:  ID, 16
 
 Fixed effects:
-                               Estimate Std. Error      df t value Pr(&gt;|t|)    
-(Intercept)                     -2363.6      635.2    47.0   -3.72  0.00053 ***
-log(Effective_reads)              278.2       70.0    45.5    3.97  0.00025 ***
-DepthMid                          105.1       52.0    40.1    2.02  0.05008 .  
-DepthDeep                         135.9       47.1    40.4    2.88  0.00629 ** 
-Mangrove_systemFossil Lagoon      392.4      229.8    48.9    1.71  0.09403 .  
-Mangrove_systemSan Pedro River    559.3      223.8    51.8    2.50  0.01566 *  
+                               Estimate Std. Error       df t value Pr(&gt;|t|)
+(Intercept)                    -2363.42     635.19    47.05  -3.721 0.000529
+log(Effective_reads)             278.22      70.04    45.47   3.972 0.000251
+DepthMid                         105.08      52.02    40.14   2.020 0.050102
+DepthDeep                        135.90      47.15    40.35   2.882 0.006299
+Mangrove_systemFossil Lagoon     392.43     229.77    48.92   1.708 0.093995
+Mangrove_systemSan Pedro River   559.31     223.79    51.85   2.499 0.015650
+                                  
+(Intercept)                    ***
+log(Effective_reads)           ***
+DepthMid                       .  
+DepthDeep                      ** 
+Mangrove_systemFossil Lagoon   .  
+Mangrove_systemSan Pedro River *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1160,22 +1167,22 @@ Correlation of Fixed Effects:
 lg(Effctv_) -0.986                            
 DepthMid    -0.023 -0.018                     
 DepthDeep    0.091 -0.132  0.554              
-Mngrv_sysFL  0.737 -0.817  0.014  0.096       
+Mngrv_sysFL  0.737 -0.817  0.015  0.096       
 Mngrv_sySPR  0.774 -0.856  0.015  0.089  0.898</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test con lmerTest</span></span>
-<span><span class="va">perm_test</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q0lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q0lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_test</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
 q0 ~ log(Effective_reads) + Depth + Mangrove_system + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)    
-&lt;none&gt;      8   -357 731                       
-(1 | ID)    7   -365 744 15.4  1    8.7e-05 ***
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)    
+&lt;none&gt;      8 -357.49 730.97                         
+(1 | ID)    7 -365.19 744.38 15.406  1  8.669e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1183,10 +1190,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q0lmer</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                     Sum Sq Mean Sq NumDF DenDF F value  Pr(&gt;F)    
-log(Effective_reads) 341571  341571     1  45.5   15.78 0.00025 ***
-Depth                185439   92719     2  40.3    4.28 0.02056 *  
-Mangrove_system      167078   83539     2  20.5    3.86 0.03780 *  
+                     Sum Sq Mean Sq NumDF  DenDF F value    Pr(&gt;F)    
+log(Effective_reads) 341545  341545     1 45.472 15.7807 0.0002513 ***
+Depth                185407   92703     2 40.283  4.2832 0.0205773 *  
+Mangrove_system      167081   83541     2 20.485  3.8599 0.0377966 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1202,10 +1209,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">q0_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q0_emmeans_df</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depth   emmean   SE   df lower.CL upper.CL .group
- Surface   1186 83.7 49.3     1018     1354  a    
- Mid       1291 83.1 49.1     1124     1458  ab   
- Deep      1322 76.5 45.2     1168     1476   b   
+<pre><code> Depth     emmean       SE    df lower.CL upper.CL .group
+ Surface 1185.956 83.74545 49.34 1017.693 1354.219  a    
+ Mid     1291.035 83.06104 49.06 1124.123 1457.948  ab   
+ Deep    1321.856 76.46209 45.17 1167.869 1475.843   b   
 
 Results are averaged over the levels of: Mangrove_system 
 Degrees-of-freedom method: kenward-roger 
@@ -1234,7 +1241,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q0plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1251,26 +1258,26 @@ lmerModLmerTest]
 Formula: q1 ~ log(Effective_reads) + Depth + Mangrove_system + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 644
+REML criterion at convergence: 644.3
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--1.8856 -0.6129  0.0913  0.5692  2.3929 
+     Min       1Q   Median       3Q      Max 
+-1.88559 -0.61286  0.09135  0.56922  2.39285 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 4079     63.9    
- Residual             6255     79.1    
+ ID       (Intercept) 4079     63.86   
+ Residual             6255     79.09   
 Number of obs: 59, groups:  ID, 16
 
 Fixed effects:
-                               Estimate Std. Error    df t value Pr(&gt;|t|)  
-(Intercept)                       192.3      335.1  48.5    0.57    0.569  
-log(Effective_reads)              -13.0       37.1  47.5   -0.35    0.727  
-DepthMid                           55.4       28.0  40.3    1.98    0.054 .
-DepthDeep                          30.7       25.3  40.6    1.21    0.233  
-Mangrove_systemFossil Lagoon      256.5      115.8  51.2    2.22    0.031 *
-Mangrove_systemSan Pedro River    263.9      114.0  52.7    2.32    0.025 *
+                               Estimate Std. Error     df t value Pr(&gt;|t|)  
+(Intercept)                      192.22     335.11  48.52   0.574   0.5689  
+log(Effective_reads)             -13.01      37.08  47.55  -0.351   0.7272  
+DepthMid                          55.39      27.97  40.27   1.981   0.0545 .
+DepthDeep                         30.66      25.33  40.56   1.210   0.2331  
+Mangrove_systemFossil Lagoon     256.49     115.80  51.20   2.215   0.0312 *
+Mangrove_systemSan Pedro River   263.84     113.96  52.73   2.315   0.0245 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1285,7 +1292,7 @@ Mngrv_sySPR  0.828 -0.890  0.016  0.090  0.920</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmerTest</span></span>
-<span><span class="va">perm_testq1</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q1lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q1lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Summary</span></span>
 <span><span class="va">perm_testq1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1294,9 +1301,9 @@ Mngrv_sySPR  0.828 -0.890  0.016  0.090  0.920</code></pre>
 
 Model:
 q1 ~ log(Effective_reads) + Depth + Mangrove_system + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)   
-&lt;none&gt;      8   -322 660                      
-(1 | ID)    7   -327 667 9.01  1     0.0027 **
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)   
+&lt;none&gt;      8 -322.17 660.34                        
+(1 | ID)    7 -326.67 667.35 9.0052  1   0.002692 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1304,10 +1311,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q1lmer</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                     Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)  
-log(Effective_reads)    771     771     1  47.5    0.12  0.727  
-Depth                 24655   12327     2  40.5    1.97  0.152  
-Mangrove_system       33824   16912     2  20.6    2.70  0.091 .
+                     Sum Sq Mean Sq NumDF  DenDF F value  Pr(&gt;F)  
+log(Effective_reads)    770   770.5     1 47.549  0.1232 0.72716  
+Depth                 24655 12327.5     2 40.462  1.9709 0.15249  
+Mangrove_system       33820 16910.1     2 20.645  2.7035 0.09061 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1323,10 +1330,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">emmeans_dfq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_resultsq1</span><span class="op">)</span></span>
 <span><span class="va">emmeans_dfq1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depth   emmean   SE   df lower.CL upper.CL .group
- Surface    214 42.4 51.8      129      300  a    
- Deep       245 38.3 49.2      168      322  a    
- Mid        270 42.1 51.7      186      354  a    
+<pre><code> Depth     emmean       SE    df lower.CL upper.CL .group
+ Surface 214.4934 42.44475 51.79 129.3136 299.6731  a    
+ Deep    245.1557 38.33418 49.18 168.1273 322.1841  a    
+ Mid     269.8868 42.06246 51.65 185.4687 354.3048  a    
 
 Results are averaged over the levels of: Mangrove_system 
 Degrees-of-freedom method: kenward-roger 
@@ -1351,7 +1358,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q1plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1368,25 +1375,25 @@ lmerModLmerTest]
 Formula: q2 ~ Depth + Mangrove_system + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 569
+REML criterion at convergence: 569.2
 
 Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--1.895 -0.647 -0.109  0.665  2.498 
+    Min      1Q  Median      3Q     Max 
+-1.8949 -0.6466 -0.1088  0.6653  2.4979 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept)  501     22.4    
- Residual             1418     37.7    
+ ID       (Intercept)  500.5   22.37   
+ Residual             1418.1   37.66   
 Number of obs: 59, groups:  ID, 16
 
 Fixed effects:
-                               Estimate Std. Error    df t value Pr(&gt;|t|)  
-(Intercept)                       40.68      19.49 21.38    2.09    0.049 *
-DepthMid                          25.30      13.31 41.28    1.90    0.064 .
-DepthDeep                          9.25      11.96 41.44    0.77    0.444  
-Mangrove_systemFossil Lagoon      50.92      23.51 15.16    2.17    0.047 *
-Mangrove_systemSan Pedro River    52.38      20.55 15.28    2.55    0.022 *
+                               Estimate Std. Error     df t value Pr(&gt;|t|)  
+(Intercept)                      40.683     19.486 21.378   2.088   0.0490 *
+DepthMid                         25.304     13.314 41.282   1.901   0.0644 .
+DepthDeep                         9.245     11.956 41.444   0.773   0.4438  
+Mangrove_systemFossil Lagoon     50.919     23.511 15.165   2.166   0.0467 *
+Mangrove_systemSan Pedro River   52.382     20.547 15.282   2.549   0.0220 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1400,7 +1407,7 @@ Mngrv_sySPR -0.797  0.000 -0.067  0.675</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmerTest</span></span>
-<span><span class="va">perm_testq2</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q2lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q2lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Summary</span></span>
 <span><span class="va">perm_testq2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1409,9 +1416,9 @@ Mngrv_sySPR -0.797  0.000 -0.067  0.675</code></pre>
 
 Model:
 q2 ~ Depth + Mangrove_system + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)  
-&lt;none&gt;      7   -285 583                     
-(1 | ID)    6   -287 585 4.12  1      0.042 *
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)  
+&lt;none&gt;      7 -284.59 583.17                       
+(1 | ID)    6 -286.65 585.29 4.1194  1    0.04239 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1419,9 +1426,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q2lmer</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)  
-Depth             5289    2645     2  41.4    1.86   0.17  
-Mangrove_system   9734    4867     2  14.5    3.43   0.06 .
+                Sum Sq Mean Sq NumDF  DenDF F value  Pr(&gt;F)  
+Depth           5289.4  2644.7     2 41.399  1.8650 0.16768  
+Mangrove_system 9734.4  4867.2     2 14.457  3.4322 0.06029 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1437,10 +1444,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">emmeans_dfq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_resultsq2</span><span class="op">)</span></span>
 <span><span class="va">emmeans_dfq2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depth   emmean   SE   df lower.CL upper.CL .group
- Surface   75.1 11.6 38.6     51.7     98.5  a    
- Deep      84.4 10.3 28.1     63.3    105.4  a    
- Mid      100.4 11.6 38.6     77.0    123.8  a    
+<pre><code> Depth      emmean       SE    df lower.CL  upper.CL .group
+ Surface  75.11671 11.55339 38.60 51.73994  98.49348  a    
+ Deep     84.36185 10.26660 28.08 63.33452 105.38917  a    
+ Mid     100.42111 11.55339 38.60 77.04434 123.79788  a    
 
 Results are averaged over the levels of: Mangrove_system 
 Degrees-of-freedom method: kenward-roger 
@@ -1465,7 +1472,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q2plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1486,23 +1493,30 @@ Formula: q0 ~ log(Effective_reads) + Mangrove_system + Depth + (1 | ID)
 REML criterion at convergence: 715
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--3.0082 -0.5189 -0.0006  0.5709  1.9775 
+     Min       1Q   Median       3Q      Max 
+-3.00803 -0.51886 -0.00062  0.57085  1.97760 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 23199    152     
- Residual             21643    147     
+ ID       (Intercept) 23201    152.3   
+ Residual             21643    147.1   
 Number of obs: 59, groups:  ID, 16
 
 Fixed effects:
-                               Estimate Std. Error      df t value Pr(&gt;|t|)    
-(Intercept)                     -2363.6      635.2    47.0   -3.72  0.00053 ***
-log(Effective_reads)              278.2       70.0    45.5    3.97  0.00025 ***
-Mangrove_systemFossil Lagoon      392.4      229.8    48.9    1.71  0.09403 .  
-Mangrove_systemSan Pedro River    559.3      223.8    51.8    2.50  0.01566 *  
-DepthMid                          105.1       52.0    40.1    2.02  0.05008 .  
-DepthDeep                         135.9       47.1    40.4    2.88  0.00629 ** 
+                               Estimate Std. Error       df t value Pr(&gt;|t|)
+(Intercept)                    -2363.42     635.19    47.05  -3.721 0.000529
+log(Effective_reads)             278.22      70.04    45.47   3.972 0.000251
+Mangrove_systemFossil Lagoon     392.43     229.77    48.92   1.708 0.093995
+Mangrove_systemSan Pedro River   559.31     223.79    51.85   2.499 0.015650
+DepthMid                         105.08      52.02    40.14   2.020 0.050102
+DepthDeep                        135.90      47.15    40.35   2.882 0.006299
+                                  
+(Intercept)                    ***
+log(Effective_reads)           ***
+Mangrove_systemFossil Lagoon   .  
+Mangrove_systemSan Pedro River *  
+DepthMid                       .  
+DepthDeep                      ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1511,22 +1525,22 @@ Correlation of Fixed Effects:
 lg(Effctv_) -0.986                            
 Mngrv_sysFL  0.737 -0.817                     
 Mngrv_sySPR  0.774 -0.856  0.898              
-DepthMid    -0.023 -0.018  0.014  0.015       
+DepthMid    -0.023 -0.018  0.015  0.015       
 DepthDeep    0.091 -0.132  0.096  0.089  0.554</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test </span></span>
-<span><span class="va">perm_testloc</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q0lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q0lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_testloc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
 q0 ~ log(Effective_reads) + Mangrove_system + Depth + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)    
-&lt;none&gt;      8   -357 731                       
-(1 | ID)    7   -365 744 15.4  1    8.7e-05 ***
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)    
+&lt;none&gt;      8 -357.49 730.97                         
+(1 | ID)    7 -365.19 744.38 15.406  1  8.669e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1534,10 +1548,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q0lmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                     Sum Sq Mean Sq NumDF DenDF F value  Pr(&gt;F)    
-log(Effective_reads) 341571  341571     1  45.5   15.78 0.00025 ***
-Mangrove_system      167078   83539     2  20.5    3.86 0.03780 *  
-Depth                185439   92719     2  40.3    4.28 0.02056 *  
+                     Sum Sq Mean Sq NumDF  DenDF F value    Pr(&gt;F)    
+log(Effective_reads) 341545  341545     1 45.472 15.7807 0.0002513 ***
+Mangrove_system      167081   83541     2 20.485  3.8599 0.0377966 *  
+Depth                185407   92703     2 40.283  4.2832 0.0205773 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1553,10 +1567,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">q0emmeans_df_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q0cld_results_loc</span><span class="op">)</span></span>
 <span><span class="va">q0emmeans_df_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove_system          emmean    SE   df lower.CL upper.CL .group
- Impaired Términos Lagoon    949 212.5 52.8      523     1375  a    
- Fossil Lagoon              1341  86.0 13.3     1156     1527  ab   
- San Pedro River            1508  57.2 13.1     1385     1632   b   
+<pre><code> Mangrove_system             emmean        SE    df lower.CL upper.CL .group
+ Impaired Términos Lagoon  949.0362 212.53343 52.78  522.706 1375.366  a    
+ Fossil Lagoon            1341.4643  85.99429 13.28 1156.084 1526.844  ab   
+ San Pedro River          1508.3470  57.17892 13.15 1384.960 1631.734   b   
 
 Results are averaged over the levels of: Depth 
 Degrees-of-freedom method: kenward-roger 
@@ -1582,7 +1596,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q0plotloc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1590,57 +1604,59 @@ NOTE: If two or more means share the same grouping symbol,
 </section><section id="q1-exp-shannon-diversity" class="level3"><h3 class="anchored" data-anchor-id="q1-exp-shannon-diversity">q1 Exp Shannon diversity</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmm</span></span>
-<span><span class="va">q1lmerloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">q1</span> <span class="op">~</span> <span class="va">Mangrove_system</span> <span class="op">+</span> <span class="va">Depth</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">ID</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
+<span><span class="va">q1lmerloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">q1</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove_system</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">ID</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span><span class="co"># summary</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">q1lmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: q1 ~ Mangrove_system + Depth + (1 | ID)
+Formula: q1 ~ log(Effective_reads) + Mangrove_system + Depths + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 654
+REML criterion at convergence: 644.3
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.0370 -0.5967  0.0425  0.5745  2.3482 
+     Min       1Q   Median       3Q      Max 
+-1.88559 -0.61286  0.09135  0.56922  2.39285 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 3942     62.8    
- Residual             6176     78.6    
+ ID       (Intercept) 4079     63.86   
+ Residual             6255     79.09   
 Number of obs: 59, groups:  ID, 16
 
 Fixed effects:
-                               Estimate Std. Error    df t value Pr(&gt;|t|)    
-(Intercept)                        75.8       47.3  18.9    1.60  0.12584    
-Mangrove_systemFossil Lagoon      221.6       58.6  14.7    3.78  0.00187 ** 
-Mangrove_systemSan Pedro River    228.2       51.2  14.8    4.46  0.00048 ***
-DepthMid                           55.2       27.8  41.4    1.99  0.05350 .  
-DepthDeep                          29.5       25.0  41.5    1.18  0.24360    
+                               Estimate Std. Error     df t value Pr(&gt;|t|)  
+(Intercept)                      222.89     338.28  48.53   0.659   0.5131  
+log(Effective_reads)             -13.01      37.08  47.55  -0.351   0.7272  
+Mangrove_systemFossil Lagoon     256.49     115.80  51.20   2.215   0.0312 *
+Mangrove_systemSan Pedro River   263.84     113.96  52.73   2.315   0.0245 *
+DepthsMid                         24.73      25.27  40.52   0.979   0.3336  
+DepthsSurface                    -30.66      25.33  40.56  -1.210   0.2331  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            (Intr) Mng_FL Mn_SPR DpthMd
-Mngrv_sysFL -0.716                     
-Mngrv_sySPR -0.815  0.668              
-DepthMid    -0.293  0.000  0.000       
-DepthDeep   -0.285 -0.026 -0.056  0.557</code></pre>
+            (Intr) lg(E_) Mng_FL Mn_SPR DpthsM
+lg(Effctv_) -0.990                            
+Mngrv_sysFL  0.797 -0.858                     
+Mngrv_sySPR  0.827 -0.890  0.920              
+DepthsMid   -0.143  0.110 -0.082 -0.073       
+DepthsSurfc -0.162  0.129 -0.098 -0.090  0.389</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test </span></span>
-<span><span class="va">perm_testlocq1</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q1lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testlocq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q1lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_testlocq1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
-q1 ~ Mangrove_system + Depth + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)   
-&lt;none&gt;      7   -327 668                      
-(1 | ID)    6   -331 675 9.29  1     0.0023 **
+q1 ~ log(Effective_reads) + Mangrove_system + Depths + (1 | ID)
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)   
+&lt;none&gt;      8 -322.17 660.34                        
+(1 | ID)    7 -326.67 667.35 9.0052  1   0.002692 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1648,9 +1664,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q1lmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)   
-Mangrove_system 129877   64939     2  14.2   10.52 0.0016 **
-Depth            24448   12224     2  41.5    1.98 0.1510   
+                     Sum Sq Mean Sq NumDF  DenDF F value  Pr(&gt;F)  
+log(Effective_reads)    770   770.5     1 47.549  0.1232 0.72716  
+Mangrove_system       33820 16910.1     2 20.645  2.7035 0.09061 .
+Depths                24655 12327.5     2 40.462  1.9709 0.15249  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1666,12 +1683,12 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">q1emmeans_df_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q1cld_results_loc</span><span class="op">)</span></span>
 <span><span class="va">q1emmeans_df_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove_system          emmean   SE   df lower.CL upper.CL .group
- Impaired Términos Lagoon    104 44.7 14.8      8.6      199  a    
- Fossil Lagoon               326 37.9 13.6    244.1      407   b   
- San Pedro River             332 24.9 12.9    278.4      386   b   
+<pre><code> Mangrove_system            emmean        SE    df  lower.CL upper.CL .group
+ Impaired Términos Lagoon  69.7346 109.39414 53.00 -149.6823 289.1516  a    
+ Fossil Lagoon            326.2241  38.46959 13.40  243.3658 409.0823  a    
+ San Pedro River          333.5771  25.54928 13.21  278.4697 388.6845  a    
 
-Results are averaged over the levels of: Depth 
+Results are averaged over the levels of: Depths 
 Degrees-of-freedom method: kenward-roger 
 Confidence level used: 0.95 
 P value adjustment: tukey method for comparing a family of 3 estimates 
@@ -1698,7 +1715,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q1plotloc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1715,25 +1732,25 @@ lmerModLmerTest]
 Formula: q2 ~ Mangrove_system + Depth + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 569
+REML criterion at convergence: 569.2
 
 Scaled residuals: 
-   Min     1Q Median     3Q    Max 
--1.895 -0.647 -0.109  0.665  2.498 
+    Min      1Q  Median      3Q     Max 
+-1.8949 -0.6466 -0.1088  0.6653  2.4979 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept)  501     22.4    
- Residual             1418     37.7    
+ ID       (Intercept)  500.5   22.37   
+ Residual             1418.1   37.66   
 Number of obs: 59, groups:  ID, 16
 
 Fixed effects:
-                               Estimate Std. Error    df t value Pr(&gt;|t|)  
-(Intercept)                       40.68      19.49 21.38    2.09    0.049 *
-Mangrove_systemFossil Lagoon      50.92      23.51 15.16    2.17    0.047 *
-Mangrove_systemSan Pedro River    52.38      20.55 15.28    2.55    0.022 *
-DepthMid                          25.30      13.31 41.28    1.90    0.064 .
-DepthDeep                          9.25      11.96 41.44    0.77    0.444  
+                               Estimate Std. Error     df t value Pr(&gt;|t|)  
+(Intercept)                      40.683     19.486 21.378   2.088   0.0490 *
+Mangrove_systemFossil Lagoon     50.919     23.511 15.165   2.166   0.0467 *
+Mangrove_systemSan Pedro River   52.382     20.547 15.282   2.549   0.0220 *
+DepthMid                         25.304     13.314 41.282   1.901   0.0644 .
+DepthDeep                         9.245     11.956 41.444   0.773   0.4438  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1747,16 +1764,16 @@ DepthDeep   -0.331 -0.031 -0.067  0.557</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test</span></span>
-<span><span class="va">perm_testlocq2</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q2lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testlocq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q2lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_testlocq2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
 q2 ~ Mangrove_system + Depth + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)  
-&lt;none&gt;      7   -285 583                     
-(1 | ID)    6   -287 585 4.12  1      0.042 *
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)  
+&lt;none&gt;      7 -284.59 583.17                       
+(1 | ID)    6 -286.65 585.29 4.1194  1    0.04239 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1764,9 +1781,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q2lmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)  
-Mangrove_system   9734    4867     2  14.5    3.43   0.06 .
-Depth             5289    2645     2  41.4    1.86   0.17  
+                Sum Sq Mean Sq NumDF  DenDF F value  Pr(&gt;F)  
+Mangrove_system 9734.4  4867.2     2 14.457  3.4322 0.06029 .
+Depth           5289.4  2644.7     2 41.399  1.8650 0.16768  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1782,10 +1799,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">q2emmeans_df_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q2cld_results_loc</span><span class="op">)</span></span>
 <span><span class="va">q2emmeans_df_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove_system          emmean    SE   df lower.CL upper.CL .group
- Impaired Términos Lagoon   52.2 18.01 15.7     14.0     90.4  a    
- Fossil Lagoon             103.1 15.12 13.8     70.6    135.6  a    
- San Pedro River           104.6  9.89 12.9     83.2    126.0  a    
+<pre><code> Mangrove_system             emmean        SE    df lower.CL  upper.CL .group
+ Impaired Términos Lagoon  52.19963 18.011485 15.73 13.96425  90.43501  a    
+ Fossil Lagoon            103.11871 15.122343 13.80 70.63970 135.59773  a    
+ San Pedro River          104.58132  9.886889 12.90 83.20451 125.95813  a    
 
 Results are averaged over the levels of: Depth 
 Degrees-of-freedom method: kenward-roger 
@@ -1811,7 +1828,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q2plotloc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1842,7 +1859,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">alphaplots_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1851,7 +1868,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">alphaplots_depth</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-42-2.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-40-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1934,7 +1951,7 @@ Important
 <span><span class="va">q012_depth_system_plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.1.AlphaDiversity_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1953,9 +1970,9 @@ Important
 <span></span>
 <span><span class="co"># Linear Mixed Models</span></span>
 <span><span class="va">tableS7_imp_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
-<span>  <span class="fu">tidy</span><span class="op">(</span><span class="va">q0lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span>,</span>
-<span>  <span class="fu">tidy</span><span class="op">(</span><span class="va">q1lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q1"</span><span class="op">)</span>,</span>
-<span>  <span class="fu">tidy</span><span class="op">(</span><span class="va">q2lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q2"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q0lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q1lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q1"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q2lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q2"</span><span class="op">)</span>,</span>
 <span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">effect</span> <span class="op">==</span> <span class="st">"fixed"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, Term <span class="op">=</span> <span class="va">term</span>, Estimate <span class="op">=</span> <span class="va">estimate</span>, Std.Error <span class="op">=</span> <span class="va">std.error</span>, Statistic <span class="op">=</span> <span class="va">statistic</span>, p_value <span class="op">=</span> <span class="va">p.value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -1976,23 +1993,23 @@ Important
 <span><span class="co">#show</span></span>
 <span><span class="va">tableS7_imp_posthoc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Metric          Mangrove_system   Depth emmean    SE lower.CL upper.CL
-1     q0 Impaired Términos Lagoon    &lt;NA&gt;    949 212.5   522.74     1375
-2     q0            Fossil Lagoon    &lt;NA&gt;   1341  86.0  1156.08     1527
-3     q0          San Pedro River    &lt;NA&gt;   1508  57.2  1384.96     1632
-4     q1 Impaired Términos Lagoon    &lt;NA&gt;    104  44.7     8.65      199
-5     q1            Fossil Lagoon    &lt;NA&gt;    326  37.9   244.14      407
-6     q1          San Pedro River    &lt;NA&gt;    332  24.9   278.40      386
-7     q0                     &lt;NA&gt; Surface   1186  83.7  1017.70     1354
-8     q0                     &lt;NA&gt;     Mid   1291  83.1  1124.13     1458
-9     q0                     &lt;NA&gt;    Deep   1322  76.5  1167.88     1476
+<pre><code>  Metric          Mangrove_system   Depth   emmean      SE lower.CL upper.CL
+1     q0 Impaired Términos Lagoon    &lt;NA&gt;  949.036 212.533  522.706 1375.366
+2     q0            Fossil Lagoon    &lt;NA&gt; 1341.464  85.994 1156.084 1526.844
+3     q0          San Pedro River    &lt;NA&gt; 1508.347  57.179 1384.960 1631.734
+4     q1 Impaired Términos Lagoon    &lt;NA&gt;   69.735 109.394 -149.682  289.152
+5     q1            Fossil Lagoon    &lt;NA&gt;  326.224  38.470  243.366  409.082
+6     q1          San Pedro River    &lt;NA&gt;  333.577  25.549  278.470  388.685
+7     q0                     &lt;NA&gt; Surface 1185.956  83.745 1017.693 1354.219
+8     q0                     &lt;NA&gt;     Mid 1291.035  83.061 1124.123 1457.948
+9     q0                     &lt;NA&gt;    Deep 1321.856  76.462 1167.869 1475.843
   Significance
 1           a 
 2           ab
 3            b
-4           a 
-5            b
-6            b
+4            a
+5            a
+6            a
 7           a 
 8           ab
 9            b</code></pre>

@@ -105,11 +105,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <meta property="og:title" content="Alpha diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
-<meta property="og:image" content="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-7-1.png">
+<meta property="og:image" content="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-6-1.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Alpha diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
-<meta name="twitter:image" content="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-7-1.png">
+<meta name="twitter:image" content="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-6-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -731,27 +731,27 @@ Tip
 <span><span class="co"># show</span></span>
 <span><span class="va">metadata_with_hill</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  SampleID   q0  q1    q2 Collection_date depth  ID Environmental_medium
-1   S1A015 1266 330 106.0      2023-09-28  0-15 S1A             sediment
-2    S1B07 1502 164  36.0      2023-09-28  0-15 S1B             sediment
-3   S2A515 1708 463 161.3      2023-09-28  0-15 S2A             sediment
-4    S2B07 1378 351 106.8      2023-09-28  0-15 S2B             sediment
-5    S3A07 1190 154  37.6      2023-09-28  0-15 S3A             sediment
-6   S3B515 1588 372 108.3      2023-09-28  0-15 S3B             sediment
-  Geographic.Location    Study_zone Ecological_type season Mangrove.system
-1      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-2      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-3      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-4      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-5      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-6      Mexico:Tabasco Rio San Pedro          Fringe  flood San Pedro River
-  Mangrove_type
-1      Interior
-2      Interior
-3      Interior
-4      Interior
-5      Interior
-6      Interior</code></pre>
+<pre><code>  SampleID   q0       q1        q2 Collection_date depth  ID
+1   S1A015 1266 330.1845 105.96617      2023-09-28  0-15 S1A
+2    S1B07 1502 164.0689  35.98342      2023-09-28  0-15 S1B
+3   S2A515 1708 463.0344 161.32060      2023-09-28  0-15 S2A
+4    S2B07 1378 351.4073 106.81229      2023-09-28  0-15 S2B
+5    S3A07 1190 154.3708  37.59471      2023-09-28  0-15 S3A
+6   S3B515 1588 371.9253 108.32991      2023-09-28  0-15 S3B
+  Environmental_medium Geographic.Location    Study_zone Ecological_type season
+1             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+2             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+3             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+4             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+5             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+6             sediment      Mexico:Tabasco Rio San Pedro          Fringe  flood
+  Mangrove.system Mangrove_type
+1 San Pedro River      Interior
+2 San Pedro River      Interior
+3 San Pedro River      Interior
+4 San Pedro River      Interior
+5 San Pedro River      Interior
+6 San Pedro River      Interior</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save table</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="st">"Tables/SurfaceComparison/Metadata_with_hill.tsv"</span>,</span>
@@ -831,13 +831,13 @@ Tip
 <span>                      label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  5.343   0.138   5.591 </code></pre>
+  1.854   0.150   2.004 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/sample_effort.pdf"</span><span class="op">)</span></span>
@@ -845,7 +845,7 @@ Tip
 <span>                      label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  5.571   0.133   5.900 </code></pre>
+  1.996   0.159   2.155 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -916,7 +916,7 @@ Tip
 <span><span class="va">correlation_plot_q012</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -956,22 +956,22 @@ Call:
 lm(formula = q0 ~ log(Effective_reads) + Mangrove.system, data = metadata_with_hill)
 
 Residuals:
-   Min     1Q Median     3Q    Max 
--300.1 -126.7   29.5   73.7  295.5 
+    Min      1Q  Median      3Q     Max 
+-300.05 -126.65   29.47   73.65  295.53 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept)                       -1437       1327   -1.08    0.290  
-log(Effective_reads)                228        113    2.01    0.056 .
-Mangrove.systemCelestún Lagoon      174        142    1.22    0.236  
-Mangrove.systemSan Pedro River      218        105    2.08    0.049 *
-Mangrove.systemTérminos Lagoon     -399        368   -1.09    0.289  
+(Intercept)                     -1437.1     1326.7  -1.083   0.2904  
+log(Effective_reads)              227.9      113.1   2.015   0.0563 .
+Mangrove.systemCelestún Lagoon    173.7      142.4   1.220   0.2355  
+Mangrove.systemSan Pedro River    217.8      104.6   2.082   0.0491 *
+Mangrove.systemTérminos Lagoon   -399.1      367.6  -1.086   0.2894  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 173 on 22 degrees of freedom
-Multiple R-squared:  0.856, Adjusted R-squared:  0.83 
-F-statistic: 32.7 on 4 and 22 DF,  p-value: 5.68e-09</code></pre>
+Residual standard error: 173.5 on 22 degrees of freedom
+Multiple R-squared:  0.8562,    Adjusted R-squared:   0.83 
+F-statistic: 32.74 on 4 and 22 DF,  p-value: 5.676e-09</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -982,7 +982,7 @@ F-statistic: 32.7 on 4 and 22 DF,  p-value: 5.68e-09</code></pre>
     Shapiro-Wilk normality test
 
 data:  residuals(q0lm)
-W = 1, p-value = 0.4</code></pre>
+W = 0.95909, p-value = 0.3524</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -992,10 +992,10 @@ W = 1, p-value = 0.4</code></pre>
 <pre><code>Analysis of Variance Table
 
 Response: q0
-                     Df  Sum Sq Mean Sq F value  Pr(&gt;F)    
-log(Effective_reads)  1 3534553 3534553   117.5 2.7e-10 ***
-Mangrove.system       3  406084  135361     4.5   0.013 *  
-Residuals            22  661987   30090                    
+                     Df  Sum Sq Mean Sq  F value    Pr(&gt;F)    
+log(Effective_reads)  1 3534553 3534553 117.4648 2.737e-10 ***
+Mangrove.system       3  406084  135361   4.4985   0.01316 *  
+Residuals            22  661987   30090                       
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1013,11 +1013,11 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">q0_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q0_emmeans_df</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove.system emmean    SE df lower.CL upper.CL .group
- Términos Lagoon    732 310.5 22       88     1376  a    
- Fossil Lagoon     1131  99.6 22      925     1338  a    
- Celestún Lagoon   1305  73.1 22     1153     1456  a    
- San Pedro River   1349  70.6 22     1203     1495  a    
+<pre><code> Mangrove.system    emmean        SE df  lower.CL upper.CL .group
+ Términos Lagoon  732.0728 310.47286 22   88.1915 1375.954  a    
+ Fossil Lagoon   1131.2017  99.63621 22  924.5689 1337.835  a    
+ Celestún Lagoon 1304.8691  73.09261 22 1153.2843 1456.454  a    
+ San Pedro River 1349.0079  70.58117 22 1202.6315 1495.384  a    
 
 Confidence level used: 0.95 
 P value adjustment: tukey method for comparing a family of 4 estimates 
@@ -1059,21 +1059,21 @@ Call:
 lm(formula = q1 ~ Mangrove.system, data = metadata_with_hill)
 
 Residuals:
-   Min     1Q Median     3Q    Max 
--159.3  -72.8   17.5   65.7  172.4 
+    Min      1Q  Median      3Q     Max 
+-159.26  -72.77   17.47   65.70  172.40 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                      299.95      47.80    6.28  2.1e-06 ***
-Mangrove.systemSan Pedro River    -9.32      57.45   -0.16   0.8725    
-Mangrove.systemTérminos Lagoon  -221.17      73.01   -3.03   0.0060 ** 
-Mangrove.systemCelestún Lagoon   196.16      55.82    3.51   0.0019 ** 
+(Intercept)                      299.95      47.80   6.275 2.11e-06 ***
+Mangrove.systemSan Pedro River    -9.32      57.45  -0.162  0.87253    
+Mangrove.systemTérminos Lagoon  -221.17      73.01  -3.029  0.00597 ** 
+Mangrove.systemCelestún Lagoon   196.16      55.82   3.514  0.00186 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 95.6 on 23 degrees of freedom
-Multiple R-squared:  0.703, Adjusted R-squared:  0.664 
-F-statistic: 18.1 on 3 and 23 DF,  p-value: 2.93e-06</code></pre>
+Multiple R-squared:  0.7028,    Adjusted R-squared:  0.6641 
+F-statistic: 18.13 on 3 and 23 DF,  p-value: 2.929e-06</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q1lm</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1082,7 +1082,7 @@ F-statistic: 18.1 on 3 and 23 DF,  p-value: 2.93e-06</code></pre>
     Shapiro-Wilk normality test
 
 data:  residuals(q1lm)
-W = 1, p-value = 0.4</code></pre>
+W = 0.9627, p-value = 0.425</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># significance</span></span>
 <span><span class="va">q1_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q1lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
@@ -1092,11 +1092,11 @@ W = 1, p-value = 0.4</code></pre>
 <span><span class="va">q1_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q1_emmeans_df</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove.system emmean   SE df lower.CL upper.CL .group
- Términos Lagoon     79 55.2 23      -35      193  a    
- San Pedro River    291 31.9 23      225      357   b   
- Fossil Lagoon      300 47.8 23      201      399   b   
- Celestún Lagoon    496 28.8 23      436      556    c  
+<pre><code> Mangrove.system   emmean       SE df lower.CL upper.CL .group
+ Términos Lagoon  78.7832 55.19278 23 -35.3917 192.9582  a    
+ San Pedro River 290.6340 31.86557 23 224.7150 356.5529   b   
+ Fossil Lagoon   299.9544 47.79835 23 201.0760 398.8329   b   
+ Celestún Lagoon 496.1101 28.82349 23 436.4841 555.7360    c  
 
 Confidence level used: 0.95 
 P value adjustment: tukey method for comparing a family of 4 estimates 
@@ -1110,7 +1110,7 @@ NOTE: If two or more means share the same grouping symbol,
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
 <span><span class="va">q1plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span> , y <span class="op">=</span> <span class="va">q1</span>, fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">0.1</span>, alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">q1_emmeans_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">emmean</span>, label <span class="op">=</span> <span class="va">.group</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">4</span>,</span>
 <span>          color <span class="op">=</span> <span class="st">"black"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"q1 = Exp Shannon"</span>, y <span class="op">=</span> <span class="cn">NULL</span>, x <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span><span class="co">#,</span></span>
 <span>  <span class="co">#caption = "lm (Depth sequencing and Mangrove system") +</span></span>
@@ -1132,21 +1132,21 @@ Call:
 lm(formula = q2 ~ Mangrove.system, data = metadata_with_hill)
 
 Residuals:
-   Min     1Q Median     3Q    Max 
--54.83 -33.51   8.73  20.64  88.13 
+    Min      1Q  Median      3Q     Max 
+-54.826 -33.506   8.732  20.643  88.129 
 
 Coefficients:
                                Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)                      86.524     20.088    4.31  0.00026 ***
-Mangrove.systemSan Pedro River   -0.777     24.142   -0.03  0.97459    
-Mangrove.systemTérminos Lagoon  -35.356     30.685   -1.15  0.26106    
-Mangrove.systemCelestún Lagoon  147.014     23.457    6.27  2.1e-06 ***
+(Intercept)                     86.5240    20.0878   4.307 0.000262 ***
+Mangrove.systemSan Pedro River  -0.7773    24.1425  -0.032 0.974593    
+Mangrove.systemTérminos Lagoon -35.3560    30.6846  -1.152 0.261058    
+Mangrove.systemCelestún Lagoon 147.0145    23.4575   6.267 2.15e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 40.2 on 23 degrees of freedom
-Multiple R-squared:  0.809, Adjusted R-squared:  0.785 
-F-statistic: 32.6 on 3 and 23 DF,  p-value: 1.88e-08</code></pre>
+Residual standard error: 40.18 on 23 degrees of freedom
+Multiple R-squared:  0.8095,    Adjusted R-squared:  0.7846 
+F-statistic: 32.57 on 3 and 23 DF,  p-value: 1.881e-08</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#check model reliability</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">q2lm</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1155,7 +1155,7 @@ F-statistic: 32.6 on 3 and 23 DF,  p-value: 1.88e-08</code></pre>
     Shapiro-Wilk normality test
 
 data:  residuals(q2lm)
-W = 0.9, p-value = 0.2</code></pre>
+W = 0.94438, p-value = 0.1562</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get significance</span></span>
 <span><span class="va">q2_lm_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">q2lm</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Mangrove.system</span><span class="op">)</span></span>
@@ -1165,11 +1165,11 @@ W = 0.9, p-value = 0.2</code></pre>
 <span><span class="va">q2_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q2_emmeans_df</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Mangrove.system emmean   SE df lower.CL upper.CL .group
- Términos Lagoon   51.2 23.2 23      3.2     99.2  a    
- San Pedro River   85.7 13.4 23     58.0    113.4  a    
- Fossil Lagoon     86.5 20.1 23     45.0    128.1  a    
- Celestún Lagoon  233.5 12.1 23    208.5    258.6   b   
+<pre><code> Mangrove.system    emmean       SE df  lower.CL  upper.CL .group
+ Términos Lagoon  51.16794 23.19535 23   3.18471  99.15118  a    
+ San Pedro River  85.74665 13.39184 23  58.04352 113.44979  a    
+ Fossil Lagoon    86.52398 20.08776 23  44.96927 128.07868  a    
+ Celestún Lagoon 233.53846 12.11338 23 208.48003 258.59689   b   
 
 Confidence level used: 0.95 
 P value adjustment: tukey method for comparing a family of 4 estimates 
@@ -1183,7 +1183,7 @@ NOTE: If two or more means share the same grouping symbol,
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot</span></span>
 <span><span class="va">q2plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">metadata_with_hill</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Mangrove.system</span>, y <span class="op">=</span> <span class="va">q2</span>, fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co">#geom_jitter(aes(fill = Mangrove.system), width = 0.1, alpha = 0.4) +</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">Mangrove.system</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">0.1</span>, alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">q2_emmeans_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">emmean</span>, label <span class="op">=</span> <span class="va">.group</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">4</span>,</span>
 <span>            color <span class="op">=</span> <span class="st">"black"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>, position <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/position_dodge.html">position_dodge</a></span><span class="op">(</span><span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"q2 = Inv Simpson"</span>, y <span class="op">=</span> <span class="cn">NULL</span>, x <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -1224,7 +1224,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q12y_plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="02.1.AlphaDiversity_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1267,40 +1267,59 @@ NOTE: If two or more means share the same grouping symbol,
 </div>
 </section><section id="supplementary-table-s4" class="level3"><h3 class="anchored" data-anchor-id="supplementary-table-s4">Supplementary Table S4</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract compare of each models</span></span>
-<span><span class="va">s2_q0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="va">q0_lm_means</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span></span>
-<span><span class="va">s2_q1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="va">q1_lm_means</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>metric <span class="op">=</span> <span class="st">"q1"</span><span class="op">)</span></span>
-<span><span class="va">s2_q2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/pairs.html">pairs</a></span><span class="op">(</span><span class="va">q2_lm_means</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>metric <span class="op">=</span> <span class="st">"q2"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">get_pairs</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">em</span>, <span class="va">metric</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu">emmeans</span><span class="fu">::</span><span class="fu"><a href="https://rvlenth.github.io/emmeans/reference/contrast.html">contrast</a></span><span class="op">(</span><span class="va">em</span>, <span class="st">"pairwise"</span>, adjust <span class="op">=</span> <span class="st">"tukey"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>metric <span class="op">=</span> <span class="va">metric</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
 <span></span>
-<span><span class="co"># join all S2</span></span>
-<span></span>
-<span><span class="va">table_s2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">s2_q0</span>, <span class="va">s2_q1</span>, <span class="va">s2_q2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">estimate</span>, <span class="va">SE</span>, <span class="va">t.ratio</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>         p.value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">p.value</span>, <span class="fl">8</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">table_s2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
+<span>  <span class="fu">get_pairs</span><span class="op">(</span><span class="va">q0_lm_means</span>, <span class="st">"q0"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_pairs</span><span class="op">(</span><span class="va">q1_lm_means</span>, <span class="st">"q1"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_pairs</span><span class="op">(</span><span class="va">q2_lm_means</span>, <span class="st">"q2"</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">estimate</span>, <span class="va">SE</span>, <span class="va">t.ratio</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">metric</span>, <span class="va">contrast</span>, <span class="va">estimate</span>, <span class="va">SE</span>, <span class="va">df</span>, <span class="va">t.ratio</span>, <span class="va">p.value</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co">#show</span></span>
 <span><span class="va">table_s2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   metric                          contrast estimate    SE df t.ratio  p.value
-1      q0   Fossil Lagoon - Celestún Lagoon  -173.67 142.4 22   -1.22 6.21e-01
-2      q0   Fossil Lagoon - San Pedro River  -217.81 104.6 22   -2.08 1.90e-01
-3      q0   Fossil Lagoon - Términos Lagoon   399.13 367.6 22    1.09 7.02e-01
-4      q0 Celestún Lagoon - San Pedro River   -44.14 120.2 22   -0.37 9.83e-01
-5      q0 Celestún Lagoon - Términos Lagoon   572.80 267.8 22    2.14 1.72e-01
-6      q0 San Pedro River - Términos Lagoon   616.94 353.8 22    1.74 3.26e-01
-7      q1   Fossil Lagoon - San Pedro River     9.32  57.5 23    0.16 9.98e-01
-8      q1   Fossil Lagoon - Términos Lagoon   221.17  73.0 23    3.03 2.84e-02
-9      q1   Fossil Lagoon - Celestún Lagoon  -196.16  55.8 23   -3.51 9.37e-03
-10     q1 San Pedro River - Términos Lagoon   211.85  63.7 23    3.32 1.46e-02
-11     q1 San Pedro River - Celestún Lagoon  -205.48  43.0 23   -4.78 4.36e-04
-12     q1 Términos Lagoon - Celestún Lagoon  -417.33  62.3 23   -6.70 4.41e-06
-13     q2   Fossil Lagoon - San Pedro River     0.78  24.1 23    0.03 1.00e+00
-14     q2   Fossil Lagoon - Términos Lagoon    35.36  30.7 23    1.15 6.62e-01
-15     q2   Fossil Lagoon - Celestún Lagoon  -147.01  23.5 23   -6.27 1.21e-05
-16     q2 San Pedro River - Términos Lagoon    34.58  26.8 23    1.29 5.78e-01
-17     q2 San Pedro River - Celestún Lagoon  -147.79  18.1 23   -8.18 1.70e-07
-18     q2 Términos Lagoon - Celestún Lagoon  -182.37  26.2 23   -6.97 2.39e-06</code></pre>
+<pre><code>   metric                          contrast estimate     SE df t.ratio
+1      q0   Fossil Lagoon - Celestún Lagoon  -173.67 142.40 22   -1.22
+2      q0   Fossil Lagoon - San Pedro River  -217.81 104.59 22   -2.08
+3      q0   Fossil Lagoon - Términos Lagoon   399.13 367.62 22    1.09
+4      q0 Celestún Lagoon - San Pedro River   -44.14 120.24 22   -0.37
+5      q0 Celestún Lagoon - Términos Lagoon   572.80 267.82 22    2.14
+6      q0 San Pedro River - Términos Lagoon   616.94 353.79 22    1.74
+7      q1   Fossil Lagoon - San Pedro River     9.32  57.45 23    0.16
+8      q1   Fossil Lagoon - Términos Lagoon   221.17  73.01 23    3.03
+9      q1   Fossil Lagoon - Celestún Lagoon  -196.16  55.82 23   -3.51
+10     q1 San Pedro River - Términos Lagoon   211.85  63.73 23    3.32
+11     q1 San Pedro River - Celestún Lagoon  -205.48  42.97 23   -4.78
+12     q1 Términos Lagoon - Celestún Lagoon  -417.33  62.27 23   -6.70
+13     q2   Fossil Lagoon - San Pedro River     0.78  24.14 23    0.03
+14     q2   Fossil Lagoon - Términos Lagoon    35.36  30.68 23    1.15
+15     q2   Fossil Lagoon - Celestún Lagoon  -147.01  23.46 23   -6.27
+16     q2 San Pedro River - Términos Lagoon    34.58  26.78 23    1.29
+17     q2 San Pedro River - Celestún Lagoon  -147.79  18.06 23   -8.18
+18     q2 Términos Lagoon - Celestún Lagoon  -182.37  26.17 23   -6.97
+        p.value
+1  6.214028e-01
+2  1.898874e-01
+3  7.016582e-01
+4  9.826509e-01
+5  1.721762e-01
+6  3.261209e-01
+7  9.984341e-01
+8  2.836426e-02
+9  9.370389e-03
+10 1.457235e-02
+11 4.363458e-04
+12 4.406909e-06
+13 9.999876e-01
+14 6.618799e-01
+15 1.212827e-05
+16 5.776188e-01
+17 1.667237e-07
+18 2.394085e-06</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">table_s2</span>, <span class="st">"Tables/SurfaceComparison/SupplementaryTableS4PostHocAlphaDiversity.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

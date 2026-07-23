@@ -9,7 +9,6 @@ This figure integrates the two independent lines of evidence: community assembly
 ## Load results
 
 ```{r}
-#| eval: false
 #| message: false
 #| warning: false
 library(ggplot2)
@@ -19,7 +18,7 @@ library(cowplot)
 ## Panel A — βNTI by group
 
 ```{r}
-#| eval: false
+
 pA <- readRDS("rds/assembly_process/bntiplot.rds")
 pA
 ```
@@ -27,7 +26,7 @@ pA
 ## Panel B — Assembly process composition
 
 ```{r}
-#| eval: false
+
 pB <- readRDS("rds/assembly_process/rcplot.rds")
 pB
 ```
@@ -35,7 +34,7 @@ pB
 ## Panel C — Network metrics vs depth (from fjbalvino)
 
 ```{r}
-#| eval: false
+
 # TODO: depth-trend panel from collaborator's network results.
 #       e.g. metrics vs depth horizon with trend line.
 pC <- NULL  # placeholder
@@ -44,10 +43,21 @@ pC <- NULL  # placeholder
 ## Assemble figure
 
 ```{r}
-#| eval: false
-fig6 <- plot_grid(pB, pA,
+fig6left <- plot_grid(pA, pB,
                   labels = c("a)","b)"),
                   label_fontface = "bold",
-                  ncol = 2)
+                  ncol = 1)
+fig6left
+```
+
+```{r}
+fig6 <- plot_grid(fig6left, pC,
+                  labels = c("","c)"),
+                  label_fontface = "bold",
+                  ncol = 2, rel_widths = c(0.4, 0.6))
 fig6
+```
+
+```{r}
+ggsave2("Figures/Fig6.pdf", fig6, width = 35, height = 25, units = "cm")
 ```
