@@ -193,7 +193,6 @@ bnti_site <- read_csv("06.null-models-results/bNTI_summary_by_site.csv",
                       show_col_types = FALSE)
 
 knitr::kable(bnti_site, caption = "Mean βNTI per inland site.")
-knitr::kable(posthoc,  caption = "Fisher's exact test between sites (BH-adjusted).")
 ```
 
 > **Key result.** Across all inland samples, deterministic selection dominated assembly (60.4% of comparisons; heterogeneous selection 50.4%), reproducibly across the three sites. Fossil Lagoon, the most isolated site, showed the largest contribution of dispersal limitation (mean βNTI 0.85), whereas the river sites were selection-dominated (mean βNTI 3.12 and 3.49). Fossil Lagoon differed from both river sites (Fisher, BH-adjusted *p* = 0.006 and 0.009), while the two river sites did not differ (*p* = 0.16).
