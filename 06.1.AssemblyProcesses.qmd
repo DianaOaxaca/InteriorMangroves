@@ -187,8 +187,7 @@ saveRDS(raupplot, "rds/assembly_process/rcplot.rds")
 ```{r}
 #| label: tables
 #| message: false
-posthoc <- read_csv("06.null-models-results/posthoc_process_differences.csv",
-                    show_col_types = FALSE)
+
 bnti_site <- read_csv("06.null-models-results/bNTI_summary_by_site.csv",
                       show_col_types = FALSE)
 
