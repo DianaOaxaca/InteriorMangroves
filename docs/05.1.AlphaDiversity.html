@@ -892,7 +892,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  6.552   0.404   6.956 </code></pre>
+  6.683   0.528   7.217 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/interior_impaired/Sample_effort.pdf"</span><span class="op">)</span></span>
@@ -900,7 +900,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                      col <span class="op">=</span> <span class="va">sample_colors</span>, label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  6.435   0.404   6.839 </code></pre>
+  6.646   0.529   7.211 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1172,9 +1172,9 @@ Mngrv_sySPR  0.774 -0.856  0.015  0.089  0.898</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test con lmerTest</span></span>
-<span><span class="va">perm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q0lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
-<span><span class="va">perm_test</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># likelihood-ratio test</span></span>
+<span><span class="va">lrt_random_q0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q0lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">lrt_random_q0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
@@ -1292,10 +1292,10 @@ Mngrv_sySPR  0.828 -0.890  0.016  0.090  0.920</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmerTest</span></span>
-<span><span class="va">perm_testq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q1lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">lrt_random_q1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q1lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Summary</span></span>
-<span><span class="va">perm_testq1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="va">lrt_random_q1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
@@ -1407,10 +1407,10 @@ Mngrv_sySPR -0.797  0.000 -0.067  0.675</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmerTest</span></span>
-<span><span class="va">perm_testq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q2lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">lrt_random_q2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q2lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Summary</span></span>
-<span><span class="va">perm_testq2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="va">lrt_random_q2</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
@@ -1531,8 +1531,8 @@ DepthDeep    0.091 -0.132  0.096  0.089  0.554</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test </span></span>
-<span><span class="va">perm_testloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q0lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
-<span><span class="va">perm_testloc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="va">lrt_q0loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q0lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">lrt_q0loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
@@ -1604,13 +1604,13 @@ NOTE: If two or more means share the same grouping symbol,
 </section><section id="q1-exp-shannon-diversity" class="level3"><h3 class="anchored" data-anchor-id="q1-exp-shannon-diversity">q1 Exp Shannon diversity</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmm</span></span>
-<span><span class="va">q1lmerloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">q1</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove_system</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">ID</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
+<span><span class="va">q1lmerloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">q1</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Mangrove_system</span> <span class="op">+</span> <span class="va">Depth</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">ID</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span><span class="co"># summary</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">q1lmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: q1 ~ log(Effective_reads) + Mangrove_system + Depths + (1 | ID)
+Formula: q1 ~ log(Effective_reads) + Mangrove_system + Depth + (1 | ID)
    Data: metadata_with_hill
 
 REML criterion at convergence: 644.3
@@ -1627,33 +1627,33 @@ Number of obs: 59, groups:  ID, 16
 
 Fixed effects:
                                Estimate Std. Error     df t value Pr(&gt;|t|)  
-(Intercept)                      222.89     338.28  48.53   0.659   0.5131  
+(Intercept)                      192.22     335.11  48.52   0.574   0.5689  
 log(Effective_reads)             -13.01      37.08  47.55  -0.351   0.7272  
 Mangrove_systemFossil Lagoon     256.49     115.80  51.20   2.215   0.0312 *
 Mangrove_systemSan Pedro River   263.84     113.96  52.73   2.315   0.0245 *
-DepthsMid                         24.73      25.27  40.52   0.979   0.3336  
-DepthsSurface                    -30.66      25.33  40.56  -1.210   0.2331  
+DepthMid                          55.39      27.97  40.27   1.981   0.0545 .
+DepthDeep                         30.66      25.33  40.56   1.210   0.2331  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            (Intr) lg(E_) Mng_FL Mn_SPR DpthsM
+            (Intr) lg(E_) Mng_FL Mn_SPR DpthMd
 lg(Effctv_) -0.990                            
 Mngrv_sysFL  0.797 -0.858                     
-Mngrv_sySPR  0.827 -0.890  0.920              
-DepthsMid   -0.143  0.110 -0.082 -0.073       
-DepthsSurfc -0.162  0.129 -0.098 -0.090  0.389</code></pre>
+Mngrv_sySPR  0.828 -0.890  0.920              
+DepthMid    -0.024 -0.017  0.015  0.016       
+DepthDeep    0.088 -0.129  0.098  0.090  0.554</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test </span></span>
-<span><span class="va">perm_testlocq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q1lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
-<span><span class="va">perm_testlocq1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># LRT test </span></span>
+<span><span class="va">lrt_q1loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q1lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">lrt_q1loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
-q1 ~ log(Effective_reads) + Mangrove_system + Depths + (1 | ID)
+q1 ~ log(Effective_reads) + Mangrove_system + Depth + (1 | ID)
          npar  logLik    AIC    LRT Df Pr(&gt;Chisq)   
 &lt;none&gt;      8 -322.17 660.34                        
 (1 | ID)    7 -326.67 667.35 9.0052  1   0.002692 **
@@ -1667,7 +1667,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
                      Sum Sq Mean Sq NumDF  DenDF F value  Pr(&gt;F)  
 log(Effective_reads)    770   770.5     1 47.549  0.1232 0.72716  
 Mangrove_system       33820 16910.1     2 20.645  2.7035 0.09061 .
-Depths                24655 12327.5     2 40.462  1.9709 0.15249  
+Depth                 24655 12327.5     2 40.462  1.9709 0.15249  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1688,7 +1688,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
  Fossil Lagoon            326.2241  38.46959 13.40  243.3658 409.0823  a    
  San Pedro River          333.5771  25.54928 13.21  278.4697 388.6845  a    
 
-Results are averaged over the levels of: Depths 
+Results are averaged over the levels of: Depth 
 Degrees-of-freedom method: kenward-roger 
 Confidence level used: 0.95 
 P value adjustment: tukey method for comparing a family of 3 estimates 
@@ -1763,9 +1763,9 @@ DepthDeep   -0.331 -0.031 -0.067  0.557</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test</span></span>
-<span><span class="va">perm_testlocq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q2lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
-<span><span class="va">perm_testlocq2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># LRT test</span></span>
+<span><span class="va">lrt_q2loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q2lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">lrt_q2loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
@@ -1851,7 +1851,7 @@ NOTE: If two or more means share the same grouping symbol,
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Combine plot</span></span>
 <span></span>
 <span><span class="va">title</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/ggdraw.html">ggdraw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/draw_label.html">draw_label</a></span><span class="op">(</span><span class="st">"Effective number of ASVs"</span>, angle <span class="op">=</span> <span class="fl">90</span>, size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span>
-<span><span class="va">alphaplots_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">q0plotloc</span>, <span class="va">q1plotloc</span>,</span>
+<span><span class="va">alphaplots_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">q0plotloc</span>,</span>
 <span>                      ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">alphaplots_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">title</span>, <span class="va">alphaplots_loc</span>, ncol <span class="op">=</span> <span class="fl">2</span>, rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.05</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>    </span>
@@ -1968,55 +1968,179 @@ Important
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bbolker/broom.mixed">broom.mixed</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvlenth.github.io/emmeans/">emmeans</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Linear Mixed Models</span></span>
+<span><span class="co"># ---- Linear Mixed Models ----</span></span>
 <span><span class="va">tableS7_imp_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q0lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q1lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q1"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q2lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q2"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q2lmerloc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q2"</span><span class="op">)</span></span>
 <span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">effect</span> <span class="op">==</span> <span class="st">"fixed"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, Term <span class="op">=</span> <span class="va">term</span>, Estimate <span class="op">=</span> <span class="va">estimate</span>, Std.Error <span class="op">=</span> <span class="va">std.error</span>, Statistic <span class="op">=</span> <span class="va">statistic</span>, p_value <span class="op">=</span> <span class="va">p.value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, Term <span class="op">=</span> <span class="va">term</span>, Estimate <span class="op">=</span> <span class="va">estimate</span>,</span>
+<span>                Std.Error <span class="op">=</span> <span class="va">std.error</span>, Statistic <span class="op">=</span> <span class="va">statistic</span>,</span>
+<span>                p_value <span class="op">=</span> <span class="va">p.value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co">#Posthoc</span></span>
-<span><span class="co"># join CLD dataframe</span></span>
-<span><span class="va">tableS7_imp_posthoc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q0cld_results_loc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q1cld_results_loc</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q1"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, <span class="va">Mangrove_system</span>, <span class="va">Depth</span>, <span class="va">emmean</span>, <span class="va">SE</span>, <span class="va">lower.CL</span>, <span class="va">upper.CL</span>, Significance <span class="op">=</span> <span class="va">.group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># ---- Post hoc: CLD (medias marginales + letras) ----</span></span>
+<span><span class="va">get_cld</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">metric</span>, <span class="va">factor_name</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Level"</span></span>
+<span>  <span class="va">d</span><span class="op">$</span><span class="va">Metric</span> <span class="op">&lt;-</span> <span class="va">metric</span></span>
+<span>  <span class="va">d</span><span class="op">$</span><span class="va">Factor</span> <span class="op">&lt;-</span> <span class="va">factor_name</span></span>
+<span>  <span class="va">d</span></span>
+<span><span class="op">}</span></span>
 <span></span>
-<span><span class="co"># clean</span></span>
+<span><span class="va">tableS7_imp_posthoc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">q0cld_results_loc</span>, <span class="st">"q0"</span>, <span class="st">"Mangrove_system"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">q1cld_results_loc</span>, <span class="st">"q1"</span>, <span class="st">"Mangrove_system"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">q2cld_results_loc</span>, <span class="st">"q2"</span>, <span class="st">"Mangrove_system"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">cld_results</span>,       <span class="st">"q0"</span>, <span class="st">"Depth"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">cld_resultsq1</span>,     <span class="st">"q1"</span>, <span class="st">"Depth"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">cld_resultsq2</span>,     <span class="st">"q2"</span>, <span class="st">"Depth"</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, <span class="va">Factor</span>, <span class="va">Level</span>, <span class="va">emmean</span>, <span class="va">SE</span>, <span class="va">df</span>,</span>
+<span>                <span class="va">lower.CL</span>, <span class="va">upper.CL</span>, Significance <span class="op">=</span> <span class="va">.group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>         Significance <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="va">Significance</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">tableS7_imp_posthoc</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
 <span></span>
-<span><span class="co">#show</span></span>
-<span><span class="va">tableS7_imp_posthoc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="co"># ---- Post hoc: contrastes pareados (Tukey) ----</span></span>
+<span><span class="va">get_contrasts</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">metric</span>, <span class="va">factor_name</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">contrasts</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="va">metric</span>, Factor <span class="op">=</span> <span class="va">factor_name</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">tableS7_imp_contrasts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q0_lmer_means_loc</span>, <span class="st">"q0"</span>, <span class="st">"Mangrove_system"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q1lmer_means_loc</span>,  <span class="st">"q1"</span>, <span class="st">"Mangrove_system"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q2lmer_means_loc</span>,  <span class="st">"q2"</span>, <span class="st">"Mangrove_system"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q0_lmer_means</span>,     <span class="st">"q0"</span>, <span class="st">"Depth"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q1_lmer_means</span>,     <span class="st">"q1"</span>, <span class="st">"Depth"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q2_lmer_means</span>,     <span class="st">"q2"</span>, <span class="st">"Depth"</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, <span class="va">Factor</span>, Contrast <span class="op">=</span> <span class="va">contrast</span>, Estimate <span class="op">=</span> <span class="va">estimate</span>,</span>
+<span>                <span class="va">SE</span>, <span class="va">df</span>, <span class="va">t.ratio</span>, <span class="va">p.value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Estimate</span>, <span class="va">SE</span>, <span class="va">df</span>, <span class="va">t.ratio</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>         p.value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.pval.html">format.pval</a></span><span class="op">(</span><span class="va">p.value</span>, digits <span class="op">=</span> <span class="fl">3</span>, eps <span class="op">=</span> <span class="fl">1e-04</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">tableS7_imp_contrasts</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span></span>
+<span><span class="co"># ---- show ----</span></span>
+<span><span class="va">tableS7_imp_models</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Metric          Mangrove_system   Depth   emmean      SE lower.CL upper.CL
-1     q0 Impaired Términos Lagoon    &lt;NA&gt;  949.036 212.533  522.706 1375.366
-2     q0            Fossil Lagoon    &lt;NA&gt; 1341.464  85.994 1156.084 1526.844
-3     q0          San Pedro River    &lt;NA&gt; 1508.347  57.179 1384.960 1631.734
-4     q1 Impaired Términos Lagoon    &lt;NA&gt;   69.735 109.394 -149.682  289.152
-5     q1            Fossil Lagoon    &lt;NA&gt;  326.224  38.470  243.366  409.082
-6     q1          San Pedro River    &lt;NA&gt;  333.577  25.549  278.470  388.685
-7     q0                     &lt;NA&gt; Surface 1185.956  83.745 1017.693 1354.219
-8     q0                     &lt;NA&gt;     Mid 1291.035  83.061 1124.123 1457.948
-9     q0                     &lt;NA&gt;    Deep 1321.856  76.462 1167.869 1475.843
-  Significance
-1           a 
-2           ab
-3            b
-4            a
-5            a
-6            a
-7           a 
-8           ab
-9            b</code></pre>
+<pre><code># A tibble: 17 × 6
+   Metric Term                           Estimate Std.Error Statistic p_value
+   &lt;chr&gt;  &lt;chr&gt;                             &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+ 1 q0     (Intercept)                    -2363.       635.     -3.72   0.0005
+ 2 q0     log(Effective_reads)             278.        70.0     3.97   0.0003
+ 3 q0     Mangrove_systemFossil Lagoon     392.       230.      1.71   0.094 
+ 4 q0     Mangrove_systemSan Pedro River   559.       224.      2.50   0.0156
+ 5 q0     DepthMid                         105.        52.0     2.02   0.0501
+ 6 q0     DepthDeep                        136.        47.1     2.88   0.0063
+ 7 q1     (Intercept)                      192.       335.      0.574  0.569 
+ 8 q1     log(Effective_reads)             -13.0       37.1    -0.351  0.727 
+ 9 q1     Mangrove_systemFossil Lagoon     256.       116.      2.22   0.0312
+10 q1     Mangrove_systemSan Pedro River   264.       114.      2.32   0.0245
+11 q1     DepthMid                          55.4       28.0     1.98   0.0545
+12 q1     DepthDeep                         30.7       25.3     1.21   0.233 
+13 q2     (Intercept)                       40.7       19.5     2.09   0.049 
+14 q2     Mangrove_systemFossil Lagoon      50.9       23.5     2.17   0.0467
+15 q2     Mangrove_systemSan Pedro River    52.4       20.5     2.55   0.022 
+16 q2     DepthMid                          25.3       13.3     1.90   0.0644
+17 q2     DepthDeep                          9.25      12.0     0.773  0.444 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS7_imp_models</span>, <span class="st">"Tables/interior_impaired/Supplementary_Table_S7_Impairment_LMM.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS7_imp_posthoc</span>, <span class="st">"Tables/interior_impaired/Supplementary_Table_S7_Impairment_PostHoc.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tableS7_imp_posthoc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Metric          Factor                    Level   emmean      SE     df
+1      q0 Mangrove_system Impaired Términos Lagoon  949.036 212.533 52.777
+2      q0 Mangrove_system            Fossil Lagoon 1341.464  85.994 13.281
+3      q0 Mangrove_system          San Pedro River 1508.347  57.179 13.147
+4      q1 Mangrove_system Impaired Términos Lagoon   69.735 109.394 52.999
+5      q1 Mangrove_system            Fossil Lagoon  326.224  38.470 13.398
+6      q1 Mangrove_system          San Pedro River  333.577  25.549 13.209
+7      q2 Mangrove_system Impaired Términos Lagoon   52.200  18.011 15.733
+8      q2 Mangrove_system            Fossil Lagoon  103.119  15.122 13.797
+9      q2 Mangrove_system          San Pedro River  104.581   9.887 12.896
+10     q0           Depth                  Surface 1185.956  83.745 49.342
+11     q0           Depth                      Mid 1291.035  83.061 49.059
+12     q0           Depth                     Deep 1321.856  76.462 45.166
+13     q1           Depth                  Surface  214.493  42.445 51.793
+14     q1           Depth                     Deep  245.156  38.334 49.177
+15     q1           Depth                      Mid  269.887  42.062 51.651
+16     q2           Depth                  Surface   75.117  11.553 38.595
+17     q2           Depth                     Deep   84.362  10.267 28.085
+18     q2           Depth                      Mid  100.421  11.553 38.595
+   lower.CL upper.CL Significance
+1   522.706 1375.366            a
+2  1156.084 1526.844           ab
+3  1384.960 1631.734            b
+4  -149.682  289.152            a
+5   243.366  409.082            a
+6   278.470  388.685            a
+7    13.964   90.435            a
+8    70.640  135.598            a
+9    83.205  125.958            a
+10 1017.693 1354.219            a
+11 1124.123 1457.948           ab
+12 1167.869 1475.843            b
+13  129.314  299.673            a
+14  168.127  322.184            a
+15  185.469  354.305            a
+16   51.740   98.493            a
+17   63.335  105.389            a
+18   77.044  123.798            a</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tableS7_imp_contrasts</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Metric          Factor                                   Contrast Estimate
+1      q0 Mangrove_system   Impaired Términos Lagoon - Fossil Lagoon -392.428
+2      q0 Mangrove_system Impaired Términos Lagoon - San Pedro River -559.311
+3      q0 Mangrove_system            Fossil Lagoon - San Pedro River -166.883
+4      q1 Mangrove_system   Impaired Términos Lagoon - Fossil Lagoon -256.489
+5      q1 Mangrove_system Impaired Términos Lagoon - San Pedro River -263.842
+6      q1 Mangrove_system            Fossil Lagoon - San Pedro River   -7.353
+7      q2 Mangrove_system   Impaired Términos Lagoon - Fossil Lagoon  -50.919
+8      q2 Mangrove_system Impaired Términos Lagoon - San Pedro River  -52.382
+9      q2 Mangrove_system            Fossil Lagoon - San Pedro River   -1.463
+10     q0           Depth                              Surface - Mid -105.079
+11     q0           Depth                             Surface - Deep -135.900
+12     q0           Depth                                 Mid - Deep  -30.821
+13     q1           Depth                              Surface - Mid  -55.393
+14     q1           Depth                             Surface - Deep  -30.662
+15     q1           Depth                                 Mid - Deep   24.731
+16     q2           Depth                              Surface - Mid  -25.304
+17     q2           Depth                             Surface - Deep   -9.245
+18     q2           Depth                                 Mid - Deep   16.059
+        SE     df t.ratio p.value
+1  231.841 48.875  -1.693  0.2182
+2  225.934 51.833  -2.476  0.0432
+3  102.848 13.039  -1.623  0.2713
+4  117.374 51.156  -2.185  0.0834
+5  115.576 52.726  -2.283  0.0671
+6   45.913 13.058  -0.160  0.9860
+7   23.518 14.893  -2.165  0.1104
+8   20.547 15.008  -2.549  0.0547
+9   17.988 13.266  -0.081  0.9964
+10  52.022 40.014  -2.020  0.1205
+11  47.174 40.228  -2.881  0.0170
+12  47.057 40.196  -0.655  0.7906
+13  27.966 40.028  -1.981  0.1301
+14  25.350 40.325  -1.210  0.4545
+15  25.289 40.282   0.978  0.5948
+16  13.314 41.037  -1.901  0.1514
+17  11.961 41.200  -0.773  0.7215
+18  11.961 41.200   1.343  0.3802</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb100"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ---- save ----</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS7_imp_models</span>,</span>
+<span>          <span class="st">"Tables/interior_impaired/Supplementary_Table_S7_Impairment_LMM.csv"</span>,</span>
+<span>          row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS7_imp_posthoc</span>,</span>
+<span>          <span class="st">"Tables/interior_impaired/Supplementary_Table_S7_Impairment_PostHoc.csv"</span>,</span>
+<span>          row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS7_imp_contrasts</span>,</span>
+<span>          <span class="st">"Tables/interior_impaired/Supplementary_Table_S7_Impairment_Contrasts.csv"</span>,</span>
+<span>          row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

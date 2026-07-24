@@ -347,9 +347,9 @@ summary(q0lmer)
 ```
 
 ```{r}
-# Permutation test con lmerTest
-perm_test <- rand(q0lmer, nsim = 1000)
-perm_test
+# likelihood-ratio test
+lrt_random_q0 <- rand(q0lmer, nsim = 1000)
+lrt_random_q0
 
 #effects
 anova(q0lmer)
@@ -397,10 +397,10 @@ summary(q1lmer)
 
 ```{r}
 # lmerTest
-perm_testq1 <- rand(q1lmer, nsim = 1000)
+lrt_random_q1 <- rand(q1lmer, nsim = 1000)
 
 # Summary
-perm_testq1
+lrt_random_q1
 
 # Efects
 anova(q1lmer)
@@ -442,10 +442,10 @@ summary(q2lmer)
 
 ```{r}
 # lmerTest
-perm_testq2 <- rand(q2lmer, nsim = 1000)
+lrt_random_q2 <- rand(q2lmer, nsim = 1000)
 
 # Summary
-perm_testq2
+lrt_random_q2 
 
 # Efects
 anova(q2lmer)
@@ -489,8 +489,8 @@ summary(q0lmerloc)
 
 ```{r}
 # Permutation test 
-perm_testloc <- rand(q0lmerloc, nsim = 1000)
-perm_testloc
+lrt_q0loc <- rand(q0lmerloc, nsim = 1000)
+lrt_q0loc
 
 #effects
 anova(q0lmerloc)
@@ -527,15 +527,15 @@ q0plotloc
 ```{r}
 #| label: q1lmerloc
 # lmm
-q1lmerloc <- lmer(q1 ~ log(Effective_reads) + Mangrove_system + Depths + (1 | ID), data = metadata_with_hill)
+q1lmerloc <- lmer(q1 ~ log(Effective_reads) + Mangrove_system + Depth + (1 | ID), data = metadata_with_hill)
 # summary
 summary(q1lmerloc)
 ```
 
 ```{r}
-# Permutation test 
-perm_testlocq1 <- rand(q1lmerloc, nsim = 1000)
-perm_testlocq1
+# LRT test 
+lrt_q1loc <- rand(q1lmerloc, nsim = 1000)
+lrt_q1loc
 
 #effects
 anova(q1lmerloc)
@@ -580,9 +580,9 @@ summary(q2lmerloc)
 ```
 
 ```{r}
-# Permutation test
-perm_testlocq2 <- rand(q2lmerloc, nsim = 1000)
-perm_testlocq2
+# LRT test
+lrt_q2loc <- rand(q2lmerloc, nsim = 1000)
+lrt_q2loc
 
 #effects
 anova(q2lmerloc)
@@ -626,7 +626,7 @@ A combined plot of the Observed richness by depth and Mangrove system, and Shann
 #Combine plot
 
 title <- ggdraw() + draw_label("Effective number of ASVs", angle = 90, size = 12)
-alphaplots_loc <- plot_grid(q0plotloc, q1plotloc,
+alphaplots_loc <- plot_grid(q0plotloc,
                       ncol = 1)
 
 alphaplots_loc <- plot_grid(title, alphaplots_loc, ncol = 2, rel_widths = c(0.05, 1))    
@@ -733,32 +733,76 @@ library(dplyr)
 library(broom.mixed)
 library(emmeans)
 
-# Linear Mixed Models
+# ---- Linear Mixed Models ----
 tableS7_imp_models <- bind_rows(
   tidy(q0lmerloc) %>% mutate(Metric = "q0"),
   tidy(q1lmerloc) %>% mutate(Metric = "q1"),
-  tidy(q2lmerloc) %>% mutate(Metric = "q2"),
+  tidy(q2lmerloc) %>% mutate(Metric = "q2")
 ) %>%
   filter(effect == "fixed") %>%
-  dplyr::select(Metric, Term = term, Estimate = estimate, Std.Error = std.error, Statistic = statistic, p_value = p.value) %>%
+  dplyr::select(Metric, Term = term, Estimate = estimate,
+                Std.Error = std.error, Statistic = statistic,
+                p_value = p.value) %>%
   mutate(across(where(is.numeric), ~ round(., 4)))
 
-#Posthoc
-# join CLD dataframe
-tableS7_imp_posthoc <- bind_rows(
-  as.data.frame(q0cld_results_loc) %>% mutate(Metric = "q0"),
-  as.data.frame(q1cld_results_loc) %>% mutate(Metric = "q1"),
-  as.data.frame(cld_results) %>% mutate(Metric = "q0")) %>%
-  dplyr::select(Metric, Mangrove_system, Depth, emmean, SE, lower.CL, upper.CL, Significance = .group) %>%
-  mutate(across(where(is.numeric), ~ round(., 3)))
+# ---- Post hoc: CLD (medias marginales + letras) ----
+get_cld <- function(x, metric, factor_name) {
+  d <- as.data.frame(x)
+  names(d)[1] <- "Level"
+  d$Metric <- metric
+  d$Factor <- factor_name
+  d
+}
 
-# clean
+tableS7_imp_posthoc <- bind_rows(
+  get_cld(q0cld_results_loc, "q0", "Mangrove_system"),
+  get_cld(q1cld_results_loc, "q1", "Mangrove_system"),
+  get_cld(q2cld_results_loc, "q2", "Mangrove_system"),
+  get_cld(cld_results,       "q0", "Depth"),
+  get_cld(cld_resultsq1,     "q1", "Depth"),
+  get_cld(cld_resultsq2,     "q2", "Depth")
+) %>%
+  dplyr::select(Metric, Factor, Level, emmean, SE, df,
+                lower.CL, upper.CL, Significance = .group) %>%
+  mutate(across(where(is.numeric), ~ round(., 3)),
+         Significance = trimws(Significance))
+
 rownames(tableS7_imp_posthoc) <- NULL
 
-#show
-tableS7_imp_posthoc
+# ---- Post hoc: contrastes pareados (Tukey) ----
+get_contrasts <- function(x, metric, factor_name) {
+  as.data.frame(x$contrasts) %>%
+    mutate(Metric = metric, Factor = factor_name)
+}
 
-# save
-write.csv(tableS7_imp_models, "Tables/interior_impaired/Supplementary_Table_S7_Impairment_LMM.csv", row.names = FALSE)
-write.csv(tableS7_imp_posthoc, "Tables/interior_impaired/Supplementary_Table_S7_Impairment_PostHoc.csv", row.names = FALSE)
+tableS7_imp_contrasts <- bind_rows(
+  get_contrasts(q0_lmer_means_loc, "q0", "Mangrove_system"),
+  get_contrasts(q1lmer_means_loc,  "q1", "Mangrove_system"),
+  get_contrasts(q2lmer_means_loc,  "q2", "Mangrove_system"),
+  get_contrasts(q0_lmer_means,     "q0", "Depth"),
+  get_contrasts(q1_lmer_means,     "q1", "Depth"),
+  get_contrasts(q2_lmer_means,     "q2", "Depth")
+) %>%
+  dplyr::select(Metric, Factor, Contrast = contrast, Estimate = estimate,
+                SE, df, t.ratio, p.value) %>%
+  mutate(across(c(Estimate, SE, df, t.ratio), ~ round(., 3)),
+         p.value = format.pval(p.value, digits = 3, eps = 1e-04))
+
+rownames(tableS7_imp_contrasts) <- NULL
+
+# ---- show ----
+tableS7_imp_models
+tableS7_imp_posthoc
+tableS7_imp_contrasts
+
+# ---- save ----
+write.csv(tableS7_imp_models,
+          "Tables/interior_impaired/Supplementary_Table_S7_Impairment_LMM.csv",
+          row.names = FALSE)
+write.csv(tableS7_imp_posthoc,
+          "Tables/interior_impaired/Supplementary_Table_S7_Impairment_PostHoc.csv",
+          row.names = FALSE)
+write.csv(tableS7_imp_contrasts,
+          "Tables/interior_impaired/Supplementary_Table_S7_Impairment_Contrasts.csv",
+          row.names = FALSE)
 ```
