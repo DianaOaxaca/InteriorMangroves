@@ -1,0 +1,18 @@
+Supplementary Table S18. Sensitivity of core microbiome size
+           to the prevalence threshold
+Core = features present in >=X% of samples within each group;
+           binary detection; unrarefied 97%-clustered features
+
+Panel A. Surface sediments (Fringe, flood, surface horizon). n: Fossil Lagoon=4, San Pedro River=9, Terminos Lagoon=3, Celestun=11
+Prevalence	Fossil Lagoon	San Pedro River	Terminos Lagoon	Celestun	Global core (all 4)
+>=30%	1427	1964	334	1647	196
+>=50%	1427	1419	70	1230	52
+>=70%	1059	863	16	773	8
+>=90%	745	349	16	380	6
+
+Panel B. Full depth profiles (flood; all horizons). n: Fossil Lagoon (inland)=14, San Pedro Martir R. (inland)=36, Terminos impaired (coastal)=9
+Prevalence	Fossil Lagoon (inland)	San Pedro Martir R. (inland)	Terminos impaired (coastal)
+>=30%	1753	2282	259
+>=50%	1481	1695	123
+>=70%	1032	928	44
+>=90%	527	406	12

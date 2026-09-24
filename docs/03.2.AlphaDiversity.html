@@ -105,11 +105,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <meta property="og:title" content="Alpha Diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
-<meta property="og:image" content="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-10-1.png">
+<meta property="og:image" content="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-9-1.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Alpha Diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
-<meta name="twitter:image" content="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-10-1.png">
+<meta name="twitter:image" content="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-9-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -707,7 +707,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Extract tree</span></span>
 <span><span class="co">#libary(ape)</span></span>
 <span><span class="co">#library(qiime2R)</span></span>
-<span><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu">read_qza</span><span class="op">(</span><span class="st">"data/rooted-tree-iqtree.qza"</span><span class="op">)</span><span class="op">$</span><span class="va">data</span></span>
+<span><span class="va">tree</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/qiime2R/man/read_qza.html">read_qza</a></span><span class="op">(</span><span class="st">"data/rooted-tree-iqtree.qza"</span><span class="op">)</span><span class="op">$</span><span class="va">data</span></span>
 <span><span class="va">tree_umMPL</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ape/man/chronoMPL.html">chronoMPL</a></span><span class="op">(</span><span class="va">tree</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
@@ -744,34 +744,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="co"># show</span></span>
 <span><span class="va">metadata_with_hill</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Sample   q0   q1  q2  qf  ID Depth Depths   Site Sample_type       Date
-1  S1A015 2267  581 173 172 S1A     1   0-15 Site_1    Sediment 28/09/2023
-2 S1A1530 3082  925 342 213 S1A     2  16-30 Site_1    Sediment 28/09/2023
-3 S1A3050 3234  926 303 228 S1A     3  31-45 Site_1    Sediment 28/09/2023
-4 S1A5075 3506  880 228 239 S1A     4  50-75 Site_1    Sediment 28/09/2023
-5   S1B07 3011  364  63 225 S1B     1   0-15 Site_1    Sediment 28/09/2023
-6 S1B2230 3973 1127 320 266 S1B     2  16-30 Site_1    Sediment 28/09/2023
-        Location Temp...C..int Salnidad..ppm.int Salinidad..ppt.int pH.int
-1 Miguelito Dike          31.4               818               0.82   6.55
-2 Miguelito Dike          31.4               818               0.82   6.55
-3 Miguelito Dike          31.4               818               0.82   6.55
-4 Miguelito Dike          31.4               818               0.82   6.55
-5 Miguelito Dike          30.9               794               0.79   6.69
-6 Miguelito Dike          30.9               794               0.79   6.69
-  pHsup Redox.medido.en.campo1 Redox.mV..Eh.int Temperatura...C.sup
-1  7.34                   -114              121                33.0
-2  7.34                   -114              121                33.0
-3  7.34                   -114              121                33.0
-4  7.34                   -114              121                33.0
-5  7.79                   -234                1                33.2
-6  7.79                   -234                1                33.2
+<pre><code>   Sample   q0        q1        q2       qf  ID Depth Depths   Site Sample_type
+1  S1A015 2267  581.0228 172.50572 171.9579 S1A     1   0-15 Site_1    Sediment
+2 S1A1530 3082  924.7261 341.75340 213.1162 S1A     2  16-30 Site_1    Sediment
+3 S1A3050 3234  926.0288 303.32359 228.0800 S1A     3  31-45 Site_1    Sediment
+4 S1A5075 3506  879.5831 228.44914 238.5668 S1A     4  50-75 Site_1    Sediment
+5   S1B07 3011  364.4166  62.98918 224.6775 S1B     1   0-15 Site_1    Sediment
+6 S1B2230 3973 1127.1162 320.30757 266.2424 S1B     2  16-30 Site_1    Sediment
+        Date       Location Temp...C..int Salnidad..ppm.int Salinidad..ppt.int
+1 28/09/2023 Miguelito Dike          31.4             817.5               0.82
+2 28/09/2023 Miguelito Dike          31.4             817.5               0.82
+3 28/09/2023 Miguelito Dike          31.4             817.5               0.82
+4 28/09/2023 Miguelito Dike          31.4             817.5               0.82
+5 28/09/2023 Miguelito Dike          30.9             794.0               0.79
+6 28/09/2023 Miguelito Dike          30.9             794.0               0.79
+  pH.int pHsup Redox.medido.en.campo1 Redox.mV..Eh.int Temperatura...C.sup
+1   6.55  7.34                   -114              121                33.0
+2   6.55  7.34                   -114              121                33.0
+3   6.55  7.34                   -114              121                33.0
+4   6.55  7.34                   -114              121                33.0
+5   6.69  7.79                   -234                1                33.2
+6   6.69  7.79                   -234                1                33.2
   Salnidad..ppm.sup Salinidad..ppt.sup Redox.medido.en.campo Redox.mV..Eh.sup
-1               735               0.73                  -108              127
-2               735               0.73                  -108              127
-3               735               0.73                  -108              127
-4               735               0.73                  -108              127
-5               733               0.73                  -136               99
-6               733               0.73                  -136               99
+1             734.7               0.73                  -108              127
+2             734.7               0.73                  -108              127
+3             734.7               0.73                  -108              127
+4             734.7               0.73                  -108              127
+5             732.8               0.73                  -136               99
+6             732.8               0.73                  -136               99
   S.2..mg.l..campo ml.de.muestra1 Factor.de.dilucion1 S.2..mg.l.  ID_M
 1             7.73             25                   1       7.73 S1a M
 2             7.73             25                   1       7.73 S1a M
@@ -874,13 +874,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                      col <span class="op">=</span> <span class="va">sample_colors</span>, label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  54.08    3.52   58.47 </code></pre>
+ 19.593   1.948  21.623 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/Sample_effort.pdf"</span><span class="op">)</span></span>
@@ -888,7 +888,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                      col <span class="op">=</span> <span class="va">sample_colors</span>, label <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  50.27    3.55   54.59 </code></pre>
+ 18.182   2.064  20.297 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -970,7 +970,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">hill_barplot_explore</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -992,7 +992,7 @@ Tip
 </section><section id="check-alpha-diversity-correlation-with-sequencing-depth" class="level1"><h1>05. Check alpha diversity correlation with sequencing depth</h1>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Get effective reads</span></span>
-<span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Matrix/man/colSums-methods.html">colSums</a></span><span class="op">(</span><span class="va">otu_table</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span>, <span class="op">]</span><span class="op">)</span></span>
+<span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_sums.html">sample_sums</a></span><span class="op">(</span><span class="va">otu_table</span><span class="op">)</span></span>
 <span><span class="va">metadata_with_hill</span><span class="op">$</span><span class="va">Effective_reads</span> <span class="op">&lt;-</span> <span class="va">Effective_reads</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Alpha diversity depth correlation to order q=0</strong></p>
@@ -1066,7 +1066,7 @@ Tip
 <span><span class="va">correlation_plot_q012</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1132,7 +1132,7 @@ Tip
 <span><span class="va">histplot_q012</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1186,52 +1186,52 @@ lmerModLmerTest]
 Formula: q0 ~ log(Effective_reads) + Depths + Location + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 680
+REML criterion at convergence: 680.4
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.3093 -0.5309 -0.0431  0.4842  1.8144 
+     Min       1Q   Median       3Q      Max 
+-2.30807 -0.53084 -0.04264  0.48396  1.81330 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 210009   458     
- Residual             209059   457     
+ ID       (Intercept) 209787   458.0   
+ Residual             209084   457.3   
 Number of obs: 50, groups:  ID, 13
 
 Fixed effects:
-                           Estimate Std. Error       df t value Pr(&gt;|t|)    
-(Intercept)                -5467.48    2792.66    37.52   -1.96  0.05772 .  
-log(Effective_reads)         643.23     232.78    37.02    2.76  0.00886 ** 
-Depths16-30                  444.48     180.16    32.87    2.47  0.01900 *  
-Depths31-45                  699.07     181.59    32.94    3.85  0.00052 ***
-Depths50-75                  547.05     189.70    33.13    2.88  0.00686 ** 
-LocationReforma Waterfalls   752.10     394.68     9.85    1.91  0.08628 .  
-LocationMiguelito Dike       396.38     334.63     9.97    1.18  0.26366    
+                            Estimate Std. Error        df t value Pr(&gt;|t|)    
+(Intercept)                -5465.162   2790.736    37.530  -1.958 0.057656 .  
+log(Effective_reads)         643.056    232.625    37.035   2.764 0.008836 ** 
+Depths16-30                  444.079    180.184    32.868   2.465 0.019117 *  
+Depths31-45                  698.780    181.613    32.935   3.848 0.000519 ***
+Depths50-75                  546.232    189.726    33.125   2.879 0.006938 ** 
+LocationReforma Waterfalls   751.601    394.529     9.848   1.905 0.086356 .  
+LocationMiguelito Dike       395.811    334.503     9.970   1.183 0.264144    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             (Intr) lg(E_) D16-30 D31-45 D50-75 LctnRW
 lg(Effctv_) -0.995                                   
-Depths16-30  0.063 -0.095                            
-Depths31-45  0.124 -0.157  0.507                     
-Depths50-75  0.018 -0.045  0.475  0.474              
-LctnRfrmWtr -0.017 -0.044  0.004  0.007 -0.039       
-LoctnMgltDk -0.028 -0.044  0.004  0.007 -0.046  0.517</code></pre>
+Depths16-30  0.064 -0.096                            
+Depths31-45  0.125 -0.157  0.507                     
+Depths50-75  0.020 -0.046  0.475  0.474              
+LctnRfrmWtr -0.017 -0.045  0.004  0.007 -0.039       
+LoctnMgltDk -0.027 -0.045  0.004  0.007 -0.046  0.517</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test con lmerTest</span></span>
-<span><span class="va">perm_test</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q0lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q0lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_test</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
 q0 ~ log(Effective_reads) + Depths + Location + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)   
-&lt;none&gt;      9   -340 698                      
-(1 | ID)    8   -346 707 10.8  1      0.001 **
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)   
+&lt;none&gt;      9 -340.19 698.38                        
+(1 | ID)    8 -345.58 707.16 10.784  1   0.001024 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1239,10 +1239,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q0lmer</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                      Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)   
-log(Effective_reads) 1596301 1596301     1  37.0    7.64 0.0089 **
-Depths               3412939 1137646     3  33.0    5.44 0.0037 **
-Location              770456  385228     2   9.8    1.84 0.2094   
+                      Sum Sq Mean Sq NumDF  DenDF F value   Pr(&gt;F)   
+log(Effective_reads) 1597739 1597739     1 37.035  7.6416 0.008836 **
+Depths               3407439 1135813     3 32.986  5.4323 0.003784 **
+Location              770007  385003     2  9.770  1.8414 0.209601   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1263,26 +1263,26 @@ log(Effective_reads) + Depths + Location). The model included ID as random
 effect (formula: ~1 | ID). The model's total explanatory power is substantial
 (conditional R2 = 0.67) and the part related to the fixed effects alone
 (marginal R2) is of 0.34. The model's intercept, corresponding to
-Effective_reads = 0, Depths = 0-15 and Location = Fossil Lagoon, is at -5467.48
-(95% CI [-11107.37, 172.40], t(41) = -1.96, p = 0.057). Within this model:
+Effective_reads = 0, Depths = 0-15 and Location = Fossil Lagoon, is at -5465.16
+(95% CI [-11101.17, 170.84], t(41) = -1.96, p = 0.057). Within this model:
 
   - The effect of Effective reads [log] is statistically significant and positive
-(beta = 643.23, 95% CI [173.12, 1113.33], t(41) = 2.76, p = 0.009; Std. beta =
+(beta = 643.06, 95% CI [173.26, 1112.85], t(41) = 2.76, p = 0.009; Std. beta =
 0.89, 95% CI [0.23, 1.54])
   - The effect of Depths [16-30] is statistically significant and positive (beta
-= 444.48, 95% CI [80.64, 808.32], t(41) = 2.47, p = 0.018; Std. beta = 0.57,
+= 444.08, 95% CI [80.19, 807.97], t(41) = 2.46, p = 0.018; Std. beta = 0.57,
 95% CI [0.10, 1.04])
   - The effect of Depths [31-45] is statistically significant and positive (beta
-= 699.07, 95% CI [332.34, 1065.79], t(41) = 3.85, p &lt; .001; Std. beta = 0.90,
+= 698.78, 95% CI [332.00, 1065.56], t(41) = 3.85, p &lt; .001; Std. beta = 0.90,
 95% CI [0.43, 1.37])
   - The effect of Depths [50-75] is statistically significant and positive (beta
-= 547.05, 95% CI [163.93, 930.16], t(41) = 2.88, p = 0.006; Std. beta = 0.69,
+= 546.23, 95% CI [163.07, 929.39], t(41) = 2.88, p = 0.006; Std. beta = 0.69,
 95% CI [0.20, 1.19])
   - The effect of Location [Reforma Waterfalls] is statistically non-significant
-and positive (beta = 752.10, 95% CI [-44.97, 1549.17], t(41) = 1.91, p = 0.064;
+and positive (beta = 751.60, 95% CI [-45.17, 1548.37], t(41) = 1.91, p = 0.064;
 Std. beta = 0.97, 95% CI [-0.06, 1.99])
   - The effect of Location [Miguelito Dike] is statistically non-significant and
-positive (beta = 396.38, 95% CI [-279.41, 1072.18], t(41) = 1.18, p = 0.243;
+positive (beta = 395.81, 95% CI [-279.73, 1071.35], t(41) = 1.18, p = 0.244;
 Std. beta = 0.51, 95% CI [-0.36, 1.38])
 
 Standardized parameters were obtained by fitting the model on a standardized
@@ -1301,11 +1301,11 @@ computed using a Wald t-distribution approximation.</code></pre>
 <span><span class="va">q0_emmeans_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span></span>
 <span><span class="va">q0_emmeans_df</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depths emmean  SE   df lower.CL upper.CL .group
- 0-15     2699 186 22.2     2313     3085  a    
- 16-30    3143 184 21.6     2760     3526  ab   
- 50-75    3246 196 25.3     2843     3648   b   
- 31-45    3398 184 21.5     3015     3780   b   
+<pre><code> Depths   emmean       SE    df lower.CL upper.CL .group
+ 0-15   2699.208 186.2551 22.19 2313.131 3085.286  a    
+ 16-30  3143.287 184.4251 21.61 2760.414 3526.160  ab   
+ 50-75  3245.440 195.5535 25.33 2842.952 3647.928   b   
+ 31-45  3397.988 184.1285 21.52 3015.632 3780.344   b   
 
 Results are averaged over the levels of: Location 
 Degrees-of-freedom method: kenward-roger 
@@ -1333,7 +1333,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q0plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1350,26 +1350,26 @@ lmerModLmerTest]
 Formula: q1 ~ Depths + Location + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 627
+REML criterion at convergence: 626.6
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--1.6697 -0.6187  0.0827  0.3962  2.4515 
+     Min       1Q   Median       3Q      Max 
+-1.66973 -0.61866  0.08274  0.39617  2.45149 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 35546    189     
- Residual             47469    218     
+ ID       (Intercept) 35546    188.5   
+ Residual             47469    217.9   
 Number of obs: 50, groups:  ID, 13
 
 Fixed effects:
-                           Estimate Std. Error    df t value Pr(&gt;|t|)    
-(Intercept)                   596.2      121.9  15.3    4.89  0.00019 ***
-Depths16-30                   214.1       85.5  34.2    2.51  0.01716 *  
-Depths31-45                   165.5       85.5  34.2    1.94  0.06116 .  
-Depths50-75                   131.8       90.3  34.5    1.46  0.15340    
-LocationReforma Waterfalls     98.3      168.0  10.3    0.59  0.57086    
-LocationMiguelito Dike         23.7      142.5  10.5    0.17  0.87137    
+                           Estimate Std. Error     df t value Pr(&gt;|t|)    
+(Intercept)                  596.15     121.90  15.26   4.891 0.000187 ***
+Depths16-30                  214.10      85.46  34.17   2.505 0.017161 *  
+Depths31-45                  165.46      85.46  34.17   1.936 0.061161 .  
+Depths50-75                  131.76      90.26  34.50   1.460 0.153400    
+LocationReforma Waterfalls    98.34     167.97  10.30   0.585 0.570858    
+LocationMiguelito Dike        23.65     142.52  10.46   0.166 0.871367    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1384,7 +1384,7 @@ LoctnMgltDk -0.704  0.000  0.000 -0.053  0.518</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmerTest</span></span>
-<span><span class="va">perm_testq1</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q1lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q1lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Summary</span></span>
 <span><span class="va">perm_testq1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1393,9 +1393,9 @@ LoctnMgltDk -0.704  0.000  0.000 -0.053  0.518</code></pre>
 
 Model:
 q1 ~ Depths + Location + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)   
-&lt;none&gt;      8   -313 643                      
-(1 | ID)    7   -318 650 8.94  1     0.0028 **
+         npar  logLik    AIC   LRT Df Pr(&gt;Chisq)   
+&lt;none&gt;      8 -313.32 642.63                       
+(1 | ID)    7 -317.79 649.58 8.944  1   0.002784 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1403,9 +1403,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q1lmer</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-         Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)  
-Depths   327747  109249     3  34.3    2.30  0.095 .
-Location  17497    8749     2  10.2    0.18  0.834  
+         Sum Sq Mean Sq NumDF  DenDF F value  Pr(&gt;F)  
+Depths   327747  109249     3 34.323  2.3015 0.09451 .
+Location  17497    8749     2 10.218  0.1843 0.83439  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1454,11 +1454,11 @@ computed using a Wald t-distribution approximation.</code></pre>
 <span><span class="va">emmeans_dfq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_resultsq1</span><span class="op">)</span></span>
 <span><span class="va">emmeans_dfq1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depths emmean   SE   df lower.CL upper.CL .group
- 0-15      637 81.8 24.7      468      805  a    
- 50-75     769 87.1 28.6      590      947  a    
- 31-45     802 81.8 24.7      634      971  a    
- 16-30     851 81.8 24.7      682     1019  a    
+<pre><code> Depths   emmean       SE    df lower.CL  upper.CL .group
+ 0-15   636.8159 81.79269 24.69 468.2542  805.3776  a    
+ 50-75  768.5726 87.11874 28.65 590.3011  946.8441  a    
+ 31-45  802.2718 81.79269 24.69 633.7101  970.8335  a    
+ 16-30  850.9171 81.79269 24.69 682.3554 1019.4788  a    
 
 Results are averaged over the levels of: Location 
 Degrees-of-freedom method: kenward-roger 
@@ -1483,7 +1483,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q1plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1500,26 +1500,26 @@ lmerModLmerTest]
 Formula: q2 ~ Depths + Location + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 542
+REML criterion at convergence: 542.5
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--1.7063 -0.6064  0.0468  0.5556  2.3862 
+     Min       1Q   Median       3Q      Max 
+-1.70628 -0.60635  0.04678  0.55560  2.38619 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 2840     53.3    
- Residual             7832     88.5    
+ ID       (Intercept) 2840     53.29   
+ Residual             7832     88.50   
 Number of obs: 50, groups:  ID, 13
 
 Fixed effects:
-                           Estimate Std. Error     df t value Pr(&gt;|t|)    
-(Intercept)                  166.94      41.16  18.56    4.06   0.0007 ***
-Depths16-30                   87.60      34.71  34.19    2.52   0.0164 *  
-Depths31-45                   31.89      34.71  34.19    0.92   0.3647    
-Depths50-75                   35.58      36.61  34.70    0.97   0.3378    
-LocationReforma Waterfalls    10.23      53.74  10.38    0.19   0.8527    
-LocationMiguelito Dike         1.72      45.70  10.62    0.04   0.9706    
+                           Estimate Std. Error      df t value Pr(&gt;|t|)    
+(Intercept)                 166.939     41.158  18.558   4.056 0.000702 ***
+Depths16-30                  87.601     34.711  34.187   2.524 0.016422 *  
+Depths31-45                  31.888     34.711  34.187   0.919 0.364699    
+Depths50-75                  35.581     36.606  34.699   0.972 0.337789    
+LocationReforma Waterfalls   10.231     53.739  10.382   0.190 0.852675    
+LocationMiguelito Dike        1.721     45.697  10.617   0.038 0.970648    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1534,7 +1534,7 @@ LoctnMgltDk -0.671  0.000  0.000 -0.066  0.525</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmerTest</span></span>
-<span><span class="va">perm_testq2</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q2lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q2lmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Summary</span></span>
 <span><span class="va">perm_testq2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1543,9 +1543,9 @@ LoctnMgltDk -0.671  0.000  0.000 -0.066  0.525</code></pre>
 
 Model:
 q2 ~ Depths + Location + (1 | ID)
-         npar logLik AIC LRT Df Pr(&gt;Chisq)  
-&lt;none&gt;      8   -271 559                    
-(1 | ID)    7   -273 560 3.5  1      0.061 .
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)  
+&lt;none&gt;      8 -271.27 558.54                       
+(1 | ID)    7 -273.02 560.03 3.4972  1    0.06147 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1553,9 +1553,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q2lmer</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-         Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)
-Depths    51262   17087     3  34.4    2.18   0.11
-Location    326     163     2  10.2    0.02   0.98</code></pre>
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(&gt;F)
+Depths    51262 17087.2     3 34.429  2.1818 0.1079
+Location    326   162.9     2 10.248  0.0208 0.9795</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1602,11 +1602,11 @@ computed using a Wald t-distribution approximation.</code></pre>
 <span><span class="va">emmeans_dfq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_resultsq2</span><span class="op">)</span></span>
 <span><span class="va">emmeans_dfq2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depths emmean   SE   df lower.CL upper.CL .group
- 0-15      171 29.2 32.4      112      230  a    
- 31-45     203 29.2 32.4      143      262  a    
- 50-75     206 31.6 36.2      142      271  a    
- 16-30     258 29.2 32.4      199      318  a    
+<pre><code> Depths   emmean       SE    df lower.CL upper.CL .group
+ 0-15   170.9230 29.18362 32.37 111.5046 230.3414  a    
+ 31-45  202.8113 29.18362 32.37 143.3929 262.2297  a    
+ 50-75  206.5035 31.58642 36.23 142.4574 270.5497  a    
+ 16-30  258.5245 29.18362 32.37 199.1061 317.9429  a    
 
 Results are averaged over the levels of: Location 
 Degrees-of-freedom method: kenward-roger 
@@ -1631,7 +1631,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">q2plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1648,43 +1648,43 @@ lmerModLmerTest]
 Formula: qf ~ +log(Effective_reads) + Depths + Location + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 428
+REML criterion at convergence: 428.3
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.6973 -0.3974 -0.0189  0.5074  1.9272 
+     Min       1Q   Median       3Q      Max 
+-2.69623 -0.39734 -0.01841  0.50752  1.92630 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 620      24.9    
- Residual             589      24.3    
+ ID       (Intercept) 619.4    24.89   
+ Residual             589.1    24.27   
 Number of obs: 50, groups:  ID, 13
 
 Fixed effects:
-                           Estimate Std. Error      df t value Pr(&gt;|t|)    
-(Intercept)                 -152.26     148.43   37.39   -1.03  0.31157    
-log(Effective_reads)          28.23      12.37   36.87    2.28  0.02836 *  
-Depths16-30                   26.14       9.56   32.85    2.73  0.01003 *  
-Depths31-45                   41.53       9.64   32.91    4.31  0.00014 ***
-Depths50-75                   32.48      10.07   33.10    3.23  0.00283 ** 
-LocationReforma Waterfalls    25.37      21.34    9.83    1.19  0.26247    
-LocationMiguelito Dike        11.02      18.09    9.95    0.61  0.55613    
+                           Estimate Std. Error       df t value Pr(&gt;|t|)    
+(Intercept)                -152.194    148.330   37.398  -1.026  0.31146    
+log(Effective_reads)         28.224     12.362   36.882   2.283  0.02828 *  
+Depths16-30                  26.118      9.564   32.846   2.731  0.01008 *  
+Depths31-45                  41.517      9.640   32.911   4.307  0.00014 ***
+Depths50-75                  32.443     10.071   33.095   3.221  0.00286 ** 
+LocationReforma Waterfalls   25.345     21.333    9.828   1.188  0.26271    
+LocationMiguelito Dike       10.993     18.085    9.946   0.608  0.55689    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             (Intr) lg(E_) D16-30 D31-45 D50-75 LctnRW
 lg(Effctv_) -0.995                                   
-Depths16-30  0.063 -0.095                            
-Depths31-45  0.125 -0.157  0.507                     
-Depths50-75  0.019 -0.045  0.475  0.474              
-LctnRfrmWtr -0.019 -0.043  0.004  0.007 -0.038       
-LoctnMgltDk -0.030 -0.043  0.004  0.007 -0.045  0.517</code></pre>
+Depths16-30  0.064 -0.096                            
+Depths31-45  0.125 -0.158  0.507                     
+Depths50-75  0.020 -0.047  0.475  0.474              
+LctnRfrmWtr -0.019 -0.044  0.004  0.007 -0.038       
+LoctnMgltDk -0.029 -0.044  0.004  0.007 -0.045  0.517</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmerTest</span></span>
-<span><span class="va">perm_testqf</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">qflmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testqf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">qflmer</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Summary</span></span>
 <span><span class="va">perm_testqf</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1692,10 +1692,10 @@ LoctnMgltDk -0.030 -0.043  0.004  0.007 -0.045  0.517</code></pre>
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
-qf ~ log(Effective_reads) + Depths + Location + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)    
-&lt;none&gt;      9   -214 446                       
-(1 | ID)    8   -220 456 11.3  1    0.00078 ***
+qf ~ +log(Effective_reads) + Depths + Location + (1 | ID)
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)    
+&lt;none&gt;      9 -214.13 446.26                         
+(1 | ID)    8 -219.76 455.51 11.256  1  0.0007935 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1703,10 +1703,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">qflmer</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                     Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)   
-log(Effective_reads)   3067    3067     1  36.9    5.21 0.0284 * 
-Depths                12031    4010     3  33.0    6.81 0.0011 **
-Location                832     416     2   9.8    0.71 0.5169   
+                      Sum Sq Mean Sq NumDF  DenDF F value   Pr(&gt;F)   
+log(Effective_reads)  3070.6  3070.6     1 36.882  5.2125 0.028285 * 
+Depths               12015.3  4005.1     3 32.960  6.7988 0.001079 **
+Location               831.6   415.8     2  9.753  0.7058 0.517274   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1727,27 +1727,27 @@ to predict qf with Effective_reads, Depths and Location (formula: qf ~
 effect (formula: ~1 | ID). The model's total explanatory power is substantial
 (conditional R2 = 0.65) and the part related to the fixed effects alone
 (marginal R2) is of 0.28. The model's intercept, corresponding to
-Effective_reads = 0, Depths = 0-15 and Location = Fossil Lagoon, is at -152.26
-(95% CI [-452.03, 147.50], t(41) = -1.03, p = 0.311). Within this model:
+Effective_reads = 0, Depths = 0-15 and Location = Fossil Lagoon, is at -152.19
+(95% CI [-451.75, 147.36], t(41) = -1.03, p = 0.311). Within this model:
 
   - The effect of Effective reads [log] is statistically significant and positive
-(beta = 28.23, 95% CI [3.25, 53.21], t(41) = 2.28, p = 0.028; Std. beta = 0.76,
+(beta = 28.22, 95% CI [3.26, 53.19], t(41) = 2.28, p = 0.028; Std. beta = 0.76,
 95% CI [0.08, 1.44])
   - The effect of Depths [16-30] is statistically significant and positive (beta
-= 26.14, 95% CI [6.82, 45.45], t(41) = 2.73, p = 0.009; Std. beta = 0.66, 95%
+= 26.12, 95% CI [6.80, 45.43], t(41) = 2.73, p = 0.009; Std. beta = 0.66, 95%
 CI [0.17, 1.14])
   - The effect of Depths [31-45] is statistically significant and positive (beta
-= 41.53, 95% CI [22.06, 61.00], t(41) = 4.31, p &lt; .001; Std. beta = 1.04, 95%
+= 41.52, 95% CI [22.05, 60.99], t(41) = 4.31, p &lt; .001; Std. beta = 1.04, 95%
 CI [0.55, 1.53])
   - The effect of Depths [50-75] is statistically significant and positive (beta
-= 32.48, 95% CI [12.14, 52.82], t(41) = 3.23, p = 0.002; Std. beta = 0.81, 95%
+= 32.44, 95% CI [12.10, 52.78], t(41) = 3.22, p = 0.003; Std. beta = 0.81, 95%
 CI [0.30, 1.32])
   - The effect of Location [Reforma Waterfalls] is statistically non-significant
-and positive (beta = 25.37, 95% CI [-17.73, 68.46], t(41) = 1.19, p = 0.241;
-Std. beta = 0.64, 95% CI [-0.44, 1.72])
+and positive (beta = 25.35, 95% CI [-17.74, 68.43], t(41) = 1.19, p = 0.242;
+Std. beta = 0.64, 95% CI [-0.45, 1.72])
   - The effect of Location [Miguelito Dike] is statistically non-significant and
-positive (beta = 11.02, 95% CI [-25.52, 47.55], t(41) = 0.61, p = 0.546; Std.
-beta = 0.28, 95% CI [-0.64, 1.20])
+positive (beta = 10.99, 95% CI [-25.53, 47.52], t(41) = 0.61, p = 0.547; Std.
+beta = 0.28, 95% CI [-0.64, 1.19])
 
 Standardized parameters were obtained by fitting the model on a standardized
 version of the dataset. 95% Confidence Intervals (CIs) and p-values were
@@ -1765,11 +1765,11 @@ computed using a Wald t-distribution approximation.</code></pre>
 <span><span class="va">emmeans_dfqf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_resultsqf</span><span class="op">)</span></span>
 <span><span class="va">emmeans_dfqf</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Depths emmean    SE   df lower.CL upper.CL .group
- 0-15      202 10.01 21.7      181      222  a    
- 16-30     228  9.91 21.2      207      248   b   
- 50-75     234 10.50 24.8      212      256   b   
- 31-45     243  9.90 21.1      222      264   b   
+<pre><code> Depths   emmean        SE    df lower.CL upper.CL .group
+ 0-15   201.4726 10.005191 21.75 180.7095 222.2357  a    
+ 16-30  227.5901  9.909095 21.19 206.9942 248.1861   b   
+ 50-75  233.9159 10.493406 24.82 212.2962 255.5356   b   
+ 31-45  242.9892  9.893525 21.10 222.4202 263.5582   b   
 
 Results are averaged over the levels of: Location 
 Degrees-of-freedom method: kenward-roger 
@@ -1797,7 +1797,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">qfplot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1825,7 +1825,7 @@ Note
 <span><span class="va">alphaplots_y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1845,52 +1845,52 @@ lmerModLmerTest]
 Formula: q0 ~ log(Effective_reads) + Location + Depths + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 680
+REML criterion at convergence: 680.4
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.3093 -0.5309 -0.0431  0.4842  1.8144 
+     Min       1Q   Median       3Q      Max 
+-2.30807 -0.53084 -0.04264  0.48396  1.81330 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 210009   458     
- Residual             209059   457     
+ ID       (Intercept) 209787   458.0   
+ Residual             209084   457.3   
 Number of obs: 50, groups:  ID, 13
 
 Fixed effects:
-                           Estimate Std. Error       df t value Pr(&gt;|t|)    
-(Intercept)                -5467.48    2792.66    37.52   -1.96  0.05772 .  
-log(Effective_reads)         643.23     232.78    37.02    2.76  0.00886 ** 
-LocationReforma Waterfalls   752.10     394.68     9.85    1.91  0.08628 .  
-LocationMiguelito Dike       396.38     334.63     9.97    1.18  0.26366    
-Depths16-30                  444.48     180.16    32.87    2.47  0.01900 *  
-Depths31-45                  699.07     181.59    32.94    3.85  0.00052 ***
-Depths50-75                  547.05     189.70    33.13    2.88  0.00686 ** 
+                            Estimate Std. Error        df t value Pr(&gt;|t|)    
+(Intercept)                -5465.162   2790.736    37.530  -1.958 0.057656 .  
+log(Effective_reads)         643.056    232.625    37.035   2.764 0.008836 ** 
+LocationReforma Waterfalls   751.601    394.529     9.848   1.905 0.086356 .  
+LocationMiguelito Dike       395.811    334.503     9.970   1.183 0.264144    
+Depths16-30                  444.079    180.184    32.868   2.465 0.019117 *  
+Depths31-45                  698.780    181.613    32.935   3.848 0.000519 ***
+Depths50-75                  546.232    189.726    33.125   2.879 0.006938 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
             (Intr) lg(E_) LctnRW LctnMD D16-30 D31-45
 lg(Effctv_) -0.995                                   
-LctnRfrmWtr -0.017 -0.044                            
-LoctnMgltDk -0.028 -0.044  0.517                     
-Depths16-30  0.063 -0.095  0.004  0.004              
-Depths31-45  0.124 -0.157  0.007  0.007  0.507       
-Depths50-75  0.018 -0.045 -0.039 -0.046  0.475  0.474</code></pre>
+LctnRfrmWtr -0.017 -0.045                            
+LoctnMgltDk -0.027 -0.045  0.517                     
+Depths16-30  0.064 -0.096  0.004  0.004              
+Depths31-45  0.125 -0.157  0.007  0.007  0.507       
+Depths50-75  0.020 -0.046 -0.039 -0.046  0.475  0.474</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test </span></span>
-<span><span class="va">perm_testloc</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q0lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q0lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_testloc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
 q0 ~ log(Effective_reads) + Location + Depths + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)   
-&lt;none&gt;      9   -340 698                      
-(1 | ID)    8   -346 707 10.8  1      0.001 **
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)   
+&lt;none&gt;      9 -340.19 698.38                        
+(1 | ID)    8 -345.58 707.16 10.784  1   0.001024 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1898,10 +1898,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q0lmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-                      Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)   
-log(Effective_reads) 1596301 1596301     1  37.0    7.64 0.0089 **
-Location              770456  385228     2   9.8    1.84 0.2094   
-Depths               3412939 1137646     3  33.0    5.44 0.0037 **
+                      Sum Sq Mean Sq NumDF  DenDF F value   Pr(&gt;F)   
+log(Effective_reads) 1597739 1597739     1 37.035  7.6416 0.008836 **
+Location              770007  385003     2  9.770  1.8414 0.209601   
+Depths               3407439 1135813     3 32.986  5.4323 0.003784 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1917,10 +1917,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">q0emmeans_df_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q0cld_results_loc</span><span class="op">)</span></span>
 <span><span class="va">q0emmeans_df_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Location           emmean  SE    df lower.CL upper.CL .group
- Fossil Lagoon        2739 262 10.58     2159     3318  a    
- Miguelito Dike       3135 209  9.72     2667     3603  a    
- Reforma Waterfalls   3491 296  9.69     2829     4152  a    
+<pre><code> Location             emmean       SE    df lower.CL upper.CL .group
+ Fossil Lagoon      2739.010 262.0383 10.58 2159.461 3318.559  a    
+ Miguelito Dike     3134.821 209.2279  9.72 2666.815 3602.828  a    
+ Reforma Waterfalls 3490.611 295.6467  9.69 2829.019 4152.203  a    
 
 Results are averaged over the levels of: Depths 
 Degrees-of-freedom method: kenward-roger 
@@ -1955,26 +1955,26 @@ lmerModLmerTest]
 Formula: q1 ~ Location + Depths + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 627
+REML criterion at convergence: 626.6
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--1.6697 -0.6187  0.0827  0.3962  2.4515 
+     Min       1Q   Median       3Q      Max 
+-1.66973 -0.61866  0.08274  0.39617  2.45149 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 35546    189     
- Residual             47469    218     
+ ID       (Intercept) 35546    188.5   
+ Residual             47469    217.9   
 Number of obs: 50, groups:  ID, 13
 
 Fixed effects:
-                           Estimate Std. Error    df t value Pr(&gt;|t|)    
-(Intercept)                   596.2      121.9  15.3    4.89  0.00019 ***
-LocationReforma Waterfalls     98.3      168.0  10.3    0.59  0.57086    
-LocationMiguelito Dike         23.7      142.5  10.5    0.17  0.87137    
-Depths16-30                   214.1       85.5  34.2    2.51  0.01716 *  
-Depths31-45                   165.5       85.5  34.2    1.94  0.06116 .  
-Depths50-75                   131.8       90.3  34.5    1.46  0.15340    
+                           Estimate Std. Error     df t value Pr(&gt;|t|)    
+(Intercept)                  596.15     121.90  15.26   4.891 0.000187 ***
+LocationReforma Waterfalls    98.34     167.97  10.30   0.585 0.570858    
+LocationMiguelito Dike        23.65     142.52  10.46   0.166 0.871367    
+Depths16-30                  214.10      85.46  34.17   2.505 0.017161 *  
+Depths31-45                  165.46      85.46  34.17   1.936 0.061161 .  
+Depths50-75                  131.76      90.26  34.50   1.460 0.153400    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1989,16 +1989,16 @@ Depths50-75 -0.289 -0.045 -0.053  0.473  0.473</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb93"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test </span></span>
-<span><span class="va">perm_testlocq1</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q1lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testlocq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q1lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_testlocq1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
 q1 ~ Location + Depths + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)   
-&lt;none&gt;      8   -313 643                      
-(1 | ID)    7   -318 650 8.94  1     0.0028 **
+         npar  logLik    AIC   LRT Df Pr(&gt;Chisq)   
+&lt;none&gt;      8 -313.32 642.63                       
+(1 | ID)    7 -317.79 649.58 8.944  1   0.002784 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2006,9 +2006,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q1lmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-         Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)  
-Location  17497    8749     2  10.2    0.18  0.834  
-Depths   327747  109249     3  34.3    2.30  0.095 .
+         Sum Sq Mean Sq NumDF  DenDF F value  Pr(&gt;F)  
+Location  17497    8749     2 10.218  0.1843 0.83439  
+Depths   327747  109249     3 34.323  2.3015 0.09451 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2024,10 +2024,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">q1emmeans_df_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q1cld_results_loc</span><span class="op">)</span></span>
 <span><span class="va">q1emmeans_df_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Location           emmean    SE    df lower.CL upper.CL .group
- Fossil Lagoon         724 111.5 10.65      478      970  a    
- Miguelito Dike        748  88.9  9.76      549      946  a    
- Reforma Waterfalls    822 125.7  9.76      541     1103  a    
+<pre><code> Location             emmean        SE    df lower.CL  upper.CL .group
+ Fossil Lagoon      723.9822 111.46003 10.65 477.6686  970.2957  a    
+ Miguelito Dike     747.6326  88.89393  9.76 548.9017  946.3635  a    
+ Reforma Waterfalls 822.3183 125.71501  9.76 541.2704 1103.3663  a    
 
 Results are averaged over the levels of: Depths 
 Degrees-of-freedom method: kenward-roger 
@@ -2062,26 +2062,26 @@ lmerModLmerTest]
 Formula: q2 ~ Location + Depths + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 542
+REML criterion at convergence: 542.5
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--1.7063 -0.6064  0.0468  0.5556  2.3862 
+     Min       1Q   Median       3Q      Max 
+-1.70628 -0.60635  0.04678  0.55560  2.38619 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 2840     53.3    
- Residual             7832     88.5    
+ ID       (Intercept) 2840     53.29   
+ Residual             7832     88.50   
 Number of obs: 50, groups:  ID, 13
 
 Fixed effects:
-                           Estimate Std. Error     df t value Pr(&gt;|t|)    
-(Intercept)                  166.94      41.16  18.56    4.06   0.0007 ***
-LocationReforma Waterfalls    10.23      53.74  10.38    0.19   0.8527    
-LocationMiguelito Dike         1.72      45.70  10.62    0.04   0.9706    
-Depths16-30                   87.60      34.71  34.19    2.52   0.0164 *  
-Depths31-45                   31.89      34.71  34.19    0.92   0.3647    
-Depths50-75                   35.58      36.61  34.70    0.97   0.3378    
+                           Estimate Std. Error      df t value Pr(&gt;|t|)    
+(Intercept)                 166.939     41.158  18.558   4.056 0.000702 ***
+LocationReforma Waterfalls   10.231     53.739  10.382   0.190 0.852675    
+LocationMiguelito Dike        1.721     45.697  10.617   0.038 0.970648    
+Depths16-30                  87.601     34.711  34.187   2.524 0.016422 *  
+Depths31-45                  31.888     34.711  34.187   0.919 0.364699    
+Depths50-75                  35.581     36.606  34.699   0.972 0.337789    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -2096,16 +2096,16 @@ Depths50-75 -0.349 -0.056 -0.066  0.474  0.474</code></pre>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb102"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test</span></span>
-<span><span class="va">perm_testlocq2</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">q2lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">perm_testlocq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">q2lmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_testlocq2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
 q2 ~ Location + Depths + (1 | ID)
-         npar logLik AIC LRT Df Pr(&gt;Chisq)  
-&lt;none&gt;      8   -271 559                    
-(1 | ID)    7   -273 560 3.5  1      0.061 .
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)  
+&lt;none&gt;      8 -271.27 558.54                       
+(1 | ID)    7 -273.02 560.03 3.4972  1    0.06147 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2113,9 +2113,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">q2lmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-         Sum Sq Mean Sq NumDF DenDF F value Pr(&gt;F)
-Location    326     163     2  10.2    0.02   0.98
-Depths    51262   17087     3  34.4    2.18   0.11</code></pre>
+         Sum Sq Mean Sq NumDF  DenDF F value Pr(&gt;F)
+Location    326   162.9     2 10.248  0.0208 0.9795
+Depths    51262 17087.2     3 34.429  2.1818 0.1079</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -2129,10 +2129,10 @@ Depths    51262   17087     3  34.4    2.18   0.11</code></pre>
 <span><span class="va">q2emmeans_df_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">q2cld_results_loc</span><span class="op">)</span></span>
 <span><span class="va">q2emmeans_df_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Location           emmean   SE    df lower.CL upper.CL .group
- Fossil Lagoon         206 35.9 10.99      127      285  a    
- Miguelito Dike        207 28.3  9.63      144      271  a    
- Reforma Waterfalls    216 40.0  9.63      126      306  a    
+<pre><code> Location             emmean       SE    df lower.CL upper.CL .group
+ Fossil Lagoon      205.7063 35.94369 10.99 126.5843 284.8282  a    
+ Miguelito Dike     207.4278 28.27732  9.63 144.0930 270.7626  a    
+ Reforma Waterfalls 215.9376 39.99016  9.63 126.3687 305.5066  a    
 
 Results are averaged over the levels of: Depths 
 Degrees-of-freedom method: kenward-roger 
@@ -2158,59 +2158,61 @@ NOTE: If two or more means share the same grouping symbol,
 </section><section id="qf-faith-diversity-1" class="level3"><h3 class="anchored" data-anchor-id="qf-faith-diversity-1">qf Faith Diversity</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb109"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># lmm</span></span>
-<span><span class="va">qflmerloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">qf</span> <span class="op">~</span> <span class="va">Location</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">ID</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
+<span><span class="va">qflmerloc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html">lmer</a></span><span class="op">(</span><span class="va">qf</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">Effective_reads</span><span class="op">)</span> <span class="op">+</span> <span class="va">Location</span> <span class="op">+</span> <span class="va">Depths</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">ID</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">metadata_with_hill</span><span class="op">)</span></span>
 <span><span class="co"># summary</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">qflmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML. t-tests use Satterthwaite's method [
 lmerModLmerTest]
-Formula: qf ~ Location + Depths + (1 | ID)
+Formula: qf ~ log(Effective_reads) + Location + Depths + (1 | ID)
    Data: metadata_with_hill
 
-REML criterion at convergence: 440
+REML criterion at convergence: 428.3
 
 Scaled residuals: 
-    Min      1Q  Median      3Q     Max 
--2.8154 -0.5311  0.0331  0.5800  1.6075 
+     Min       1Q   Median       3Q      Max 
+-2.69623 -0.39734 -0.01841  0.50752  1.92630 
 
 Random effects:
  Groups   Name        Variance Std.Dev.
- ID       (Intercept) 796      28.2    
- Residual             621      24.9    
+ ID       (Intercept) 619.4    24.89   
+ Residual             589.1    24.27   
 Number of obs: 50, groups:  ID, 13
 
 Fixed effects:
-                           Estimate Std. Error     df t value Pr(&gt;|t|)    
-(Intercept)                  184.66      16.65  13.42   11.09  3.9e-08 ***
-LocationReforma Waterfalls    27.53      23.72  10.23    1.16   0.2722    
-LocationMiguelito Dike        12.86      20.10  10.33    0.64   0.5362    
-Depths16-30                   28.22       9.77  34.14    2.89   0.0067 ** 
-Depths31-45                   44.98       9.77  34.14    4.60  5.5e-05 ***
-Depths50-75                   33.46      10.33  34.36    3.24   0.0027 ** 
+                           Estimate Std. Error       df t value Pr(&gt;|t|)    
+(Intercept)                -152.194    148.330   37.398  -1.026  0.31146    
+log(Effective_reads)         28.224     12.362   36.882   2.283  0.02828 *  
+LocationReforma Waterfalls   25.345     21.333    9.828   1.188  0.26271    
+LocationMiguelito Dike       10.993     18.085    9.946   0.608  0.55689    
+Depths16-30                  26.118      9.564   32.846   2.731  0.01008 *  
+Depths31-45                  41.517      9.640   32.911   4.307  0.00014 ***
+Depths50-75                  32.443     10.071   33.095   3.221  0.00286 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Correlation of Fixed Effects:
-            (Intr) LctnRW LctnMD D16-30 D31-45
-LctnRfrmWtr -0.615                            
-LoctnMgltDk -0.726  0.515                     
-Depths16-30 -0.293  0.000  0.000              
-Depths31-45 -0.293  0.000  0.000  0.500       
-Depths50-75 -0.241 -0.037 -0.044  0.473  0.473</code></pre>
+            (Intr) lg(E_) LctnRW LctnMD D16-30 D31-45
+lg(Effctv_) -0.995                                   
+LctnRfrmWtr -0.019 -0.044                            
+LoctnMgltDk -0.029 -0.044  0.517                     
+Depths16-30  0.064 -0.096  0.004  0.004              
+Depths31-45  0.125 -0.158  0.007  0.007  0.507       
+Depths50-75  0.020 -0.047 -0.038 -0.045  0.475  0.474</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb111"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Permutation test </span></span>
-<span><span class="va">perm_testlocqf</span> <span class="op">&lt;-</span> <span class="fu">rand</span><span class="op">(</span><span class="va">qflmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb111"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># test </span></span>
+<span><span class="va">perm_testlocqf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/ranova.html">rand</a></span><span class="op">(</span><span class="va">qflmerloc</span>, nsim <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">perm_testlocqf</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ANOVA-like table for random-effects: Single term deletions
 
 Model:
-qf ~ Location + Depths + (1 | ID)
-         npar logLik AIC  LRT Df Pr(&gt;Chisq)    
-&lt;none&gt;      8   -220 456                       
-(1 | ID)    7   -228 470 15.9  1    6.6e-05 ***
+qf ~ log(Effective_reads) + Location + Depths + (1 | ID)
+         npar  logLik    AIC    LRT Df Pr(&gt;Chisq)    
+&lt;none&gt;      9 -214.13 446.26                         
+(1 | ID)    8 -219.76 455.51 11.256  1  0.0007935 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2218,9 +2220,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">qflmerloc</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
-         Sum Sq Mean Sq NumDF DenDF F value  Pr(&gt;F)    
-Location    838     419     2  10.2    0.67 0.53066    
-Depths    14117    4706     3  34.2    7.58 0.00051 ***
+                      Sum Sq Mean Sq NumDF  DenDF F value   Pr(&gt;F)   
+log(Effective_reads)  3070.6  3070.6     1 36.882  5.2125 0.028285 * 
+Location               831.6   415.8     2  9.753  0.7058 0.517274   
+Depths               12015.3  4005.1     3 32.960  6.7988 0.001079 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -2236,10 +2239,10 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">qfemmeans_df_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">qfcld_results_loc</span><span class="op">)</span></span>
 <span><span class="va">qfemmeans_df_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Location           emmean   SE    df lower.CL upper.CL .group
- Fossil Lagoon         211 15.7 10.44      177      246  a    
- Miguelito Dike        224 12.6  9.84      196      252  a    
- Reforma Waterfalls    239 17.8  9.84      199      279  a    
+<pre><code> Location             emmean       SE    df lower.CL upper.CL .group
+ Fossil Lagoon      214.3791 14.16139 10.56 183.0509 245.7072  a    
+ Miguelito Dike     225.3725 11.31631  9.73 200.0633 250.6817  a    
+ Reforma Waterfalls 239.7243 15.99085  9.70 203.9457 275.5028  a    
 
 Results are averaged over the levels of: Depths 
 Degrees-of-freedom method: kenward-roger 
@@ -2274,7 +2277,7 @@ NOTE: If two or more means share the same grouping symbol,
 <span><span class="va">alphaplots_loc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.2.AlphaDiversity_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2298,73 +2301,238 @@ Important
 </div>
 </section><section id="supplementary-tables" class="level1"><h1>Supplementary Tables</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb120"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bbolker/broom.mixed">broom.mixed</a></span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb120"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bbolker/broom.mixed">broom.mixed</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvlenth.github.io/emmeans/">emmeans</a></span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># Linear Mixed Models</span></span>
 <span><span class="va">tableS9_int_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
-<span>  <span class="fu">tidy</span><span class="op">(</span><span class="va">q0lmer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span>,</span>
-<span>  <span class="fu">tidy</span><span class="op">(</span><span class="va">q1lmer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q1"</span><span class="op">)</span>,</span>
-<span>  <span class="fu">tidy</span><span class="op">(</span><span class="va">q2lmer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q2"</span><span class="op">)</span>,</span>
-<span>  <span class="fu">tidy</span><span class="op">(</span><span class="va">qflmer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"qf"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q0lmer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q1lmer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q1"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">q2lmer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q2"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">qflmer</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"qf"</span><span class="op">)</span></span>
 <span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">effect</span> <span class="op">==</span> <span class="st">"fixed"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, Term <span class="op">=</span> <span class="va">term</span>, Estimate <span class="op">=</span> <span class="va">estimate</span>, Std.Error <span class="op">=</span> <span class="va">std.error</span>, Statistic <span class="op">=</span> <span class="va">statistic</span>, p_value <span class="op">=</span> <span class="va">p.value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, Term <span class="op">=</span> <span class="va">term</span>, Estimate <span class="op">=</span> <span class="va">estimate</span>,</span>
+<span>                Std.Error <span class="op">=</span> <span class="va">std.error</span>, Statistic <span class="op">=</span> <span class="va">statistic</span>,</span>
+<span>                p_value <span class="op">=</span> <span class="va">p.value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co">#show</span></span>
+<span><span class="co"># Post hoc</span></span>
+<span><span class="va">get_cld</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">metric</span>, <span class="va">factor_name</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Level"</span></span>
+<span>  <span class="va">d</span><span class="op">$</span><span class="va">Metric</span> <span class="op">&lt;-</span> <span class="va">metric</span></span>
+<span>  <span class="va">d</span><span class="op">$</span><span class="va">Factor</span> <span class="op">&lt;-</span> <span class="va">factor_name</span></span>
+<span>  <span class="va">d</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">tableS9_int_posthoc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">cld_results</span>,       <span class="st">"q0"</span>, <span class="st">"Depths"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">cld_resultsq1</span>,     <span class="st">"q1"</span>, <span class="st">"Depths"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">cld_resultsq2</span>,     <span class="st">"q2"</span>, <span class="st">"Depths"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">cld_resultsqf</span>,     <span class="st">"qf"</span>, <span class="st">"Depths"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">q0cld_results_loc</span>, <span class="st">"q0"</span>, <span class="st">"Location"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">q1cld_results_loc</span>, <span class="st">"q1"</span>, <span class="st">"Location"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">q2cld_results_loc</span>, <span class="st">"q2"</span>, <span class="st">"Location"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_cld</span><span class="op">(</span><span class="va">qfcld_results_loc</span>, <span class="st">"qf"</span>, <span class="st">"Location"</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, <span class="va">Factor</span>, <span class="va">Level</span>, <span class="va">emmean</span>, <span class="va">SE</span>, <span class="va">df</span>,</span>
+<span>                <span class="va">lower.CL</span>, <span class="va">upper.CL</span>, Significance <span class="op">=</span> <span class="va">.group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>         Significance <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="va">Significance</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">tableS9_int_posthoc</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span></span>
+<span><span class="co"># Post hoc: contrast</span></span>
+<span><span class="va">get_contrasts</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">metric</span>, <span class="va">factor_name</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">contrasts</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="va">metric</span>, Factor <span class="op">=</span> <span class="va">factor_name</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">tableS9_int_contrasts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q0_lmer_means</span>,     <span class="st">"q0"</span>, <span class="st">"Depths"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q1_lmer_means</span>,     <span class="st">"q1"</span>, <span class="st">"Depths"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q2_lmer_means</span>,     <span class="st">"q2"</span>, <span class="st">"Depths"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">qf_lmer_means</span>,     <span class="st">"qf"</span>, <span class="st">"Depths"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q0_lmer_means_loc</span>, <span class="st">"q0"</span>, <span class="st">"Location"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q1lmer_means_loc</span>,  <span class="st">"q1"</span>, <span class="st">"Location"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">q2lmer_means_loc</span>,  <span class="st">"q2"</span>, <span class="st">"Location"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">get_contrasts</span><span class="op">(</span><span class="va">qflmer_means_loc</span>,  <span class="st">"qf"</span>, <span class="st">"Location"</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, <span class="va">Factor</span>, Contrast <span class="op">=</span> <span class="va">contrast</span>, Estimate <span class="op">=</span> <span class="va">estimate</span>,</span>
+<span>                <span class="va">SE</span>, <span class="va">df</span>, <span class="va">t.ratio</span>, <span class="va">p.value</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">Estimate</span>, <span class="va">SE</span>, <span class="va">df</span>, <span class="va">t.ratio</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>         p.value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/format.pval.html">format.pval</a></span><span class="op">(</span><span class="va">p.value</span>, digits <span class="op">=</span> <span class="fl">3</span>, eps <span class="op">=</span> <span class="fl">1e-04</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">tableS9_int_contrasts</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
+<span></span>
+<span><span class="co"># ---- show ----</span></span>
 <span><span class="va">tableS9_int_models</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 6
    Metric Term                       Estimate Std.Error Statistic p_value
    &lt;chr&gt;  &lt;chr&gt;                         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
- 1 q0     (Intercept)                  -5467.    2793.      -1.96  0.0577
- 2 q0     log(Effective_reads)           643.     233.       2.76  0.0089
- 3 q0     Depths16-30                    444.     180.       2.47  0.019 
+ 1 q0     (Intercept)                  -5465.    2791.      -1.96  0.0577
+ 2 q0     log(Effective_reads)           643.     233.       2.76  0.0088
+ 3 q0     Depths16-30                    444.     180.       2.46  0.0191
  4 q0     Depths31-45                    699.     182.       3.85  0.0005
- 5 q0     Depths50-75                    547.     190.       2.88  0.0069
- 6 q0     LocationReforma Waterfalls     752.     395.       1.91  0.0863
+ 5 q0     Depths50-75                    546.     190.       2.88  0.0069
+ 6 q0     LocationReforma Waterfalls     752.     395.       1.91  0.0864
  7 q0     LocationMiguelito Dike         396.     335.       1.18  0.264 
  8 q1     (Intercept)                    596.     122.       4.89  0.0002
  9 q1     Depths16-30                    214.      85.5      2.51  0.0172
 10 q1     Depths31-45                    165.      85.5      1.94  0.0612
 # ℹ 16 more rows</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb122"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Posthoc</span></span>
-<span><span class="co"># join CLD dataframe</span></span>
-<span><span class="va">tableS9_int_posthoc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_results</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q0"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_resultsq1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q1"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_resultsq2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"q2"</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">cld_resultsqf</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Metric <span class="op">=</span> <span class="st">"qf"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Metric</span>, <span class="va">Depths</span>, <span class="va">emmean</span>, <span class="va">SE</span>, <span class="va">lower.CL</span>, <span class="va">upper.CL</span>, Significance <span class="op">=</span> <span class="va">.group</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># clean</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">tableS9_int_posthoc</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
-<span></span>
-<span><span class="co">#show</span></span>
-<span><span class="va">tableS9_int_posthoc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb122"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tableS9_int_posthoc</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Metric Depths emmean     SE lower.CL upper.CL Significance
-1      q0   0-15   2699 186.27     2313     3085           a 
-2      q0  16-30   3143 184.47     2760     3526           ab
-3      q0  50-75   3246 195.61     2843     3648            b
-4      q0  31-45   3398 184.17     3015     3780            b
-5      q1   0-15    637  81.79      468      805            a
-6      q1  50-75    769  87.12      590      947            a
-7      q1  31-45    802  81.79      634      971            a
-8      q1  16-30    851  81.79      682     1019            a
-9      q2   0-15    171  29.18      112      230            a
-10     q2  31-45    203  29.18      143      262            a
-11     q2  50-75    207  31.59      142      271            a
-12     q2  16-30    259  29.18      199      318            a
-13     qf   0-15    201  10.01      181      222           a 
-14     qf  16-30    228   9.91      207      248            b
-15     qf  50-75    234  10.50      212      256            b
-16     qf  31-45    243   9.90      222      264            b</code></pre>
+<pre><code>   Metric   Factor              Level   emmean      SE     df lower.CL upper.CL
+1      q0   Depths               0-15 2699.208 186.255 22.190 2313.131 3085.286
+2      q0   Depths              16-30 3143.287 184.425 21.612 2760.414 3526.160
+3      q0   Depths              50-75 3245.440 195.554 25.325 2842.952 3647.928
+4      q0   Depths              31-45 3397.988 184.129 21.517 3015.632 3780.344
+5      q1   Depths               0-15  636.816  81.793 24.692  468.254  805.378
+6      q1   Depths              50-75  768.573  87.119 28.653  590.301  946.844
+7      q1   Depths              31-45  802.272  81.793 24.692  633.710  970.834
+8      q1   Depths              16-30  850.917  81.793 24.692  682.355 1019.479
+9      q2   Depths               0-15  170.923  29.184 32.371  111.505  230.341
+10     q2   Depths              31-45  202.811  29.184 32.371  143.393  262.230
+11     q2   Depths              50-75  206.504  31.586 36.229  142.457  270.550
+12     q2   Depths              16-30  258.524  29.184 32.371  199.106  317.943
+13     qf   Depths               0-15  201.473  10.005 21.754  180.709  222.236
+14     qf   Depths              16-30  227.590   9.909 21.188  206.994  248.186
+15     qf   Depths              50-75  233.916  10.493 24.816  212.296  255.536
+16     qf   Depths              31-45  242.989   9.894 21.096  222.420  263.558
+17     q0 Location      Fossil Lagoon 2739.010 262.038 10.580 2159.461 3318.559
+18     q0 Location     Miguelito Dike 3134.821 209.228  9.721 2666.815 3602.828
+19     q0 Location Reforma Waterfalls 3490.611 295.647  9.692 2829.019 4152.203
+20     q1 Location      Fossil Lagoon  723.982 111.460 10.648  477.669  970.296
+21     q1 Location     Miguelito Dike  747.633  88.894  9.760  548.902  946.363
+22     q1 Location Reforma Waterfalls  822.318 125.715  9.760  541.270 1103.366
+23     q2 Location      Fossil Lagoon  205.706  35.944 10.988  126.584  284.828
+24     q2 Location     Miguelito Dike  207.428  28.277  9.631  144.093  270.763
+25     q2 Location Reforma Waterfalls  215.938  39.990  9.631  126.369  305.507
+26     qf Location      Fossil Lagoon  214.379  14.161 10.560  183.051  245.707
+27     qf Location     Miguelito Dike  225.373  11.316  9.731  200.063  250.682
+28     qf Location Reforma Waterfalls  239.724  15.991  9.702  203.946  275.503
+   Significance
+1             a
+2            ab
+3             b
+4             b
+5             a
+6             a
+7             a
+8             a
+9             a
+10            a
+11            a
+12            a
+13            a
+14            b
+15            b
+16            b
+17            a
+18            a
+19            a
+20            a
+21            a
+22            a
+23            a
+24            a
+25            a
+26            a
+27            a
+28            a</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb124"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS9_int_models</span>, <span class="st">"Tables/interior_mangroves/Supplementary_Table_S9_Interior_LMM.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS9_int_posthoc</span>, <span class="st">"Tables/interior_mangroves/Supplementary_Table_S9_Interior_PostHoc.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb124"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tableS9_int_contrasts</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Metric   Factor                            Contrast Estimate      SE     df
+1      q0   Depths                    (0-15) - (16-30) -444.079 180.211 33.047
+2      q0   Depths                    (0-15) - (31-45) -698.780 181.685 33.113
+3      q0   Depths                    (0-15) - (50-75) -546.232 189.940 33.301
+4      q0   Depths                   (16-30) - (31-45) -254.701 179.716 33.024
+5      q0   Depths                   (16-30) - (50-75) -102.153 189.897 33.260
+6      q0   Depths                   (31-45) - (50-75)  152.548 190.743 33.270
+7      q1   Depths                    (0-15) - (16-30) -214.101  85.457 34.007
+8      q1   Depths                    (0-15) - (31-45) -165.456  85.457 34.007
+9      q1   Depths                    (0-15) - (50-75) -131.757  90.369 34.341
+10     q1   Depths                   (16-30) - (31-45)   48.645  85.457 34.007
+11     q1   Depths                   (16-30) - (50-75)   82.344  90.369 34.341
+12     q1   Depths                   (31-45) - (50-75)   33.699  90.369 34.341
+13     q2   Depths                    (0-15) - (16-30)  -87.601  34.711 34.017
+14     q2   Depths                    (0-15) - (31-45)  -31.888  34.711 34.017
+15     q2   Depths                    (0-15) - (50-75)  -35.581  36.675 34.536
+16     q2   Depths                   (16-30) - (31-45)   55.713  34.711 34.017
+17     q2   Depths                   (16-30) - (50-75)   52.021  36.675 34.536
+18     q2   Depths                   (31-45) - (50-75)   -3.692  36.675 34.536
+19     qf   Depths                    (0-15) - (16-30)  -26.118   9.566 33.045
+20     qf   Depths                    (0-15) - (31-45)  -41.517   9.644 33.109
+21     qf   Depths                    (0-15) - (50-75)  -32.443  10.082 33.290
+22     qf   Depths                   (16-30) - (31-45)  -15.399   9.539 33.023
+23     qf   Depths                   (16-30) - (50-75)   -6.326  10.080 33.251
+24     qf   Depths                   (31-45) - (50-75)    9.073  10.125 33.260
+25     q0 Location  Fossil Lagoon - Reforma Waterfalls -751.601 394.592 10.025
+26     q0 Location      Fossil Lagoon - Miguelito Dike -395.811 334.576 10.149
+27     q0 Location Reforma Waterfalls - Miguelito Dike  355.790 361.989  9.682
+28     q1 Location  Fossil Lagoon - Reforma Waterfalls  -98.336 168.011 10.138
+29     q1 Location      Fossil Lagoon - Miguelito Dike  -23.650 142.567 10.290
+30     q1 Location Reforma Waterfalls - Miguelito Dike   74.686 153.969  9.760
+31     q2 Location  Fossil Lagoon - Reforma Waterfalls  -10.231  53.770 10.207
+32     q2 Location      Fossil Lagoon - Miguelito Dike   -1.721  45.734 10.440
+33     q2 Location Reforma Waterfalls - Miguelito Dike    8.510  48.978  9.631
+34     qf Location  Fossil Lagoon - Reforma Waterfalls  -25.345  21.336 10.024
+35     qf Location      Fossil Lagoon - Miguelito Dike  -10.993  18.089 10.144
+36     qf Location Reforma Waterfalls - Miguelito Dike   14.352  19.579  9.693
+   t.ratio  p.value
+1   -2.464 0.084647
+2   -3.846 0.002778
+3   -2.876 0.033568
+4   -1.417 0.497881
+5   -0.538 0.949117
+6    0.800 0.854017
+7   -2.505 0.077038
+8   -1.936 0.232400
+9   -1.458 0.473193
+10   0.569 0.940543
+11   0.911 0.799010
+12   0.373 0.982012
+13  -2.524 0.074041
+14  -0.919 0.795064
+15  -0.970 0.767124
+16   1.605 0.389378
+17   1.418 0.496759
+18  -0.101 0.999627
+19  -2.730 0.047178
+20  -4.305 0.000772
+21  -3.218 0.014539
+22  -1.614 0.384771
+23  -0.628 0.922467
+24   0.896 0.806875
+25  -1.905 0.187460
+26  -1.183 0.488570
+27   0.983 0.603962
+28  -0.585 0.830867
+29  -0.166 0.984965
+30   0.485 0.879892
+31  -0.190 0.980276
+32  -0.038 0.999219
+33   0.174 0.983523
+34  -1.188 0.486174
+35  -0.608 0.819151
+36   0.733 0.750385</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb126"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ---- save ----</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS9_int_models</span>,</span>
+<span>          <span class="st">"Tables/interior_mangroves/Supplementary_Table_S9_Interior_LMM.csv"</span>,</span>
+<span>          row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS9_int_posthoc</span>,</span>
+<span>          <span class="st">"Tables/interior_mangroves/Supplementary_Table_S9_Interior_PostHoc.csv"</span>,</span>
+<span>          row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS9_int_contrasts</span>,</span>
+<span>          <span class="st">"Tables/interior_mangroves/Supplementary_Table_S9_Interior_Contrasts.csv"</span>,</span>
+<span>          row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

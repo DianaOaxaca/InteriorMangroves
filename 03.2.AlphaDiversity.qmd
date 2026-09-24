@@ -229,7 +229,7 @@ At this juncture, the available data permits only the observation of the distrib
 
 ```{r}
 #Get effective reads
-Effective_reads <- colSums(otu_table[-1, ])
+Effective_reads <- sample_sums(otu_table)
 metadata_with_hill$Effective_reads <- Effective_reads
 ```
 
@@ -739,14 +739,14 @@ q2plotloc <- ggplot(metadata_with_hill, aes(x = Location, y = q2, fill = Locatio
 
 ```{r}
 # lmm
-qflmerloc <- lmer(qf ~ Location + Depths + (1 | ID), data = metadata_with_hill)
+qflmerloc <- lmer(qf ~ log(Effective_reads) + Location + Depths + (1 | ID), data = metadata_with_hill)
 # summary
 summary(qflmerloc)
 ```
 
 ```{r}
 #| echo: true
-# Permutation test 
+# test 
 perm_testlocqf <- rand(qflmerloc, nsim = 1000)
 perm_testlocqf
 
@@ -804,38 +804,85 @@ saveRDS(alphaplots_y, "rds/interior_mangroves/alpha_diversity_interior_depth_plo
 # Supplementary Tables
 
 ```{r}
+library(dplyr)
 library(broom.mixed)
+library(emmeans)
+
 # Linear Mixed Models
 tableS9_int_models <- bind_rows(
   tidy(q0lmer) %>% mutate(Metric = "q0"),
   tidy(q1lmer) %>% mutate(Metric = "q1"),
   tidy(q2lmer) %>% mutate(Metric = "q2"),
-  tidy(qflmer) %>% mutate(Metric = "qf"),
+  tidy(qflmer) %>% mutate(Metric = "qf")
 ) %>%
   filter(effect == "fixed") %>%
-  dplyr::select(Metric, Term = term, Estimate = estimate, Std.Error = std.error, Statistic = statistic, p_value = p.value) %>%
+  dplyr::select(Metric, Term = term, Estimate = estimate,
+                Std.Error = std.error, Statistic = statistic,
+                p_value = p.value) %>%
   mutate(across(where(is.numeric), ~ round(., 4)))
 
-#show
-tableS9_int_models
+# Post hoc
+get_cld <- function(x, metric, factor_name) {
+  d <- as.data.frame(x)
+  names(d)[1] <- "Level"
+  d$Metric <- metric
+  d$Factor <- factor_name
+  d
+}
 
-#Posthoc
-# join CLD dataframe
 tableS9_int_posthoc <- bind_rows(
-  as.data.frame(cld_results) %>% mutate(Metric = "q0"),
-  as.data.frame(cld_resultsq1) %>% mutate(Metric = "q1"),
-  as.data.frame(cld_resultsq2) %>% mutate(Metric = "q2"),
-  as.data.frame(cld_resultsqf) %>% mutate(Metric = "qf")) %>%
-  dplyr::select(Metric, Depths, emmean, SE, lower.CL, upper.CL, Significance = .group) %>%
-  mutate(across(where(is.numeric), ~ round(., 3)))
+  get_cld(cld_results,       "q0", "Depths"),
+  get_cld(cld_resultsq1,     "q1", "Depths"),
+  get_cld(cld_resultsq2,     "q2", "Depths"),
+  get_cld(cld_resultsqf,     "qf", "Depths"),
+  get_cld(q0cld_results_loc, "q0", "Location"),
+  get_cld(q1cld_results_loc, "q1", "Location"),
+  get_cld(q2cld_results_loc, "q2", "Location"),
+  get_cld(qfcld_results_loc, "qf", "Location")
+) %>%
+  dplyr::select(Metric, Factor, Level, emmean, SE, df,
+                lower.CL, upper.CL, Significance = .group) %>%
+  mutate(across(where(is.numeric), ~ round(., 3)),
+         Significance = trimws(Significance))
 
-# clean
 rownames(tableS9_int_posthoc) <- NULL
 
-#show
-tableS9_int_posthoc
+# Post hoc: contrast
+get_contrasts <- function(x, metric, factor_name) {
+  as.data.frame(x$contrasts) %>%
+    mutate(Metric = metric, Factor = factor_name)
+}
 
-# save
-write.csv(tableS9_int_models, "Tables/interior_mangroves/Supplementary_Table_S9_Interior_LMM.csv", row.names = FALSE)
-write.csv(tableS9_int_posthoc, "Tables/interior_mangroves/Supplementary_Table_S9_Interior_PostHoc.csv", row.names = FALSE)
+tableS9_int_contrasts <- bind_rows(
+  get_contrasts(q0_lmer_means,     "q0", "Depths"),
+  get_contrasts(q1_lmer_means,     "q1", "Depths"),
+  get_contrasts(q2_lmer_means,     "q2", "Depths"),
+  get_contrasts(qf_lmer_means,     "qf", "Depths"),
+  get_contrasts(q0_lmer_means_loc, "q0", "Location"),
+  get_contrasts(q1lmer_means_loc,  "q1", "Location"),
+  get_contrasts(q2lmer_means_loc,  "q2", "Location"),
+  get_contrasts(qflmer_means_loc,  "qf", "Location")
+) %>%
+  dplyr::select(Metric, Factor, Contrast = contrast, Estimate = estimate,
+                SE, df, t.ratio, p.value) %>%
+  mutate(across(c(Estimate, SE, df, t.ratio), ~ round(., 3)),
+         p.value = format.pval(p.value, digits = 3, eps = 1e-04))
+
+rownames(tableS9_int_contrasts) <- NULL
+
+# ---- show ----
+tableS9_int_models
+tableS9_int_posthoc
+tableS9_int_contrasts
+
+# ---- save ----
+write.csv(tableS9_int_models,
+          "Tables/interior_mangroves/Supplementary_Table_S9_Interior_LMM.csv",
+          row.names = FALSE)
+write.csv(tableS9_int_posthoc,
+          "Tables/interior_mangroves/Supplementary_Table_S9_Interior_PostHoc.csv",
+          row.names = FALSE)
+write.csv(tableS9_int_contrasts,
+          "Tables/interior_mangroves/Supplementary_Table_S9_Interior_Contrasts.csv",
+          row.names = FALSE)
 ```
