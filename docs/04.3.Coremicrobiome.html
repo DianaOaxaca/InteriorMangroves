@@ -640,6 +640,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#get-core-taxonomy" id="toc-get-core-taxonomy" class="nav-link" data-scroll-target="#get-core-taxonomy">06.Get core Taxonomy</a></li>
   <li><a href="#relative-abundance-of-core-asv" id="toc-relative-abundance-of-core-asv" class="nav-link" data-scroll-target="#relative-abundance-of-core-asv">07. Relative abundance of core ASV</a></li>
   <li><a href="#save-rds-core-plot" id="toc-save-rds-core-plot" class="nav-link" data-scroll-target="#save-rds-core-plot">Save rds core plot</a></li>
+  <li><a href="#core-de-san-pedro-balanceado-por-localidad-reviewer-2-punto-5" id="toc-core-de-san-pedro-balanceado-por-localidad-reviewer-2-punto-5" class="nav-link" data-scroll-target="#core-de-san-pedro-balanceado-por-localidad-reviewer-2-punto-5">08. Core de San Pedro balanceado por localidad — Reviewer 2, punto 5</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -787,7 +788,7 @@ $`Términos Lagoon`
 </section><section id="upset-plot" class="level2"><h2 class="anchored" data-anchor-id="upset-plot">04. UpSet plot</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#library(UpSetR)</span></span>
-<span><span class="va">upset_plot</span> <span class="op">&lt;-</span> <span class="fu">upset</span><span class="op">(</span><span class="va">core_df</span>,</span>
+<span><span class="va">upset_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/UpSetR/man/upset.html">upset</a></span><span class="op">(</span><span class="va">core_df</span>,</span>
 <span>                    sets <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">core_df</span><span class="op">)</span>,</span>
 <span>                    order.by <span class="op">=</span> <span class="st">"freq"</span>,</span>
 <span>                    mainbar.y.label <span class="op">=</span> <span class="st">"Shared ASVs"</span>,</span>
@@ -798,9 +799,27 @@ $`Términos Lagoon`
 <span>                    query.legend <span class="op">=</span> <span class="st">"bottom"</span>,</span>
 <span>                    sets.bar.color <span class="op">=</span> </span>
 <span>                      <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#26B170"</span>,<span class="st">"#A7FCC1"</span>,<span class="st">"#329D9C"</span><span class="op">)</span>,</span>
-<span>                    queries <span class="op">=</span> <span class="va">queries_list</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># show</span></span>
+<span>                    queries <span class="op">=</span> <span class="va">queries_list</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
+ℹ Please use tidy evaluation idioms with `aes()`.
+ℹ See also `vignette("ggplot2-in-packages")` for more information.
+ℹ The deprecated feature was likely used in the UpSetR package.
+  Please report the issue at &lt;https://github.com/hms-dbmi/UpSetR/issues&gt;.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.
+ℹ The deprecated feature was likely used in the UpSetR package.
+  Please report the issue at &lt;https://github.com/hms-dbmi/UpSetR/issues&gt;.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead.
+ℹ The deprecated feature was likely used in the UpSetR package.
+  Please report the issue at &lt;https://github.com/hms-dbmi/UpSetR/issues&gt;.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># show</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">upset_plot</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -811,7 +830,7 @@ $`Términos Lagoon`
 </div>
 <section id="save-plot" class="level3"><h3 class="anchored" data-anchor-id="save-plot">Save plot</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/core_upset.pdf"</span>, width <span class="op">=</span> <span class="fl">5.8</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/grDevices/pdf.html">pdf</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/core_upset.pdf"</span>, width <span class="op">=</span> <span class="fl">5.8</span>, height <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="va">upset_plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -821,7 +840,7 @@ $`Términos Lagoon`
 </div>
 </section></section><section id="get-unique-and-asv-info" class="level2"><h2 class="anchored" data-anchor-id="get-unique-and-asv-info">05.Get Unique and ASV info</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">### get unique ASVs per mangrove system</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">### get unique ASVs per mangrove system</span></span>
 <span><span class="va">unique_asvs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">loc</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">core_df</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">unique_asvs</span><span class="op">[[</span><span class="va">loc</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">core_df</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">core_df</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">core_df</span><span class="op">[[</span><span class="va">loc</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="fl">1</span><span class="op">]</span></span>
@@ -840,7 +859,7 @@ character(0)</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Verify taxonomy</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Verify taxonomy</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/tax_table-methods.html">tax_table</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">tax_table_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/tax_table-methods.html">tax_table</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -920,7 +939,7 @@ FJ873203.1.907  Marine_Benthic_Group_D_and_DHVEG-1                   &lt;NA&gt;
 First unique ASVs taxonomy Términos Lagoon :
 There are no unique ASV to Términos Lagoon </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Confirm the total number of unique ASVs</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Confirm the total number of unique ASVs</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">taxonomy_unique</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="kw">else</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$`Fossil Lagoon`
@@ -936,7 +955,7 @@ $`Términos Lagoon`
 <section id="get-taxonomy" class="level3"><h3 class="anchored" data-anchor-id="get-taxonomy">Get Taxonomy</h3>
 <section id="phylum-level" class="level4"><h4 class="anchored" data-anchor-id="phylum-level">Phylum level</h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a list to store unique asv to Phylum level</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a list to store unique asv to Phylum level</span></span>
 <span><span class="va">phylum_unique</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Iterate on each Mangrove system</span></span>
@@ -988,7 +1007,7 @@ There are not exclusive phylum.</code></pre>
 </div>
 </section><section id="family-level" class="level4"><h4 class="anchored" data-anchor-id="family-level">Family level</h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a list to store unique asv to specific taxonomy level</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a list to store unique asv to specific taxonomy level</span></span>
 <span><span class="va">families_unique</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Iterate on each Mangrove system</span></span>
@@ -1089,7 +1108,7 @@ There are not exclusive family.</code></pre>
 </div>
 </section><section id="get-core-table" class="level4"><h4 class="anchored" data-anchor-id="get-core-table">Get core table</h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Combine taxonomy in data.frame</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Combine taxonomy in data.frame</span></span>
 <span><span class="va">taxonomy_unique_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">taxonomy_unique</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">loc</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">taxonomy_unique</span><span class="op">[[</span><span class="va">loc</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">df</span> <span class="op">&lt;-</span> <span class="va">taxonomy_unique</span><span class="op">[[</span><span class="va">loc</span><span class="op">]</span><span class="op">]</span></span>
@@ -1131,18 +1150,18 @@ GU118430.1.1484    Dadabacteriales                       &lt;NA&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save data.frame</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># save data.frame</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">taxonomy_unique_df</span>, file <span class="op">=</span> <span class="st">"Tables/Depth_comparison/unique_asvs_taxonomy.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section></section><section id="get-core-taxonomy" class="level2"><h2 class="anchored" data-anchor-id="get-core-taxonomy">06.Get core Taxonomy</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_asvs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Reduce</a></span><span class="op">(</span><span class="va">intersect</span>, <span class="va">core_list</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_asvs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/funprog.html">Reduce</a></span><span class="op">(</span><span class="va">intersect</span>, <span class="va">core_list</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_taxonomy</span> <span class="op">&lt;-</span> <span class="fu">get_taxonomy</span><span class="op">(</span><span class="va">shared_asvs</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_taxonomy</span> <span class="op">&lt;-</span> <span class="fu">get_taxonomy</span><span class="op">(</span><span class="va">shared_asvs</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_family</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_family</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Family</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shared_family</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "NB1-j"                        "SAR324_clade(Marine_group_B)"
@@ -1157,7 +1176,7 @@ GU118430.1.1484    Dadabacteriales                       &lt;NA&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_phyla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shared_phyla</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">shared_taxonomy</span><span class="op">$</span><span class="va">Phylum</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">shared_phyla</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "NB1-j"                        "SAR324_clade(Marine_group_B)"
@@ -1170,11 +1189,11 @@ GU118430.1.1484    Dadabacteriales                       &lt;NA&gt;</code></pre>
 </div>
 </section><section id="relative-abundance-of-core-asv" class="level2"><h2 class="anchored" data-anchor-id="relative-abundance-of-core-asv">07. Relative abundance of core ASV</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filter</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Filter</span></span>
 <span><span class="va">physeq_shared</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/prune_taxa-methods.html">prune_taxa</a></span><span class="op">(</span><span class="va">shared_asvs</span>, <span class="va">physeq_qiime3</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create and extract otu table</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># create and extract otu table</span></span>
 <span><span class="va">otu_table_ampvis</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>OTU <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span><span class="op">)</span>,</span>
 <span>                                 <span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span>,</span>
 <span>                                 <span class="fu">phyloseq</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/tax_table-methods.html">tax_table</a></span><span class="op">(</span><span class="va">physeq_shared</span><span class="op">)</span><span class="op">@</span><span class="va">.Data</span>,</span>
@@ -1188,7 +1207,7 @@ GU118430.1.1484    Dadabacteriales                       &lt;NA&gt;</code></pre>
 <span><span class="va">av2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_load.html">amp_load</a></span><span class="op">(</span><span class="va">otu_table_ampvis</span>, <span class="va">meta_data_ampvis</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ampv_heatmap_abundances_phylum_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_heatmap.html">amp_heatmap</a></span><span class="op">(</span><span class="va">av2</span>,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ampv_heatmap_abundances_phylum_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://kasperskytte.github.io/ampvis2/reference/amp_heatmap.html">amp_heatmap</a></span><span class="op">(</span><span class="va">av2</span>,</span>
 <span>            group_by <span class="op">=</span> <span class="st">"Mangrove.system"</span>,</span>
 <span>            plot_values <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>            tax_show <span class="op">=</span> <span class="fl">20</span>,</span>
@@ -1213,15 +1232,57 @@ GU118430.1.1484    Dadabacteriales                       &lt;NA&gt;</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/rel_abun_coreheatmap.pdf"</span>,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/Depth_comparison/rel_abun_coreheatmap.pdf"</span>,</span>
 <span>       <span class="va">ampv_heatmap_abundances_phylum_core</span>, bg<span class="op">=</span><span class="st">'transparent'</span>, </span>
 <span>       width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="save-rds-core-plot" class="level2"><h2 class="anchored" data-anchor-id="save-rds-core-plot">Save rds core plot</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">upset_plot</span>, <span class="st">"rds/Depth_comparison/upset_surface_plot.rds"</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">upset_plot</span>, <span class="st">"rds/Depth_comparison/upset_surface_plot.rds"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">ampv_heatmap_abundances_phylum_core</span>, <span class="st">"rds/Depth_comparison/coreabundance_surface_plot.rds"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="core-de-san-pedro-balanceado-por-localidad-reviewer-2-punto-5" class="level2"><h2 class="anchored" data-anchor-id="core-de-san-pedro-balanceado-por-localidad-reviewer-2-punto-5">08. Core de San Pedro balanceado por localidad — Reviewer 2, punto 5</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.delim</a></span><span class="op">(</span><span class="st">"data/metadata2.tsv"</span>, check.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">m2</span><span class="op">$</span><span class="va">Location</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">m2</span><span class="op">$</span><span class="va">Location</span>,</span>
+<span>  <span class="st">"El Cacahuate"</span> <span class="op">=</span> <span class="st">"Fossil Lagoon"</span>, <span class="st">"La Piedad"</span> <span class="op">=</span> <span class="st">"Reforma Waterfalls"</span>,</span>
+<span>  <span class="st">"Dique Miguelito"</span> <span class="op">=</span> <span class="st">"Miguelito Dike"</span><span class="op">)</span></span>
+<span><span class="va">loc_map</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="va">m2</span><span class="op">$</span><span class="va">Location</span>, <span class="va">m2</span><span class="op">$</span><span class="va">SampleID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">core_at</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">ps</span>, <span class="va">keep</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">ps2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/prune_samples-methods.html">prune_samples</a></span><span class="op">(</span><span class="va">keep</span>, <span class="va">ps</span><span class="op">)</span>; <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/nsamples-methods.html">nsamples</a></span><span class="op">(</span><span class="va">ps2</span><span class="op">)</span></span>
+<span>  <span class="va">otu</span> <span class="op">&lt;-</span> <span class="fu">as</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">ps2</span><span class="op">)</span>, <span class="st">"matrix"</span><span class="op">)</span>; <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/taxa_are_rows-methods.html">taxa_are_rows</a></span><span class="op">(</span><span class="va">ps2</span><span class="op">)</span><span class="op">)</span> <span class="va">otu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">otu</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">otu</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span> <span class="op">&gt;=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">physeq_qiime3</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">sd</span><span class="op">$</span><span class="va">Location</span> <span class="op">&lt;-</span> <span class="va">loc_map</span><span class="op">[</span><span class="va">sd</span><span class="op">$</span><span class="va">SampleID</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sd</span><span class="op">$</span><span class="va">Mangrove.system</span>, <span class="va">sd</span><span class="op">$</span><span class="va">Location</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 
+                  Fossil Lagoon Miguelito Dike Reforma Waterfalls &lt;NA&gt;
+  Fossil Lagoon              14              0                  0    0
+  San Pedro River             0             24                 12    0
+  Términos Lagoon             0              0                  0   13</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cmig</span> <span class="op">&lt;-</span> <span class="fu">core_at</span><span class="op">(</span><span class="va">physeq_qiime3</span>, <span class="va">sd</span><span class="op">$</span><span class="va">Location</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="st">"Miguelito Dike"</span><span class="op">)</span></span>
+<span><span class="va">cref</span> <span class="op">&lt;-</span> <span class="fu">core_at</span><span class="op">(</span><span class="va">physeq_qiime3</span>, <span class="va">sd</span><span class="op">$</span><span class="va">Location</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="st">"Reforma Waterfalls"</span><span class="op">)</span></span>
+<span><span class="va">cbal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/setops.html">intersect</a></span><span class="op">(</span><span class="va">cmig</span>, <span class="va">cref</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"PERFILES vs NATURAL (Fig. 3)\n"</span>,</span>
+<span>    <span class="st">"Miguelito core:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">cmig</span><span class="op">)</span>, <span class="st">"\n"</span>,</span>
+<span>    <span class="st">"Reforma core:  "</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">cref</span><span class="op">)</span>, <span class="st">"\n"</span>,</span>
+<span>    <span class="st">"San Pedro balanceado (intersección):"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">cbal</span><span class="op">)</span>, <span class="st">"\n"</span>,</span>
+<span>    <span class="st">"San Pedro pooled:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">core_list</span><span class="op">[[</span><span class="st">"San Pedro River"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>, <span class="st">"\n"</span>,</span>
+<span>    <span class="st">"Costero — Términos (natural):"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">core_list</span><span class="op">[[</span><span class="st">"Términos Lagoon"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>PERFILES vs NATURAL (Fig. 3)
+ Miguelito core: 1670 
+ Reforma core:   1847 
+ San Pedro balanceado (intersección): 1333 
+ San Pedro pooled: 1695 
+ Costero — Términos (natural): 43 </code></pre>
+</div>
 </div>
 
 

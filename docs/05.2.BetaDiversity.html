@@ -104,10 +104,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta property="og:title" content="Beta diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta property="og:image" content="05.2.BetaDiversity_files/figure-html/unnamed-chunk-7-1.png">
+<meta property="og:image" content="05.2.BetaDiversity_files/figure-html/unnamed-chunk-6-1.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Beta diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta name="twitter:image" content="05.2.BetaDiversity_files/figure-html/unnamed-chunk-7-1.png">
+<meta name="twitter:image" content="05.2.BetaDiversity_files/figure-html/unnamed-chunk-6-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -648,6 +648,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#plot-with-permanova-pairwise-permanova-and-betadisper" id="toc-plot-with-permanova-pairwise-permanova-and-betadisper" class="nav-link" data-scroll-target="#plot-with-permanova-pairwise-permanova-and-betadisper">05. <strong>Plot with PERMANOVA, pairwise PERMANOVA and Betadisper</strong></a></li>
   <li><a href="#save-rds-beta-diversity-plot" id="toc-save-rds-beta-diversity-plot" class="nav-link" data-scroll-target="#save-rds-beta-diversity-plot">Save rds beta diversity plot</a></li>
   <li><a href="#supplementary" id="toc-supplementary" class="nav-link" data-scroll-target="#supplementary">Supplementary</a></li>
+  <li>
+<a href="#core-level-analysis-reviewer-2-point-4" id="toc-core-level-analysis-reviewer-2-point-4" class="nav-link" data-scroll-target="#core-level-analysis-reviewer-2-point-4">06. Core-level analysis — Reviewer 2, point 4</a>
+  <ul class="collapse">
+<li><a href="#colapso-a-un-perfil-por-core-cubre-qu%C3%A9-cores-no-tienen-las-3-categor%C3%ADas-n-de-cores-por-grupo" id="toc-colapso-a-un-perfil-por-core-cubre-qué-cores-no-tienen-las-3-categorías-n-de-cores-por-grupo" class="nav-link" data-scroll-target="#colapso-a-un-perfil-por-core-cubre-qu%C3%A9-cores-no-tienen-las-3-categor%C3%ADas-n-de-cores-por-grupo">06.1 — colapso a un perfil por core (cubre: <em>qué cores no tienen las 3 categorías</em> + <em>n de cores por grupo</em>)</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -736,48 +742,48 @@ Note
 <span><span class="va">bray</span><span class="op">=</span><span class="fu"><a href="https://vegandevs.github.io/vegan/reference/vegdist.html">vegdist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">otu_data</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"bray"</span><span class="op">)</span></span>
 <span><span class="va">nmds_source_bray</span> <span class="op">=</span> <span class="fu">vegan</span><span class="fu">::</span><span class="fu"><a href="https://vegandevs.github.io/vegan/reference/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">bray</span>, trymax <span class="op">=</span> <span class="fl">50</span>, k <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Run 0 stress 0.0557 
-Run 1 stress 0.0566 
-Run 2 stress 0.0567 
-Run 3 stress 0.0558 
-... Procrustes: rmse 0.00378  max resid 0.0136 
-Run 4 stress 0.0576 
-Run 5 stress 0.0556 
+<pre><code>Run 0 stress 0.05573601 
+Run 1 stress 0.05664454 
+Run 2 stress 0.05666605 
+Run 3 stress 0.05578273 
+... Procrustes: rmse 0.003458469  max resid 0.01243299 
+Run 4 stress 0.05764983 
+Run 5 stress 0.05562946 
 ... New best solution
-... Procrustes: rmse 0.0407  max resid 0.119 
-Run 6 stress 0.056 
-... Procrustes: rmse 0.00595  max resid 0.0349 
-Run 7 stress 0.0565 
-Run 8 stress 0.0566 
-Run 9 stress 0.0553 
+... Procrustes: rmse 0.04062251  max resid 0.1190015 
+Run 6 stress 0.05600261 
+... Procrustes: rmse 0.00595405  max resid 0.03486079 
+Run 7 stress 0.05648165 
+Run 8 stress 0.05660542 
+Run 9 stress 0.05526596 
 ... New best solution
-... Procrustes: rmse 0.00756  max resid 0.0306 
-Run 10 stress 0.0576 
-Run 11 stress 0.0565 
-Run 12 stress 0.0575 
-Run 13 stress 0.057 
-Run 14 stress 0.0576 
-Run 15 stress 0.057 
-Run 16 stress 0.0557 
-... Procrustes: rmse 0.0407  max resid 0.114 
-Run 17 stress 0.0574 
-Run 18 stress 0.0557 
-... Procrustes: rmse 0.0406  max resid 0.116 
-Run 19 stress 0.0558 
-Run 20 stress 0.0559 
-Run 21 stress 0.0553 
-... Procrustes: rmse 0.00442  max resid 0.0149 
-Run 22 stress 0.0576 
-Run 23 stress 0.0557 
-... Procrustes: rmse 0.0407  max resid 0.114 
-Run 24 stress 0.0553 
-... Procrustes: rmse 0.00469  max resid 0.0158 
-Run 25 stress 0.0569 
-Run 26 stress 0.0557 
-... Procrustes: rmse 0.00793  max resid 0.0355 
-Run 27 stress 0.0553 
+... Procrustes: rmse 0.007562676  max resid 0.03060694 
+Run 10 stress 0.05757295 
+Run 11 stress 0.05645421 
+Run 12 stress 0.057529 
+Run 13 stress 0.05701254 
+Run 14 stress 0.05760218 
+Run 15 stress 0.05700841 
+Run 16 stress 0.0557354 
+... Procrustes: rmse 0.04073542  max resid 0.1140581 
+Run 17 stress 0.05735581 
+Run 18 stress 0.05573428 
+... Procrustes: rmse 0.04058804  max resid 0.1155966 
+Run 19 stress 0.05583555 
+Run 20 stress 0.05587622 
+Run 21 stress 0.05528554 
+... Procrustes: rmse 0.004423567  max resid 0.0149075 
+Run 22 stress 0.0575743 
+Run 23 stress 0.05573555 
+... Procrustes: rmse 0.04073982  max resid 0.1140129 
+Run 24 stress 0.05528986 
+... Procrustes: rmse 0.00468941  max resid 0.01580089 
+Run 25 stress 0.05692283 
+Run 26 stress 0.05568639 
+... Procrustes: rmse 0.007926913  max resid 0.03549667 
+Run 27 stress 0.05526325 
 ... New best solution
-... Procrustes: rmse 0.000512  max resid 0.00176 
+... Procrustes: rmse 0.0005119247  max resid 0.001757635 
 ... Similar to previous best
 *** Best solution repeated 1 times</code></pre>
 </div>
@@ -821,7 +827,7 @@ Run 27 stress 0.0553
 <span><span class="va">nmds_plot_bray</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -864,12 +870,12 @@ Permutation: free
 Number of permutations: 999
 
 adonis2(formula = otu_mat ~ Mangrove_system + Depths * Mangrove_type, data = sample_data, permutations = 999, method = "bray", by = "terms", strata = metadata$ID)
-                     Df SumOfSqs    R2     F Pr(&gt;F)    
-Mangrove_system       2     4.63 0.379 19.95  0.001 ***
-Depths                2     0.61 0.050  2.63  0.001 ***
-Depths:Mangrove_type  2     0.94 0.077  4.03  0.001 ***
-Residual             52     6.04 0.494                 
-Total                58    12.22 1.000                 
+                     Df SumOfSqs      R2       F Pr(&gt;F)    
+Mangrove_system       2   4.6337 0.37924 19.9485  0.001 ***
+Depths                2   0.6098 0.04991  2.6251  0.001 ***
+Depths:Mangrove_type  2   0.9355 0.07657  4.0275  0.001 ***
+Residual             52   6.0394 0.49429                   
+Total                58  12.2184 1.00000                   
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -906,7 +912,7 @@ Note
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Post-hoc Mangrove.system</span></span>
 <span><span class="co">#library(pairwiseAdonis)</span></span>
-<span><span class="va">pairwise_adonis</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu">pairwise.adonis2</span><span class="op">(</span><span class="va">otu_mat</span> <span class="op">~</span> </span>
+<span><span class="va">pairwise_adonis</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pairwiseAdonis/man/pairwise.adonis2.html">pairwise.adonis2</a></span><span class="op">(</span><span class="va">otu_mat</span> <span class="op">~</span> </span>
 <span>                  <span class="va">Mangrove_system</span>, data <span class="op">=</span> <span class="va">sample_data</span>, </span>
 <span>                  method <span class="op">=</span> <span class="st">"bray"</span>,  permutations <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></span>
 <span></span>
@@ -916,26 +922,26 @@ Note
 [1] "otu_mat ~ Mangrove_system , strata = Null , permutations 999"
 
 $`San Pedro River_vs_Fossil Lagoon`
-         Df SumOfSqs    R2    F Pr(&gt;F)    
-Model     1     0.93 0.139 7.73  0.001 ***
-Residual 48     5.78 0.861                
-Total    49     6.71 1.000                
+         Df SumOfSqs      R2      F Pr(&gt;F)    
+Model     1   0.9305 0.13869 7.7288  0.001 ***
+Residual 48   5.7791 0.86131                  
+Total    49   6.7096 1.00000                  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`San Pedro River_vs_Impaired Términos Lagoon`
-         Df SumOfSqs    R2    F Pr(&gt;F)    
-Model     1     3.56 0.361 24.3  0.001 ***
-Residual 43     6.30 0.639                
-Total    44     9.85 1.000                
+         Df SumOfSqs      R2      F Pr(&gt;F)    
+Model     1   3.5574 0.36106 24.299  0.001 ***
+Residual 43   6.2953 0.63894                  
+Total    44   9.8527 1.00000                  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`Fossil Lagoon_vs_Impaired Términos Lagoon`
-         Df SumOfSqs    R2    F Pr(&gt;F)    
-Model     1     2.90 0.484 19.7  0.001 ***
-Residual 21     3.09 0.516                
-Total    22     6.00 1.000                
+         Df SumOfSqs      R2      F Pr(&gt;F)    
+Model     1   2.9035 0.48404 19.701  0.001 ***
+Residual 21   3.0950 0.51596                  
+Total    22   5.9985 1.00000                  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1020,7 +1026,7 @@ attr(,"class")
 <span><span class="va">combined_heatmap</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1055,7 +1061,7 @@ Note
 <span><span class="va">disp_location</span><span class="op">$</span><span class="va">group.distances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           Fossil Lagoon Impaired Términos Lagoon          San Pedro River 
-                   0.291                    0.435                    0.346 </code></pre>
+               0.2909489                0.4351322                0.3456762 </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1073,7 +1079,7 @@ Note
 <span><span class="va">beta_plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1093,9 +1099,9 @@ Permutation: free
 Number of permutations: 999
 
 Response: Distances
-          Df Sum Sq Mean Sq    F N.Perm Pr(&gt;F)    
-Groups     2  0.114  0.0570 7.05    999  0.001 ***
-Residuals 56  0.453  0.0081                       
+          Df  Sum Sq  Mean Sq      F N.Perm Pr(&gt;F)    
+Groups     2 0.11393 0.056963 7.0468    999  0.001 ***
+Residuals 56 0.45268 0.008084                         
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1109,8 +1115,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="co"># Show dispersion by group</span></span>
 <span><span class="va">disp_depth</span><span class="op">$</span><span class="va">group.distances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Deep     Mid Surface 
-  0.398   0.433   0.427 </code></pre>
+<pre><code>     Deep       Mid   Surface 
+0.3981953 0.4329735 0.4271357 </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1129,7 +1135,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">beta_plot_depth</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1148,9 +1154,9 @@ Permutation: free
 Number of permutations: 999
 
 Response: Distances
-          Df Sum Sq Mean Sq    F N.Perm Pr(&gt;F)
-Groups     2  0.015 0.00757 0.26    999   0.78
-Residuals 56  1.638 0.02925                   </code></pre>
+          Df  Sum Sq   Mean Sq      F N.Perm Pr(&gt;F)
+Groups     2 0.01514 0.0075683 0.2588    999  0.783
+Residuals 56 1.63794 0.0292490                     </code></pre>
 </div>
 </div>
 </section></section><section id="plot-with-permanova-pairwise-permanova-and-betadisper" class="level2"><h2 class="anchored" data-anchor-id="plot-with-permanova-pairwise-permanova-and-betadisper">05. <strong>Plot with PERMANOVA, pairwise PERMANOVA and Betadisper</strong>
@@ -1176,7 +1182,7 @@ data's fill values.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1215,9 +1221,9 @@ data's fill values.</code></pre>
 <span><span class="va">tableS8_final</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                   Factor Df SumOfSqs     R2 F.Model p_value
-Mangrove_system           Mangrove_system  2    4.634 0.3792   19.95   0.001
-Depths                             Depths  2    0.610 0.0499    2.63   0.001
-Depths:Mangrove_type Depths:Mangrove_type  2    0.935 0.0766    4.03   0.001
+Mangrove_system           Mangrove_system  2   4.6337 0.3792 19.9485   0.001
+Depths                             Depths  2   0.6098 0.0499  2.6251   0.001
+Depths:Mangrove_type Depths:Mangrove_type  2   0.9355 0.0766  4.0275   0.001
                      Dispersion_p
 Mangrove_system            0.0019
 Depths                         NA
@@ -1226,9 +1232,153 @@ Depths:Mangrove_type           NA</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS8_final</span>, <span class="st">"Tables/interior_impaired/Supplementary_Table_S8_Interior_Impaired_BetaDisper.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section><section id="core-level-analysis-reviewer-2-point-4" class="level2"><h2 class="anchored" data-anchor-id="core-level-analysis-reviewer-2-point-4">06. Core-level analysis — Reviewer 2, point 4</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Mangrove_system</code> es constante dentro de un core, por lo que no puede probarse con <code>strata = ID</code> (permutar dentro del core nunca mueve la etiqueta de sistema). Se colapsa cada core a UN perfil (peso igual Surface/Mid/Deep) y se usa el core como unidad independiente. La profundidad conserva su test a nivel de muestra con <code>strata = ID</code> (sección 02), que sí es válido.</p>
+</div>
+</div>
+<section id="colapso-a-un-perfil-por-core-cubre-qué-cores-no-tienen-las-3-categorías-n-de-cores-por-grupo" class="level3"><h3 class="anchored" data-anchor-id="colapso-a-un-perfil-por-core-cubre-qué-cores-no-tienen-las-3-categorías-n-de-cores-por-grupo">06.1 — colapso a un perfil por core (cubre: <em>qué cores no tienen las 3 categorías</em> + <em>n de cores por grupo</em>)</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># tabla de features: muestras x taxa, counts crudos (misma repr. que secciones 01-02)</span></span>
+<span><span class="va">otu_sxt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/methods/as.html">as</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">ps</span>, taxa_are_rows <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>, <span class="st">"matrix"</span><span class="op">)</span></span>
+<span><span class="va">md</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">ps</span><span class="op">)</span><span class="op">)</span>; <span class="va">md</span><span class="op">$</span><span class="va">CoreID</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">md</span><span class="op">$</span><span class="va">ID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># --- cores sin alguna categoría S/M/D (para Mirna) ---</span></span>
+<span><span class="va">cat_tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">md</span><span class="op">$</span><span class="va">CoreID</span>, <span class="va">md</span><span class="op">$</span><span class="va">Depths</span><span class="op">)</span></span>
+<span><span class="va">missing_cat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">cat_tab</span>, <span class="fl">1</span>, <span class="kw">function</span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">cat_tab</span><span class="op">)</span><span class="op">[</span><span class="va">r</span> <span class="op">==</span> <span class="fl">0</span><span class="op">]</span>, collapse <span class="op">=</span> <span class="st">", "</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">missing_cat</span> <span class="op">&lt;-</span> <span class="va">missing_cat</span><span class="op">[</span><span class="va">missing_cat</span> <span class="op">!=</span> <span class="st">""</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Cores sin alguna categoría de profundidad:\n"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">missing_cat</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cores sin alguna categoría de profundidad:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>named character(0)</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># --- colapso en dos pasos (peso igual S/M/D) ---</span></span>
+<span><span class="va">agg_mean</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">mat</span>, <span class="va">grp</span><span class="op">)</span><span class="op">{</span> <span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rowsum.html">rowsum</a></span><span class="op">(</span><span class="va">mat</span>, <span class="va">grp</span><span class="op">)</span>; <span class="va">s</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">grp</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op">}</span></span>
+<span><span class="va">cat_mean</span>  <span class="op">&lt;-</span> <span class="fu">agg_mean</span><span class="op">(</span><span class="va">otu_sxt</span>, <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">md</span><span class="op">$</span><span class="va">CoreID</span>, <span class="va">md</span><span class="op">$</span><span class="va">Depths</span>, sep <span class="op">=</span> <span class="st">"__"</span><span class="op">)</span><span class="op">)</span>  <span class="co"># paso 1: core x categoría</span></span>
+<span><span class="va">core_of</span>   <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">sub</a></span><span class="op">(</span><span class="st">"__.*$"</span>, <span class="st">""</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">cat_mean</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">core_prof</span> <span class="op">&lt;-</span> <span class="fu">agg_mean</span><span class="op">(</span><span class="va">cat_mean</span>, <span class="va">core_of</span><span class="op">)</span>                                  <span class="co"># paso 2: 1 perfil por core</span></span>
+<span></span>
+<span><span class="va">core_md</span> <span class="op">&lt;-</span> <span class="va">md</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">md</span><span class="op">$</span><span class="va">CoreID</span><span class="op">)</span>, <span class="op">]</span>; <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">core_md</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">core_md</span><span class="op">$</span><span class="va">CoreID</span></span>
+<span><span class="va">core_md</span> <span class="op">&lt;-</span> <span class="va">core_md</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">core_prof</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nn de cores por Mangrove_system:\n"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">core_md</span><span class="op">$</span><span class="va">Mangrove_system</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+n de cores por Mangrove_system:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+           Fossil Lagoon          San Pedro River Impaired Términos Lagoon 
+                       4                        9                        3 </code></pre>
+</div>
+</div>
+<section id="permanova-a-nivel-de-core-mangrove_system-sin-strata-cubre-re-probar-mangrove_system" class="level4"><h4 class="anchored" data-anchor-id="permanova-a-nivel-de-core-mangrove_system-sin-strata-cubre-re-probar-mangrove_system">06.2 — PERMANOVA a nivel de core: <code>Mangrove_system</code>, sin strata (cubre: <em>re-probar Mangrove_system</em>)</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">bray_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vegandevs.github.io/vegan/reference/vegdist.html">vegdist</a></span><span class="op">(</span><span class="va">core_prof</span>, method <span class="op">=</span> <span class="st">"bray"</span><span class="op">)</span></span>
+<span><span class="va">adonis_core_system</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vegandevs.github.io/vegan/reference/adonis.html">adonis2</a></span><span class="op">(</span><span class="va">bray_core</span> <span class="op">~</span> <span class="va">Mangrove_system</span>,</span>
+<span>                              data <span class="op">=</span> <span class="va">core_md</span>, permutations <span class="op">=</span> <span class="fl">999</span>, by <span class="op">=</span> <span class="st">"terms"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">adonis_core_system</span><span class="op">)</span>   <span class="co"># R², F, df, p  (TODOS core-level)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for adonis under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 999
+
+adonis2(formula = bray_core ~ Mangrove_system, data = core_md, permutations = 999, by = "terms")
+                Df SumOfSqs      R2     F Pr(&gt;F)    
+Mangrove_system  2  1.89954 0.66529 12.92  0.001 ***
+Residual        13  0.95565 0.33471                 
+Total           15  2.85519 1.00000                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section><section id="permdisp-a-nivel-de-core-cubre-permdisp-respetando-la-unidad-de-replicación" class="level4"><h4 class="anchored" data-anchor-id="permdisp-a-nivel-de-core-cubre-permdisp-respetando-la-unidad-de-replicación">06.3 — PERMDISP a nivel de core (cubre: <em>PERMDISP respetando la unidad de replicación</em>)</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">disp_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vegandevs.github.io/vegan/reference/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">bray_core</span>, <span class="va">core_md</span><span class="op">$</span><span class="va">Mangrove_system</span><span class="op">)</span></span>
+<span><span class="va">disp_core</span><span class="op">$</span><span class="va">group.distances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Fossil Lagoon          San Pedro River Impaired Términos Lagoon 
+               0.1608999                0.2635871                0.2508859 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://vegandevs.github.io/vegan/reference/anova.cca.html">permutest</a></span><span class="op">(</span><span class="va">disp_core</span>, permutations <span class="op">=</span> <span class="fl">9999</span><span class="op">)</span>   <span class="co"># estadístico y p</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Permutation test for homogeneity of multivariate dispersions
+Permutation: free
+Number of permutations: 9999
+
+Response: Distances
+          Df   Sum Sq   Mean Sq      F N.Perm Pr(&gt;F)  
+Groups     2 0.030071 0.0150354 4.0415   9999 0.0423 *
+Residuals 13 0.048363 0.0037203                       
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section><section id="tabla-suplementaria-core-level" class="level4"><h4 class="anchored" data-anchor-id="tabla-suplementaria-core-level">06.4 — tabla suplementaria core-level</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">pdisp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vegandevs.github.io/vegan/reference/anova.cca.html">permutest</a></span><span class="op">(</span><span class="va">disp_core</span>, permutations <span class="op">=</span> <span class="fl">9999</span><span class="op">)</span><span class="op">$</span><span class="va">tab</span><span class="op">$</span><span class="va">`Pr(&gt;F)`</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
+<span><span class="va">tableS8_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">adonis_core_system</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Factor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span>, Level <span class="op">=</span> <span class="st">"core-level"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Level</span>, <span class="va">Factor</span>, <span class="va">Df</span>, <span class="va">SumOfSqs</span>, <span class="va">R2</span>, F.Model <span class="op">=</span> <span class="cn">F</span>, p_value <span class="op">=</span> <span class="va">`Pr(&gt;F)`</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">Factor</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Total"</span>,<span class="st">"Residual"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Dispersion_p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">Factor</span> <span class="op">==</span> <span class="st">"Mangrove_system"</span>, <span class="va">pdisp</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">.</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">tableS8_core</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     Level          Factor Df SumOfSqs     R2 F.Model p_value
+Mangrove_system core-level Mangrove_system  2   1.8995 0.6653   12.92   0.001
+                Dispersion_p
+Mangrove_system       0.0423</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS8_core</span>, <span class="st">"Tables/interior_impaired/Supplementary_Table_S8_core_level.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">md</span><span class="op">$</span><span class="va">CoreID</span>, <span class="va">md</span><span class="op">$</span><span class="va">Depths</span><span class="op">)</span>   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+      Deep Mid Surface
+  IA     1   1       1
+  IB     1   1       1
+  IC     1   1       1
+  S1A    2   1       1
+  S1B    2   1       1
+  S2A    2   1       1
+  S2B    2   1       1
+  S3A    2   1       1
+  S3B    2   1       1
+  S4B    2   1       1
+  S5A    2   1       1
+  S5B    2   1       1
+  S6A    1   1       1
+  S6B    1   1       1
+  S7A    2   1       1
+  S7B    2   1       1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">md</span><span class="op">$</span><span class="va">Depths</span><span class="op">)</span>              </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   Deep     Mid Surface 
+     27      16      16 </code></pre>
+</div>
+</div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

@@ -442,3 +442,34 @@ saveRDS(ampv_heatmap_abundances_fam_core, "rds/compare_mangroves/coreabundance_s
 saveRDS(physeq_shared, "rds/compare_mangroves/physeq_shared.rds")
 
 ```
+
+## 08. Core de San Pedro balanceado por localidad — Reviewer 2, punto 5
+
+```{r}
+library(dplyr)
+m2 <- read.delim("data/metadata2.tsv", check.names = FALSE)
+m2$Location <- recode(m2$Location,
+  "El Cacahuate" = "Fossil Lagoon", "La Piedad" = "Reforma Waterfalls",
+  "Dique Miguelito" = "Miguelito Dike")
+loc_map <- setNames(m2$Location, m2$SampleID)
+
+core_at <- function(ps, keep){
+  ps2 <- prune_samples(keep, ps); n <- nsamples(ps2)
+  otu <- as(otu_table(ps2), "matrix"); if (!taxa_are_rows(ps2)) otu <- t(otu)
+  names(which(rowSums(otu > 0) / n >= 0.5))
+}
+sd <- data.frame(sample_data(physeq_qiime3))
+sd$Location <- loc_map[sd$SampleID]
+print(table(sd$Mangrove_system, sd$Location, useNA = "ifany"))
+
+cmig <- core_at(physeq_qiime3, sd$Location %in% "Miguelito Dike")
+cref <- core_at(physeq_qiime3, sd$Location %in% "Reforma Waterfalls")
+cbal <- intersect(cmig, cref)
+cat("SUPERFICIE (Fig. 2D)\n",
+    "Miguelito core:", length(cmig), "\n",
+    "Reforma core:  ", length(cref), "\n",
+    "San Pedro balanceado (intersección):", length(cbal), "\n",
+    "San Pedro pooled:", length(core_list[["San Pedro River"]]), "\n",
+    "Costeros — Términos:", length(core_list[["Términos Lagoon"]]),
+    "| Celestún:", length(core_list[["Celestún Lagoon"]]), "\n")
+```

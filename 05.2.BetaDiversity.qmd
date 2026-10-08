@@ -394,3 +394,72 @@ tableS8_final
 #save
 write.csv(tableS8_final, "Tables/interior_impaired/Supplementary_Table_S8_Interior_Impaired_BetaDisper.csv", row.names = FALSE)
 ```
+
+## 06. Core-level analysis — Reviewer 2, point 4
+
+::: callout-note
+`Mangrove_system` es constante dentro de un core, por lo que no puede probarse con `strata = ID` (permutar dentro del core nunca mueve la etiqueta de sistema). Se colapsa cada core a UN perfil (peso igual Surface/Mid/Deep) y se usa el core como unidad independiente. La profundidad conserva su test a nivel de muestra con `strata = ID` (sección 02), que sí es válido.
+:::
+
+### 06.1 — colapso a un perfil por core (cubre: *qué cores no tienen las 3 categorías* + *n de cores por grupo*)
+
+```{r}
+# tabla de features: muestras x taxa, counts crudos (misma repr. que secciones 01-02)
+otu_sxt <- as(t(otu_table(ps, taxa_are_rows = TRUE)), "matrix")
+md <- data.frame(sample_data(ps)); md$CoreID <- as.character(md$ID)
+
+# --- cores sin alguna categoría S/M/D (para Mirna) ---
+cat_tab <- table(md$CoreID, md$Depths)
+missing_cat <- apply(cat_tab, 1, function(r) paste(colnames(cat_tab)[r == 0], collapse = ", "))
+missing_cat <- missing_cat[missing_cat != ""]
+cat("Cores sin alguna categoría de profundidad:\n"); print(missing_cat)
+
+# --- colapso en dos pasos (peso igual S/M/D) ---
+agg_mean <- function(mat, grp){ s <- rowsum(mat, grp); s / as.vector(table(grp)[rownames(s)]) }
+cat_mean  <- agg_mean(otu_sxt, paste(md$CoreID, md$Depths, sep = "__"))  # paso 1: core x categoría
+core_of   <- sub("__.*$", "", rownames(cat_mean))
+core_prof <- agg_mean(cat_mean, core_of)                                  # paso 2: 1 perfil por core
+
+core_md <- md[!duplicated(md$CoreID), ]; rownames(core_md) <- core_md$CoreID
+core_md <- core_md[rownames(core_prof), ]
+cat("\nn de cores por Mangrove_system:\n"); print(table(core_md$Mangrove_system))
+```
+
+#### 06.2 — PERMANOVA a nivel de core: `Mangrove_system`, sin strata (cubre: *re-probar Mangrove_system*)
+
+```{r}
+set.seed(123)
+bray_core <- vegdist(core_prof, method = "bray")
+adonis_core_system <- adonis2(bray_core ~ Mangrove_system,
+                              data = core_md, permutations = 999, by = "terms")
+print(adonis_core_system)   # R², F, df, p  (TODOS core-level)
+```
+
+#### 06.3 — PERMDISP a nivel de core (cubre: *PERMDISP respetando la unidad de replicación*)
+
+```{r}
+set.seed(123)
+disp_core <- betadisper(bray_core, core_md$Mangrove_system)
+disp_core$group.distances
+permutest(disp_core, permutations = 9999)   # estadístico y p
+```
+
+#### 06.4 — tabla suplementaria core-level
+
+```{r}
+set.seed(123)
+pdisp <- permutest(disp_core, permutations = 9999)$tab$`Pr(>F)`[1]
+tableS8_core <- as.data.frame(adonis_core_system) %>%
+  mutate(Factor = rownames(.), Level = "core-level") %>%
+  dplyr::select(Level, Factor, Df, SumOfSqs, R2, F.Model = F, p_value = `Pr(>F)`) %>%
+  filter(!Factor %in% c("Total","Residual")) %>%
+  mutate(Dispersion_p = ifelse(Factor == "Mangrove_system", pdisp, NA),
+         across(where(is.numeric), ~ round(., 4)))
+tableS8_core
+write.csv(tableS8_core, "Tables/interior_impaired/Supplementary_Table_S8_core_level.csv", row.names = FALSE)
+```
+
+```{r}
+table(md$CoreID, md$Depths)   
+table(md$Depths)              
+```

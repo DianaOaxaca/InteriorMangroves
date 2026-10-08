@@ -817,3 +817,61 @@ tableS10_final <- bind_rows(tab_u, tab_wu) %>%
 # Guardar
 write.csv(tableS10_final, "Tables/interior_mangroves/Supplementary_Table_S10_Interior_Mangroves_Beta.csv", row.names = FALSE)
 ```
+
+# 04. Core-level analysis — Reviewer 2, point 4
+
+::: callout-note
+`Location` es constante dentro de un core, por lo que no puede probarse con `strata = ID`. Se colapsa cada core a UN perfil usando los tres horizontes presentes en los 13 cores (0–15, 16–30, 31–45 cm) para que todos los perfiles representen el mismo rango de profundidad, y se usa el core como unidad independiente. Se corren weighted y unweighted UniFrac. La profundidad conserva su test con `strata = ID` (secciones 01–02).
+:::
+
+## 04.1 Colapso a un perfil por core (3 horizontes comunes)
+
+```{r}
+horizons <- c("0-15","16-30","31-45")   # se excluye 50-75: S6A/S6B (Fossil) no lo tienen,
+                                         # así cada perfil cubre el mismo rango de profundidad
+otu_sxt <- as(t(otu_table(ps, taxa_are_rows = TRUE)), "matrix")
+md <- data.frame(sample_data(ps)); md$CoreID <- as.character(md$ID)
+
+md_k  <- md[md$Depths %in% horizons, ]; otu_k <- otu_sxt[rownames(md_k), ]
+cat("Horizontes usados por core:\n"); print(table(md_k$CoreID, md_k$Depths))
+
+agg_mean <- function(mat, grp){ s <- rowsum(mat, grp); s / as.vector(table(grp)[rownames(s)]) }
+core_prof <- agg_mean(otu_k, md_k$CoreID)   # 1 perfil por core = media de sus 3 horizontes
+
+core_md <- md_k[!duplicated(md_k$CoreID), ]; rownames(core_md) <- core_md$CoreID
+core_md <- core_md[rownames(core_prof), ]
+cat("\nn de cores por Location:\n"); print(table(core_md$Location))
+```
+
+#### 04.2 Reconstruir phyloseq con los perfiles + el mismo árbol
+
+```{r}
+core_ps <- phyloseq(otu_table(t(core_prof), taxa_are_rows = TRUE),
+                    phy_tree(ps), sample_data(core_md))
+core_ps <- prune_taxa(taxa_sums(core_ps) > 0, core_ps)
+cmd <- data.frame(sample_data(core_ps))     # metadata alineada al orden del objeto
+```
+
+## 04.3 Weighted UniFrac — PERMANOVA + PERMDISP (Location, sin strata)
+
+```{r}
+set.seed(123)
+wu_core <- UniFrac(core_ps, weighted = TRUE)
+print(adonis2(wu_core ~ Location, data = cmd, permutations = 999, by = "terms"))
+disp_wu <- betadisper(wu_core, cmd$Location)
+disp_wu$group.distances
+set.seed(123)
+permutest(disp_wu, permutations = 9999)
+```
+
+## 04.4 Unweighted UniFrac — PERMANOVA + PERMDISP (Location, sin strata) · Fig. 5D
+
+```{r}
+set.seed(123)
+u_core <- UniFrac(core_ps, weighted = FALSE)
+print(adonis2(u_core ~ Location, data = cmd, permutations = 999, by = "terms"))
+disp_u <- betadisper(u_core, cmd$Location)
+disp_u$group.distances
+set.seed(123)
+permutest(disp_u, permutations = 9999)
+```

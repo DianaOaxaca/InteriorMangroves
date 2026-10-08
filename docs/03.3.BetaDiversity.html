@@ -104,10 +104,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta property="og:title" content="Beta diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta property="og:image" content="03.3.BetaDiversity_files/figure-html/unnamed-chunk-6-1.png">
+<meta property="og:image" content="03.3.BetaDiversity_files/figure-html/unnamed-chunk-5-1.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Beta diversity – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta name="twitter:image" content="03.3.BetaDiversity_files/figure-html/unnamed-chunk-6-1.png">
+<meta name="twitter:image" content="03.3.BetaDiversity_files/figure-html/unnamed-chunk-5-1.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -677,6 +677,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
   <li><a href="#save-rds-plots" id="toc-save-rds-plots" class="nav-link" data-scroll-target="#save-rds-plots">Save rds plots</a></li>
   <li><a href="#supplementary" id="toc-supplementary" class="nav-link" data-scroll-target="#supplementary">Supplementary</a></li>
+  <li>
+<a href="#core-level-analysis-reviewer-2-point-4" id="toc-core-level-analysis-reviewer-2-point-4" class="nav-link" data-scroll-target="#core-level-analysis-reviewer-2-point-4">04. Core-level analysis — Reviewer 2, point 4</a>
+  <ul class="collapse">
+<li><a href="#colapso-a-un-perfil-por-core-3-horizontes-comunes" id="toc-colapso-a-un-perfil-por-core-3-horizontes-comunes" class="nav-link" data-scroll-target="#colapso-a-un-perfil-por-core-3-horizontes-comunes">04.1 Colapso a un perfil por core (3 horizontes comunes)</a></li>
+  <li><a href="#weighted-unifrac-permanova-permdisp-location-sin-strata" id="toc-weighted-unifrac-permanova-permdisp-location-sin-strata" class="nav-link" data-scroll-target="#weighted-unifrac-permanova-permdisp-location-sin-strata">04.3 Weighted UniFrac — PERMANOVA + PERMDISP (Location, sin strata)</a></li>
+  <li><a href="#unweighted-unifrac-permanova-permdisp-location-sin-strata-fig.-5d" id="toc-unweighted-unifrac-permanova-permdisp-location-sin-strata-fig.-5d" class="nav-link" data-scroll-target="#unweighted-unifrac-permanova-permdisp-location-sin-strata-fig.-5d">04.4 Unweighted UniFrac — PERMANOVA + PERMDISP (Location, sin strata) · Fig. 5D</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -738,40 +746,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">nmds_wunifrac</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/ordinate.html">ordinate</a></span><span class="op">(</span><span class="va">ps</span>, method <span class="op">=</span> <span class="st">"NMDS"</span>, distance <span class="op">=</span> <span class="st">"wunifrac"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Run 0 stress 0.0887 
-Run 1 stress 0.135 
-Run 2 stress 0.0924 
-Run 3 stress 0.0924 
-Run 4 stress 0.0887 
+<pre><code>Run 0 stress 0.08872428 
+Run 1 stress 0.1347575 
+Run 2 stress 0.09235402 
+Run 3 stress 0.09235405 
+Run 4 stress 0.08872426 
 ... New best solution
-... Procrustes: rmse 6.43e-05  max resid 0.000367 
+... Procrustes: rmse 6.425539e-05  max resid 0.0003666809 
 ... Similar to previous best
-Run 5 stress 0.0943 
-Run 6 stress 0.0924 
-Run 7 stress 0.116 
-Run 8 stress 0.0967 
-Run 9 stress 0.0943 
-Run 10 stress 0.121 
-Run 11 stress 0.0943 
-Run 12 stress 0.0924 
-Run 13 stress 0.117 
-Run 14 stress 0.0941 
-Run 15 stress 0.0941 
-Run 16 stress 0.0887 
-... Procrustes: rmse 0.00011  max resid 0.000666 
+Run 5 stress 0.09430901 
+Run 6 stress 0.09235403 
+Run 7 stress 0.1162806 
+Run 8 stress 0.09673622 
+Run 9 stress 0.09430906 
+Run 10 stress 0.1206369 
+Run 11 stress 0.09430906 
+Run 12 stress 0.09235406 
+Run 13 stress 0.1165466 
+Run 14 stress 0.09412556 
+Run 15 stress 0.09412561 
+Run 16 stress 0.08872432 
+... Procrustes: rmse 0.0001102589  max resid 0.0006660331 
 ... Similar to previous best
-Run 17 stress 0.0887 
-... Procrustes: rmse 6.31e-05  max resid 0.000392 
+Run 17 stress 0.08872434 
+... Procrustes: rmse 6.312694e-05  max resid 0.0003921621 
 ... Similar to previous best
-Run 18 stress 0.0887 
-... Procrustes: rmse 6.78e-05  max resid 0.000404 
+Run 18 stress 0.08872426 
+... Procrustes: rmse 6.783368e-05  max resid 0.0004037817 
 ... Similar to previous best
-Run 19 stress 0.0887 
-... Procrustes: rmse 3.66e-05  max resid 2e-04 
+Run 19 stress 0.08872427 
+... Procrustes: rmse 3.662847e-05  max resid 0.0002002216 
 ... Similar to previous best
-Run 20 stress 0.0887 
+Run 20 stress 0.08872425 
 ... New best solution
-... Procrustes: rmse 5.51e-05  max resid 0.000327 
+... Procrustes: rmse 5.505287e-05  max resid 0.0003272047 
 ... Similar to previous best
 *** Best solution repeated 1 times</code></pre>
 </div>
@@ -779,7 +787,7 @@ Run 20 stress 0.0887
 <span><span class="va">var_stress_nmds_wu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">nmds_wunifrac</span><span class="op">$</span><span class="va">stress</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">var_stress_nmds_wu</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0887</code></pre>
+<pre><code>[1] 0.08872</code></pre>
 </div>
 </div>
 </section><section id="plot" class="level3"><h3 class="anchored" data-anchor-id="plot">01.1.2 Plot</h3>
@@ -803,7 +811,7 @@ Run 20 stress 0.0887
 <span><span class="va">nmds_wu</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -846,10 +854,10 @@ Note
 <span></span>
 <span><span class="va">perm_results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      Term    R2 p_value
-1 Depth_cm 0.226   0.001
-2 Location 0.182   0.002
-3 Residual 0.592      NA</code></pre>
+<pre><code>      Term        R2 p_value
+1 Depth_cm 0.2256078   0.001
+2 Location 0.1821115   0.002
+3 Residual 0.5922807      NA</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PERMANOVA text</span></span>
 <span><span class="va">perm_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
@@ -872,7 +880,7 @@ Note
 <span><span class="va">nmds_wu</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -900,42 +908,42 @@ data's fill values.</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
 <span><span class="va">nmds_wunifrac_fltr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/ordinate.html">ordinate</a></span><span class="op">(</span><span class="va">ps_fltr</span>, method <span class="op">=</span> <span class="st">"NMDS"</span>, distance <span class="op">=</span> <span class="st">"wunifrac"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Run 0 stress 0.0614 
-Run 1 stress 0.0614 
-... Procrustes: rmse 1.38e-05  max resid 4.53e-05 
+<pre><code>Run 0 stress 0.06140161 
+Run 1 stress 0.06140161 
+... Procrustes: rmse 1.375984e-05  max resid 4.526863e-05 
 ... Similar to previous best
-Run 2 stress 0.0614 
-... Procrustes: rmse 1.04e-05  max resid 4.14e-05 
+Run 2 stress 0.06140161 
+... Procrustes: rmse 1.040159e-05  max resid 4.144454e-05 
 ... Similar to previous best
-Run 3 stress 0.0728 
-Run 4 stress 0.0728 
-Run 5 stress 0.0728 
-Run 6 stress 0.0614 
-... Procrustes: rmse 2e-05  max resid 7.56e-05 
+Run 3 stress 0.07281446 
+Run 4 stress 0.07281446 
+Run 5 stress 0.07281446 
+Run 6 stress 0.06140162 
+... Procrustes: rmse 1.995929e-05  max resid 7.559328e-05 
 ... Similar to previous best
-Run 7 stress 0.0879 
-Run 8 stress 0.0728 
-Run 9 stress 0.0879 
-Run 10 stress 0.0728 
-Run 11 stress 0.1 
-Run 12 stress 0.0614 
+Run 7 stress 0.08794268 
+Run 8 stress 0.07281447 
+Run 9 stress 0.08794276 
+Run 10 stress 0.07281446 
+Run 11 stress 0.1000555 
+Run 12 stress 0.06140161 
 ... New best solution
-... Procrustes: rmse 2.65e-06  max resid 7.37e-06 
+... Procrustes: rmse 2.65057e-06  max resid 7.365192e-06 
 ... Similar to previous best
-Run 13 stress 0.0614 
-... Procrustes: rmse 2.63e-05  max resid 9.25e-05 
+Run 13 stress 0.06140163 
+... Procrustes: rmse 2.634859e-05  max resid 9.25293e-05 
 ... Similar to previous best
-Run 14 stress 0.0728 
-Run 15 stress 0.0614 
-... Procrustes: rmse 4.99e-05  max resid 0.000154 
+Run 14 stress 0.07281446 
+Run 15 stress 0.06140164 
+... Procrustes: rmse 4.98994e-05  max resid 0.0001535384 
 ... Similar to previous best
-Run 16 stress 0.0614 
-... Procrustes: rmse 2.23e-05  max resid 8.27e-05 
+Run 16 stress 0.06140162 
+... Procrustes: rmse 2.22653e-05  max resid 8.271611e-05 
 ... Similar to previous best
-Run 17 stress 0.0728 
-Run 18 stress 0.0879 
-Run 19 stress 0.1 
-Run 20 stress 0.105 
+Run 17 stress 0.07281446 
+Run 18 stress 0.08794313 
+Run 19 stress 0.1000555 
+Run 20 stress 0.1047482 
 *** Best solution repeated 4 times</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># stress</span></span>
@@ -984,10 +992,10 @@ Run 20 stress 0.105
 <span></span>
 <span><span class="va">perm_results_fltr</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      Term     R2 p_value
-1 Depth_cm 0.3465   0.002
-2 Location 0.0932   0.157
-3 Residual 0.5604      NA</code></pre>
+<pre><code>      Term         R2 p_value
+1 Depth_cm 0.34646671   0.002
+2 Location 0.09315353   0.157
+3 Residual 0.56037976      NA</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PERMANOVA text</span></span>
 <span><span class="va">perm_text_fltr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
@@ -1014,7 +1022,7 @@ Note
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Post-hoc Depths</span></span>
 <span><span class="co"># Pairwise PERMANOVA  Weighted UniFrac</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
-<span><span class="va">pairwise_adonis_fltr</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu">pairwise.adonis2</span><span class="op">(</span></span>
+<span><span class="va">pairwise_adonis_fltr</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pairwiseAdonis/man/pairwise.adonis2.html">pairwise.adonis2</a></span><span class="op">(</span></span>
 <span>  <span class="va">wunifrac_distances_fltr</span> <span class="op">~</span> <span class="va">Depths_fltr</span>,</span>
 <span>  data <span class="op">=</span> <span class="va">metadata_fltr</span>,</span>
 <span>  permutations <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></span>
@@ -1026,10 +1034,10 @@ Note
 [1] "wunifrac_distances_fltr ~ Depths_fltr , strata = Null , permutations 999"
 
 $`0-15_vs_50-75`
-         Df SumOfSqs    R2    F Pr(&gt;F)    
-Model     1    0.237 0.346 11.7  0.001 ***
-Residual 22    0.447 0.654                
-Total    23    0.685 1.000                
+         Df SumOfSqs      R2      F Pr(&gt;F)    
+Model     1  0.23722 0.34647 11.663  0.001 ***
+Residual 22  0.44745 0.65353                  
+Total    23  0.68467 1.00000                  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1068,9 +1076,9 @@ Important
 <pre><code>Analysis of Variance Table
 
 Response: Distances
-          Df Sum Sq Mean Sq F value Pr(&gt;F)
-Groups     1 0.0013 0.00129    0.35   0.56
-Residuals 22 0.0807 0.00367               </code></pre>
+          Df   Sum Sq   Mean Sq F value Pr(&gt;F)
+Groups     1 0.001293 0.0012934  0.3525 0.5587
+Residuals 22 0.080716 0.0036689               </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># betadisp wu by loc</span></span>
 <span><span class="va">beta_disp_fltr_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vegandevs.github.io/vegan/reference/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">wunifrac_distances_fltr</span>, <span class="va">metadata_fltr</span><span class="op">$</span><span class="va">Location</span><span class="op">)</span></span>
@@ -1080,15 +1088,15 @@ Residuals 22 0.0807 0.00367               </code></pre>
 <pre><code>Analysis of Variance Table
 
 Response: Distances
-          Df Sum Sq Mean Sq F value Pr(&gt;F)
-Groups     2 0.0081 0.00405     0.8   0.46
-Residuals 21 0.1064 0.00507               </code></pre>
+          Df   Sum Sq   Mean Sq F value Pr(&gt;F)
+Groups     2 0.008101 0.0040507  0.7994 0.4628
+Residuals 21 0.106414 0.0050673               </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Show dispersion by group</span></span>
 <span><span class="va">beta_disp_fltr</span><span class="op">$</span><span class="va">group.distances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 0-15 50-75 
-0.132 0.117 </code></pre>
+<pre><code>     0-15     50-75 
+0.1321581 0.1174246 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot betadisper</span></span>
 <span><span class="va">beta_data_fltr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -1105,7 +1113,7 @@ Residuals 21 0.1064 0.00507               </code></pre>
 <span><span class="va">beta_plot_fltr</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1129,7 +1137,7 @@ Residuals 21 0.1064 0.00507               </code></pre>
 <span><span class="va">nmds_wu_fltr</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1148,43 +1156,43 @@ data's fill values.</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Unweighted UniFrac</span></span>
 <span><span class="va">nmds_unifrac</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/ordinate.html">ordinate</a></span><span class="op">(</span><span class="va">ps</span>, method <span class="op">=</span> <span class="st">"NMDS"</span>, distance <span class="op">=</span> <span class="st">"unifrac"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Run 0 stress 0.0783 
-Run 1 stress 0.0783 
+<pre><code>Run 0 stress 0.07828522 
+Run 1 stress 0.07828508 
 ... New best solution
-... Procrustes: rmse 0.000102  max resid 0.000654 
+... Procrustes: rmse 6.388879e-05  max resid 0.0004102816 
 ... Similar to previous best
-Run 2 stress 0.0857 
-Run 3 stress 0.0976 
-Run 4 stress 0.0929 
-Run 5 stress 0.0941 
-Run 6 stress 0.0964 
-Run 7 stress 0.0999 
-Run 8 stress 0.403 
-Run 9 stress 0.112 
-Run 10 stress 0.0941 
-Run 11 stress 0.0999 
-Run 12 stress 0.0783 
-... Procrustes: rmse 0.000441  max resid 0.00284 
+Run 2 stress 0.08566906 
+Run 3 stress 0.09757136 
+Run 4 stress 0.09289173 
+Run 5 stress 0.09405995 
+Run 6 stress 0.09641279 
+Run 7 stress 0.09988806 
+Run 8 stress 0.4025261 
+Run 9 stress 0.1117382 
+Run 10 stress 0.09405983 
+Run 11 stress 0.09989714 
+Run 12 stress 0.07828528 
+... Procrustes: rmse 0.0004409903  max resid 0.002838493 
 ... Similar to previous best
-Run 13 stress 0.0964 
-Run 14 stress 0.0929 
-Run 15 stress 0.0975 
-Run 16 stress 0.0783 
-... Procrustes: rmse 6.12e-05  max resid 0.000392 
+Run 13 stress 0.09642043 
+Run 14 stress 0.09288072 
+Run 15 stress 0.09754486 
+Run 16 stress 0.07828522 
+... Procrustes: rmse 6.12037e-05  max resid 0.0003916262 
 ... Similar to previous best
-Run 17 stress 0.104 
-Run 18 stress 0.0783 
-... Procrustes: rmse 0.00053  max resid 0.00341 
+Run 17 stress 0.1040502 
+Run 18 stress 0.07828555 
+... Procrustes: rmse 0.0005301794  max resid 0.00341265 
 ... Similar to previous best
-Run 19 stress 0.0857 
-Run 20 stress 0.1 
+Run 19 stress 0.08566868 
+Run 20 stress 0.1000177 
 *** Best solution repeated 4 times</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># stress variable</span></span>
 <span><span class="va">var_stress_nmds_u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">nmds_unifrac</span><span class="op">$</span><span class="va">stress</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">var_stress_nmds_u</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0783</code></pre>
+<pre><code>[1] 0.07829</code></pre>
 </div>
 </div>
 </section><section id="nmds" class="level2"><h2 class="anchored" data-anchor-id="nmds">02.2 NMDS</h2>
@@ -1228,10 +1236,10 @@ Run 20 stress 0.1
 <span></span>
 <span><span class="va">perm_results</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      Term    R2 p_value
-1 Location 0.301   0.001
-2   Depths 0.136   0.001
-3 Residual 0.563      NA</code></pre>
+<pre><code>      Term        R2 p_value
+1 Location 0.3010881   0.001
+2   Depths 0.1355837   0.001
+3 Residual 0.5633282      NA</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># PERMANOVA text</span></span>
 <span><span class="va">perm_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
@@ -1258,7 +1266,7 @@ Important
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## Post-hoc Location</span></span>
 <span><span class="co"># Pairwise PERMANOVA  Weighted UniFrac</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
-<span><span class="va">pairwise_adonis_u</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu">pairwise.adonis2</span><span class="op">(</span></span>
+<span><span class="va">pairwise_adonis_u</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pairwiseAdonis/man/pairwise.adonis2.html">pairwise.adonis2</a></span><span class="op">(</span></span>
 <span>  <span class="va">unifrac_distances</span> <span class="op">~</span> <span class="va">Location</span> <span class="op">+</span> <span class="va">Depths</span>,</span>
 <span>  data <span class="op">=</span> <span class="va">metadata</span>,</span>
 <span>  permutations <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></span>
@@ -1270,26 +1278,26 @@ Important
 [1] "unifrac_distances ~ Location + Depths , strata = Null , permutations 999"
 
 $`Miguelito Dike_vs_Reforma Waterfalls`
-         Df SumOfSqs    R2    F Pr(&gt;F)   
-Model     4     0.93 0.288 3.14  0.002 **
-Residual 31     2.30 0.712               
-Total    35     3.23 1.000               
+         Df SumOfSqs     R2      F Pr(&gt;F)   
+Model     4   0.9309 0.2883 3.1394  0.002 **
+Residual 31   2.2980 0.7117                 
+Total    35   3.2289 1.0000                 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`Miguelito Dike_vs_Fossil Lagoon`
-         Df SumOfSqs    R2    F Pr(&gt;F)    
-Model     4     1.60 0.411 5.75  0.001 ***
-Residual 33     2.29 0.589                
-Total    37     3.89 1.000                
+         Df SumOfSqs      R2     F Pr(&gt;F)    
+Model     4   1.5976 0.41067 5.749  0.001 ***
+Residual 33   2.2926 0.58933                 
+Total    37   3.8902 1.00000                 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 $`Reforma Waterfalls_vs_Fossil Lagoon`
-         Df SumOfSqs    R2    F Pr(&gt;F)    
-Model     4    1.148 0.599 7.86  0.001 ***
-Residual 21    0.767 0.401                
-Total    25    1.915 1.000                
+         Df SumOfSqs      R2      F Pr(&gt;F)    
+Model     4  1.14825 0.59947 7.8578  0.001 ***
+Residual 21  0.76718 0.40053                  
+Total    25  1.91543 1.00000                  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1374,7 +1382,7 @@ attr(,"class")
 <span><span class="va">combined_heatmap</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1410,7 +1418,7 @@ Important
 <span><span class="va">beta_disp_u</span><span class="op">$</span><span class="va">group.distances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Fossil Lagoon     Miguelito Dike Reforma Waterfalls 
-             0.216              0.270              0.231 </code></pre>
+         0.2159625          0.2698631          0.2308628 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># boxplot betadisper</span></span>
 <span><span class="va">beta_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
@@ -1427,7 +1435,7 @@ Important
 <span><span class="va">beta_plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1517,28 +1525,28 @@ capscale(formula = unifrac_vegdist_phychem30cm ~ Temperature...C. +      Salinit
 
 Partitioning of squared Unknown distance:
               Inertia Proportion
-Total           0.995      1.000
-Constrained     0.609      0.612
-Unconstrained   0.385      0.388
+Total          0.9946     1.0000
+Constrained    0.6091     0.6124
+Unconstrained  0.3855     0.3876
 
 Eigenvalues, and their contribution to the squared Unknown distance 
 
 Importance of components:
-                       CAP1  CAP2   CAP3   CAP4   CAP5   CAP6  MDS1   MDS2
-Eigenvalue            0.324 0.117 0.0814 0.0403 0.0263 0.0207 0.261 0.0425
-Proportion Explained  0.325 0.117 0.0818 0.0405 0.0265 0.0208 0.263 0.0427
-Cumulative Proportion 0.325 0.443 0.5247 0.5652 0.5916 0.6124 0.875 0.9180
-                        MDS3   MDS4   MDS5   MDS6
-Eigenvalue            0.0261 0.0242 0.0180 0.0133
-Proportion Explained  0.0262 0.0244 0.0181 0.0134
-Cumulative Proportion 0.9442 0.9685 0.9866 1.0000
+                        CAP1   CAP2    CAP3    CAP4    CAP5    CAP6   MDS1
+Eigenvalue            0.3237 0.1167 0.08140 0.04026 0.02632 0.02068 0.2614
+Proportion Explained  0.3255 0.1173 0.08185 0.04048 0.02646 0.02079 0.2628
+Cumulative Proportion 0.3255 0.4428 0.52469 0.56516 0.59163 0.61242 0.8753
+                         MDS2    MDS3    MDS4    MDS5    MDS6
+Eigenvalue            0.04246 0.02607 0.02423 0.01797 0.01334
+Proportion Explained  0.04269 0.02621 0.02436 0.01807 0.01341
+Cumulative Proportion 0.91795 0.94416 0.96852 0.98659 1.00000
 
 Accumulated constrained eigenvalues
 Importance of components:
-                       CAP1  CAP2   CAP3   CAP4   CAP5   CAP6
-Eigenvalue            0.324 0.117 0.0814 0.0403 0.0263 0.0207
-Proportion Explained  0.531 0.192 0.1336 0.0661 0.0432 0.0340
-Cumulative Proportion 0.531 0.723 0.8567 0.9228 0.9660 1.0000</code></pre>
+                        CAP1   CAP2   CAP3    CAP4    CAP5    CAP6
+Eigenvalue            0.3237 0.1167 0.0814 0.04026 0.02632 0.02068
+Proportion Explained  0.5315 0.1916 0.1336 0.06609 0.04321 0.03395
+Cumulative Proportion 0.5315 0.7231 0.8567 0.92284 0.96605 1.00000</code></pre>
 </div>
 </div>
 </section><section id="get-significance" class="level2"><h2 class="anchored" data-anchor-id="get-significance">03.4 Get significance</h2>
@@ -1554,14 +1562,14 @@ Permutation: free
 Number of permutations: 999
 
 Model: capscale(formula = unifrac_vegdist_phychem30cm ~ Temperature...C. + Salinity..ppm. + pH + Redox.mV..Eh. + S.2..mg.l. + SO....mg.l., data = phychem)
-         Df SumOfSqs    F Pr(&gt;F)
-CAP1      1    0.324 5.04   0.14
-CAP2      1    0.117 1.82   0.75
-CAP3      1    0.081 1.27   0.84
-CAP4      1    0.040 0.63   0.96
-CAP5      1    0.026 0.41   0.97
-CAP6      1    0.021 0.32   0.97
-Residual  6    0.385            </code></pre>
+         Df SumOfSqs      F Pr(&gt;F)
+CAP1      1  0.32374 5.0389  0.140
+CAP2      1  0.11671 2.1193  0.637
+CAP3      1  0.08140 1.6893  0.687
+CAP4      1  0.04026 0.9399  0.827
+CAP5      1  0.02632 0.6827  0.827
+CAP6      1  0.02068 0.5901  0.827
+Residual  6  0.38549              </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Significance by variable</span></span>
 <span><span class="va">anova_terms</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">dbrda_result</span>, by <span class="op">=</span> <span class="st">"terms"</span>, </span>
@@ -1575,14 +1583,14 @@ Permutation: free
 Number of permutations: 999
 
 Model: capscale(formula = unifrac_vegdist_phychem30cm ~ Temperature...C. + Salinity..ppm. + pH + Redox.mV..Eh. + S.2..mg.l. + SO....mg.l., data = phychem)
-                 Df SumOfSqs    F Pr(&gt;F)  
-Temperature...C.  1    0.208 3.23  0.016 *
-Salinity..ppm.    1    0.120 1.87  0.112  
-pH                1    0.064 1.00  0.433  
-Redox.mV..Eh.     1    0.051 0.79  0.565  
-S.2..mg.l.        1    0.108 1.67  0.151  
-SO....mg.l.       1    0.059 0.92  0.470  
-Residual          6    0.385              
+                 Df SumOfSqs      F Pr(&gt;F)  
+Temperature...C.  1  0.20776 3.2337  0.016 *
+Salinity..ppm.    1  0.12036 1.8733  0.112  
+pH                1  0.06417 0.9987  0.433  
+Redox.mV..Eh.     1  0.05053 0.7864  0.565  
+S.2..mg.l.        1  0.10751 1.6733  0.151  
+SO....mg.l.       1  0.05879 0.9151  0.470  
+Residual          6  0.38549                
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1592,14 +1600,14 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">dbrda_result</span><span class="op">)</span><span class="op">$</span><span class="va">cont</span><span class="op">$</span><span class="va">importance</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Importance of components:
-                       CAP1  CAP2   CAP3   CAP4   CAP5   CAP6  MDS1   MDS2
-Eigenvalue            0.324 0.117 0.0814 0.0403 0.0263 0.0207 0.261 0.0425
-Proportion Explained  0.325 0.117 0.0818 0.0405 0.0265 0.0208 0.263 0.0427
-Cumulative Proportion 0.325 0.443 0.5247 0.5652 0.5916 0.6124 0.875 0.9180
-                        MDS3   MDS4   MDS5   MDS6
-Eigenvalue            0.0261 0.0242 0.0180 0.0133
-Proportion Explained  0.0262 0.0244 0.0181 0.0134
-Cumulative Proportion 0.9442 0.9685 0.9866 1.0000</code></pre>
+                        CAP1   CAP2    CAP3    CAP4    CAP5    CAP6   MDS1
+Eigenvalue            0.3237 0.1167 0.08140 0.04026 0.02632 0.02068 0.2614
+Proportion Explained  0.3255 0.1173 0.08185 0.04048 0.02646 0.02079 0.2628
+Cumulative Proportion 0.3255 0.4428 0.52469 0.56516 0.59163 0.61242 0.8753
+                         MDS2    MDS3    MDS4    MDS5    MDS6
+Eigenvalue            0.04246 0.02607 0.02423 0.01797 0.01334
+Proportion Explained  0.04269 0.02621 0.02436 0.01807 0.01341
+Cumulative Proportion 0.91795 0.94416 0.96852 0.98659 1.00000</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1610,9 +1618,9 @@ Permutation: free
 Number of permutations: 999
 
 Model: capscale(formula = unifrac_vegdist_phychem30cm ~ Temperature...C. + Salinity..ppm. + pH + Redox.mV..Eh. + S.2..mg.l. + SO....mg.l., data = phychem)
-         Df SumOfSqs    F Pr(&gt;F)  
-Model     6    0.609 1.58  0.095 .
-Residual  6    0.385              
+         Df SumOfSqs      F Pr(&gt;F)  
+Model     6  0.60912 1.5801  0.095 .
+Residual  6  0.38549                
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1634,15 +1642,15 @@ Permutation: free
 Number of permutations: 999
 
 adonis2(formula = unifrac_distances_phychem30cm ~ Temperature...C. + Salinity..ppm. + pH + Redox.mV..Eh. + S.2..mg.l. + SO....mg.l., data = phychem, permutations = 999, by = "terms")
-                 Df SumOfSqs    R2    F Pr(&gt;F)  
-Temperature...C.  1    0.208 0.209 3.23  0.017 *
-Salinity..ppm.    1    0.120 0.121 1.87  0.122  
-pH                1    0.064 0.065 1.00  0.406  
-Redox.mV..Eh.     1    0.051 0.051 0.79  0.565  
-S.2..mg.l.        1    0.108 0.108 1.67  0.172  
-SO....mg.l.       1    0.059 0.059 0.92  0.459  
-Residual          6    0.385 0.388              
-Total            12    0.995 1.000              
+                 Df SumOfSqs      R2      F Pr(&gt;F)  
+Temperature...C.  1  0.20776 0.20889 3.2337  0.017 *
+Salinity..ppm.    1  0.12036 0.12101 1.8733  0.122  
+pH                1  0.06417 0.06451 0.9987  0.406  
+Redox.mV..Eh.     1  0.05053 0.05080 0.7864  0.565  
+S.2..mg.l.        1  0.10751 0.10809 1.6733  0.172  
+SO....mg.l.       1  0.05879 0.05911 0.9151  0.459  
+Residual          6  0.38549 0.38758                
+Total            12  0.99461 1.00000                
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
@@ -1688,7 +1696,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <span><span class="va">permanova_plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1739,7 +1747,7 @@ for 'p ≥ 0.05' in 'mbcsToSbcs': &gt;= substituted for ≥ (U+2265)</code></pre
 <span><span class="va">capphychem_plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1754,14 +1762,14 @@ for 'p ≥ 0.05' in 'mbcsToSbcs': &gt;= substituted for ≥ (U+2265)</code></pre
 <span><span class="va">nmds_u</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nmds_wu_fltr</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-44-2.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-43-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1799,9 +1807,9 @@ for 'p ≥ 0.05' in 'mbcsToSbcs': &gt;= substituted for ≥ (U+2265)</code></pre
 <span><span class="co">#show</span></span>
 <span><span class="va">tableS10_final</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           Factor Df SumOfSqs    R2 F.Model p_value Dispersion_p
-Location Location  2    1.486 0.301   11.76   0.001           NA
-Depths     Depths  3    0.669 0.136    3.53   0.001        0.559</code></pre>
+<pre><code>           Factor Df SumOfSqs     R2 F.Model p_value Dispersion_p
+Location Location  2   1.4859 0.3011 11.7586   0.001           NA
+Depths     Depths  3   0.6691 0.1356  3.5300   0.001       0.5587</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb87"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#save</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS10_final</span>, <span class="st">"Tables/interior_mangroves/Supplementary_Table_S10_Interior_BetaDisper.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1838,9 +1846,153 @@ Depths     Depths  3    0.669 0.136    3.53   0.001        0.559</code></pre>
 <span><span class="co"># Guardar</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv</a></span><span class="op">(</span><span class="va">tableS10_final</span>, <span class="st">"Tables/interior_mangroves/Supplementary_Table_S10_Interior_Mangroves_Beta.csv"</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section><section id="core-level-analysis-reviewer-2-point-4" class="level1"><h1>04. Core-level analysis — Reviewer 2, point 4</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>Location</code> es constante dentro de un core, por lo que no puede probarse con <code>strata = ID</code>. Se colapsa cada core a UN perfil usando los tres horizontes presentes en los 13 cores (0–15, 16–30, 31–45 cm) para que todos los perfiles representen el mismo rango de profundidad, y se usa el core como unidad independiente. Se corren weighted y unweighted UniFrac. La profundidad conserva su test con <code>strata = ID</code> (secciones 01–02).</p>
+</div>
+</div>
+<section id="colapso-a-un-perfil-por-core-3-horizontes-comunes" class="level2"><h2 class="anchored" data-anchor-id="colapso-a-un-perfil-por-core-3-horizontes-comunes">04.1 Colapso a un perfil por core (3 horizontes comunes)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb89"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">horizons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0-15"</span>,<span class="st">"16-30"</span>,<span class="st">"31-45"</span><span class="op">)</span>   <span class="co"># se excluye 50-75: S6A/S6B (Fossil) no lo tienen,</span></span>
+<span>                                         <span class="co"># así cada perfil cubre el mismo rango de profundidad</span></span>
+<span><span class="va">otu_sxt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/methods/as.html">as</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="va">ps</span>, taxa_are_rows <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>, <span class="st">"matrix"</span><span class="op">)</span></span>
+<span><span class="va">md</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">ps</span><span class="op">)</span><span class="op">)</span>; <span class="va">md</span><span class="op">$</span><span class="va">CoreID</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="va">md</span><span class="op">$</span><span class="va">ID</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">md_k</span>  <span class="op">&lt;-</span> <span class="va">md</span><span class="op">[</span><span class="va">md</span><span class="op">$</span><span class="va">Depths</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">horizons</span>, <span class="op">]</span>; <span class="va">otu_k</span> <span class="op">&lt;-</span> <span class="va">otu_sxt</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">md_k</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"Horizontes usados por core:\n"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">md_k</span><span class="op">$</span><span class="va">CoreID</span>, <span class="va">md_k</span><span class="op">$</span><span class="va">Depths</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Horizontes usados por core:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+      0-15 16-30 31-45 50-75
+  S1A    1     1     1     0
+  S1B    1     1     1     0
+  S2A    1     1     1     0
+  S2B    1     1     1     0
+  S3A    1     1     1     0
+  S3B    1     1     1     0
+  S4B    1     1     1     0
+  S5A    1     1     1     0
+  S5B    1     1     1     0
+  S6A    1     1     1     0
+  S6B    1     1     1     0
+  S7A    1     1     1     0
+  S7B    1     1     1     0</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">agg_mean</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">mat</span>, <span class="va">grp</span><span class="op">)</span><span class="op">{</span> <span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rowsum.html">rowsum</a></span><span class="op">(</span><span class="va">mat</span>, <span class="va">grp</span><span class="op">)</span>; <span class="va">s</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">grp</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span><span class="op">]</span><span class="op">)</span> <span class="op">}</span></span>
+<span><span class="va">core_prof</span> <span class="op">&lt;-</span> <span class="fu">agg_mean</span><span class="op">(</span><span class="va">otu_k</span>, <span class="va">md_k</span><span class="op">$</span><span class="va">CoreID</span><span class="op">)</span>   <span class="co"># 1 perfil por core = media de sus 3 horizontes</span></span>
+<span></span>
+<span><span class="va">core_md</span> <span class="op">&lt;-</span> <span class="va">md_k</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">md_k</span><span class="op">$</span><span class="va">CoreID</span><span class="op">)</span>, <span class="op">]</span>; <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">core_md</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">core_md</span><span class="op">$</span><span class="va">CoreID</span></span>
+<span><span class="va">core_md</span> <span class="op">&lt;-</span> <span class="va">core_md</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">core_prof</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="st">"\nn de cores por Location:\n"</span><span class="op">)</span>; <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">core_md</span><span class="op">$</span><span class="va">Location</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+n de cores por Location:</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Fossil Lagoon Reforma Waterfalls     Miguelito Dike 
+                 4                  3                  6 </code></pre>
+</div>
+</div>
+<section id="reconstruir-phyloseq-con-los-perfiles-el-mismo-árbol" class="level4"><h4 class="anchored" data-anchor-id="reconstruir-phyloseq-con-los-perfiles-el-mismo-árbol">04.2 Reconstruir phyloseq con los perfiles + el mismo árbol</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">core_ps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/phyloseq.html">phyloseq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/otu_table-methods.html">otu_table</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">core_prof</span><span class="op">)</span>, taxa_are_rows <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>                    <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/phy_tree-methods.html">phy_tree</a></span><span class="op">(</span><span class="va">ps</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">core_md</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">core_ps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/prune_taxa-methods.html">prune_taxa</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/taxa_sums.html">taxa_sums</a></span><span class="op">(</span><span class="va">core_ps</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="va">core_ps</span><span class="op">)</span></span>
+<span><span class="va">cmd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/sample_data-methods.html">sample_data</a></span><span class="op">(</span><span class="va">core_ps</span><span class="op">)</span><span class="op">)</span>     <span class="co"># metadata alineada al orden del objeto</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section><section id="weighted-unifrac-permanova-permdisp-location-sin-strata" class="level2"><h2 class="anchored" data-anchor-id="weighted-unifrac-permanova-permdisp-location-sin-strata">04.3 Weighted UniFrac — PERMANOVA + PERMDISP (Location, sin strata)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">wu_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/UniFrac-methods.html">UniFrac</a></span><span class="op">(</span><span class="va">core_ps</span>, weighted <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://vegandevs.github.io/vegan/reference/adonis.html">adonis2</a></span><span class="op">(</span><span class="va">wu_core</span> <span class="op">~</span> <span class="va">Location</span>, data <span class="op">=</span> <span class="va">cmd</span>, permutations <span class="op">=</span> <span class="fl">999</span>, by <span class="op">=</span> <span class="st">"terms"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for adonis under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 999
+
+adonis2(formula = wu_core ~ Location, data = cmd, permutations = 999, by = "terms")
+         Df SumOfSqs      R2      F Pr(&gt;F)  
+Location  2 0.079337 0.42318 3.6682  0.016 *
+Residual 10 0.108140 0.57682                
+Total    12 0.187476 1.00000                
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">disp_wu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vegandevs.github.io/vegan/reference/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">wu_core</span>, <span class="va">cmd</span><span class="op">$</span><span class="va">Location</span><span class="op">)</span></span>
+<span><span class="va">disp_wu</span><span class="op">$</span><span class="va">group.distances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Fossil Lagoon Reforma Waterfalls     Miguelito Dike 
+        0.05199018         0.07945130         0.09538883 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb100"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://vegandevs.github.io/vegan/reference/anova.cca.html">permutest</a></span><span class="op">(</span><span class="va">disp_wu</span>, permutations <span class="op">=</span> <span class="fl">9999</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Permutation test for homogeneity of multivariate dispersions
+Permutation: free
+Number of permutations: 9999
+
+Response: Distances
+          Df    Sum Sq   Mean Sq      F N.Perm Pr(&gt;F)
+Groups     2 0.0045249 0.0022625 0.7354   9999 0.5462
+Residuals 10 0.0307649 0.0030765                     </code></pre>
+</div>
+</div>
+</section><section id="unweighted-unifrac-permanova-permdisp-location-sin-strata-fig.-5d" class="level2"><h2 class="anchored" data-anchor-id="unweighted-unifrac-permanova-permdisp-location-sin-strata-fig.-5d">04.4 Unweighted UniFrac — PERMANOVA + PERMDISP (Location, sin strata) · Fig. 5D</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb102"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">u_core</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/UniFrac-methods.html">UniFrac</a></span><span class="op">(</span><span class="va">core_ps</span>, weighted <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://vegandevs.github.io/vegan/reference/adonis.html">adonis2</a></span><span class="op">(</span><span class="va">u_core</span> <span class="op">~</span> <span class="va">Location</span>, data <span class="op">=</span> <span class="va">cmd</span>, permutations <span class="op">=</span> <span class="fl">999</span>, by <span class="op">=</span> <span class="st">"terms"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Permutation test for adonis under reduced model
+Terms added sequentially (first to last)
+Permutation: free
+Number of permutations: 999
+
+adonis2(formula = u_core ~ Location, data = cmd, permutations = 999, by = "terms")
+         Df SumOfSqs      R2     F Pr(&gt;F)    
+Location  2  0.30352 0.52999 5.638  0.001 ***
+Residual 10  0.26917 0.47001                 
+Total    12  0.57269 1.00000                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">disp_u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vegandevs.github.io/vegan/reference/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">u_core</span>, <span class="va">cmd</span><span class="op">$</span><span class="va">Location</span><span class="op">)</span></span>
+<span><span class="va">disp_u</span><span class="op">$</span><span class="va">group.distances</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Fossil Lagoon Reforma Waterfalls     Miguelito Dike 
+        0.09118611         0.09830273         0.16588313 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb106"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://vegandevs.github.io/vegan/reference/anova.cca.html">permutest</a></span><span class="op">(</span><span class="va">disp_u</span>, permutations <span class="op">=</span> <span class="fl">9999</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Permutation test for homogeneity of multivariate dispersions
+Permutation: free
+Number of permutations: 9999
+
+Response: Distances
+          Df   Sum Sq   Mean Sq      F N.Perm Pr(&gt;F)
+Groups     2 0.016671 0.0083357 1.5071   9999 0.2557
+Residuals 10 0.055311 0.0055311                     </code></pre>
+</div>
+</div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

@@ -912,7 +912,7 @@ data's fill values.</code></pre>
 </section></section><section id="post-hoc-adonis" class="level2"><h2 class="anchored" data-anchor-id="post-hoc-adonis">03. Post-hoc Adonis</h2>
 <section id="pairwise-adonis" class="level3"><h3 class="anchored" data-anchor-id="pairwise-adonis">Pairwise Adonis</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pairwise_adonis</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu">pairwise.adonis2</span><span class="op">(</span><span class="va">otu_mat</span> <span class="op">~</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pairwise_adonis</span> <span class="op">&lt;-</span> <span class="fu">pairwiseAdonis</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pairwiseAdonis/man/pairwise.adonis2.html">pairwise.adonis2</a></span><span class="op">(</span><span class="va">otu_mat</span> <span class="op">~</span> </span>
 <span>                  <span class="va">Mangrove.system</span>, data <span class="op">=</span> <span class="va">sample_data</span>, </span>
 <span>                  method <span class="op">=</span> <span class="st">"bray"</span>,  permutations <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></span>
 <span></span>
