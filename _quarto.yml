@@ -20,13 +20,12 @@ website:
 
   page-footer:
     right: "This page is built with ❤ Science 🦠 🧬 and [Quarto](https://quarto.org/)."
-    left: "Diana Hernández-Oaxaca and Yaxche Lona, &copy; Copyright 2025"
-    center: "LandaLab"
+    left: "Diana Oaxaca and Yaxche Lona, &copy; Copyright 2025"
     background: "#f1ebf9"
 
   sidebar:
     background: "#DEEBF7"
-    logo: "images/landalab.jpeg"
+    logo: "images/cacahuate.jpg"
     pinned: true
     align: center
     tools:
