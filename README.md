@@ -2,9 +2,8 @@
 # Source data — figure-to-file guide
 
 This repository archives the code and processed data for the paper
-**"Long-term environmental stability might sustain reproducible depth-structured
-sediment microbiomes in Mexican inland relict mangroves"**
-(archived on Zenodo: https://doi.org/10.5281/zenodo.22945165).
+**"Last Interglacial inland relict mangroves in Mexico harbor reproducible depth-structured sediment microbiomes"**
+(archived on Zenodo: Hernández-Oaxaca Diana, Balvino-Olvera Francisco Javier, Lona-Téllez Yaxché, Pérez-Ceballos Rosela, Olivares-Miranda Mizraim, Burelo-Ramos Carlos, Ibarra-Laclette Enrique, & Vázquez-Rosas-Landa Mirna. (2026). DianaOaxaca/InteriorMangroves: Code for paper Last Interglacial inland relict mangroves in Mexico harbor reproducible depth-structured sediment microbiomes. https://doi.org/10.5281/zenodo.22945164).
 
 ## How the figures are built
 
