@@ -42,10 +42,7 @@ coreab_s <- readRDS("rds/compare_mangroves/coreabundance_surface_plot.rds")
 
 Coastal depth comparison
 
-```{r}
-#| message: false
-#| warning: false
-
+``` r
 # alpha and core
 alpha_da_d <- plot_grid(alpha_d, dahm_d,
                         labels = c(" ", "C)"),
@@ -68,10 +65,7 @@ all_d <- plot_grid(beta_d, alpha_da_d, core_coreab_d,
 
 Coastal surface comparison
 
-```{r}
-#| message: false
-#| warning: false
-
+``` r
 # alpha and beta
 alpha_beta_s <- plot_grid(alpha_s,beta_s,
                         labels = c("A)", "B)"),
@@ -94,17 +88,11 @@ all_s <- plot_grid(alpha_beta_s, dahm_s, core_s,
 
 combine
 
-```{r}
-#| message: false
-#| warning: false
-
+``` r
 # merge depth and surface
 all_d_s <- plot_grid(all_d, all_s,
                         ncol = 2, 
                         rel_widths = c(1, 1))
-```
-
-```{r}
 ggsave("Figures/SurfaceComparison/Fig2.SurfaceComparison_2.pdf",
        all_d_s, width = 19, height = 12)
 ```
@@ -115,4 +103,4 @@ ggsave("Figures/SurfaceComparison/Fig2.SurfaceComparison_2.pdf",
 The UpSet plot insertion and other details were done in Inkscape. The final figure is shown below:
 :::
 
-![](Figures/SurfaceComparison/Fig2.SurfaceComparison_InkEdited.pdf){fig-align="center" width="640" height="480"}
+![](images/clipboard-3695401232.png)

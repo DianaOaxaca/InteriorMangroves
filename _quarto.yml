@@ -11,7 +11,8 @@ project:
 website:
   page-navigation: true
   title: "Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves"
-  description: "Website of microbial diversity analysis of paper: tal tal tal"
+  description: "Website of microbial diversity analysis of paper: Last Interglacial inland relict mangroves in Mexico harbor reproducible depth-structured sediment microbiomes
+"
 
   open-graph: true
 
@@ -74,7 +75,7 @@ website:
                   - 05.2.BetaDiversity.qmd
                   - 05.3.Coremicrobiome.qmd
                   - 05.4.DifferentialAbundance.qmd
-                  - 05.5.Fig5.InteriorImpairedCoastalComparison
+                  - 05.5.Fig5.InteriorImpairedCoastalComparison.qmd
       - section: "B) Interior mangroves explore"
         href: 03.InteriorMangroves.qmd
         contents:

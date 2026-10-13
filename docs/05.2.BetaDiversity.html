@@ -490,8 +490,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">05.5.Fig5.InteriorImpairedCoastalComparison</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./05.5.Fig5.InteriorImpairedCoastalComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fig. 3 Interior Mangroves</span></a>
+  </div>
+</li>
       </ul>
 </li>
       </ul>
@@ -654,6 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#colapso-a-un-perfil-por-core-cubre-qu%C3%A9-cores-no-tienen-las-3-categor%C3%ADas-n-de-cores-por-grupo" id="toc-colapso-a-un-perfil-por-core-cubre-qué-cores-no-tienen-las-3-categorías-n-de-cores-por-grupo" class="nav-link" data-scroll-target="#colapso-a-un-perfil-por-core-cubre-qu%C3%A9-cores-no-tienen-las-3-categor%C3%ADas-n-de-cores-por-grupo">06.1 — colapso a un perfil por core (cubre: <em>qué cores no tienen las 3 categorías</em> + <em>n de cores por grupo</em>)</a></li>
   </ul>
 </li>
+  <li><a href="#final-nmds-with-stats-core-level-fig.-4c" id="toc-final-nmds-with-stats-core-level-fig.-4c" class="nav-link" data-scroll-target="#final-nmds-with-stats-core-level-fig.-4c">07. Final NMDS with stats core-level (Fig. 4C)</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -1376,9 +1380,59 @@ Mangrove_system       0.0423</code></pre>
      27      16      16 </code></pre>
 </div>
 </div>
+</section></section></section><section id="final-nmds-with-stats-core-level-fig.-4c" class="level1"><h1>07. Final NMDS with stats core-level (Fig. 4C)</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Revised NMDS annotation for Fig. 4C, including: system at the core level (section 06), depth within the core (strata = ID, section 02), and the final scatter plots.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Fuentes: system core-level = sección 06.2 adonis_core_system (0.665/12.92/0.001; 16 cores)</span></span>
+<span><span class="co">#          y 06.3 permutest(disp_core) (0.042); depth = adonis_result term Depths (0.050/0.001)</span></span>
+<span><span class="co">#          y anova(disp_depth) (0.783).</span></span>
+<span><span class="va">final_text_4c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
+<span>  <span class="st">"PERMANOVA:"</span>,</span>
+<span>  <span class="st">"Mangrove system (core level, 16 cores): R² = 0.665, F = 12.92, p = 0.001"</span>,</span>
+<span>  <span class="st">"Depths (within cores): R² = 0.050, p = 0.001"</span>,</span>
+<span>  <span class="st">"Betadisper:"</span>,</span>
+<span>  <span class="st">"Mangrove system (core level), p = 0.042"</span>,</span>
+<span>  <span class="st">"Depth, p = 0.783"</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># nmds_plot_bray (sección 01) trae solo el stress, sin la anotación vieja</span></span>
+<span><span class="va">nmds_final</span> <span class="op">&lt;-</span> <span class="va">nmds_plot_bray</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="cn">Inf</span>, y <span class="op">=</span> <span class="cn">Inf</span>, label <span class="op">=</span> <span class="va">final_text_4c</span>,</span>
+<span>           hjust <span class="op">=</span> <span class="fl">1.1</span>, vjust <span class="op">=</span> <span class="fl">1.2</span>, size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<span><span class="va">nmds_final</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's fill values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="05.2.BetaDiversity_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_impaired/NMDS.pdf"</span>, <span class="va">nmds_final</span>,</span>
+<span>       bg <span class="op">=</span> <span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's fill values.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">nmds_final</span>, <span class="st">"rds/interior_impaired/beta-diversity.rds"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

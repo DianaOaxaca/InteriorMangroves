@@ -104,12 +104,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <meta property="og:title" content="Fig.2 Interior and Coastal mangroves compare – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta property="og:description" content="Website of microbial diversity analysis of paper: tal tal tal">
+<meta property="og:description" content="Website of microbial diversity analysis of paper: Last Interglacial inland relict mangroves in Mexico harbor reproducible depth-structured sediment microbiomes">
+<meta property="og:image" content="images/clipboard-3695401232.png">
 <meta property="og:site_name" content="Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
 <meta name="twitter:title" content="Fig.2 Interior and Coastal mangroves compare – Microbial Diversity from a Fossil Lagoon and comparative Interior vs Coastal Mangroves">
-<meta name="twitter:description" content="Website of microbial diversity analysis of paper: tal tal tal">
+<meta name="twitter:description" content="Website of microbial diversity analysis of paper: Last Interglacial inland relict mangroves in Mexico harbor reproducible depth-structured sediment microbiomes">
+<meta name="twitter:image" content="images/clipboard-3695401232.png">
 <meta name="twitter:creator" content="@HOaxacaDiana">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -490,8 +492,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">05.5.Fig5.InteriorImpairedCoastalComparison</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./05.5.Fig5.InteriorImpairedCoastalComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fig. 3 Interior Mangroves</span></a>
+  </div>
+</li>
       </ul>
 </li>
       </ul>
@@ -672,7 +677,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section><section id="combine-plots" class="level2"><h2 class="anchored" data-anchor-id="combine-plots">Combine plots</h2>
 <p>Coastal depth comparison</p>
-<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># alpha and core</span></span>
 <span><span class="va">alpha_da_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">alpha_d</span>, <span class="va">dahm_d</span>,</span>
 <span>                        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">" "</span>, <span class="st">"C)"</span><span class="op">)</span>,</span>
@@ -691,9 +695,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                   label_fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
 <span>                   ncol <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>                   rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p>Coastal surface comparison</p>
-<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># alpha and beta</span></span>
 <span><span class="va">alpha_beta_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">alpha_s</span>,<span class="va">beta_s</span>,</span>
 <span>                        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"A)"</span>, <span class="st">"B)"</span><span class="op">)</span>,</span>
@@ -712,18 +714,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>                 label_fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
 <span>                 ncol <span class="op">=</span> <span class="fl">1</span>, </span>
 <span>                 rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p>combine</p>
-<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># merge depth and surface</span></span>
 <span><span class="va">all_d_s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://wilkelab.org/cowplot/reference/plot_grid.html">plot_grid</a></span><span class="op">(</span><span class="va">all_d</span>, <span class="va">all_s</span>,</span>
 <span>                        ncol <span class="op">=</span> <span class="fl">2</span>, </span>
-<span>                        rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/Fig2.SurfaceComparison_2.pdf"</span>,</span>
+<span>                        rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/SurfaceComparison/Fig2.SurfaceComparison_2.pdf"</span>,</span>
 <span>       <span class="va">all_d_s</span>, width <span class="op">=</span> <span class="fl">19</span>, height <span class="op">=</span> <span class="fl">12</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -737,10 +734,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The UpSet plot insertion and other details were done in Inkscape. The final figure is shown below:</p>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><embed src="Figures/SurfaceComparison/Fig2.SurfaceComparison_InkEdited.pdf" class="quarto-figure quarto-figure-center" width="640" height="480"></p>
-</figure>
-</div>
+<p><img src="images/clipboard-3695401232.png" class="img-fluid"></p>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

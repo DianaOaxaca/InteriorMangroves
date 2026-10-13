@@ -463,3 +463,33 @@ write.csv(tableS8_core, "Tables/interior_impaired/Supplementary_Table_S8_core_le
 table(md$CoreID, md$Depths)   
 table(md$Depths)              
 ```
+
+# 07. Final NMDS with stats core-level (Fig. 4C)
+
+::: callout-note
+Revised NMDS annotation for Fig. 4C, including: system at the core level (section 06), depth within the core (strata = ID, section 02), and the final scatter plots.
+:::
+
+```{r}
+# Fuentes: system core-level = sección 06.2 adonis_core_system (0.665/12.92/0.001; 16 cores)
+#          y 06.3 permutest(disp_core) (0.042); depth = adonis_result term Depths (0.050/0.001)
+#          y anova(disp_depth) (0.783).
+final_text_4c <- paste(
+  "PERMANOVA:",
+  "Mangrove system (core level, 16 cores): R² = 0.665, F = 12.92, p = 0.001",
+  "Depths (within cores): R² = 0.050, p = 0.001",
+  "Betadisper:",
+  "Mangrove system (core level), p = 0.042",
+  "Depth, p = 0.783",
+  sep = "\n")
+
+# nmds_plot_bray (sección 01) trae solo el stress, sin la anotación vieja
+nmds_final <- nmds_plot_bray +
+  annotate("text", x = Inf, y = Inf, label = final_text_4c,
+           hjust = 1.1, vjust = 1.2, size = 3, color = "black")
+nmds_final
+
+ggsave("Figures/interior_impaired/NMDS.pdf", nmds_final,
+       bg = 'transparent', width = 6, height = 4.5)
+saveRDS(nmds_final, "rds/interior_impaired/beta-diversity.rds")
+```

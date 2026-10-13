@@ -1,12 +1,8 @@
 ---
-title: "**Long-term environmental stability promotes reproducible, depth-structured sediment microbiomes**"
+title: "**Last Interglacial inland relict mangroves in Mexico harbor reproducible depth-structured sediment microbiomes**"
 ---
 
-Website of microbial diversity analysis of the paper
-
-------------------------------------------------------------------------
-
-![](images/Copia%20de%20DJI_20250114152144_0006_V.JPG)
+Website of microbial diversity analysis of the paper **Last Interglacial inland relict mangroves in Mexico harbor reproducible depth-structured sediment microbiomes**
 
 ------------------------------------------------------------------------
 
@@ -16,6 +12,6 @@ In this work we studied the microbial diversity associated with *Rhizophora mang
 
 ------------------------------------------------------------------------
 
-![](images/Fig.1.ExperimentalDesign.jpg)
+![](images/clipboard-1540324253.png)
 
 ------------------------------------------------------------------------

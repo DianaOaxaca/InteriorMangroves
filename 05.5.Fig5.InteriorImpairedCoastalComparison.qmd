@@ -25,7 +25,6 @@ beta <- readRDS("rds/interior_impaired/beta-diversity.rds")
 core <- readRDS("rds/interior_impaired/upset_plot.rds")
 ```
 
-
 # Combine plots
 
 ```{r}
@@ -48,7 +47,6 @@ beta_core <- plot_grid(beta, core,
                        rel_heights = c(0.4, 0.6))
 ```
 
-
 ```{r}
 #| message: false
 #| warning: false
@@ -64,11 +62,10 @@ ggsave("Figures/interior_impaired/Fig5.InteriorImpairedMangroves.pdf",
        all, width = 12, height = 13)
 ```
 
-Core not shown because they are not a direct format of ggplot, so we will insert them in Inkscape
-
 ::: callout-caution
 ## Edit figure in Inkscape
 
 The UpSet plot insertion and other details were done in Inkscape. The final figure is shown below:
 :::
 
+![](images/clipboard-1498084605.png)

@@ -490,8 +490,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">05.5.Fig5.InteriorImpairedCoastalComparison</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./05.5.Fig5.InteriorImpairedCoastalComparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fig. 3 Interior Mangroves</span></a>
+  </div>
+</li>
       </ul>
 </li>
       </ul>
@@ -683,6 +686,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="#colapso-a-un-perfil-por-core-3-horizontes-comunes" id="toc-colapso-a-un-perfil-por-core-3-horizontes-comunes" class="nav-link" data-scroll-target="#colapso-a-un-perfil-por-core-3-horizontes-comunes">04.1 Colapso a un perfil por core (3 horizontes comunes)</a></li>
   <li><a href="#weighted-unifrac-permanova-permdisp-location-sin-strata" id="toc-weighted-unifrac-permanova-permdisp-location-sin-strata" class="nav-link" data-scroll-target="#weighted-unifrac-permanova-permdisp-location-sin-strata">04.3 Weighted UniFrac — PERMANOVA + PERMDISP (Location, sin strata)</a></li>
   <li><a href="#unweighted-unifrac-permanova-permdisp-location-sin-strata-fig.-5d" id="toc-unweighted-unifrac-permanova-permdisp-location-sin-strata-fig.-5d" class="nav-link" data-scroll-target="#unweighted-unifrac-permanova-permdisp-location-sin-strata-fig.-5d">04.4 Unweighted UniFrac — PERMANOVA + PERMDISP (Location, sin strata) · Fig. 5D</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#final-nmds-with-stats-core-level" id="toc-final-nmds-with-stats-core-level" class="nav-link" data-scroll-target="#final-nmds-with-stats-core-level">05. Final NMDS with stats core-level</a>
+  <ul class="collapse">
+<li><a href="#fig.-5c-weighted-unifrac-surface-vs-deep" id="toc-fig.-5c-weighted-unifrac-surface-vs-deep" class="nav-link" data-scroll-target="#fig.-5c-weighted-unifrac-surface-vs-deep">05.1 Fig. 5C — Weighted UniFrac (surface vs deep)</a></li>
+  <li><a href="#fig.-5d-unweighted-unifrac-four-horizonts" id="toc-fig.-5d-unweighted-unifrac-four-horizonts" class="nav-link" data-scroll-target="#fig.-5d-unweighted-unifrac-four-horizonts">05.2 Fig. 5D — Unweighted UniFrac (four horizonts)</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -1989,6 +1999,102 @@ Response: Distances
 Groups     2 0.016671 0.0083357 1.5071   9999 0.2557
 Residuals 10 0.055311 0.0055311                     </code></pre>
 </div>
+</div>
+</section></section><section id="final-nmds-with-stats-core-level" class="level1"><h1>05. Final NMDS with stats core-level</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Re-analysis of NMDS for Fig. 5C (weighted, surface vs.&nbsp;deep) and Fig. 5D (unweighted, four horizons) using the <strong>final</strong> statistics: within-core depth (strata = ID, sections 01–02) and location at the <strong>core level</strong> (sections 04.3 and 04.4). The values are set to the values reported in S10 / figure captions to avoid rounding discrepancies.</p>
+</div>
+</div>
+<section id="fig.-5c-weighted-unifrac-surface-vs-deep" class="level2"><h2 class="anchored" data-anchor-id="fig.-5c-weighted-unifrac-surface-vs-deep">05.1 Fig. 5C — Weighted UniFrac (surface vs deep)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb108"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Fuentes: depth = adonis2_wunifrac_fltr (0.347/0.002) y anova(beta_disp_fltr) (0.56);</span></span>
+<span><span class="co">#          locality core-level = sección 04.3 adonis2(wu_core ~ Location) (0.423/3.67/0.016)</span></span>
+<span><span class="co">#          y permutest(disp_wu) (0.55).</span></span>
+<span><span class="va">final_text_5c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
+<span>  <span class="st">"PERMANOVA (within cores):"</span>,</span>
+<span>  <span class="st">"Sediment depth: R² = 0.347, p = 0.002"</span>,</span>
+<span>  <span class="st">"Betadisper (depth): p = 0.56"</span>,</span>
+<span>  <span class="st">"Locality (core level): R² = 0.423, F = 3.67, p = 0.016"</span>,</span>
+<span>  <span class="st">"Betadisper (locality): p = 0.55"</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">nmds_wu_fltr_final</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/plot_ordination.html">plot_ordination</a></span><span class="op">(</span><span class="va">ps_fltr</span>, <span class="va">nmds_wunifrac_fltr</span>, color <span class="op">=</span> <span class="st">"Depths"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"Depths"</span>, title <span class="op">=</span> <span class="st">"Weighted UniFrac"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">depth_colors</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">depth_colors</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="cn">Inf</span>, y <span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>,</span>
+<span>           label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Stress:"</span>, <span class="va">var_stress_nmds_wu_fltr</span><span class="op">)</span>,</span>
+<span>           hjust <span class="op">=</span> <span class="fl">1.1</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">1.2</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="cn">Inf</span>, y <span class="op">=</span> <span class="cn">Inf</span>, label <span class="op">=</span> <span class="va">final_text_5c</span>,</span>
+<span>           hjust <span class="op">=</span> <span class="fl">1.1</span>, vjust <span class="op">=</span> <span class="fl">1.2</span>, size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<span><span class="va">nmds_wu_fltr_final</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's fill values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb110"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/NMDS_wu_depth.pdf"</span>, <span class="va">nmds_wu_fltr_final</span>,</span>
+<span>       bg <span class="op">=</span> <span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's fill values.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb112"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">nmds_wu_fltr_final</span>, <span class="st">"rds/interior_mangroves/nmds_wu.rds"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="fig.-5d-unweighted-unifrac-four-horizonts" class="level2"><h2 class="anchored" data-anchor-id="fig.-5d-unweighted-unifrac-four-horizonts">05.2 Fig. 5D — Unweighted UniFrac (four horizonts)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb113"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Fuentes: locality core-level = sección 04.4 adonis2(u_core ~ Location) (0.530/5.64/0.001)</span></span>
+<span><span class="co">#          y permutest(disp_u) (0.26); depth = adonis2_unifrac term Depths (0.136/0.001).</span></span>
+<span><span class="va">final_text_5d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span></span>
+<span>  <span class="st">"PERMANOVA:"</span>,</span>
+<span>  <span class="st">"Locality (core level): R² = 0.530, F = 5.64, p = 0.001"</span>,</span>
+<span>  <span class="st">"Sediment depth (within cores): R² = 0.136, p = 0.001"</span>,</span>
+<span>  <span class="st">"Betadisper (locality): p = 0.26"</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">nmds_u_final</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/phyloseq/man/plot_ordination.html">plot_ordination</a></span><span class="op">(</span><span class="va">ps</span>, <span class="va">nmds_unifrac</span>, color <span class="op">=</span> <span class="st">"Location"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"Location"</span>, title <span class="op">=</span> <span class="st">"Unweighted UniFrac"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">loc_colors</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">loc_colors</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="cn">Inf</span>, y <span class="op">=</span> <span class="op">-</span><span class="cn">Inf</span>,</span>
+<span>           label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Stress:"</span>, <span class="va">var_stress_nmds_u</span><span class="op">)</span>,</span>
+<span>           hjust <span class="op">=</span> <span class="fl">1.1</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">1.3</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="cn">Inf</span>, y <span class="op">=</span> <span class="cn">Inf</span>, label <span class="op">=</span> <span class="va">final_text_5d</span>,</span>
+<span>           hjust <span class="op">=</span> <span class="fl">1.1</span>, vjust <span class="op">=</span> <span class="fl">1.2</span>, size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span>
+<span><span class="va">nmds_u_final</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's fill values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="03.3.BetaDiversity_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb115"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"Figures/interior_mangroves/NMDS_u_location.pdf"</span>, <span class="va">nmds_u_final</span>,</span>
+<span>       bg <span class="op">=</span> <span class="st">'transparent'</span>, width <span class="op">=</span> <span class="fl">6</span>, height <span class="op">=</span> <span class="fl">4.5</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's fill values.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb117"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">nmds_u_final</span>, <span class="st">"rds/interior_mangroves/nmds_u.rds"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

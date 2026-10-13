@@ -28,9 +28,7 @@ da_tax <- readRDS("rds/Depth_comparison/DA_heatmap_surface.rds")
 alpha_all_depths <- readRDS("rds/Depth_comparison/alpha_diversity_Depths_by_system_plot.rds")
 ```
 
-```{r}
-#| message: false
-#| warning: false
+``` r
 #Combine  plots
 
 # alphas <- plot_grid(alpha_all_depths, alpha,
@@ -58,3 +56,5 @@ ggsave("Figures/Depth_comparison/Fig3.DepthComparissons.pdf",
 
 The details were done in Inkscape. The final figure is shown below:
 :::
+
+![](images/clipboard-1740274489.png)
